@@ -1,0 +1,241 @@
+<html>
+ <head>
+  <title>InfiniteAddition Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8458">Problem Statement for InfiniteAddition</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>An infinite periodic string is a string consisting of a non-periodic string <i>S</i> repeated infinitely, and is denoted as (<i>S</i>). For example, (ABC)=ABCABCABCA... Note that <i>S</i> must not be a repetition itself, so (ABAB)=ABABABAB... is not legal, and should be written as (AB)=ABABABAB... instead. <i>S</i> must contain only uppercase letters ('A'-'Z').</p> <p>The sum of two infinite periodic strings is the string where each character is the sum of the corresponding characters in the two strings. Two characters are added as follows. Adding A to a character means changing it to the next character in the alphabet (where A is the next character after Z): A+A=B, A+B=C, A+C=D, ..., A+Y=Z, A+Z=A. Adding B to a character means changing it to the next character twice: B+A=C, B+B=D, B+C=E, ..., B+Z=B. All the other characters behave in the same manner (C means changing to the next character 3 times, D means 4, ..., Z means 26, so adding Z doesn't change a character).</p> <p>The sum of two infinite periodic strings is itself an infinite periodic string. For example, (YAAZZB)=(AB)+(XYZ).</p> <p>Given three integers, <b>sum</b>, <b>op1</b> and <b>op2</b>, return an example of such an addition formatted as &quot;(<i>S</i>)=(<i>P</i>)+(<i>Q</i>)&quot; (quotes for clarity only), where <i>S</i> contains exactly <b>sum</b> characters, <i>P</i> contains exactly <b>op1</b> characters, and <i>Q</i> contains exactly <b>op2</b> characters. Remember that <i>S</i>, <i>P</i> and <i>Q</i> each need to be non-periodic.</p> <p>If there are several possible answers, return the one among them where <i>S</i> comes earliest alphabetically. If there is a tie, return the answer among the ties where <i>P</i> comes earliest alphabetically. If there is no solution, return &quot;NO SOLUTION&quot; (quotes for clarity only).</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>InfiniteAddition</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>giveExample</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String giveExample(int sum, int op1, int op2)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sum</b>, <b>op1</b> and <b>op2</b> will each be between 1 and 20, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;(AAABZB)=(AB)+(ZYZ)&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The more 'A's you have in the beginning, the better. However, you can't make it just &quot;(AAAAAA)=(AA)+(ZZZ)&quot;, as the strings inside parentheses need to be non-periodic.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NO SOLUTION&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No matter what the added strings are, the period of the sum can't be more than 5 in this case.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;(AAAAB)=(AAAAC)+(ZZZZY)&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;(A)=(AAAAB)+(ZZZZY)&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

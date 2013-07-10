@@ -1,0 +1,284 @@
+<html>
+ <head>
+  <title>DerivationDisplay Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4021">Problem Statement for DerivationDisplay</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><pre>
+  S ::= T | bUa
+  T ::= aTb | A | B
+  U ::= aU | bU | a | b
+  A ::= aA | a
+  B ::= bB | b
+</pre> Displayed above is a Context-Free Grammar (CFG). You begin with the string (quotes for clarity) &quot;S&quot;, and apply replacement rules until your resulting string no longer contains any capital letters. The first line above says that S can be replaced with T or bUa. The other lines are similar. You will return a sequence of strings, beginning with &quot;S&quot; and ending with <b>input</b>, where each successive sequence element results from applying one of the replacement rules above. For example, if <b>input</b> is &quot;aaabb&quot; then you will return <pre> {&quot;S&quot;,&quot;T&quot;,&quot;aTb&quot;,&quot;aaTbb&quot;,&quot;aaAbb&quot;,&quot;aaabb&quot;}</pre></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>DerivationDisplay</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getDerivation</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] getDerivation(String input)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>input</b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>input</b> will be 'a' or 'b'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly one solution.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;aaabb&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;S&quot;, &quot;T&quot;, &quot;aTb&quot;, &quot;aaTbb&quot;, &quot;aaAbb&quot;, &quot;aaabb&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example above.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;bbba&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;S&quot;, &quot;bUa&quot;, &quot;bbUa&quot;, &quot;bbba&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In the first step, S must be replaced with bUa in order to derive this string. Then the 2 inner b's are added.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;baabba&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;S&quot;, &quot;bUa&quot;, &quot;baUa&quot;, &quot;baaUa&quot;, &quot;baabUa&quot;, &quot;baabba&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;a&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;S&quot;, &quot;T&quot;, &quot;A&quot;, &quot;a&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;b&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;S&quot;, &quot;T&quot;, &quot;B&quot;, &quot;b&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;aabbbbbbbb&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;S&quot;,
+&quot;T&quot;,
+&quot;aTb&quot;,
+&quot;aaTbb&quot;,
+&quot;aaBbb&quot;,
+&quot;aabBbb&quot;,
+&quot;aabbBbb&quot;,
+&quot;aabbbBbb&quot;,
+&quot;aabbbbBbb&quot;,
+&quot;aabbbbbBbb&quot;,
+&quot;aabbbbbbbb&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

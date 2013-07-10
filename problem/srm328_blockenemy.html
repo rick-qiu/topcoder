@@ -1,0 +1,275 @@
+<html>
+ <head>
+  <title>BlockEnemy Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6852">Problem Statement for BlockEnemy</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You ran into some trouble when playing your favorite video game. There are <b>N</b> towns on the map, numbered from 0 to <b>N</b>-1. For each pair of distinct towns, there is exactly one way to get from one to the other by following one or more roads. Your enemy has just occupied some of the towns, and your first attempt at blocking him is to remove some of the roads in order to block off communication between every pair of distinct occupied towns. You would like to do this with as little effort as possible.</p> <p>You will be given a String[] <b>roads</b> describing the roads between towns. Each element of <b>roads</b> is in the form &quot;a b e&quot; (quotes for clarity only), meaning that there is a bidirectional road between towns a and b, and the effort required to destroy the road is e. You will also be given a int[] <b>occupiedTowns</b> containing the towns occupied by your enemy. Return the minimum total effort required to destroy enough roads so that no two distinct occupied towns have a path (direct or indirect) between them.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BlockEnemy</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minEffort</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minEffort(int N, String[] roads, int[] occupiedTowns)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>N</b> will be between 2 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>roads</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>roads</b> will contain between 5 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>roads</b> will be in the form &quot;a b e&quot; (quotes for clarity) where a and b are distinct integers between 0 and N-1, inclusive, and e is an integer between 1 and 1,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The integers in <b>roads</b> will not contain extra leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly one way to get from one town to any other, by following one or more roads.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>occupiedTowns</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>occupiedTowns</b> will be between 0 and N-1, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The elements of <b>occupiedTowns</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 0 1&quot;, &quot;1 2 2&quot;, &quot;0 3 3&quot;, &quot;4 0 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{3, 2, 4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">To make the communication between town 2 and the other occupied towns impossible, we must destroy one of the first two roads. We choose the first one as it requires less effort. Similarly, we choose between the last two roads in order to disconnect towns 3 and 4. The total cost is therefore 4.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 0 1&quot;, &quot;1 2 2&quot;, &quot;0 3 3&quot;, &quot;4 0 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{3}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the same map as above. Since there is only one occupied town, we don't need to destroy any road here.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 3&quot;, &quot;2 0 5&quot;, &quot;1 3 1&quot;, &quot;1 4 8&quot;, &quot;1 5 4&quot;, &quot;2 6 2&quot;,
+ &quot;4 7 11&quot;, &quot;4 8 10&quot;, &quot;6 9 7&quot;, &quot;6 10 9&quot;, &quot;6 11 6&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 2, 6, 8}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Towns 1 and 2 are on the path from 6 to 8. We have to destroy the sixth road to disconnect town 6 from 2. We must destroy one of the first two roads to disconnect towns 1 and 2 and we pick the first one. Also, we should destroy one of the roads on the path from 1 to 8 and we choose the fourth road. The total cost is 2 + 3 + 8 = 13.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 3&quot;, &quot;2 0 5&quot;, &quot;1 3 1&quot;, &quot;1 4 8&quot;, &quot;1 5 4&quot;, &quot;2 6 2&quot;,
+ &quot;4 7 11&quot;, &quot;4 8 10&quot;, &quot;6 9 7&quot;, &quot;6 10 9&quot;, &quot;6 11 6&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 66</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We have to destroy all roads this time.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

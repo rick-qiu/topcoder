@@ -1,0 +1,263 @@
+<html>
+ <head>
+  <title>FindTriangle Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=5943">Problem Statement for FindTriangle</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You are given the coordinates of several vertices in space. Each vertex is colored 'R', 'G' or 'B'. You are to determine the maximum possible area of a triangle such that all three of its vertices are the same color, or all three of its vertices are different colors.</p> <p>You are given a String[] <b>points</b> describing the vertices. Each element of <b>points</b> will be in the form &quot;color x y z&quot;, where color is 'R', 'G', or 'B', and x, y, z are integers with no leading zeroes.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FindTriangle</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>largestArea</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double largestArea(String[] points)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A triangle with all three vertices colinear, or two vertices overlapping, has area 0.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Returned value must be within 1.0e-9 absolute or relative error.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>points</b> will have between 5 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>points</b> will be formatted as &quot;<i>color</i> <i>x</i> <i>y</i> <i>z</i>&quot; (quotes added for clarity).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>color</i> will be 'R', 'G', or 'B'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>x</i>, <i>y</i> and <i>z</i> will be an integer between 0 and 999, inclusive, with no leading zeros.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;R 0 0 0&quot;,
+ &quot;R 0 4 0&quot;,
+ &quot;R 0 0 3&quot;,
+ &quot;G 92 14 7&quot;,
+ &quot;G 12 16 8&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The coloring restrictions mean that we can only consider the first three points, which form a classic 3-4-5 triangle with an area of 6.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;R 0 0 0&quot;,
+ &quot;R 0 4 0&quot;,
+ &quot;R 0 0 3&quot;,
+ &quot;G 0 5 0&quot;,
+ &quot;B 0 0 12&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 30.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Our bet here is to take the red point at the origin, the green point, and the blue point. These actually form a 5-12-13 triangle. Area = 30.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;R 0 0 0&quot;,
+ &quot;R 0 4 0&quot;,
+ &quot;R 0 0 3&quot;,
+ &quot;R 90 0 3&quot;,
+ &quot;G 2 14 7&quot;,
+ &quot;G 2 18 7&quot;,
+ &quot;G 29 14 3&quot;,
+ &quot;B 12 16 8&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 225.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We have a lot more choices here. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;R 0 0 0&quot;,
+ &quot;R 1 1 0&quot;,
+ &quot;R 4 4 0&quot;,
+ &quot;G 10 10 10&quot;,
+ &quot;G 0 1 2&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All three red points are colinear.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

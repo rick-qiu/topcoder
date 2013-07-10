@@ -1,0 +1,471 @@
+<html>
+ <head>
+  <title>Untypeset Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2919">Problem Statement for Untypeset</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td> <p> There are several software packages that typeset mathematical expressions. For example, the expression &quot;(31+24/12)/(5+6) + 16&quot; might be typeset like this: </p> <pre>
+
+    &quot;       24       &quot;
+    &quot; 31 + ----      &quot;
+    &quot;       12   + 16&quot;
+    &quot;-----------     &quot;
+    &quot;   5 + 6        &quot;
+</pre> <p> Write a method that takes such a typeset mathematical expression and evaluates it, returning the numerical value of the expression. If given the expression above, your method should return 19. </p> <p> The input expression will be a two-dimensional array of characters, given as a String[]. Expressions will be built out of other expressions, rectangular portions of the given array. Every expression will be in one of three forms: <br /><br /> </p> 
+      <ul> 
+       <li><b>integer constant:</b> The expression will be exactly one character high, will consist solely of digits, and will not contain any leading zeros. <br /><br /></li> 
+       <li><b>addition:</b> The expression will be constructed out of left and right subexpressions. <i>Zero or more</i> rows of spaces will be added above and below each subexpression and will give them the same height. Three columns of that height will be placed between them, containing all spaces, except for a single '+' character anywhere in the middle column. <br /><br /></li> 
+       <li><b>division:</b> The expression will be constructed out of top and bottom subexpressions. <i>One or more</i> columns of spaces will be added to the left and right of each subexpression to give them the same width. One row consisting entirely of '-' characters will be placed between them.</li> 
+      </ul> <p> <b>Example:</b> </p> <p> The expression above has one column (column 12) with all spaces except for a single '+' character. Therefore, this expression is built by adding two subexpressions together. If we take the regions to the left and right of column 12, and remove all rows and columns on the edges containing only spaces, we get the following two subexpressions: </p> <pre>
+
+    &quot;       24  &quot;
+    &quot; 31 + ---- &quot;
+    &quot;       12  &quot;  and  &quot;16&quot;
+    &quot;-----------&quot;
+    &quot;   5 + 6   &quot;
+</pre> <p> The right subexpression contains only digits, so it evaluates to the value 16. The left subexpression has one row (row 3) with all '-' characters. Therefore, this expression is built by dividing two subexpressions. If we take the regions above and below row 3, and remove all rows and columns on the edges containing only spaces, we get the following two subexpressions: </p> <pre>
+
+    &quot;      24 &quot;
+    &quot;31 + ----&quot;  and  &quot;5 + 6&quot;
+    &quot;      12 &quot;
+</pre> <p> Here, both subexpressions are addition. The right subexpression adds &quot;5&quot; and &quot;6&quot;, resulting in the value 11. The left subexpression is built by adding two more subexpressions: </p> <pre>
+
+               &quot; 24 &quot;
+    &quot;31&quot;  and  &quot;----&quot;
+               &quot; 12 &quot;
+</pre> <p> The left side evaluates to the value 31, and the right side evaluates to the division of the subexpressions &quot;24&quot; and &quot;12&quot;. Working back up, 24 divided by 12 is 2, added to 31 is 33, divided by 11 is 3, plus 16 is 19. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Untypeset</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>evaluate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int evaluate(String[] expression)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All division is guaranteed to have an integer result with no remainder.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that division by zero is not possible.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>expression</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>expression</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>expression</b> will be the same size.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>expression</b> will consist entirely of characters in the String &quot;0123456789-+ &quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>expression</b> will be formatted according to the rules specified in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The result, all integer constants, and all intermediate computed values will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;2801&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2801</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;  625       &quot;,
+  &quot;------------&quot;,
+  &quot;        5   &quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 125</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Any number of spaces could be added to the left or right of the numerator and denominator of fractions. But the row of '-' characters will always span the entire row.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;       &quot;,
+  &quot;500    &quot;,
+  &quot;       &quot;,
+  &quot;    +  &quot;,
+  &quot;       &quot;,
+  &quot;       &quot;,
+  &quot;      1&quot;,
+  &quot;       &quot;,
+  &quot;       &quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 501</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Any number of blank rows could be added above and below the subexpressions before addition.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;   120   &quot;,
+  &quot;  -----  &quot;,
+  &quot;    10   &quot;,
+  &quot;---------&quot;,
+  &quot;    6    &quot;,
+  &quot;   ---   &quot;,
+  &quot;    2    &quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Nested fractions are never ambiguous. There can never be two rows of '-' characters that fill an entire row.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;       24       &quot;,
+  &quot; 31 + ----      &quot;,
+  &quot;       12   + 16&quot;,
+  &quot;-----------     &quot;,
+  &quot;   5 + 6        &quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 19</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;3 + 4 + 6&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot; 1     4     9 &quot;,
+  &quot;--- + --- + ---&quot;,
+  &quot; 1     2     3 &quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Three or more terms may be added together. This may be (1/1 + 4/2) + 9/3, or 1/1 + (4/2 + 9/3). Both will give the same result.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>
+{ &quot;34      &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;   +    &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;        &quot;,
+  &quot;     924&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 958</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,241 @@
+<html>
+ <head>
+  <title>MagicBoxes Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=932">Problem Statement for MagicBoxes</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A certain company has recently introduced a whole line of &quot;magic&quot; boxes. The smallest of these boxes is a 1x1x1 hollow cube. The next size up is a 2x2x2 hollow cube, and so on, each box 1 unit bigger than the previous in all dimensions. However, because the boxes are so fragile, they can be packed neither inside of each other, nor on top of each other </p><p> You are to determine how large a set can fit in a certain sized crate. You are told that there is no restriction on the height of the crate, and the boxes may be packed tightly, with no space between them. Your task is, given <b>x</b> and <b>y</b>, representing the dimensions of the floor of the crate, determine the maximum number of boxes that can be safely packed, given that the sizes of the boxes start at 1x1x1 and increase by 1 with each box (no skipping boxes, if you ship a 3x3x3 box, you must also ship a 2x2x2 and a 1x1x1 box). </p><p> For example, a 3x5 crate could hold a 3x3x3, a 2x2x2 and a 1x1x1 box with this configuration (as viewed from above):</p><pre>
+
+   ______ ____
+  |      |    |
+  |      | 2  |
+  |  3   |____|
+  |      | 1|  
+  |______|__|
+</pre></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MagicBoxes</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>biggest</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int biggest(int x, int y)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> and <b>y</b> are both between 1 and 30, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Only one box can be packed in a 1x1 container.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A 2x2x2 box could be packed into a 2x2 container, but that would leave no room for a 1x1x1 box. Thus we can only pack 1 box, the 1x1x1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If we pack a 6x6x6 box, then there will be no room for a 5x5x5 box. Thus, 6x6x6 will not work. However, a 5x5x5 box will leave room for boxes of all other sizes (4x4x4, 3x3x3, 2x2x2, and 1x1x1): <br /><br /> Here each number represents a part of the footprint of a box of the corresponding size. <pre>
+.555554444
+.555554444
+.555554444
+.555554444
+.55555....
+.......1..
+.333......
+.333.22...
+.333.22...
+..........
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>26</pre></td>
+            </tr>
+            <tr>
+             <td><pre>26</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 11</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

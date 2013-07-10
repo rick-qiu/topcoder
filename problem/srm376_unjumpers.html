@@ -1,0 +1,267 @@
+<html>
+ <head>
+  <title>Unjumpers Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8288">Problem Statement for Unjumpers</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Unjumpers is a puzzle played on a board consisting of 100 squares in a straight line. Pawns are placed in a certain pattern on the board, and your goal is to see which other patterns can be created starting from that position. There are 3 legal moves in Unjumpers:</p> 
+      <ol>
+       <li>Jump: A pawn jumps over an adjacent pawn and lands in the square immediately beyond the jumped pawn (in the same direction). The jumped pawn is removed from the board. To perform this move, there must be an adjacent pawn to jump, and the square in which the pawn lands must be unoccupied.</li> 
+       <li>Unjump: A pawn jumps over an adjacent empty space and lands in the square immediately beyond that space (in the same direction). A new pawn appears in the square that was jumped (between the starting and ending squares). To perform this move, both the middle and ending squares must be unoccupied.</li> 
+       <li>Superjump: A pawn moves 3 squares in one direction. To do this move, the target square must be empty. The two jumped squares may or may not have pawns - and they are not affected by the move.</li>
+      </ol> <p>Only one pawn can move at a time, and pawns may never move off of the board.</p> <p>You are given a String <b>start</b> containing the initial layout of the board. Each character of the string describes one square, with the first character describing the leftmost square. In the string, '.' represents an empty space while '*' represents a pawn. You are also given a String[] <b>targets</b>, each element of which is a target layout formatted in the same way. The board is always 100 squares wide. The Strings given will specify up to 50 of the first (leftmost) squares of the layout. You must assume that the remaining squares are all empty, both when considering the the start position and when considering the various target positions.</p> <p>For each target layout, evaluate whether that layout is reachable using any number of legal moves starting at the initial layout each time. Return the number of target layouts that can be reached.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Unjumpers</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>reachableTargets</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int reachableTargets(String start, String[] targets)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>start</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>start</b> will contain only '*' and '.' characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>targets</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>targets</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>targets</b> will contain only '*' and '.' characters.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;**.&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{
+&quot;..*&quot;,
+&quot;*.**&quot;,
+&quot;.*.*&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Each of the 3 target layouts can be reached in one move - the first is one jump, the second is one unjump, and the third is one superjump.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;..***&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{
+&quot;..****..*&quot;,
+&quot;..***....&quot;,
+&quot;..****&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first layout is reachable with a little ingenuity. The second layout doesn't require any moves (it's the same position, just with some extra blank spaces shown). The third is unreachable.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;*..*&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{
+&quot;*..*......&quot;,
+&quot;*.....*...&quot;,
+&quot;...*.....*&quot;,
+&quot;...*..*...&quot;,
+&quot;*........*&quot;,
+&quot;*...***..*&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All of these layouts can be reached.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;...***&quot; </pre></td>
+            </tr>
+            <tr>
+             <td><pre>{
+&quot;***...&quot;,
+&quot;..****&quot;,
+&quot;**....**&quot;,
+&quot;.*.*.*&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Only the second layout shown is unreachable.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

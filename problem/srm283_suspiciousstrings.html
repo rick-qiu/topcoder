@@ -1,0 +1,304 @@
+<html>
+ <head>
+  <title>SuspiciousStrings Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=5966">Problem Statement for SuspiciousStrings</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> You work at a company specializing in internet-related technologies, and your current project is a spam filter. This filter determines whether or not a string contains spam-like information using a &quot;spam-words-dictionary&quot; (SWD). If an input string contains at least one word from this dictionary as a substring, the filter considers it to be spam-suspicious. (Note: an entire string is considered a substring of itself.) </p> <p> You've decided to solve a more challenging problem: how many unique strings of length <b>n</b>, composed entirely of lowercase letters, are spam-suspicious for a given SWD? You are given a String[] <b>dictionary</b>, each element of which is a word from the SWD, and an int <b>n</b>. Return the answer modulo 10000. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SuspiciousStrings</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getAmount</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int getAmount(String[] dictionary, int n)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>&quot;Substring&quot; is formed of consecutive letters (so, it's NOT a subsequence of letters).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>&quot;x modulo y&quot; means the remainder of x divided by y.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b> will contain between 1 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contatin only lowercase letters ('a'-'z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contain between 1 and 10 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>n</b> will be between 1 and 2147483647, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;x&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All one character length strings are allowed except for &quot;x&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ab&quot;,&quot;bb&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Suspicious strings are &quot;ab&quot; and &quot;bb&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ab&quot;,&quot;bb&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6350</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;aab&quot;,&quot;bba&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4054</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;xxxxxx&quot;,&quot;xxx&quot;,&quot;x&quot;,&quot;yyxyy&quot;,&quot;xxxyxxx&quot;,&quot;y&quot;,&quot;yx&quot;,&quot;xy&quot;,&quot;zzzzzzzzzz&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8752</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;aaaaaaaaaa&quot;, &quot;bbbbbbbbbb&quot;, &quot;cccccccccc&quot;, &quot;dddddddddd&quot;, &quot;eeeeeeeeee&quot;,
+ &quot;ffffffffff&quot;, &quot;gggggggggg&quot;, &quot;hhhhhhhhhh&quot;, &quot;xxxxxxxxxx&quot;, &quot;zzzzzzzzzz&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2147483647</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5040</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

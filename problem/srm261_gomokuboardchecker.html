@@ -1,0 +1,360 @@
+<html>
+ <head>
+  <title>GomokuBoardChecker Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4652">Problem Statement for GomokuBoardChecker</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Gomoku, also called go-moku (Japanese: Gomoku Narabe, &quot;five points&quot;) is a tic-tac-toe-like game played on a rectangular board divided into unit squares. There are two players, and each of them has an infinite supply of pieces of his color. They alternately place their pieces on the board in an attempt to place five (or more) of their own pieces in a row (horizontally, vertically, or diagonally). As soon as one of the players has reached this goal, the game ends and he is the winner. If and only if no player has reached the goal and the whole board is full, the game is a draw. </p> <p> You will be given a String[] <b>board</b> containing a position in the game, with the letter 'X' used to denote pieces of one player, the letter 'O' (not zero!) the pieces of the other player and '.' (period) to denote empty spaces. (Note that you don't know whether the player that started the game used 'O's or 'X's.) </p> <p> Your task is to write a function that decides: </p> 
+      <ul> 
+       <li>whether this is a valid position (i.e., one that could arise if both players played according to the rules), and </li> 
+       <li>whether a player already won. </li> 
+      </ul> <p> If the position is not valid, return the string &quot;INVALID&quot;. If the position is valid and represents a draw game, return the string &quot;DRAW&quot;. If the position is valid and one of the players won, return &quot;X WON&quot; or &quot;O WON&quot; respectively. Otherwise, return the string &quot;IN PROGRESS&quot;. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>GomokuBoardChecker</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>check</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String check(String[] board)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Either of the players could have started the game.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each square of the board may contain at most one piece.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain between 1 and 15 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain between 1 and 15 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain only the characters 'X', 'O' and '.' .</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;O.X..&quot;,
+ &quot;.OX..&quot;,
+ &quot;X.O..&quot;,
+ &quot;X..O.&quot;,
+ &quot;....O&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;O WON&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Clearly, player &quot;O&quot; started the game and won.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;O.X..&quot;,
+ &quot;.OX..&quot;,
+ &quot;X.O..&quot;,
+ &quot;X..O.&quot;,
+ &quot;...XO&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;O WON&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This time, player &quot;X&quot; started the game, but player &quot;O&quot; won.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;OOOOO&quot;,
+ &quot;OOOOO&quot;,
+ &quot;OOOOO&quot;,
+ &quot;OOOOO&quot;,
+ &quot;OOOOX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;INVALID&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is an invalid position because players have to alternate placing the pieces.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;O...&quot;,
+ &quot;...X&quot;,
+ &quot;....&quot;,
+ &quot;....&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;IN PROGRESS&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">According to the problem statement, this is a game in progress (even though nobody can win on a 4x4 board).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;O.X.O.&quot;,
+ &quot;.OX.O.&quot;,
+ &quot;X.O.O.&quot;,
+ &quot;X..OO.&quot;,
+ &quot;..XXOX&quot;,
+ &quot;XXXXOO&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;O WON&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;O.XX.O&quot;,
+ &quot;.OX..O&quot;,
+ &quot;X.O..O&quot;,
+ &quot;X..O.O&quot;,
+ &quot;..XXOO&quot;,
+ &quot;XXXX.O&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;INVALID&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;XXXXO&quot;,
+ &quot;OOOOX&quot;,
+ &quot;XXXXO&quot;,
+ &quot;OOOOX&quot;,
+ &quot;XOXOX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;DRAW&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

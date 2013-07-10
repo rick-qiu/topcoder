@@ -1,0 +1,246 @@
+<html>
+ <head>
+  <title>RotatedClock Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11329">Problem Statement for RotatedClock</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Lecette has a clock with an hour hand and a minute hand. The hour hand makes a full rotation in 12 hours, and the minute hand makes a full rotation in one hour. Both hands move smoothly, at constant speeds. The clock has a scale marked in 30 degree increments, and both hands point to the same mark at 00:00. <br /><br /><br /><br /> Lecette wants to know what time it is, but the clock is rotated, so she can't tell where the top of the clock is. She measured the angles of hands from a certain mark, clockwise: <b>hourHand</b> and <b>minuteHand</b> (both in degrees). Return the earliest possible time that is consistent with these measurements. Format the return value as a String of the form &quot;HH:MM&quot; (quotes for clarity). Lecette might have measured the angles incorrectly. If there is no corresponding time, return an empty String instead. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RotatedClock</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getEarliest</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String getEarliest(int hourHand, int minuteHand)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hourHand</b> and <b>minuteHand</b> will each be between 0 and 359, inclusive. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>70</pre></td>
+            </tr>
+            <tr>
+             <td><pre>300</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;08:20&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is how the clock were positioned when Lecette made her measurements: <br /><br /> <img src="http://www.topcoder.com/contest/problem/RotatedClock/RotatedClockSample0a.png" /> <br /><br /> In order to show a valid time, the clock needs to be turned upside down: <br /><br /> <img src="http://www.topcoder.com/contest/problem/RotatedClock/RotatedClockSample0b.png" /> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>90</pre></td>
+            </tr>
+            <tr>
+             <td><pre>120</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;11:00&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>240</pre></td>
+            </tr>
+            <tr>
+             <td><pre>36</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>19</pre></td>
+            </tr>
+            <tr>
+             <td><pre>19</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;00:02&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The time when the coding phase started. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,286 @@
+<html>
+ <head>
+  <title>JarBox Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1586">Problem Statement for JarBox</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> <i>Note to plugin users: There are images in the problem statement and examples. Please use the applet to view them.</i> </p> <p> You have a piece of wood that you want to use to make the walls of a box that holds jars (shaped as perfect cylinders). The piece of wood is one jar height wide, and the resulting box will only hold one layer of jars. The jars will be placed upright in the box. In order to make the walls of the box, you need to cut the wood into four separate pieces. Each piece needs to be cut such that the four pieces attached at the ends form a rectangle. </p> <p> To minimize the stress on each jar, you want to pack the jars into the box as tightly as possible, so they are touching as many other jars as possible. The jars in a single row must be horizontally adjacent to each other. However, each successive row must be skewed one radius such that the jars sit exactly between two jars from the previous row to form a hexagonal pattern (Note that this may not be the most efficient space-wise). Here is an example (as viewed from above): </p> <p><img src="http://www.topcoder.com/contest/problem/JarBox/jars.png" /></p> <p> Given the <b>radius</b>, in inches, of the jars that you would like to store, and the <b>woodlength</b> in inches, return the maximum number of jars you can store in a box whose perimeter is at most <b>woodlength</b> inches. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>JarBox</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>numJars</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int numJars(int radius, int woodlength)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The box dimensions do not have to be integers</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Even if it is possible to fit more jars in by placing jars so that adjacent rows are not skewed, this is not a legal arrangement of the jars.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>radius</b> will be between 1 and 10, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>woodlength</b> will be between 8 and 10000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For all possible boxes that contain more than one row of jars, the optimal length of wood required will be at least .000001 inches smaller than the <b>woodlength</b> given.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>It will be possible to store at least one jar using the <b>woodlength</b> given.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>8</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The smallest box for the given radius. Only one jar barely fits into the box.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>16</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p> There are two ways to get 3 jars in this box. First, you could have one row of 3 jars. Another way is to have two rows, one row of 2 jars, and one row of 1 jar like so: </p> <p> <img src="http://www.topcoder.com/contest/problem/JarBox/jarsex1.png" /> </p> <p> Note that although it would be more efficient to store the jars in a square pattern, this is not allowed. </p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>18</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p> In order to fit 4 jars in this box, the width must be 5, and the rows both contain 2 jars each. The following diagram shows how the jars will sit: </p> <p> <img src="http://www.topcoder.com/contest/problem/JarBox/jarsex21.png" /> </p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>45</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 32</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If we make the box 10 inches wide, it will fit exactly 5 jars across on the odd rows (starting with the bottom), and 4 jars across on all the even rows. This will allow us to create 4 rows of 5 jars across, and 3 rows of 4 jars across. The optimal dimensions of the box will be about 10 x 12.392305.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1269</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 784</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

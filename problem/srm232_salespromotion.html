@@ -1,0 +1,290 @@
+<html>
+ <head>
+  <title>SalesPromotion Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3923">Problem Statement for SalesPromotion</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Your friend has recently been looking through a catalog, and has selected several items she wishes to buy. Because of a sales promotion, she has earned credit towards free or discounted products. Each item has a cost, and a point value. For her referrals, your friend has earned a certain number of points which may be redeemed for items, and a certain number of &quot;half price&quot; items. Additionally, she receives a fixed percentage discount on all other items (this is not cumulative with half-price items). All prices are rounded up after applying discounts.</p> <p>Your friend's order is subject to the following restrictions:</p> 
+      <ul> 
+       <li>Each item must be purchased with points, purchased at half price, or purchased at the fixed discount rate.</li> 
+       <li>Purchasing an item with points is all or nothing; you cannot, for instance, pay for an item partially with points and pay the remainder in cash.</li> 
+       <li>All points must be used.</li> 
+       <li>All half-price items must be used.</li> 
+       <li>All items on the wishlist must be purchased.</li> 
+      </ul> <p>Your friend is very excited to place her order, but is very frustrated with what she has found to be a confusing incentive system. Being frugal-minded, she wants to get everything on her wishlist at the least possible out-of-pocket expense. Knowing your enjoyment of these type of problems, she has come to you for assistance.</p> <p>You are given an int, <b>points</b>, indicating the number of points your friend must spend; an int, <b>halfPrice</b>, indicating the number of items which are to be purchased at half price; and an int, <b>discount</b>, indicating the fixed discount percentage on all remaining items. Finally, you are given a String[], <b>items</b>, indicating the list of items on your friend's wishlist. Each element of <b>items</b> will be in the form <i>&quot;pointValue price&quot;</i> (quotes added for clarity), where <i>pointValue</i> and <i>price</i> are both positive integers with no leading zeros. <i>pointValue</i> and will be between 1 and 9999, inclusive. <i>price</i> will be between 1 and 99999, inclusive. You are to return an int indicating the minimum out of pocket expense your friend must pay to get the items on her wishlist.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SalesPromotion</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestPrice</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int bestPrice(int points, int halfPrice, int discount, String[] items)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The cost of an individual item purchased at half price or the fixed discount rate should always round up when necessary.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>points</b> will be between 0 and 15000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>halfPrice</b> will be between 0 and <i>n</i>, inclusive, where <i>n</i> is the number of elements of <b>items</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>discount</b> will be between 0 and 49, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>items</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>items</b> will be in the form described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be at least one way to place the order that uses all of the points and half price items.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>500</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;150 500&quot;, &quot;350 1000&quot;, &quot;500 600&quot;, &quot;450 800&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 940</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, we're better to use our 500 points on the first two items, rather than the third item. Then, we use our half price discount on the item priced 800 (since it's more expensive than the item priced 600), which costs 400. Finally the item priced 600 we buy for 540 (10% discount), totalling 940.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>500</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;150 450&quot;, &quot;350 700&quot;, &quot;500 1200&quot;, &quot;450 800&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1320</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The best solution is to buy items 0 and 1 with points, item 2 at half price, and pay full price (less the discount) for item 3.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;200 500&quot;, &quot;300 700&quot;, &quot;400 900&quot;, &quot;500 1100&quot;, &quot;600 1300&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2200</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There's more than one way to use our points, so we have to find the most cost effective.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;100 100&quot;, &quot;100 200&quot;, &quot;100 150&quot;, &quot;150 300&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 750</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With no points or discounts of any kind, we just need to add up the total cost.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

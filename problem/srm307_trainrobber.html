@@ -1,0 +1,379 @@
+<html>
+ <head>
+  <title>TrainRobber Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6448">Problem Statement for TrainRobber</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><i>This problem contains images best viewed from the applet.</i> <p> A train is moving in the positive direction of the x-axis. The train consists of <b>nCarriages</b> carriages of equal <b>length</b>. Initially, at time 0, the coordinate of the rightmost end of the last carriage is <b>length</b>, the coordinate of the rightmost end of the second to last carriage is 2 * <b>length</b>, and so on. There is a robber located on the leftmost point of the roof of the last carriage. </p> <p> <img src="http://www.topcoder.com/contest/problem/TrainRobber/train.PNG" /> <br /><br /> Here is an example of a train with 4 carriages at time 0. </p> <p> There are an infinite number of low bridges above the railway. Each bridge belongs to one bridge sequence. The k-th sequence consists of bridges located at the coordinates <b>offset</b>[k] + <b>period</b>[k] * j, for all non-negative integers j. </p> <p> <img src="http://www.topcoder.com/contest/problem/TrainRobber/rails.PNG" /> <br /><br /> The blue bridges belong to sequence 0 and the red bridges belong to sequence 1. In this case, offset[0] = 3, period[0] = 4, offset[1] = 4, and period[1] = 2. </p> <p> The train moves at a constant speed of <b>trainSpeeed</b> units per second, and the robber has a maximal speed of <b>robberSpeed</b> units per second. The robber cannot walk through the bridges when he is on the roof because they are too low. Therefore, whenever the robber is at the same coordinate as a bridge, he must either be between two carriages or at either end of the train. This allows him to duck and jump down into a safe area. </p> <p> The robber's goal is to travel to the rightmost point of the first carriage as quickly as possible. He will stop walking and jump off the train when he reaches the rightmost point of the first carriage, or when <b>nBridges</b> have passed above him - whichever comes first. Return the position of the robber on the x-axis when he exits the train. </p> <p> The offsets and periods of the bridge sequences are given in the String[]s <b>offset</b> and <b>period</b>. Each element of <b>offset</b> and <b>period</b> contains a space separated list of integers. The ith integers in <b>offset</b> and <b>period</b> are the offset and period of the ith bridge sequence. See example 0 for clarification. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TrainRobber</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>finalPosition</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, String[], String[], int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double finalPosition(int length, int nCarriages, String[] offset, String[] period, int trainSpeed, int robberSpeed, int nBridges)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>It is possible for multiple bridges to be located in the same position.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A return value with either an absolute or relative error of less than 1.0E-9 is considered correct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>length</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>nCarriages</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>offset</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>offset</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>period</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>period</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>offset</b> and <b>period</b> will contain one or more integers without leading zeroes separated by single spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each integer in <b>offset</b> and <b>period</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>offset</b> and <b>period</b> will contain the same number of integers.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>trainSpeed</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>robberSpeed</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>nBridges</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;3 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;4&quot;, &quot;2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The robber will walk to the rightmost end of the last carriage and then duck down between carriages to avoid the first two bridges (at coordinates 3 and 4). He will then walk to the rightmost end of the next carriage and duck down to avoid the next three bridges (at coordinates 6, 7, and 8). He will repeat this procedure once more to avoid the next three bridges (at coordinates 10, 11, and 12). He will finally reach the rightmost point of the first carriage when he is at coordinate 14. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;3 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;4 2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first bridge will pass when the robber is at coordinate 3.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;8 23&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;15 13&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 75.0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 50.0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;10&quot;, &quot;15 63&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;23 42 11&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6355.0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

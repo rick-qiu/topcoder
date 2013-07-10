@@ -1,0 +1,442 @@
+<html>
+ <head>
+  <title>AkariDaisukiDiv1 Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11888">Problem Statement for AkariDaisukiDiv1</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Consider the following function:<br /><br /> f(X) = <b>Waai</b> + X + <b>Akari</b> + X + <b>Daisuki</b><br /><br /> Here, X is a string and + denotes string concatenation. <b>Waai</b>, <b>Akari</b> and <b>Daisuki</b> are constant non-empty strings. </p> <br /><br /> <p> You are given 5 Strings <b>Waai</b>, <b>Akari</b>, <b>Daisuki</b>, <b>S</b> and <b>F</b>, and a int <b>k</b>. <br /><br /> Compute how many times <b>F</b> occurs in f^<b>k</b>(<b>S</b>) as its substring. (The notation f^<b>k</b>(<b>S</b>) means that f is applied to <b>S</b> exactly <b>k</b> times in a row. See Notes for a formal definition.) Since the number can be quite large, compute the number modulo 1,000,000,007. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>AkariDaisukiDiv1</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>countF</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String, String, String, String, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int countF(String Waai, String Akari, String Daisuki, String S, String F, int k)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Formally, we have f^1(X)=f(X) and for k greater than one we have f^k(X)=f(f^(k-1)(X)).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>String A is substring of B if A can be obtained by erasing some (possibly zero) characters from the beginning of B and some (possibly zero) characters from the end of B.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>Waai</b>, <b>Akari</b>, <b>Daisuki</b>, <b>S</b>, and <b>F</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of <b>Waai</b>, <b>Akari</b>, <b>Daisuki</b>, <b>S</b>, and <b>F</b> will be a lowercase letter ('a'-'z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>k</b> will be between 1 and 10,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;a&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;b&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;c&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;x&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;axb&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>S</b> = &quot;x&quot;,<br /><br /> f(<b>S</b>) = &quot;axbxc&quot;,<br /><br /> f^2(<b>S</b>) = f(&quot;axbxc&quot;) = &quot;aaxbxcbaxbxcc&quot;.<br /><br /> This string contains the substring &quot;axb&quot; twice.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;a&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;b&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;c&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;x&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;abcdefghij&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The answer can be zero.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;a&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;a&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;a&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;b&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;aba&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>S</b> = &quot;b&quot;,<br /><br /> f(<b>S</b>) = &quot;ababa&quot;,<br /><br /> f^2(<b>S</b>) = f(&quot;ababa&quot;) = &quot;aababaaababaa&quot;.<br /><br /> This string contains the substring &quot;aba&quot; four times. You must count overlapping substrings.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;a&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;b&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;c&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;d&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;baadbdcbadbdccccbaaaadbdcbadbdccbaadbdcba&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>58</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 191690599</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;a&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;x&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;y&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;b&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>49</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;waai&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;akari&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;daisuki&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;usushio&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;id&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10000000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 127859200</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;vfsebgjfyfgerkqlr&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;ezbiwls&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;kjerx&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;jbmjvaawoxycfndukrjfg&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;bgjfyfgerkqlrvfsebgjfyfgerkqlrvfsebgjfyfgerkqlrvfs&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1575724</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 483599313</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

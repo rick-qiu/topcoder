@@ -1,0 +1,311 @@
+<html>
+ <head>
+  <title>Taxicab Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2859">Problem Statement for Taxicab</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Taxicabs in New York City have a complicated fare structure: 
+      <ul>
+       <li> $2.50 for the first unit or fraction thereof if there is less than one total unit.</li> 
+       <li> $0.40 for each additional unit, where a unit is defined as:</li> 
+       <li>
+        <ul>
+         <li> 1/5 of a mile, when the taxicab is traveling at 6 miles an hour or more, or</li> 
+         <li> 60 seconds, when the taxicab is traveling at less than 6 miles an hour.</li>
+        </ul></li>
+      </ul> <p>You will be given the number of <b>blocks</b> the cab travels each <i>minute</i> and you are to calculate the total fare in dollars and cents. (There are 20 blocks in a mile.) You may assume that the taxi's speed is constant during each minute. Note that the number of units accumulated during a minute may not be an integer.</p> <p>Return the total fare as a String (without a dollar sign), with exactly two digits to the right of the decimal point and no extraneous leading zeros.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Taxicab</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>calculateFare</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String calculateFare(int[] blocks)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You should assume instant acceleration/deceleration between segments.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There are 20 blocks in a mile.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There are 100 cents in a dollar.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>blocks</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>blocks</b> will be between 0 and 30, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;2.50&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You didn't go anywhere, but you still get charged $2.50 for getting into the cab.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{4, 4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;2.90&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You went four blocks (1/5 mile) the first minute, which cost you $2.50, and 4 blocks (another 1/5 mile) the second minute, which cost you $0.40 because your speed was 12 mph (1/5 mile / 1/60 hour)</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{10, 2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;3.30&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You go 10 blocks in the first minute. This is 2.5 fifths-of-a-mile; the first 1/5 mile costs $2.50 and the other 1.5 costs $0.60. The second minute, you go only 2 blocks, but it is still at least 6 mph. Two blocks is 0.5 fifths-of-a-mile, so you get charged another $0.20, for a total of $2.50 + $0.60 + $0.20 = $3.30.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,1,1,1,1,1,1,1,1,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;6.10&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Even though you went 1/2 mile (2.5 fifths of a mile), the cab never went more than 6 mph, so you get charged by-the-minute. $2.50 for the first minute and 40 cents for each additional minute brings you to $6.10.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2,2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;2.50&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,2,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;3.10&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Counterintuitively, the second minute costs less than the third, even though you go faster during the second minute.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

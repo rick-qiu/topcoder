@@ -1,0 +1,415 @@
+<html>
+ <head>
+  <title>PlaneDivision Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7788">Problem Statement for PlaneDivision</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are given n distinct straight lines in the plane. The i-th line is specified by two distinct lattice points (<b>x1[i]</b>, <b>y1[i]</b>) and (<b>x2[i]</b>, <b>y2[i]</b>) that lie on it. These lines divide the plane into regions, and your task is to compute and return the number of finite regions among them. By a finite region we mean a convex polygon bounded by the given lines, with no points belonging to any of the given lines in its interior.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PlaneDivision</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>howManyFiniteParts</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int howManyFiniteParts(int[] x1, int[] y1, int[] x2, int[] y2)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>By a lattice point (x, y) we mean a point on the Cartesian plane with integer coordinates x and y.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Two points are said to be distinct if either their x-coordinates or y-coordinates differ.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x1</b>, <b>y1</b>, <b>x2</b> and <b>y2</b> will contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x1</b>, <b>y1</b>, <b>x2</b> and <b>y2</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All the elements of <b>x1</b>, <b>y1</b>, <b>x2</b> and <b>y2</b> will be between -10000 and 10000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>(<b>x1[i]</b>, <b>y1[i]</b>) and (<b>x2[i]</b>, <b>y2[i]</b>) will be distinct for all <i>i</i> (i.e., every two points defining a given line will be distinct).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All the lines defined by (<b>x1[i]</b>, <b>y1[i]</b>) and (<b>x2[i]</b>, <b>y2[i]</b>) will be distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A single line divides the plane into two infinite regions.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 1, 2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0, 1, -1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 2, 0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, -1, 0}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The three lines are the sidelines of a triangle which is the only finite region in this case.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-10000, -9999, 10000, -9999, 0, 500, -500}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-9999, 10000, 9999, -10000, 0, 0, 0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-10000, 9999, 10000, 9999, 0, 500, -500}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9999, 10000, -9999, -10000, 1, -1, -2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only finite regions are the 4 big rectangles.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 0, 0, 0, 0, 0, 0, 0, 0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0, 0, 0, 0, 0, 0, 0, 0, 0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 1, 1, 1, 1, 1, 1, 1, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 2, 3, 4, 5, 6, 7, 8, 9}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All the lines pass through the origin.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-1, -1, -1, -1, 1, 3, -3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-1, -2, 0, 0, 10000, 1, -5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 1, 1, -1, 1, -3, 3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 0, 2, -10000, 0, -2, 4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">1 parallelogramm and 6 triangles are the only finite regions in this case.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-100, -100, -100, -100, -100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-100, -99, -98, -97, -96}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100, 100, 100, 100, 100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{99, 100, 101, 102, 103}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">5 parallel lines do not produce any finite regions.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-100, -100, -100, -100, -100, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-100, -99, -98, -97, -96, -1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100, 100, 100, 100, 100, -2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{99, 100, 101, 102, 103, 2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A configuration of 5 parallel lines and a single line crossing all of them again yields no finite regions.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

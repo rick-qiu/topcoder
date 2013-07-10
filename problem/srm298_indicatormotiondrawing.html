@@ -1,0 +1,276 @@
+<html>
+ <head>
+  <title>IndicatorMotionDrawing Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6183">Problem Statement for IndicatorMotionDrawing</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>In this problem, you will write a program that controls the actions of a progress indicator. The indicator is a single bar character with one of 4 states: '|', '-', '\', and '/'. The program consists of a sequence of instructions, where each instruction is one of 7 possible actions:
+      <ul> 
+       <li>'L': Spin left. If the bar is in state '|', it goes to '\'. State '\' goes to '-', '-' goes to '/', and '/' goes to '|'.</li> 
+       <li>'R': Spin right. This is the exact opposite of 'L': '\' goes to '|', '|' goes to '/', '/' goes to '-', and '-' goes to '\'.</li> 
+       <li>'F': Flip. The bar is rotated 90 degrees: '\' becomes '/', '/' becomes '\', '-' becomes '|', and '|' becomes '-'.</li> 
+       <li>'U': The bar moves up.</li> 
+       <li>'D': The bar moves down.</li> 
+       <li>'&lt;': The bar moves left.</li> 
+       <li>'&gt;': The bar moves right.</li> 
+      </ul> Each instruction requires one second to complete. The computer's screen refresh is broken, so whenever the bar moves to a new location, its state at the previous location remains visible and the new location is overwritten with the bar's current state (see examples for clarification). To take advantage of this unexpected &quot;feature&quot;, you've decided to come up with a game.<br /><br /> Initially, the bar is at (0, 0), which is the upper-left corner of the screen, and it is in state <b>startState</b>. The rest of the screen is empty. You are given a String[] with a <b>desiredScreen</b> that is your target. You must construct a program that will end with the screen looking exactly like <b>desiredScreen</b>.<br /><br /> For example, if your <b>desiredScreen</b> is<br /><br /> <pre>{&quot;///&quot;,
+ &quot;///&quot;,
+ &quot;---&quot;}</pre> and your <b>startState</b> is '-', you can achieve that with &quot;L&gt;&gt;D&lt;&lt;DR&gt;&gt;&quot;. In this case, it took 10 seconds to get the screen to <b>desiredScreen</b>. <br /><br /><br /><br /> For the given <b>desiredScreen</b> and <b>startState</b>, return the minimum time needed to achieve this goal, or -1 if it is impossible to do so.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>IndicatorMotionDrawing</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getMinSteps</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], char</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int getMinSteps(String[] desiredState, char startState)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The bar cannot be moved outside the boundary of <b>desiredScreen</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that <b>desiredScreen</b> may contain spaces. The bar can never pass through a cell which has a space in <b>desiredScreen</b> because it would leave a character that would never be erased.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In the examples the character '\' appears as '\\' because of the C++/Java syntax for escaping characters.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>startState</b> will be one of '/', '\', '|', or '-'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>desiredScreen</b> will have between 1 and 3 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>desiredScreen</b> will contain exactly N characters, where N is an integer between 1 and 4, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of each element of <b>desiredScreen</b> will be one of ' ', '/', '\', '|', or '-'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;///&quot;,
+ &quot;///&quot;,
+ &quot;---&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'-'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot; ||&quot;,
+ &quot;|||&quot;,
+ &quot;|||&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'|'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Since the bar is initially at (0,0), it's impossible to achieve a <b>desiredScreen</b> that has a space at that location.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;/- &quot;,
+ &quot;/  &quot;,
+ &quot;/--&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'/'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Don't step on spaces!<br /><br /> Here, you are forced to step twice at least in (0,0). One way to achieve the best time is &quot;R&gt;&lt;LDD&gt;R&gt;&quot;.<br /><br /> This will lead to this sequence of screens, with dots representing spaces and and the location of the bar written below each screen as (row,column):<br /><br /> <pre>
+ /..      -..      --.      --.      /-.      /-.      /-.      /-.      /-.      /-.
+ ...  -&gt;  ...  -&gt;  ...  -&gt;  ...  -&gt;  ...  -&gt;  /..  -&gt;  /..  -&gt;  /..  -&gt;  /..  -&gt;  /..
+ ...      ...      ...      ...      ...      ...      /..      //.      /-.      /--
+(0,0)    (0,0)    (0,1)    (0,0)    (0,0)    (1,0)    (2,0)    (2,1)    (2,1)    (2,2)
+</pre> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;/-|/&quot;,
+ &quot;/ |/&quot;,
+ &quot;-/\\/&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'\\'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 18</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

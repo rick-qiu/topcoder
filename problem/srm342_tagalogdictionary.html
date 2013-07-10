@@ -1,0 +1,302 @@
+<html>
+ <head>
+  <title>TagalogDictionary Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7411">Problem Statement for TagalogDictionary</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> In the first half of the 20th century, around the time that Tagalog became the national language of the Philippines, a standardized alphabet was introduced to be used in Tagalog school books (since then, the national language has changed to a hybrid &quot;Pilipino&quot; language, as Tagalog is only one of several major languages spoken in the Philippines). </p> <p> Tagalog's 20-letter alphabet is as follows: </p> <pre>a b k d e g h i l m n ng o p r s t u w y</pre> <p> Note that not all letters used in English are present, 'k' is the third letter, and 'ng' is a single letter that comes between 'n' and 'o'. </p> <p> You are compiling a Tagalog dictionary, and for people to be able to find words in it, the words need to be sorted in alphabetical order with reference to the Tagalog alphabet. Given a list of Tagalog <b>words</b> as a String[], return the same list in Tagalog alphabetical order. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TagalogDictionary</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>sortWords</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] sortWords(String[] words)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Any 'n' followed followed by a 'g' should be considered a single 'ng' letter (the one that comes between 'n' and 'o').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>words</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>words</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of each element of <b>words</b> will be a valid lowercase letter that appears in the Tagalog alphabet.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>words</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;abakada&quot;,&quot;alpabet&quot;,&quot;tagalog&quot;,&quot;ako&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;abakada&quot;, &quot;ako&quot;, &quot;alpabet&quot;, &quot;tagalog&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The tagalog word for &quot;alphabet&quot;, a Tagalogization of the English word &quot;alphabet&quot;, the name of the language, and the word for &quot;I&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ang&quot;,&quot;ano&quot;,&quot;anim&quot;,&quot;alak&quot;,&quot;alam&quot;,&quot;alab&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;alab&quot;, &quot;alak&quot;, &quot;alam&quot;, &quot;anim&quot;, &quot;ano&quot;, &quot;ang&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A few &quot;A&quot; words that are alphabetically close together.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;siya&quot;,&quot;niya&quot;,&quot;kaniya&quot;,&quot;ikaw&quot;,&quot;ito&quot;,&quot;iyon&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;kaniya&quot;, &quot;ikaw&quot;, &quot;ito&quot;, &quot;iyon&quot;, &quot;niya&quot;, &quot;siya&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Common Tagalog pronouns.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;kaba&quot;,&quot;baka&quot;,&quot;naba&quot;,&quot;ngipin&quot;,&quot;nipin&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;baka&quot;, &quot;kaba&quot;, &quot;naba&quot;, &quot;nipin&quot;, &quot;ngipin&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;knilngiggnngginggn&quot;,&quot;ingkigningg&quot;,&quot;kingkong&quot;,&quot;dingdong&quot;,&quot;dindong&quot;,&quot;dingdont&quot;,&quot;ingkblot&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;kingkong&quot;,
+&quot;knilngiggnngginggn&quot;,
+&quot;dindong&quot;,
+&quot;dingdont&quot;,
+&quot;dingdong&quot;,
+&quot;ingkblot&quot;,
+&quot;ingkigningg&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;silangang&quot;, &quot;baka&quot;, &quot;bada&quot;, &quot;silang&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;baka&quot;, &quot;bada&quot;, &quot;silang&quot;, &quot;silangang&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

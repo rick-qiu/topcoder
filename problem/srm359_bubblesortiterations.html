@@ -1,0 +1,288 @@
+<html>
+ <head>
+  <title>BubbleSortIterations Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7854">Problem Statement for BubbleSortIterations</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Bubble-sort is a well-known sorting algorithm, although not a very efficient one. In each iteration of bubble-sort, the algorithm works from start to end along a list, comparing each pair of adjacent elements. If the adjacent elements are out of order, then they are swapped. If no elements are swapped in an iteration, then the list is sorted and the algorithm terminates; otherwise, the algorithm continues with another iteration. In order to analyze the performance of bubble-sort, you want to determine how many iterations are required to sort a given list in non-decreasing order. The list might be quite large, so it will be codified in the following way. You will be given int[]s <b>X</b> and <b>Y</b>, and ints <b>L0</b>, <b>M</b>, and <b>n</b>. Generate the list L of length <b>n</b> using the following pseudo-code. Array indices are 0-based. <pre>
+L[0] = L0
+for i := 1 to n-1
+    L[i] = (L[i-1] * X[i % length(X)] + Y[i % length(Y)]) MOD M
+</pre> You must calculate the number of iterations required to bubble-sort L in non-decreasing order.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BubbleSortIterations</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>numIterations</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int numIterations(int[] X, int[] Y, int L0, int M, int n)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The input is encoded purely for convenience. The intended solution does not rely on any properties of the way it is generated, and will work for any list L.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>X</b> and <b>Y</b> will each contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>X</b> and <b>Y</b> will be between 0 and <b>M</b>-1, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>L0</b> will be between 0 and <b>M</b>-1, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>M</b> will be between 1 and 1,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>n</b> will be between 1 and 100,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10, 1, 5, 2, 3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The generated sequence is 10, 1, 5, 2, 3. After one iteration it is 1, 5, 2, 3, 10. After two it is 1, 2, 3, 5, 10. The third iteration detects that the sequence is now sorted.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 3, 5, 7, 9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The generated sequence is 1, 3, 5, 7, 9. The sequence is already sorted, but one iteration is required to detect this.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{999998}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{500000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>500000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Be careful not to overflow when generating L.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{234, 56, 567, 3147, 23464, 57128, 1254, 45, 23247, 1347, 145, 123}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{3413, 171, 58, 569, 40, 467, 2456, 246, 2684, 5, 61, 8, 258, 24524, 2, 58, 245, 674}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>99991</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 99228</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

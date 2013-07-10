@@ -1,0 +1,214 @@
+<html>
+ <head>
+  <title>SantaClaus Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3468">Problem Statement for SantaClaus</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td> The spirit of Christmas is most apparent in the exchanging of presents! Santa Claus would like software to make this unnecessary. He has already decided which present should be given to each person, but he is wondering if he could make adjustments. <p> Specifically he has estimated the intrinsic value of each present to each person. He wants software to determine if there is a group of people whose total value would be increased by redistributing the gifts within the group. Some people might end up with a worse present, but the total value is what Santa must consider. If such a group exists, Santa would like to know the size of the smallest such group, and how much the total value of their presents can be increased by. </p><p> The intrinsic value of the presents to each person is given in a String[] <b>value</b>. Each character in each element of <b>value</b> is an uppercase letter, with 'A' signifying a value of 1, 'B' a value of 2, etc. The j-th character in the i-th element of <b>value</b> is the value of the j-th present to the i-th person. </p><p> The original intent of Santa was to give the first present to the first person, the second present to the second person, etc. Create a class SantaClaus that contains a method exchange that is given the String[] <b>value</b> and returns a int[] containing two elements: the first element is the size of the smallest improvable group, and the second is the amount by which their total value can be increased. Report the largest possible increase in value for a group of that size. If there is no improvable group, return 0 in both elements. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SantaClaus</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>exchange</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] exchange(String[] value)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>value</b> will contain n elements, where n is between 2 and 50 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>value</b> will contain n characters, each being an uppercase letter 'A'-'Z'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABCDE&quot;,&quot;ABCDE&quot;,&quot;ABCDE&quot;,&quot;ABCDE&quot;,&quot;ABCDE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> Each present has the same value to everybody, so there is no way to increase the total value by reassigning the presents. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABC&quot;,&quot;BCD&quot;,&quot;ZAB&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {2, 26 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> The third person would really like the first present. So we could exchange presents between the first person and the third person. Previously, the values were 1 (first person) + 2 (third person) = 3. After the exchange the values become 3 (first person) + 26 (third person) = 29. So the net gain is 29-3 = 26. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BCAAA&quot;,&quot;ADEAA&quot;,&quot;AAXYA&quot;,&quot;AAAKL&quot;,&quot;EAAAD&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {3, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> The first, fourth, and fifth persons can exchange presents, giving up values of 'B', 'K', and 'D' and acquiring values of 'A', 'L', and 'E'. The first person loses net value of 1, but each of the others gains 1. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;VWAAA&quot;,&quot;ADEAA&quot;,&quot;AAXYA&quot;,&quot;AAAKL&quot;,&quot;EAAAD&quot;}  </pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {5, 5 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

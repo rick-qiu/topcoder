@@ -1,0 +1,184 @@
+<html>
+ <head>
+  <title>MedalTable Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2922">Problem Statement for MedalTable</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>The Olympic Games in Athens end tomorrow. Given the results of the olympic disciplines, generate and return the medal table.<br /><br /> <br /><br /> The results of the disciplines are given as a String[] <b>results</b>, where each element is in the format <tt>&quot;GGG SSS BBB&quot;</tt>. <tt>GGG</tt>, <tt>SSS</tt> and <tt>BBB</tt> are the 3-letter country codes (three capital letters from <tt>'A'</tt> to <tt>'Z'</tt>) of the countries winning the gold, silver and bronze medal, respectively.<br /><br /> <br /><br /> The medal table is a String[] with an element for each country appearing in <b>results</b>. Each element has to be in the format <tt>&quot;CCO G S B&quot;</tt> (quotes for clarity), where <tt>G</tt>, <tt>S</tt> and <tt>B</tt> are the number of gold, silver and bronze medals won by country <tt>CCO</tt>, e.g. <tt>&quot;AUT 1 4 1&quot;</tt>. The numbers should not have any extra leading zeros. <br /><br /> Sort the elements by the number of gold medals won in decreasing order. If several countries are tied, sort the tied countries by the number of silver medals won in decreasing order. If some countries are still tied, sort the tied countries by the number of bronze medals won in decreasing order. If a tie still remains, sort the tied countries by their 3-letter code in ascending alphabetical order. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MedalTable</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>generate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] generate(String[] results)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>results</b> contains between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>results</b> is formatted as described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No more than 50 different countries appear in <b>results</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ITA JPN AUS&quot;, &quot;KOR TPE UKR&quot;, &quot;KOR KOR GBR&quot;, &quot;KOR CHN TPE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;KOR 3 1 0&quot;,
+ &quot;ITA 1 0 0&quot;,
+ &quot;TPE 0 1 1&quot;,
+ &quot;CHN 0 1 0&quot;,
+ &quot;JPN 0 1 0&quot;,
+ &quot;AUS 0 0 1&quot;,
+ &quot;GBR 0 0 1&quot;,
+ &quot;UKR 0 0 1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">These are the results of the archery competitions.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;USA AUT ROM&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;USA 1 0 0&quot;,  &quot;AUT 0 1 0&quot;,  &quot;ROM 0 0 1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;GER AUT SUI&quot;, &quot;AUT SUI GER&quot;, &quot;SUI GER AUT&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;AUT 1 1 1&quot;,  &quot;GER 1 1 1&quot;,  &quot;SUI 1 1 1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

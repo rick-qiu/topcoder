@@ -1,0 +1,267 @@
+<html>
+ <head>
+  <title>TopView Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11494">Problem Statement for TopView</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Ralph was once playing with a set of cards and a grid of cells. Each card was a rectangle of a unique color. Different cards may have had different dimensions. Ralph took his cards one at a time, and placed each of them onto the grid. When placing a card, Ralph aligned its sides with grid lines, so each card covered some rectangular block of cells. Some cards may have overlapped other, previously placed cards partially or even completely. Once all the cards were placed, on each cell only the topmost card was visible. You are given a String[] <b>grid</b> that describes what Ralph could see after placing the cards. The j-th character of element i of <b>grid</b> is '.' if the cell at position (i,j) is empty (does not contain any card) or is an alphanumeric character that represents the only color Ralph could see when looking at the cell.<br /><br /> <br /><br /> Ralph does not remember the order he used to place the cards. Write a program that finds the order in which the cards of each visible color were placed. The return value should be a String, containing exactly once each of the alphanumeric characters that occur in <b>grid</b>. The i-th character of the return value should be the color of the i-th card (0-based index) that Ralph placed. In case there are multiple valid orders, return the lexicographically smallest one. In case there is no valid order of colors, return &quot;ERROR!&quot; (quotes for clarity).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TopView</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findOrder</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String findOrder(String[] grid)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The letters in <b>grid</b> are case-sensitive: 'a' and 'A' are distinct colors.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The lexicographically smaller of two Strings of equal length is the one that has the earlier character (using ASCII ordering) at the first position at which they differ.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>grid</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of grid will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of grid will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>grid</b> will be a period ('.'), an uppercase letter ('A'-'Z'), a lowercase letter ('a'-'z'), or a digit ('0'-'9').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>At least one character in <b>grid</b> will be different from '.'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;..AA..&quot;,
+ &quot;.CAAC.&quot;,
+ &quot;.CAAC.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;CA&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The card with color C is a rectangle of 2 rows and 4 columns. The card with color A, a rectangle of 3 rows and 2 columns, was placed on top of it.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;..47..&quot;,
+ &quot;..74..&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;ERROR!&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Each card has a unique color, this top perspective view tells us about 2 cards. This setting is not possible without using multiple cards of color 4 or 7.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;bbb666&quot;,
+ &quot;.655X5&quot;,
+ &quot;a65AA5&quot;,
+ &quot;a65AA5&quot;,
+ &quot;a65555&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;65AXab&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;aabbaaaaaaaaaaaaaaaaaa&quot;,
+ &quot;aabbccccccccccccccaaaa&quot;,
+ &quot;aab11111ccccccccccaaaa&quot;,
+ &quot;aab12221ccccccccccaaaa&quot;,
+ &quot;aab12221ccccccccccaaaa&quot;,
+ &quot;aab12221ccccccccccaaaa&quot;,
+ &quot;aab12221ccccccccccaaaa&quot;,
+ &quot;aab12221ccccccccccaaaa&quot;,
+ &quot;aab12221ddddddddddaaaa&quot;,
+ &quot;aab13331DDDDDDDDDDaaaa&quot;,
+ &quot;aab13331DDDDDDDDDDaaaa&quot;,
+ &quot;aa.11111DDDDDDDDDDaaaa&quot;,
+ &quot;aaaaaaaaaaaaaaaaaaaaaa&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;ERROR!&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

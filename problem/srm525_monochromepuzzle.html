@@ -1,0 +1,361 @@
+<html>
+ <head>
+  <title>MonochromePuzzle Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11377">Problem Statement for MonochromePuzzle</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Fox Ciel has a NxN square divided into 1x1 cells. Here, N is an even number between 6 and 50, inclusive. Rows of the square are numbered 0 to N-1 from top to bottom, and columns of the square are numbered 0 to N-1 from left to right. Each cell is either white or black. This board is represented by String[] <b>board</b>. The j-th character of the i-th element of <b>board</b> is '#' if the cell at j-th column of i-th row is black, and is '.' if the cell is white. <p></p> Ciel can perform the following operation repeatedly. 
+      <ul> 
+       <li>Choose two numbers i, j (0&lt;=i&lt;j&lt;N).</li> 
+       <li>Swap rows i and j.</li> 
+       <li>Then, swap columns i and j.</li> 
+      </ul> Ciel wants to transform the square into a destination pattern G(N) by using the minimum number of the operations. <p></p> The destination pattern G(N) is a NxN square, where the cell at i-th row of j-th column is black if |i-j|=1 or i+j=N-1 or {i,j}={0,N/2-1} or {i,j}={N/2, N-1}, and otherwise the cell is white. (Note that there are two cells that satisfy {i,j}={0,N/2-1}.) This is how G(6) and G(8) look like: <pre>
+         .#.#...#
+         #.#...#.
+ .##..#  .#.#.#..
+ #.#.#.  #.#.#...
+ ##.#..  ...#.#.#
+ ..#.##  ..#.#.#.
+ .#.#.#  .#...#.#
+ #..##.  #...#.#.
+  G(6)     G(8)
+</pre> Return the minimum number of required operations. If her objective is impossible, return -1. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MonochromePuzzle</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getMinimum</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int getMinimum(String[] board)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain between 6 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number of elements in <b>board</b> will be even.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain N characters, where N is the number of elements in board.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>board</b> will be either '.' or '#'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.##.#.&quot;
+,&quot;#.##..&quot;
+,&quot;##...#&quot;
+,&quot;.#..##&quot;
+,&quot;#..#.#&quot;
+,&quot;..###.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">One of the optimal solutions: <br /><br /> First, choose (i, j) = (1, 2). Then, choose (i, j) = (4, 5).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;###...&quot;
+,&quot;.##...&quot;
+,&quot;..#...&quot;
+,&quot;#..###&quot;
+,&quot;##..##&quot;
+,&quot;###..#&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">It is impossible to transform <b>board</b> to G(6).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.#.#...#&quot;
+,&quot;#.#...#.&quot;
+,&quot;.#.#.#..&quot;
+,&quot;#.#.#...&quot;
+,&quot;...#.#.#&quot;
+,&quot;..#.#.#.&quot;
+,&quot;.#...#.#&quot;
+,&quot;#...#.#.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No operation is required.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.#..#....#&quot;
+,&quot;#....#..#.&quot;
+,&quot;....###...&quot;
+,&quot;....#.#..#&quot;
+,&quot;#.##......&quot;
+,&quot;.##....#..&quot;
+,&quot;..##...#..&quot;
+,&quot;.....##.#.&quot;
+,&quot;.#.....#.#&quot;
+,&quot;#..#....#.&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.##.....#.&quot;
+,&quot;#..#.....#&quot;
+,&quot;#..##.....&quot;
+,&quot;.##..#....&quot;
+,&quot;..#..##...&quot;
+,&quot;...##..#..&quot;
+,&quot;....#..##.&quot;
+,&quot;.....##..#&quot;
+,&quot;#.....#..#&quot;
+,&quot;.#.....##.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.......##.#.&quot;
+,&quot;......#..#.#&quot;
+,&quot;......#..##.&quot;
+,&quot;.......##..#&quot;
+,&quot;......#.#..#&quot;
+,&quot;.......#.##.&quot;
+,&quot;.##.#.......&quot;
+,&quot;#..#.#......&quot;
+,&quot;#..##.......&quot;
+,&quot;.##..#......&quot;
+,&quot;#.#..#......&quot;
+,&quot;.#.##.......&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,1564 @@
+/*******************************************************************************
+*    Automatically generated code for TopCode SRM Problem
+*    Problem URL: http://community.topcoder.com/stat?c=problem_statement&pm=9793
+*******************************************************************************/
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+class SpiralWalking {
+public:
+    int totalPoints(vector<string> levelMap);
+};
+
+int SpiralWalking::totalPoints(vector<string> levelMap) {
+    int ret;
+    return ret;
+}
+
+
+int test0() {
+    vector<string> levelMap = {"111", "111", "111"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 5;
+    if(result == expected) {
+        cout << "Test Case 0: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 0: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test1() {
+    vector<string> levelMap = {"101", "110"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3;
+    if(result == expected) {
+        cout << "Test Case 1: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 1: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test2() {
+    vector<string> levelMap = {"00", "10"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1;
+    if(result == expected) {
+        cout << "Test Case 2: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 2: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test3() {
+    vector<string> levelMap = {"86850", "76439", "15863", "24568", "45679", "71452", "05483"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 142;
+    if(result == expected) {
+        cout << "Test Case 3: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 3: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test4() {
+    vector<string> levelMap = {"00", "00"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 0;
+    if(result == expected) {
+        cout << "Test Case 4: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 4: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test5() {
+    vector<string> levelMap = {"0000000000", "0000000000"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 0;
+    if(result == expected) {
+        cout << "Test Case 5: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 5: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test6() {
+    vector<string> levelMap = {"99", "99", "99", "99", "99", "99", "99", "99", "99", "99"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 153;
+    if(result == expected) {
+        cout << "Test Case 6: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 6: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test7() {
+    vector<string> levelMap = {"009", "900", "909"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 0;
+    if(result == expected) {
+        cout << "Test Case 7: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 7: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test8() {
+    vector<string> levelMap = {"109", "910", "909"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2;
+    if(result == expected) {
+        cout << "Test Case 8: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 8: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test9() {
+    vector<string> levelMap = {"01119", "91191", "19011", "19191", "91119"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 15;
+    if(result == expected) {
+        cout << "Test Case 9: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 9: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test10() {
+    vector<string> levelMap = {"123456", "789127", "665438", "543219"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 79;
+    if(result == expected) {
+        cout << "Test Case 10: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 10: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test11() {
+    vector<string> levelMap = {"11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111", "11111111111111111111111111111"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 488;
+    if(result == expected) {
+        cout << "Test Case 11: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 11: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test12() {
+    vector<string> levelMap = {"999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999", "999999999999999999999999999999999999999"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 16857;
+    if(result == expected) {
+        cout << "Test Case 12: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 12: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test13() {
+    vector<string> levelMap = {"4682314452351915446406756652724767153585", "1653781141856203339316292419610078111439", "6713255575447050944646022035393742965220", "1237023072174443762048273928015346631210", "3746854791115608455737441901674153177243", "8445561779847511107903486263264197963652", "4153837414958631681958408903384145864469", "6580775445492678119466827040881793140460", "5997423719955030651418377045685117705622", "3581586815762981834402733042626744367503", "0252874776244041176986923682807436547388", "5183159544998838412258404996305291836264", "0773966477143974059094730126425281842273", "4776974380361450530645813544874685375950", "1382801716709512061528749291623319761914", "4245654964512204154399665184169416117085"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2698;
+    if(result == expected) {
+        cout << "Test Case 13: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 13: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test14() {
+    vector<string> levelMap = {"014984567", "641371241", "277324528", "981568377", "428033037", "673211752", "591702356", "339957595", "862718921", "798553971", "021798958", "520439367", "324652507", "542560263", "170070759", "969569313", "256739817", "332220834", "334455013"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 686;
+    if(result == expected) {
+        cout << "Test Case 14: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 14: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test15() {
+    vector<string> levelMap = {"44960798913977185877275359", "34986788203992226064452170", "42941999550775515669941540", "74676273228961365566462396", "64783656832109640876211658", "24794662715009012697410821", "42843143817340404236739671", "20610919508931533965130671", "88336551552401676585325237", "24799550357378717542155538", "28586221720765338052442952", "07715781734438315141763308", "94508200284390072653345487", "31163323729476719201626755", "55476625479245864973266810", "24388515781048704199795569", "67020190764038751542029084", "22083682030303281476954144", "21601024176645619144892354", "43435535700189624105297771", "74188554968577927397669563", "12432434742193540760330087", "19068350431441718092492082"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2449;
+    if(result == expected) {
+        cout << "Test Case 15: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 15: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test16() {
+    vector<string> levelMap = {"5509524039543690790137325", "3960509274416002578725811", "5522961416951315035121291", "6869884012080911800676846", "8780091233570558481187443", "0694468923158235269942495", "2770877587434076026209306", "3143528072109636816682516", "4502263590904579077092844", "8807743885120399000845340", "7590014458887646162860871", "1186833661760065736877763", "8722339388726576695998105", "1885411988797692529849899", "0004255500201752251863532", "4070778729402768991435511", "0831826225356759187533973", "7750568123142223060928692", "2909772327061061742387405", "4706182402723801478010129", "9366044191303676236901408", "1359002422403998970018009", "0281119547732340589484307", "9409448441842188252647327", "2139537232097572384550340", "3464659293390416592685020", "5766394865425067220570178", "2325443625125500162820332", "8562539108719742540561695"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2917;
+    if(result == expected) {
+        cout << "Test Case 16: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 16: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test17() {
+    vector<string> levelMap = {"185685626340749776620381582312382305039424", "187090111992119823945729694394370200594497", "487599872705518760437044366716227233111991", "487412039741498855707243661757856640583510", "921132872805044943690413390602283631916149", "602094785353497957759373696609434784498915", "399882672935773446430240478931355720099113", "895430277227336168094912673247206713944088", "138215297961556226272730375890937863173422", "324547918505137353208322380968302858988561", "414614592944563576931783870121620209663251", "840638158190775118664822781750013171082005", "402801754412301564352987940385492406509825", "798547593934349486851221913216380134607314", "728672906430675496775996287303899820955183", "266631928509721748267835028035898895363360", "892942082159118265413732983313122688018389", "464550952562188696213937022583217991261282", "136662815277315700619784187533326723678885", "584366839932775812709252161865118087297920", "978860351584196739346698863293355306797936", "706601850861329531083859395656169445284259", "982423939672447356262393672400491824454622", "160972945176739547707833464651458302481639", "783157351160085431087276040331748150852142", "910208225658458525671307483861688935336263", "562537038254403362727955609191913564955897", "006437129967651332306410420226639202386746", "616267705156680570902764535240229120901999", "865353853030221071243852541725939628243432", "360173746435333167780971958291067022195761", "423249851424198857274331735568670797573223"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 5781;
+    if(result == expected) {
+        cout << "Test Case 17: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 17: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test18() {
+    vector<string> levelMap = {"749308948749249302355812", "467121494859920721766850", "914082679912141965455460", "651725101472755705464642", "511544944255305826950857", "548459242274254443653321", "563190144244857248477230", "033626135274828373293679", "347378103771649710381718", "594581731905834438808172", "099394672855589533574984", "113165260798668222047502", "143709922007351424003333", "568267786766095873798280", "298623325524033648479950", "727158835982613559473592", "813844446692058616269564", "488279574946680578235559", "112971556307842821142442", "983826655112149560922265", "203620046224036961863463", "050491014921786916906927", "073207662382018439586352", "295846990440227668005153", "173931835605366184086665", "008756895470527798351717", "157927128448740943226537", "429106751228072626397969", "686641433738813109611070", "933539811785940862601623", "068302563751295820872620", "668657751872386676677105", "441351143020560167811958", "617027811774176392451049", "778305286235886009969145", "044804911534508097381135"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3686;
+    if(result == expected) {
+        cout << "Test Case 18: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 18: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test19() {
+    vector<string> levelMap = {"7408534625", "4382971449", "7799593346", "8160717617", "1784566481", "5564608537", "5497038740", "2971997134", "3320232518", "9310564315", "2988860937", "7769225591", "4243488017", "9148583917", "4503493978", "9214021647", "4045876955", "7514419015", "3768152688", "9869084907", "3869145101", "9717588483", "0290922797", "5508172414", "2956064295", "5525812066", "2902954989", "9228560295", "0031505539", "3554965333", "0183161798", "2736284417", "3641572700", "3766044912", "2138167009", "6982704598", "1453576181", "2380671187", "6291577492", "1929314529", "3420195654", "6782479009"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1852;
+    if(result == expected) {
+        cout << "Test Case 19: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 19: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test20() {
+    vector<string> levelMap = {"2855766749502292202041203580550375348329", "1454543681896406662673591953319589047395", "8387410094525714247691515730308779966834", "8618095645634905123392792570263041602633", "5752269765001665068395025566003294653591", "2999890670659172555643552385051564274884", "7402063814954468607549512646079243072198", "1980783762813308200129140186699361719758", "7160361858120604443631110333572102722628", "5176965161423277361431665647194322601111", "2816065469387306868570511545673742124358", "7559649369722448383691529815883530686736", "4923424921594076973729984131393699043991", "2697957806890512659993659392977446245011", "4429572509077483628054378975405614682036", "4467030026368144246030784716339189732430", "5413281561188395213107081353727899789898", "1810729663710603700991504576864728907825", "8232934829253162098459029009449025657015", "9097456339020843685536187714434575306290", "4829673992470706739817340952782662517586", "3919508966649915012317040498467389769624", "7720803997575662253654638379403941100754", "7102550266430418427165288014902268567728", "3037818001472658790800014473008785407058", "7345090519075011267110250831983541822375", "9911074510516388993453338238100258350999", "8601576013543141945491765891980154755109", "4830760358147647268486739005800025644167", "8984317556844154450780853170982568963665", "9340085364097643386843171841864907740957", "8209408267421487181789656197092989381899", "2083097919766519769949932264698688897139", "0879831159918061601404951926246802904381", "1107816252702550009219501106909152710330", "0129871830816171881259553349858955714233", "0423524930290891356942850775568689806490", "8044381289211174118732286960011069016150", "4283882778160107776763073143769135322843", "8262905175324798189457912188149422424052", "8681853517523970615939738902593620585828", "3073397536617238314499659857724386495679", "3444190135548963957087804848975694867374", "4748738765338071372411673599283778372663", "8966864026437132705951484676573397765981", "7299759528810044529331654265539055818286"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 8023;
+    if(result == expected) {
+        cout << "Test Case 20: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 20: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test21() {
+    vector<string> levelMap = {"83120609", "63684079", "37738879", "43158432", "91867224", "13915496", "61305452", "60458393", "54192381", "17009757", "32617073", "00207461", "25177492", "21423478", "80579448", "21815755", "03255041", "25594763", "13497689", "86594830", "54628315", "96341078", "21538345", "75265306", "96221183", "10485442", "11538696", "26399119", "65321366", "59456557", "58498526", "54376375", "19858938", "78443575", "48353001", "97581799", "65450909", "87786964", "07334198", "27444167", "06999529", "18954815", "50514024", "60961593", "44949848", "68175429", "33419678", "51290112", "45185776"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1755;
+    if(result == expected) {
+        cout << "Test Case 21: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 21: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test22() {
+    vector<string> levelMap = {"8415725", "3016338", "7248070", "7583697", "0974120", "0564136"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 141;
+    if(result == expected) {
+        cout << "Test Case 22: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 22: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test23() {
+    vector<string> levelMap = {"2772956325795877556852873", "2241885186143442569376052", "7904996759223328363016519", "9556200766525103667311846", "3339571723773358670632153", "7972915970394479421808521", "2586857991544717545898992", "0736386656796276947167872", "9254593271806159406721910", "7025607621242692350072760"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1106;
+    if(result == expected) {
+        cout << "Test Case 23: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 23: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test24() {
+    vector<string> levelMap = {"822927054957967460312636495125143314325922", "273702520394244066429744901382690589257961", "932827058478010715002829288753210149868085", "747777985989735197682489532172890961547472", "692293540731740687344004698465768303246042", "515673213081563959526847216852879607150917", "794585032064277695948260251185233805182329", "195157600460872143980706574310136052119752", "800446139258375221299817523468952429403155", "906431178061974187969348942753263211544285", "459484220608929447732171288137555829324594", "855357436539514600959778536115023372444549", "881298514132673421362700095677832680985083"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2362;
+    if(result == expected) {
+        cout << "Test Case 24: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 24: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test25() {
+    vector<string> levelMap = {"38654027636437526692736", "73506332559762961217745", "74326484604274623978660", "55577900386294511032383", "23350146984399512098648", "51461205546410520001882", "99068374933711584189866", "84433809037875813023040", "19947078724121687243999", "69329419994134100702760", "18324983224343070328579", "85235136013597423870619", "44017593788521698610372", "49046544693112350596689", "49925112963953061856167", "81195043341693799750685"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1534;
+    if(result == expected) {
+        cout << "Test Case 25: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 25: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test26() {
+    vector<string> levelMap = {"567196711", "168955480", "268244485", "859677010", "257925743", "386204164", "614770013", "718080017", "039229084", "894687037", "118748734", "754373494", "279986227", "497971355", "269166230", "177418843", "359114982", "007127061", "612819118", "653055241", "972579934", "487095694", "655411385"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 860;
+    if(result == expected) {
+        cout << "Test Case 26: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 26: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test27() {
+    vector<string> levelMap = {"9128180335774359947857752685687876631283", "1442314820035507198921702484128011874161", "9850864323791485748647880506220717838719", "3187130349184459606535392332622855972267", "6859652952985709861163699133663122158857", "5561130673562832982171828377827048866236", "3852080436968525632169908689854643260138", "5209710051142928372584474100297858497116", "8333091197396589324863232400471117748505", "6670413397866572897330505250771999968601", "7673547955442542262174998715248277611638", "1057047304667948154042535534178889505116", "7062071366164488705344348928281078236730", "9598939212050757777533404150143205105192", "6656334470415354272281825330188631614057", "2569235488994972320861034368289853046785", "8176151828204453228032720590397450660347", "4950750954746888866498930359759716800592", "9322703842113875556329143108676620614755", "0333050543495610882290586868556407568633", "3366450482394679176280793343497823719818", "1370376319717599629886478142851739288704", "3947391376398238331622947587763291632693", "3354083779105024520989671528963547066831", "6728832198057055723033740413060346214569", "7988799292640771512254947565137159660428"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4530;
+    if(result == expected) {
+        cout << "Test Case 27: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 27: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test28() {
+    vector<string> levelMap = {"57744123", "59836356", "91390324", "32327408", "91240986", "11022988", "10564553", "13772114", "69400376", "29736623", "68451628", "29683352", "65372951", "79372417", "27571352", "76525381", "79724506", "63818125", "29901086", "92664253", "75682447", "63234933", "80824103", "11939795", "47827451", "65808832", "14240356", "79143146", "24449110"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 961;
+    if(result == expected) {
+        cout << "Test Case 28: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 28: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test29() {
+    vector<string> levelMap = {"6588947", "7978841", "3912632", "3032594", "1240224", "9850416", "1017129", "0310546", "1893601", "0099298", "3565861", "2476784", "6195329", "5975767", "3784441", "1812118", "4884609", "8621262", "3564187", "0195933", "9387910", "8186464", "1252487", "8661976", "0462476", "1202096", "8863916", "1147207", "4738478", "9080534", "8383861", "4502065", "2749271", "1733329", "4101611", "8974236"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1072;
+    if(result == expected) {
+        cout << "Test Case 29: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 29: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test30() {
+    vector<string> levelMap = {"012437191186893419246732", "234219512890720833581562", "907595929082805413588001", "639234083570817848541404", "587668858292252950579600", "878721139261725742594873", "784766019902732475537684", "158631845591542203518158", "777423403828733175617800", "954281206716337259445411", "770010836076990549608017", "351057758453754730558497", "031247659496080704542923", "290156062234275234451114", "631360143874587193296483", "621647799143911583332477", "141080392803761092617973", "947542522755210289096966", "656802029824796362770187", "876592236501802429486735", "534735735017930596824538", "614178902343680937817783", "227127011968773917831499", "000276891607936759559710", "518071594962643584472451", "847231884539225253992469", "662178546636194037194785", "459190565366819243287972", "601750353511363154053751", "484099411167707055433966", "803001487521270826375333", "095811103254041211697611", "697454905793470003793056", "947962925821274662978544", "324035971450051508929672", "672029279070333724783752", "072620567498246960975340", "808697665300773921174015", "068699214295651493306969"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4006;
+    if(result == expected) {
+        cout << "Test Case 30: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 30: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test31() {
+    vector<string> levelMap = {"669160203592093146973281197727624453891122", "281324802685279108002859349377718838698534", "197346436161311761585624201781212924315181", "905023930445859547740693592679851382631504", "561133106969326423911323003297322957486746", "517324660511729063312224627084305620710916", "180289792096871973588981045010222278276816", "686043262790030121567408156583064191285316", "791678171537062315403613973705675063531508", "689322148399631832418196587668124843810221", "395266738351274217634747768070490420295947", "960075803899642082364752090753963566786966", "282788362151845310562534358260363873482533", "629234700116563660382186441958309877553252", "484994551786409772826224563448456167863813", "200343818471899574429269278536204871320752", "323460811298988069451089333097918454737548", "450021137621864386160539926489646577773964", "192336440539503106140820055637187283906124", "454131601032644778393179097620727320810685", "748063130120744872548387493171604916403837", "044665757443349283111933471329430274079903", "089647367021984046046382824336308438794566", "996218713771370869946663893830450877565523", "047341149949756311572149112793524264828019", "762238953103496662774973137324383457468852", "558789048266894361586518189320532285820312", "826434581596139288228531302568494672994238", "331206640505167422855107015283672420835259", "963383055438820804893199479022058359429680", "146051859488049427195575278299106184647881", "701541236675265913588860003552946080484926", "972346190796531992070074209241786308004937", "575940597946021512583427071529660523489403", "649234229499556985821569037025970411704839", "032527485967083511244498190095896642237439", "954312720225421185374199527361094451636213", "351913837581114148916074890458599581484741", "668587167945226458667062816156971174908037", "023870939344013593846124728241130433903388", "206992499803138967308595914104128710887694", "583084963091598982221213051527189713716198"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 7480;
+    if(result == expected) {
+        cout << "Test Case 31: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 31: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test32() {
+    vector<string> levelMap = {"09388360508149395258881", "21604369149147626296603", "66807075639517296063908", "56309735240551936465201", "80063178439927362228918", "43366753630798897955038", "01403360454389616885098", "95172126625271493309107", "55513677029174272097239", "59620684947887037301949", "83099016549673207740565", "78938696045193791380430", "23511991613830029260271", "05577957174979027334591", "12653241039517753088109", "90084043852183314704457", "12820725257363770346389", "48142167310558466073054", "40782855012056176861564", "23524616395809306426456", "12686539714249691237903", "55052529618633356942464", "94776156889107741363942", "80002533989984347517077", "58294831452375853351199", "33825967917421224949197", "19832124947001092704908", "95408534726213163381548", "51526814401037274676024", "52461217179260887782974", "65854729332360554176973", "06991952434631494413605", "12776536085431063556544", "33221246663965567416471", "92506612181355646814681", "47592320805375224000080", "28224059380083520978216", "01369105759047249128633", "34570723115951715290241", "48365903397866269298993", "46013198143579920570845", "17413646396775350350179", "80462378030737660101863", "25192549848919677660415", "84604046636062196449460", "81154045493553832776141"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4476;
+    if(result == expected) {
+        cout << "Test Case 32: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 32: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test33() {
+    vector<string> levelMap = {"65871582749797346701534122594302657665282", "62501398012651997264904997677361789740304", "83662158602754221726429868272803586989182", "99876364906163127970948939137983715058460", "00319750214807008741751156313769602910469", "82135985463985110717066453384193126521910", "66689676967678809460251911016950440961892", "03366806213889398913056823690866434385412", "09883730995476018663325670548053311102450", "28161486001202300197528738181560451806215", "03568133944458071051440631470591856110004", "50095266367110203634609828384722358888842", "30032334206329709725620639512788033421011", "55750676939613058122748800855861046706130", "40153392057114762004078841284467999795522", "89946282218698213694846525008006364179994", "60998392304972518109897016952896180550751", "41441102958602122736240579093406587360315", "32869343719834414669643697419254448400921", "03916032564431737050109665731700850104643", "67105177950261365023911155443118725258531", "44992743390185155671740627675483523538491", "82452769770855646103197690696378544593300", "55747488326841270813681601830478022093543", "39240215687562890769971174470716006171693", "27935497970396765450352540701049820409965", "88898622711188538470006412305102402237282", "97052287424423161434968815291455375586229", "31526334075718604392663195576481780831179", "23375271063213671876551157404732314261562", "72911223895319535443909050243491519677267", "57782561665252300584005868141284402430692", "02500059934145643714402613722416850372698", "86389673716609386555997852913682016749800", "93974177830345738992329350157408791404060", "78805650583115849493146322319257121527338", "61142868570724693344277068428184193582794", "64265186832024042059975103401739708210477", "91893180581829677114875258596838901419859", "46688398896206815422418193768601560081557", "27757937360076060370445600332786523822432", "63195707937223314374047878257693829524127", "08809654246320924036179951317813399969868", "12905266627492523752570292476038689538657", "57236566343718298607982710368865088764481", "62006295810942871108812312611537098998507", "08631920276962335299847785723274474097328", "90584400048774659546527757875956179426639", "93251245629453349483711463353673220067303"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 8588;
+    if(result == expected) {
+        cout << "Test Case 33: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 33: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test34() {
+    vector<string> levelMap = {"759061362292561670356210151360448680494", "622331731711745006221690047086298236020", "262424019842176158240780363301242924830", "625866907212475292126798781399309244094", "467089650669178917664749242635182040539", "333259014388557572401430921914381622434"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 922;
+    if(result == expected) {
+        cout << "Test Case 34: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 34: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test35() {
+    vector<string> levelMap = {"39478368", "46009614", "85961769", "23487773", "09433840", "21910703", "51501556", "66308844", "74847361", "51784489"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 305;
+    if(result == expected) {
+        cout << "Test Case 35: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 35: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test36() {
+    vector<string> levelMap = {"7404068860181419826983980", "9958685050425531841056351", "0405016727980888496737696", "4664023937966554437631606", "5740784420487520757975282", "6840090540612218951039104", "1012505873915321186848049", "3768878028718736980980302", "8283566769932421856420182", "4039635837615019175214513", "7682667497212819478060430", "4367395362226864680817856", "9749546334479853614473514"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1385;
+    if(result == expected) {
+        cout << "Test Case 36: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 36: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test37() {
+    vector<string> levelMap = {"3950391", "0849554", "1698203", "8481622", "9296215", "8326814", "0993153", "1359547", "6935184", "0142359", "2377898", "0019359", "0649613", "3542097", "4730934", "9760338"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 457;
+    if(result == expected) {
+        cout << "Test Case 37: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 37: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test38() {
+    vector<string> levelMap = {"48448474221922981054572600043038429018751", "01681372140752844313748647544620361172590", "08541675601032813794878429005908204838063", "17626237078768309460970673058199689547360", "54541000945540970121697677123082428174217", "16629208984097359815855109718239214640633", "47211878480225110527505409870291806443255", "22490129677508150314852072340930477367044", "31650980595801093624969300420719143251498", "91886215329921630955547686806913122148695", "72964851683310463560263201804381150778153", "45020286390886994180138463352566607732198", "97385794949157227510389192718947135941054", "27042699609911009823998173757072419798988", "27946204280817267299653606219912442499355", "44683946182611835778424472841949708033206", "07773414559085572241751163199083502842845", "28504366237642446575907226827746771351965", "91138183440023524088525882875954763100988", "66986186264222009478946786967405785418514", "43347201410590032029684340975427502334285", "12226861084087731179711871865566900828289", "60255649109256933851755133710516660876614"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3979;
+    if(result == expected) {
+        cout << "Test Case 38: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 38: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test39() {
+    vector<string> levelMap = {"83132506460760961607145", "70539476747530588377689", "89217465664840578078315", "55811763186708272917129", "57707178795855310460108", "45252202634158342902496", "35939558068885568509338", "87712745114867955686965", "99169066535939956540469", "29011640882651044902326", "47833218862022223340589", "74551355274787052827451", "01936290431347340898442", "71909371734726993451313", "82592580405181637299022", "29754754254893939731139", "69383022783461613948945", "05878816335113281934607", "87386429692209941197051", "41548390293158754526080", "65592458001598710409496", "40439873419754792294192", "08654534073025331461104", "42683954165462595998726", "17165992576069730698886", "47370022282078056117329"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2508;
+    if(result == expected) {
+        cout << "Test Case 39: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 39: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test40() {
+    vector<string> levelMap = {"4959582860140091238768861366557873059283", "2624774101275712495877440297472429625347", "2057017477088437723771912663075849558894", "6590859211140161795149613465373381521929", "8567498362498002693647281176223166171387", "5690122039897124532860083180248869503356", "0569222289981622994492230068786299803094", "4369829342987790010439212156076003567044", "4601281448259392696609050750022764765139", "5696502739579432956939340611038451175655", "5917298701370838023048168681380841192775", "1753991845295695037618218922912948968656", "0352126232091205156955895785850162454870", "1689016057542722625017142986656987358189", "8633063763850911718599476599545001092064", "1966055049501258088379540411971824999904", "7472996521496052613098673218395753269420", "3503208109089360317758530741516120731935", "6672773088822426691355957270211064421681", "6835031358813196037773578559566429752052", "9413569760931183802810578741643233777465", "9672222994176057100883847139711467133445", "5957033757326179418467313734976855088590", "7681201572302479562166457031540693360672", "0057820185087976453137139164072297561913", "8492680757026247359215270784697579571091", "4647657679987629796984864753550960559720", "8766805779627037350161239372149826564942", "4787477171900136919748170068702524452352"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 5050;
+    if(result == expected) {
+        cout << "Test Case 40: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 40: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test41() {
+    vector<string> levelMap = {"476303700818689344918865064871109429790", "022247553191317131554162053394283556399", "824907594180354841643736856106147962823", "529513004570721246664034141257333215311", "421489646511038858300777920471758449934", "195744768628250275162867469270403498919", "097699155232265698741888335231748314281", "967660931964836787842055429049014735032", "947277731657888555837715980208917086275", "207970487087857057076006468898825946769", "491456960047013189248210364303621547198", "699209876194092814053457160908848568070", "823768144170404137433689466375238486384", "704708590936043118741537382448252309857", "532949348232130730865237922173281114771", "450744132439300900209479129993257743539", "144368908016768253929464446487094871733", "191060376127121283990529748784157227003", "726143479895097063017539040903244155536", "710519643976633453267965867520330619968", "974751754024372123185131420700173445871", "289616198086274442773129332512516487996", "190336447245433648688420711946780574481", "267357579943395287155546096189094343302", "047470367317015653903425934737943141352", "978946685272246380799350444040095280619", "504903112355147264469066063927664802295", "616544822263659664490831382021801005404", "730169173194325723937810340178968735379", "849668116956897940819659497500715265680", "851592757946529369928976334645901792233", "896110393601966523679510723279305928405", "500292174152158334009465795129383422455", "326529381389968239353028622899722989876", "671321702535563059006619578830974609521", "228384418728564532820908874176488928368"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 6044;
+    if(result == expected) {
+        cout << "Test Case 41: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 41: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test42() {
+    vector<string> levelMap = {"8219261", "2322717", "7141643", "2141276", "8021908", "0860529", "9282159", "9640759", "1873368", "5691534", "5963511", "3439982", "7614760", "4678745", "7808563", "2181869", "7256684", "3962552", "3455932", "6227727", "0817031", "4935990", "0842009", "5720339", "1412403", "4214670", "4713151", "6941609", "7266360", "8171091", "1636875", "7579082", "4450474", "9941710", "8179783", "4229538", "0325274", "3920027", "8032311"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1148;
+    if(result == expected) {
+        cout << "Test Case 42: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 42: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test43() {
+    vector<string> levelMap = {"5866592356233776582509439", "0239851153373172532826599", "0897041089562993813722716", "7250469669419748284544639", "8109254011608439946540901", "3138347297950433303195321", "0825775287926160485537445", "8371636892373395830786850", "2757826660842101384950448", "5077590593536533424441115", "7820027753125959906014302", "5149340352580038895199773", "5061840015256518551285243", "6558341413990391694110231", "8631015028603253630214297", "5282925236081170489144663", "5596549150402326946496217", "0765482278616409630760993", "3077347579689170916543876", "5947586373022389061221297", "4473390034619735466858617", "5516903677602635201852165", "2772290476385666781299446", "8055419156121922074687458", "9959935616919506287512234", "6762773451121603224203148", "8915452214479550167975645", "5411924649112983881438243", "5991052734347917428153990", "1602102134931858723502164", "8479359360777094207435305", "7833811192860326637952604", "1968373620604876059485757", "6582179188999113923127245", "0628836298349817923673038", "3811080073767697977089168", "3246837459436112562884128", "6941550331551406337477367", "9443446269963852778773037", "2296662685261756336436498", "7507337399705552321326187", "5360542064302115408879137"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4484;
+    if(result == expected) {
+        cout << "Test Case 43: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 43: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test44() {
+    vector<string> levelMap = {"112371", "657011", "757363", "764393", "065805", "723195", "622224", "907027", "895187", "501278", "576107", "472918", "095249", "671833", "249280", "593191", "376885", "409751", "157813", "030807", "646271", "893119", "513563", "798879", "941179", "465366", "727599", "799968", "656138", "826267", "252363", "336902", "433542", "621896", "559211", "543625", "090298", "092555", "835044", "465323", "886144", "075418", "690116", "625308", "019866"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1216;
+    if(result == expected) {
+        cout << "Test Case 44: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 44: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test45() {
+    vector<string> levelMap = {"12162717183635759600637199101314521946391", "80766316046672197939769578924581463858936", "71796994769706316740343195127937306734512"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 563;
+    if(result == expected) {
+        cout << "Test Case 45: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 45: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test46() {
+    vector<string> levelMap = {"5785403932227373016337", "0297672923586233421777", "6691609857779182170183", "6516434259094285669944", "9965146322082207032614", "8046018156959720415797"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 545;
+    if(result == expected) {
+        cout << "Test Case 46: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 46: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test47() {
+    vector<string> levelMap = {"1022926156312358173484318284585473232247", "3415544350412713929936751721171950452103", "5522471705243100226905487438199068751470", "3962892895627623456392114027721297791553", "0673082358302049484416865533862096657835", "0144452932808572060308359192034235014708", "3918459689987589948093545000581697011713", "9678857859227320189192546201674691237211", "8854139787414066580821992048911759770936", "7189159967910738491758182224695808312145"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1702;
+    if(result == expected) {
+        cout << "Test Case 47: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 47: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test48() {
+    vector<string> levelMap = {"66791383", "70474155", "14975889", "80196765", "79853959", "33755205", "50731768", "76085619", "33170983", "68505665", "05076412", "03928855", "03080991"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 451;
+    if(result == expected) {
+        cout << "Test Case 48: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 48: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test49() {
+    vector<string> levelMap = {"6682693", "5193229", "5835214", "8698393", "8207009", "9254727", "8340173", "0609752", "6903761", "5723604", "4492547", "2192455", "1269954", "9245095", "9854058", "0131809", "1175875", "7400658", "5038402"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 533;
+    if(result == expected) {
+        cout << "Test Case 49: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 49: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test50() {
+    vector<string> levelMap = {"203991773340495532721498", "892899362652125225404870", "401187076312955908129610", "004994707430406203086127", "863936555325131020399361", "957907396812242328579663", "053457053194582013689900", "113603241724074769309357", "712611267401154543854752", "731788534519526454774883", "887457773578816970093488", "173118653846934374339653", "121191390460151425346591", "528657002785293822679893", "885128883290237636229924", "872521655850417153882337", "968673805748015303807298", "335475826300808950273135", "624386201026048828232534", "720311923718931637478845", "278716976235632514347927", "799523459654558747646377", "752648181659098545796266"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2261;
+    if(result == expected) {
+        cout << "Test Case 50: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 50: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test51() {
+    vector<string> levelMap = {"659514", "896736", "883049", "356949", "977508", "482133", "096422", "903640", "207577", "534521", "059122", "780903", "183518", "312406", "693709", "678864", "879819", "982557", "950032", "022683", "394467", "361664", "267901", "832139", "827305", "336662"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 694;
+    if(result == expected) {
+        cout << "Test Case 51: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 51: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test52() {
+    vector<string> levelMap = {"20423721814538375506337", "77200175947959669215856", "82200767994817255558648", "17936413294928187101635", "35228839914996689911427", "66005711926125428573614", "09892578326392035189951", "58595386365914255634124", "29304566965164035490552", "75523279925628970281468", "55042581269769466103702", "94569289496825862285023", "39597262740638115662370", "46385154110623302342196", "53771731258216899946840", "32627008044426439892823", "00996082152060356330214", "51099511711768590491988", "80145313861175883841211", "65265649910664930095996", "39173948842456973149647", "51978654787125288201470", "47433417290085540479688", "17503503640237073452834", "80608981892912949922442", "11743309794662821811287", "26581737251245313186132", "01062280343868739025517", "24322826065898073735219"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2797;
+    if(result == expected) {
+        cout << "Test Case 52: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 52: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test53() {
+    vector<string> levelMap = {"06784086060320882903369089417334317522023903552977", "11152458455965141053953631391829613766096321034403", "20572102645530161236674870085234309459687982171835", "52335066044235420217330931330672405179764135614701", "28817570973307239060821352466249476494339679656643", "64898014667361377545934743911977297586327157174588", "09624070654954801578715120641974681094310538784794", "52603422970017694310099896496626482778107485581391", "97149869993724469524375535551596603356499704565638", "10861283026458678258366319496554848885689873659335", "32666454190468417971012167899663215457796703512762", "04837410317383442467529087175482421721959786489907", "63281710103442214773529948676400144591388542250794", "60945716165606178919599658226625967999175991146154", "16233296923845817895027544449152368046839641575798", "27174848794798808549134377518567081366687696431186", "40561911315738524061034339296616066231770802677960", "55895551719086445186400264515144569130118126909270", "07699002020447545104152117949548997539780302294686", "79668399159995530528306325546258054853551055961427", "92240371994276013477318997432220369524926988832590", "02157787464804469526599216465859582462858777728127", "32369322861360566572221062463558728149304128450176", "33082256758178623827924625975369136695686147013587", "34664514103273007944250104719627927730955340165639", "16386519720881313358873013674384757272408564410006", "46025634813626883970645142840758341564030579012042", "48853086345131120497058231381080089007045103600582", "86022739906774563198610552182711720533258853539001", "27198445998180962839516227848233742222472869612828", "81288953142726412605554945954197166470555192316383", "18056096409856324416176641787872473871757348316926", "40812607647963516142083804492401206184605573053301", "05135923263259255103008084635351764974546211248369", "82097380447512582049875782080404549195092924333711", "74833581903936168165335517514417890098400647896965", "63932742344031093464984531617912205264684743924658", "28807786127379261832492819350643887387528646048406", "12670911496590366675414123619816288625366455947227", "19343819922186641087405560312022364947351934083981", "71880588195418513962968388663885701645399252217847", "94000796857535500896725912420852532009820962317686", "17273313286359735136774946607080655973933817748604", "86277013256374424350926538303176115076081288393111", "20965932196044090961389314033027717529816475810831", "75264748390344603511430945140075062543741203975338", "18943954963670407839030455981371449509027918122774", "96431301006387428251370249158895629259493168784154", "68834242645378974120947389731298423174978586645547", "77329046067875728497929781202280311458288523482092"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10818;
+    if(result == expected) {
+        cout << "Test Case 53: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 53: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test54() {
+    vector<string> levelMap = {"69357398200968843586814975768065363619153843539167", "45856952647929407644816447517198466741175268403544", "02089234684549895758021339949086332032842678927783", "82681876004935992028670345477539826119081558283393", "19214008580194485122437784947190329410055215476471", "04387764559320899241766472203257789368553736191255", "37834649373599534008178719556759003290551511540042", "34823694272738073372214296667395932459390877608874", "11111465072815056910430401372981231760195428537138", "62806645073931227640301344311235829611253175938223", "66950920294076809725549805300792457158651810758640", "47520341268446898894629104158180457312597106548130", "06417812171895943429918468928996525373821922738591", "93732048877331458348696595221013735166329976425737", "35930503955037156951333186724217268848488718125455", "65133083993184071132719320941923244602109112255039", "33664277912499694962565581093374266153901782033590", "05204699575423658807558782501019630435087974711370", "51510032753663703870823942966145984679096956197850", "99969068574641860792485092893416485671249210188969", "08672406898499379762498847057500617642941370930087", "76492833477733395472610635702448788094644264048796", "52287267962601780647347982981363933199998459283990", "80294179304315140780185125027243134446910875336599", "53124264850759767689391164321851838860834142521363", "10582853844172009954796102825749307021240440581698", "99254930880873561943718042261239403029293770556419", "73106950298484485454863136497998094226068543643553", "32377890625073389257928755060382634850294865071038", "68911078173574247004509392809022824786518333773124", "14019448328320240249964453127908006195019469898951", "80794476708407939311938812332656563311980932142336", "94220633900963821677824740235372962579445710453112", "10945522318947348251519082583554524640592575465218", "90807424359271556745492752342110558693297621214659", "35361620404318453259631355287691383968601248135652", "91469318820629322882701819622838319052571758271633", "03549298295182641937938136124129998182012154098433", "66422627547128958354587517375581970575702973903548", "93123198269016257701873554525607348090205109350044", "69192780485391709239853761569887536908764746212306", "86587658815076881042494130385096291744802764585676", "45819870435905878834802962728973491571164997927380", "90389837765402578634576701294677704885150513063618", "98904275340208503260734740203247556154169133334769", "47555133505134174157908145767856915586836907523902", "45907844187505555263652967067311014798407952009592", "52711177562363993980271709333459317328931002641577", "43214933212114775316746888352232858059004584403106", "10774151228500928445829351792026460831501022385579"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10872;
+    if(result == expected) {
+        cout << "Test Case 54: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 54: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test55() {
+    vector<string> levelMap = {"79382850680426684710902988502707585095223271419347", "30656157691805902830207028789498973219098914543944", "89123777656481169592987048507613663528363830866490", "68307606854132945979069992871485692319702485550680", "01976060776983669490329565188701722161488208574951", "04765152747348530888698450582636156000821581224579", "93531756600860694758055357257417843622611426253648", "60265048657912069123696827261322029295956340383837", "09060887308327951083681142859974112600420956462376", "88063020006954249431584282832473601190074390532087", "27930083583998254225912883110311209398583104055406", "06004013501562690688790399720475953062876036987378", "06086221627972988320856970247859177848609833886413", "18917722205905040212581640690905798154715094304820", "89126988827702313189785536386318258434802021917055", "41253000285146356534039197888056161319923100725403", "91013706316823204666456966465694690605384393936621", "92087075667575302998854527723691071043094266309274", "39142492136426430942764618706371084927545558833415", "57845496993831018048802645200535408239539928540850", "59707694507756308984575396050888592078013860947222", "05282518261583395113283674268863588147509347582102", "21792143052032348106777903529031316950160100944329", "44909046383698984351410533544995578858786790841555", "73061092164583782184294465913071879604541505134509", "37904589270763539065763299135150807620832491425368", "48195624695400914289183317000400161861621440434425", "01893776853193007211684954619129292674303495779794", "93062304183250412932841296625374443264357892154971", "41077108305472710196095273035581428153592887035079", "82783307977809402610392951239612114732024594342075", "26982432400763923887536323832123632664353188014243", "72944766644484218720179620151321644377984808216621", "17448921280710546545431810477050026791505985923147", "46016075185942543199715902440905273003799128899164", "85317924687891218051542784968945158754865358063819", "89017259068904098728955351724909822475255670187842", "75993645492878421131917871362463393817388842089005", "86612608985392152584506552572638256773974960129631", "60096048696776347976826125980057419894092456965882", "59499935464178378095895506551807696602403835429936", "01230953079258452549061139195512411227995451810945", "50163629841578146491481073163869917468210434159868", "35545347586501562326926560188789005532206256319969", "04127241601737428448446600344000927426986569430516", "01083078725043297209932343182886619554429514424030", "88617083366344214949428271330119481004869929329107", "65558337171136931669288206896388064474003431934424", "05083402605894419600432695576212386052602810620405", "35674082494187725259425608902676920183335857179633"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10732;
+    if(result == expected) {
+        cout << "Test Case 55: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 55: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test56() {
+    vector<string> levelMap = {"15754182821266635371645876853416730482372119396547", "84550649783879040441160834925567815291064851122003", "62650889685492702036334588362465688231528324622548", "28576307814920336780218396128462016379937888129074", "91474596183878827753925908649361684008184535575579", "44956092749397840706428988853844858881857177261256", "23040323439426327066307246153490365626852227821996", "12498929859633658983791227432891579968249633480309", "13131582484748549650846029693389560025125671334896", "20085265051228896822721287559136681945548813801063", "31326567686515437069459531810640412797640290394382", "49796855482525046725662434612272910353406438167391", "40312534875425796874245790499245557522033203364319", "11404057909523330630478687795394574021968070883321", "97613005059192450252818178743482259117451178439712", "71213025385522529147684230294614303657446805669545", "64117162913687256367697118362252810437315253393231", "32477103624190603729094035991585160560933012281274", "72043422860762671430235274503877081036960004948699", "77349155118577147120089520567783821058225192755092", "63309857300977973279655046654099849196137951954938", "69735874244392441869506383388479704769397044984879", "41600981142173765490793723857824512090873502877143", "91111187916855591284693033709989275691108227065487", "74521642831179341729356525624325767725329305490113", "50920893394145415663616498306485547489684557396740", "93324729652878481251256995320181354036686749878884", "16235530606447342370499978715047306885505825941963", "39427653821559038121157699303714235551392926876908", "90680732572966086391086119098372729595638450907575", "35434793143613230454522769490433254346567952605633", "88622712791594429780508562788107534105505961960552", "28452792709294503255811576194190302562706775616412", "29258539234108632891942730325153987367553259041996", "54826110887814736097431992082711082600985825673822", "46742052068293683043048524859099643442167059532507", "27354805541792327258562619839825119161944385634147", "70635070779650801047453118136950404812972340029932", "40374314154049845262690944236313939822510288185222", "55878307935805163598392189193712593867716619112655", "30713138045061444372062977757028702965068429411295", "94495895048880753695830159969787172962984353966123", "88981286010326299299519279276762854975229714240644", "56957143995649719810594833060288516440374764008573", "82174604855712921747681136315230566152338235152444", "53173552018932869743480443898555561597635427072604", "15471861580279164383050891607159056205949974216922", "21618923645912606318996733091741732443541575171956", "80442293472638410576239194369158710956628018480035", "08039019675811925104223297403292359764657356089290"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10938;
+    if(result == expected) {
+        cout << "Test Case 56: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 56: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test57() {
+    vector<string> levelMap = {"78416204160984615024110871124347896579392878390557", "35465422873811306835811630241817458086123778590144", "34067010426504435449671047136439894814783020476478", "55823339785630808711568720265420448316153201707786", "82861034690663064846218438110192235022800171674328", "84344731832376360534250619943125522643981534387804", "61240773156060051577740127960175766742083220678254", "93698191153164037943987737685389028811632004777873", "17191188563039936146721903335665181439843395206306", "73018307126799242213866212464810561479083215108832", "57900143780821799713286099211040852418705289433240", "84478785153489490172752681493070158843244949426624", "85566748054958723521625302553932758505477765855216", "32191389811251631068577625880090441260202045152823", "15310392901474499305224817028527161110003234880478", "38274230584099701757259181627070868916869309585778", "58282416818239526250125372949901017349566913759861", "82888441450537034260131453958551131864992669285175", "06865672491199940906907007538595077274074859762072", "97640724313122277393338496536943222996912668073564", "90729982214910439274535916271199187314262141054455", "35091001157223387725638812625266000291163530305548", "61216026144484189765800823177629727831465823507967", "38423120532093829014854833863865101461532845487292", "73990003587637019461307597426480788135028187859846", "65226137708436181279641597355840197219427535357330", "76756035429038250325431674649662738491969940322440", "41589404530703608208294672820152481903539256812933", "65770735440728555409455800380187139658328938318835", "51126047738160383486278264141042023259784133087854", "89278288418497866198931577541245112169011428887029", "53260391011337935362362933513998624627756555796862", "61858708171996607993644400966241049855635715998023", "13839228260794927940453628273354837012409613369746", "81336434800593611774868852336799090125380524554589", "26360390560466970934574344729176136340390659991076", "55978471927370765975379995825741224888731311081341", "67367202867463080144909435700626615619465859092867", "86924810424677438943553517970886421781055787243725", "49647798251735768239768873524387689710768884271718", "20005360525054620661147330672028536228412214535736", "97982469214332043843418257823920831798986156123133", "36709766077052312188857375697735662465357704201328", "68080949504789844396154226052999227289552081587298", "39110047179976534946947361585641195798681893856373", "35434925223942320280938651617035433530030121423259", "31124441714203082716492304783199859293310216870610", "77098709881910160057985992266285423511286747028371", "66934981229384242764237392989291047953423026958695", "49474124639646224062322867013016400346078663982666"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10713;
+    if(result == expected) {
+        cout << "Test Case 57: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 57: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test58() {
+    vector<string> levelMap = {"13889436301734666705863789475058042688442726376737", "69368024734775444426552425487985200869189597240275", "16594322457514156861018507921291809727046696552326", "03202239565327279521807824502318881576478733476378", "73158560389658201908814879880942187849515517693047", "44635489936425602350080168135423116335115922394571", "79749430976597586708092787876158186058222033534420", "45810365354806616935173159856858576784825296064374", "31183786642251542721886780968072529664460119278914", "45052660183273891605803238109584564225557837605838", "82284620785439082567702537620369264919562305671128", "29250527706442836519834628284797314235883569584637", "20700840023302731975804002627438027287811925514212", "34989631535187122404663552885486237237456018632424", "41708589934867616480560427305583141903753383231334", "68243253676695074448814034131738220264262823329811", "21586772415091676051556524834669226181797992196472", "22270589417142257712100970133448401189160414977376", "52676802123415108492488842553993164584490605675256", "17144483538768307475406093893102644616637802298905", "14131135019134992591605584977377434532288431132261", "90544357058342241692859341754874306824251127635105", "11114854235504303059126843405412705971056153530771", "85646053185220335855717452006631818202955362700224", "94450453254103586224246636037524799568828787095549", "69542449823836746874684787596196067278258401228610", "41995312486405836387704462959352012867132439967999", "54022487263936963237090676936270486113750797076004", "11112086169927371776763213068727944967453062959863", "82749670813654559661542100104831124993620907140250", "02009654894290692922142067715246272963572087159686", "26807778502970411257104172167772724258978117642479", "96165836434996912428166456908111705241255853300824", "28631036315272020006744548229457497788466768599605", "19016751613564505452485841998506789822575122357347", "04998336041866338828870281510342419238301059460764", "83202848480068894394996071930888530584629227351346", "42009617966446469240445752574213829547067337032804", "40586306562314040722717979634570295831682207200316", "24429077570565252743246857728162683662602846528673", "28118382905959013948002711668049660589787708638095", "19248300282962224999287177789284482453177040391211", "83356223227990567866987380710838399062575084492102", "81192543913737791671823690956410827198421416357714", "18277670103258046935394897555073934424033461270191", "17624417237830992806406651313704285572228034071921", "56188021759118123060824015050939425492403240757438", "53456385345996644896983250351859401700724681264803", "42313782866328055850924801582117471857447222697254", "92939140710390422918142256613832839819671082873145"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10633;
+    if(result == expected) {
+        cout << "Test Case 58: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 58: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test59() {
+    vector<string> levelMap = {"14044098781193488819051772117791263062312034237917", "74167129918751957521165029841384715537222361299374", "91628565427455423707984416450817138094467878173121", "91828869595544424473274673806453635576199561721665", "65042624493328696254826552834353580789959482782424", "24013878922423431876614026514812502178486977437825", "25458457422997944557789535567818728358384819147026", "71450699730060684777566760579185765438372760559317", "29014088778763427883136520525863510591874557193944", "31219147205298894596075286629029434704678762381692", "42254782982540537066176715721998719139574489958684", "07645278347568638193706991058092681996181391923095", "09161259560478486166650332923311689752698854661035", "79163385942451701250669618274360270255842068518597", "97192983806341993608900809066484351489174596224755", "54363502886459237832954021000762947969108013989287", "79655402619324286843347809238999661623979504219612", "12271785409304989084487706266298663797078707566249", "20398062578278836767329538395117164832849096611701", "65759811957050634711932646390210368374918430650697", "54255223726590943701784114178658118087338712349406", "29334832944182112214202379119299008977816120179521", "51628839325058964518246664353082106754040086221290", "49160138165503290748161752513401542614613295115180", "12399483678157793701149957629932830000505369828786", "87864177251420396906551875816606369877841643360482", "71734023299032151323179838719514588499460930945925", "85739103940535665024628494158283494542995538112243", "73820508626206413253486844643719532281426889133705", "65895800267532002753737091338392708160804221312023", "88773715243878857300771584027960361390580810813700", "61185735004544423733921683666329894411471685214198", "93089879171427201689431036623061417029904060161426", "25142456485054228400866374014953199828460396034304", "54333112358133691036708891993300506134188509910952", "35963533944321290820882821193574276726836350278921", "70863980648453562231120615034730821077195948267535", "14453254141131310254627327715469131349325244823686", "51976509801798334981764936833708469039863214446410", "92293924925205473126280506262311754488279194033319", "19634817096735485605153545660150730285516894745824", "03990606447045895494634274598600603934160745604489", "69690170633473733443564584144724025969612532724682", "37356263754915005341273258840520126845787149705045", "23492356681697962414085759596534202797858797466956", "43052574655739015188621858748734080558739641142141", "09897560117177991037990128101937893981154217397843", "66195735054759673484692957921778868848796990258870", "21182271288808988913720600996105900520357538935541", "07739260966749221724738403522282399071325897686209"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10851;
+    if(result == expected) {
+        cout << "Test Case 59: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 59: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test60() {
+    vector<string> levelMap = {"87406300921833458582494558468400419451441994134128", "07862701880715295123826834887454358311380108769433", "76135907467566154149321974443680153897722344237071", "41275760355334815281424087953231079736326063119059", "76339170901133833337302092384214431506654029583245", "64482717026492953894444774705112286850410353476574", "65948116152522479066132224473891248484533912913374", "43653671932701071546552170722654215381765052848801", "43983684854154036460211307267259068926491172075474", "03322289161769240187090201544703334539942365678661", "57830259088858718810602463132217139858631788097562", "41427110128629004430896938739898847486722891202028", "44405562728922415612039134198907080534932206140031", "72651618676179092807556646359766048492095033898099", "13691270838723912781016429341547251492726643863611", "82302517187833420443509944414228380427609518703320", "42939858415176257536788053013546660465090463655113", "62663013265841212625544023423984733092017552568149", "74108212309494076233070363110815251070054741444985", "85231580172694764795081513579479780093615786977139", "71887468620713419908662962585756467105464102256913", "93687288835011276080543009258086302499902617591288", "71436675325168388874352684681895411704731407954014", "96573151680740595579323362677497250465035613439192", "13547821213713360444200029230996848322403141985419", "89980411575720262514584975066962119636594509233762", "45065320066200938697242417039194962864525319389384", "18183177673899922951324399264399579780117078353214", "08163659365485030632794257521189435578552913774732", "24438334412946307848029156391181000804740904474402", "32416200519681685946900372098781221015241488184376", "34725114303167918526865854522223794041604277140406", "28297895233227596106262982665930155414536918561226", "37944044431433213568177274962156859405416440372153", "71043466141995765724335859537107215639373406893610", "15381861425521687712308661064758759694867850837618", "18197336103031999760937961829674138795082954714839", "91195487118944799359163744579036345267827733893321", "15528015179316727650827308497382253190490712402003", "85074385243335168640656492695286838341123369300274", "19929040476628658972238928556171666748881489849183", "27377477615675396642403394454773362669162538772660", "26428639802119968223694600466617751467550802705466", "58468870163053930837823622842021637664645667384679", "02439999835851474713441185777956842313101355188885", "25442936640628784612189056445514832591926345590813", "25552148252000839380512941487977666999245442964660", "22575301290535137113601286096142646835234154416105", "07562962925642790019737109519041334525171535674101", "70174376147693420670636093112008629752746386489886"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10549;
+    if(result == expected) {
+        cout << "Test Case 60: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 60: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test61() {
+    vector<string> levelMap = {"43979541162671419143169466939331455548591652318308", "69766205962859351715767620003504290294367027338574", "58562019488578797462778225208344389580987038003829", "78544570246042387292564201290309490776620488788641", "64735606390210091400718445055064093442370675602893", "04672467118451173522376293075201978631446022492942", "93167764971068104276465003380676668589774723859632", "05873842236222650508747590193114772054958425935373", "37973280903467422956476281000636489431199096027172", "55366612018223896578138226159267216285497887957447", "83214835181484072546239903531317571359406774355447", "86129942871482450887968075722597886777360201362133", "07631876797355244066429944240493250427376686629959", "95348960370007373225554883454252943341339007477390", "42388397760016059636431251608613242195395710214378", "31361520367400693236174897847886644856021012647570", "38034132012738529357018205700226878177221123012943", "02054151212256433345783441489871004518985190452140", "07029242031930335721440106117312247189378598348366", "05535249377340884867158499826639181711300940182570", "85209411425956972093842633109966713323489272354631", "57123515738930112945866418575692508041779205811857", "23154713495409502147679586991680697645325707884839", "33875004234885023409586860830353965006269331653126", "02025291961201828009342069042243869553292744321022", "14286723697111828019727162125217869485336694304355", "28475637023560505689425315358885056211788600823921", "23426931506042287891149313379215583891141489225484", "64536911984673546728000468409520249875589925296760", "75141949499449673043211992364870303466888475654908", "65447696984467211770119082259573459639605934466034", "96483594814900216421639293378097885582846851986015", "72703921606029698832984919619800812807445155943035", "42754753267029508614689292918457610151275806592911", "89643581062884768400051849881913224334760195675478", "75919907124813055805803470855825242382160452106006", "46631903589729228288544349935791245480779889161034", "76827891218727179475607061143522456072612932833358", "71387592449061330331991671931857945049037210550524", "79844664582262784371334376829861912292168521648337", "89031042055512034259115389752370690099253073853434", "20633111682237677088282493328118023504353410949758", "54044196969947000901932815589510570054768801976142", "72591774572004087113403895734722248592713992051176", "50495322859136967712897610747186673069553021782723", "77513409945438356238637056061083784334112258040468", "52506728486016950713944451553737250297525486640388", "88823988764510792972699543281607517904779218561727", "83031752792498711007537608110185760521176733144741", "22639311329226720517434662732624868304059605380362"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10664;
+    if(result == expected) {
+        cout << "Test Case 61: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 61: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test62() {
+    vector<string> levelMap = {"43016195542149450377357459561853668922663260291586", "44566400924855855910170221565023605862272791465964", "13406552558699361498454244867168510776407090723607", "66269302166249330944153039674244266974162314035948", "46619469514890474865620126006455776283902538600351", "06151856306579924166918271356789344385794895525296", "58854790408459362025172651081334401819034508492237", "30115198619406629350139103517151951898434918620326", "45804782169970327029627942387427478270222432960101", "62523017140066711369218276781604177564408802553411", "42184898481397547934502189442947124500628988630203", "64693614313599250451930168394902380627549333809499", "88090283144552289267087286578354812984142396778652", "20623526706371964979540768745057886367625157245483", "76572771732780216864871612360714142780697923207908", "28482759677283148458204883986800551453947332107846", "94283642416163939141980690384534215729603754906164", "91855637314418167437070378633731146127083712058243", "97631602495585962763481674959448248437829999284924", "63330670015531041113585041333745904479891589525284", "35333701132211703413892261302245388679351753561864", "88932009625870102559219456742017000394555408354263", "62858698596830363606700596540358800606527450548467", "27210161413280868092800180357024590618015286378083", "21964201384233065586245380432641790297999306956259", "21500551025784480221696451547708359284928638227025", "58045228838195850725781661299046814842036300701956", "71113657083651808977759131791448781229484150450603", "28223442541951989486935091164612038281650952570622", "57300187840327126113506983670431705644850922899783", "51911555333964675259748308363106479246690869900057", "32651540497374228996435503857652955535220206649722", "40449963242759288084359799324720594605995263734627", "49267052356993706129591800704753322292277434057611", "44863142899535757085293899987708949646071490350893", "26964284007486707608515838436156010178305751032463", "14282845637104796125878782036553636874455501987243", "68383568693412939489698625681886071776777949826120", "79579804758135615690030627359203111348208029574617", "28627514917932872436277025263091003118734879064075", "78538497934588303015265113745393530716172361060252", "35385614828311148383721521138535431885346307253926", "59308245366330376588201917013686214861805441126620", "07837396300280171983950644627835549229060625320425", "86608308337565872212388472888949051311260257907360", "30961366162317469210653364697213409322725885049715", "95224167645974648480918767826717708484087453181991", "99563330363374940540306240552535984051924324666684", "44990242107178356361232415523965419403095067451950", "38429234564806429321032829821274328467891310393206"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10693;
+    if(result == expected) {
+        cout << "Test Case 62: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 62: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test63() {
+    vector<string> levelMap = {"87478315783989401928800565033794824132713909175796", "07460972016899191501011017701173557837258618835005", "15113684509431994710881692630932633679662786788755", "14616003056937721974202253711222680934588738604530", "37916995123985621038206666777206320100607984709199", "46549595208528444884938909646890738144940463542943", "88374440137093007256504532887317821115275511238585", "02338360813127008110324533968620409571827281717819", "49876378348191913696782809101034816695929047632611", "14555252395539368750355290696386187320972424830290", "78768474584903818688329629041265536201585975879181", "99375554085552606818030305277608549917489754168522", "21334387313985097613456977620940201666585767257778", "43110878410009475317437695840533654526078102525086", "94071088664172555937107252647879132463248072648665", "55443774758860131341059824400378714701360836021089", "69587908013925289932330844179284402651632614363794", "41247775160035498168137896899627234422051268840144", "21553632127922223469162427984144345677233743197197", "82832249210277161297754717590906327199586823760725", "42934934036434277520992031007325637897465943568383", "52285356536709268235540185061603506926423995776930", "82555436586971587992826317078143005546208881578081", "64512002848425474833881989491810307469437703592095", "42414671259591502329196450343795711497877196293984", "34626785349084146836629370596063929023770794108407", "23455425805364626799966250518527997219192501157325", "86657640916987145815555035807556876440608581524674", "54586593150150405572241402842282930598686886011559", "98823602007711323210790828631120089377916593989169", "86742040609758401883959198614908317061153448273625", "05398920816017704899297974403646055175472890485032", "96855099405450392530070755376690250090734100216438", "33067760482381800275002728650946082866223588365799", "51642466590216720763991769529794738143466199333641", "86590340589778174799031757407232502866626251591962", "52526410110692125544497060044779042591242516347328", "43815771782225319584134743255353182702271437976057", "35329381826863226379903098893789903497845548733200", "03499803236862698168753009476876197262687044221937", "78840499516471599394322596761312674057537856063523", "36861578094141448631500420092898192720328109320006", "87136502525268621276549122134579932459843629287406", "49969090710320226399500017521334239058938142009021", "44645741361729285492745988058179680968413915301108", "82331858377226930854121564393794351464810789689360", "22978757889900567834331287993775394795147407057718", "55943934837371405201395570947978952220569579893908", "20280932754812256257220914246001623399800265121699", "00964359756539727277950209441890657047304839286883"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10947;
+    if(result == expected) {
+        cout << "Test Case 63: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 63: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test64() {
+    vector<string> levelMap = {"52140647932507284480265362384603870429742877152976", "31465573198731230115772803927243190539315435405164", "90640796528541638354329153395784648262808252554602", "52985033816746293785442686078398022993893141382134", "38303423600780768111811099358066271924323521701718", "86730433392587766882760438738178422926075840569610", "06573817954539710765867391774092243111104314905843", "64538342115860795190520934131288948424090473014381", "63755975494482502060767785933320256120545961686349", "66570594261091714242390115211049069155546926227278", "82154950670400992432855197452564678720530063917869", "32187376966615052046102552068407685308027144248557", "76580590662438024168835797894437382458929227725575", "43807200314925755745533832935921749573112185104566", "22768275696364592092213882922812132466010148090321", "85412907968237304952624978833934156169781329847112", "52661374718677259833671076876863629272883373729304", "81636803107460899701377234866512505746090005744147", "75174880970248491037532262909662331785358290010379", "02135908446823591469811694869144728936274299087175", "76356999841657732725971701623525063015501233676079", "17721702519610194181861614108412832459408570196609", "22363572686282901265041437486946281587891181201808", "11924035482562702765044589644974034020761301813027", "41893019997188271071157491945850730828475778659698", "39922007453475032334663579847318679883513880279897", "76984732661712173752138138838218389484365890692782", "91901404840130400764380839913471971668629902586844", "80931855879328041951559705729624725695614990853567", "48456215272205609405781874614990380831054246041636", "30686415083352037429169906685819567686617994555181", "79938307107648210472251114357429945898693574311641", "49163006787250687065622689339679998384666150696929", "46669479438977995523513638608249822532282844585540", "81352583514186824449328729883502746768653897124308", "65138478080978560683547597390409897766839853041650", "00952066776270464071204326139696139397119422894522", "20557903860208898692670080829910395509064836937882", "89889097197510819030067662558352495356489046799701", "95271262574892283882229795900541171113521206579890", "68964621996466974661417978667313709310801440167082", "29036140063772729887378620757041552356539002586084", "34754082794824744075677128457574869958952799478180", "60261896121388373875180300513845640977006350778556", "91602074615003996491101314029582429684865583023037", "64402213562226502370779562910462203407016492138934", "48733535024913607267783890277515177973438730712526", "21300510073167979040213737122534622199007633758531", "06560711599656289445027112867925057394825273999259", "53329365737263926225758878933624888610725348107350"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10929;
+    if(result == expected) {
+        cout << "Test Case 64: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 64: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test65() {
+    vector<string> levelMap = {"97613969173447235151918258655234036516882537038976", "82368177360795606797425628173590932314371374974205", "62057127579552349676766611189546864965363948418560", "02232733977254874596791080125176455933010664951627", "29890969317575706284117539808617823040031867810667", "26928184496556285600590989907477104708209238695288", "34063466784364245075219080680077763415345317743191", "36960514316301194961516344382757698397383744301853", "57727691373603898767822460676725887534262685568849", "38512637228564361641437110126723049809093549526954", "16738437673036373186494835971894089421497389256625", "76860208517478508393992499829903843698665566507860", "12714604640861932804215509947933762331363677504471", "66515533047553046361622859030337627522466350483069", "48265582728847511165656604289978332259660285641087", "32471922068611696543189891249392611406204025781355", "16756638515239501524001029573511849104015253166925", "31038141162087022251414652021278676060969650638047", "28975010402784630523005095726360325925784044823752", "20617677669467629543189561016314150856879453292417", "92768022745891208820051651220823512113526423775596", "81075839422559158946903124425018038071276068418246", "52081319678302126551158437716731488427483502141712", "38137979017790239596116009908760939871193828007051", "62353689663646849816299751756114640151374578825321", "63938511578877696940516668806774429632364746240377", "51113018618990950026211736159798663859628271236331", "04344368493494767692185853018687986878853432658813", "35273007517427568040966916407275539802859902395594", "99079841459629974500083719867689683573190819121932", "63417901258135665263588615846631427408168371737749", "42576886498482716367095485902103145329845166167959", "94569024052270782782345535181540655779285218098729", "50570277484354288679924555556440782988238218823498", "18862727227867717147044719435319455465859694926266", "45545616461361937574043317080584380654860553410327", "40477432159088891591821402145540446085807249241537", "15289318967019277598116307694606506406537344987719", "46431593265247502709120054292825177405016564857194", "70270541891722789323797750111126257066375271836853", "68256844575379148148373331853532735673276034279421", "21513883259224010935957540621205233293519896834275", "82570649941751897953917124588467678566980979639964", "74394600550416310169750775415446351505284875357372", "70660617839268400790436649099912068230218441727945", "46782905577135073906227762638921055440403306588589", "65687215238848535590307391244555760971520774398123", "88680386547143435779203276217808301388544877986855", "81159402366692081521825621460060374390629471438819", "96765470991018226183556466532540137390148645090936"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10972;
+    if(result == expected) {
+        cout << "Test Case 65: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 65: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test66() {
+    vector<string> levelMap = {"51075091414085205714463356926145081803912175032176", "26062679252739944388365414119640605387459291544244", "44584239510662982099915152954311879558528432272310", "39601643767943246627831214362155877193234078540231", "19098495726560943367703070379467684867756496619487", "86419822590505515336322518209567898469225895612965", "72482024403928970406542949496050963541586210519449", "98180696390022773921701644555426148160576946598356", "71697297450994407133907446210110325969960209539359", "73537099373036719033672145841587949434367941003942", "43014011777342447930221375383113421942552375294503", "11540047288532953730072614612702070280206076667983", "55159907819515961358704009191329143113707059085397", "69102865741299347719529797314823493599638326963669", "76933679769039858220762244564943243052411352082942", "71532936270298869356752744772058873754607529405407", "01030993112011661328532281458471066916246105622435", "71449209119524343972683169009264646555908406430048", "52886040133001999099576839721966612033897899957936", "60011336864013728715238247376273471574564707410859", "08380287548014863137921239624904868341652514883204", "58540185323468094894234643665827332501164575810915", "72977257779535560727274257034524694567094832974536", "85469192661937745337379897162646647622517254220983", "61711149210112306559150713537148661562282350282834", "76254835990078562345531868057029179471196802113769", "25545313475349528098404403477479847214613570770798", "49698322327749022531980858124704088917874873801084", "71646368336606384436272349385635333109985035816429", "30512356616113152575277855820470784117036591304411", "06258376434939492997797205999441565223622829299304", "05134265909225224169867624738997036969178920093269", "18077150414982976218177461133619401962015265479530", "45370966319842393737435445492543433653084552941247", "26662052248836980013661779979395464150264374809924", "25183754163733224665549124971930863542062952979817", "78711908634665129918438880231466550780894173590731", "90901540056993659594652724260173698212131825928654", "00271097405884124487014427956501961554651065835695", "64142112119651394065163644344990242939297334183748", "39461156885262334428558702859534669936641539274782", "44780645227854390181726647587460992938520798001353", "20108108900487022631245422800460395843098269620640", "95426306969556467645330169407947959424352102025887", "28827070063242813999892075069042898966580017229884", "98952377880023625442705760525492907483618009136252", "90440875272872476954859003520515536280981708254841", "44040962783820910638002534482461399455080941043288", "77419192913346891517712129071904708297424579108448", "67120415972732625038356035142366568773479164991513"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10747;
+    if(result == expected) {
+        cout << "Test Case 66: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 66: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test67() {
+    vector<string> levelMap = {"51130545893553227948659049748786393189082783993466", "21862054406636348583977017673060092865562965493446", "29628772580505356925879961703937100043046694113116", "27327276597341209478420042546009653191965914895515", "91070459920230348812715753522978187728178378717865", "66897411786411257972054595588146264233583660955289", "20172141750099138255259517287718716841856004222063", "13503031794286741773193477257453135984052600103399", "69648599787507482206257087895903314898293848453587", "97884476205061912815855183391724602914386066608707", "91082363976555182431394451383842073162486560691369", "99034511721658773324234709384215376841504016014241", "55619315256491716459352531427402715680475768032290", "84387231179745818564514863404718356607125374849752", "21027083643711035447104695226944233548533565973364", "58350164559171244557972730610882790451533749165871", "47209623314426281110223567942709473468428824425676", "69421675902576077064960005331044008176835798027141", "40427420598774628063617527563182615580347280693581", "00826764284304988861764799500671294243977335652742", "59414465257468892357289850827292443687702004880547", "86339860229308084436679781011020834656927658351341", "32403121869966100376395278672114875258378565635955", "69974086640210670220713117489316071034363199966920", "81640959633166523856253924950568892095969833795161", "83575381328749113479508054377530679290580855035439", "53194027300974871034950781218641515957931262658726", "67385058883447623418411576346718278345010714937123", "33334799793183415883888950040627020515958073190484", "10869304868091624865552766954939389304200837356194", "83912255973528856375136721121254674530637754744458", "40412222519699215735684244247744206912561196765186", "16791992959583364468432341040338003742566373261120", "62763285309816571132257381397048155905099992408956", "71881413955497777398914927075810991272846770464439", "56128959145226087468370784622181640017306234807294", "44361921773933697855882422352529943193280896404031", "83375187431589427507642388698439012936496532738538", "00483280842269408647231472054757125553624071059709", "33795760564311613210117312779132412735086781490564", "27887301046039903072500546742654729630350615481510", "39521150462048970686193767395966302419713485336521", "27462955307971298318624453344426030960145516952128", "21660926788655459315859705291157350171401835373127", "64810046342761728277583937202895968238385343347641", "52300234009922958503920978960742622461101616217271", "13159234633711444611803137773393704679342975805476", "56708012692684148106909021952381746682054058136155", "39380682327926626791518929494994236178353783415767", "84020536347111234842053294251716028035293979604657"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10767;
+    if(result == expected) {
+        cout << "Test Case 67: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 67: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test68() {
+    vector<string> levelMap = {"97603865034394007699314155019597559476132653999646", "55766557396670504195610803899119934839549884041594", "01035804501515989367326329576999133746201180969066", "75674276576848790289479466883167064351280329563110", "82477905337224575995011183093719039544883925718593", "06076160670480777890884014870344958994539238963958", "58491700589835863464682376294593136977897007088521", "95723913097927138755308887420923884667415892290861", "83517195864820998872313063518309754223991462325917", "49826519353534388207872118208406512669843688985783", "08688840079863273275131901892141486761341558830257", "34716441482611129751136946177813513221143408493254", "99853628413945724986731151571998996362818148521116", "07074563881471119902511800509304223654269349119255", "49526370675194152522428235502908233521382612324221", "96392179569548307140447673045540933900936242009994", "30304079111278251923754718627358690200659584882286", "18832713969191208884809422399911178490074546911122", "76318450320090887859187150688689709620762937596765", "28328433409940008945831665859840697961562781997002", "63836508151601358544189728442492781804747294997054", "41673026120247120181900210158838330289815145673998", "62299168859207325649600170110097172399959086568769", "16386900265477906050874717742382089895797816269954", "82128509399732081699194183551613711426760633153894", "88871895442132779074451044518895349039322931106011", "28525333357144448108122579537121779312204461192262", "73828811737702988545216570452823173556341155908193", "89697941312372031272294163728077834802083985641191", "61482919034585990062744601107728660048146518418692", "36655721359322482110535431472165514354191220026016", "13051609901412711530428303193526106435793789511595", "42108028214203668896163297882409761135476410641931", "54663973435202766298868291245149915470045256626705", "88471737776466972076511917439896900977042478265197", "36766287527428444552776304313368103905529834176661", "74696597356731926364499580148445350891277700974225", "60097512419590807603188616262925124932991021781273", "64233796112986091428206846718423809612269570917302", "25797141883221208953684277102007416796738956767529", "27170503326922089551485929748676733193924409403871", "52718892430578360834962867351139863044695286482719", "55288512586808433096752759457429757448155896133904", "44893622199783606691437191295678761980579251052632", "12876489576945239477931463353025707854738901069559", "24771797294712429049478178586400574214397520665943", "49014812677746385264245837949333577677623910481272", "03167899956669603865927560147754517571790212273787", "12669470074862557769317237097938661174378981185307", "25485653209045432700051972851532157608524388597134"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 11053;
+    if(result == expected) {
+        cout << "Test Case 68: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 68: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test69() {
+    vector<string> levelMap = {"60265107275912058252767053560428714585161390866846", "16661159488612841779371619035389797632407621411635", "86562916552526622989765870259761359529467856823993", "05043196436638152190729679940946408391487841142502", "03764431036131731058697646754569680360509341838332", "66466808772439088698616743069454552776863615980536", "76881477286499596974944057100476656273016819835879", "47945185299468717514304087871410334530608195597355", "79589991943011385369478948352796185638518186398427", "83861951318806935606917134913160592495497981272571", "32062326255499557029667449294261828282407664178133", "79598383353572575018206191158510571712783928553387", "34080732581378553330111951646385375345252690180112", "39561996585129600230400838694782109603511424698835", "57213467607486191675654075887043115224934768966985", "45451193861124590051002525469906497268456748625137", "06588333718850593624194962324006819132800465248816", "68224851904737501335067930554805249785943191915022", "29139680043516055327668995403307795830078781609148", "58622192623606135116901542016800018701257046104454", "90438752964825821649268388148573038132853585095772", "15127353113158076147221729498445636709803651095667", "82117006959318759935727190440882388239563406298583", "53598143819612433993037315996268714648019224481696", "01489977047210658331166243342777721557648415590507", "10997109736332665680484143787120989889173897077401", "83834618134502217170225256858802051789269762546831", "08292895460036245485032394567731178774365585060374", "15039203051351657569501584605630639929019918283126", "03017443299989295957946757160510964782284381598069", "59486116524106018746766219433987674179634889388774", "85799089292055207213380555747320396265944563337805", "95416055586213973521704121854389507540015450122742", "68265682481698889326379199991542655026093400934665", "16171854799148846974136877971602716684257075149954", "97194225028798939443282243306415496605831335615358", "32130063811329355881016866255561465697964716421220", "45749724508274286701624933036592337869584529721100", "10895273181533404196380418273806491761795898174893", "00577420122251804675050063315682591660753129014482", "18482526905815254738640370744675679436299004597320", "54274456606120641180740884226493522989686160648699", "02816092733444586795090764778313586857294066104788", "86907426508821753187007364186289452818447588742258", "71033722820100742676196898323458346501002579663496", "86861181407801071685926376273971426256512223006508", "66878692902679203608877440026393141986814942346099", "69537475392645177793616727332218405740237356420001", "98249171619606569855205736618874097169174099753957", "99820669481678933656979341341156505288927687498510"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 11042;
+    if(result == expected) {
+        cout << "Test Case 69: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 69: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test70() {
+    vector<string> levelMap = {"25730319414852029723412948831139760872203050040836", "60566753540576989160231404251439449317484548190994", "68079256571636354204102338025415364232722452889841", "62390806206346743120049093297012840351701244510296", "93151968543916978141203086224310432485207988837971", "06755549866488508416446291139733244758888281027283", "14188827016026021205397946015251078279257812701127", "29166367481181196586590417044070891402091565984836", "93449597020332973945663624186181523161224000250927", "55883016285357383298944159738843474040961503571558", "66558902359995728773474187693580938903552763117811", "12200105926536911245308038941318817002521339812412", "79214035750011589884500663898851445047696070660019", "32359248219845900856507955998298996860755499077338", "73910774547878338740969607244009125006504827317621", "72412426050509762662677668992564850606879232569280", "99651419395502663515423124111766027944031115984417", "08613199851352932856116358541591330209981948617023", "63952810775753596813238728430715712978291338432320", "78103861828232265290268228366948630429953210320995", "24860795868948187764148258745771486350899775103299", "70462701016087119813543258515233832331671348417324", "02805044949638175108743110858675583350954719229308", "00811096445750841724028036039152411288463742694608", "00867337792786317176007205153011722969447297756031", "25293441850723329186428332838486839648814973148881", "58264915181771773344498826176483444954522141080298", "21535769393281590332047298673857281984587006034344", "40384362870559373757819997303080523216046012925053", "54530058476494463132039592123289255124320835681565", "02429682700809846680976927606779622783386355570149", "58327668511806703005354914673093296706986135263412", "40822061948915067077536977707158444933925508524523", "71076291534077974772880019839645416792849764172414", "43881198483017949650854866425691605089544774920812", "77732361500980306334708061076599981593862935984048", "60456630296006694201623122241415551304733623670424", "30461259606087767806169270600279548666276938771035", "74425979451069097875443881917579183810332386132495", "94348099430180319007538947547257587513607284372365", "98696758507708648017537853938896603797654598690681", "47459397695751922339419984180656284625688953717878", "50634551792392609683329760891216492365202356285462", "07039232917961600663887737188788062737535085321983", "48072155844384156965452324593888175227455237165224", "60129654712611542111494476991450278299900137754173", "82823252126685043931291961312333946164184986022707", "45897041565443751432614057418652183819775520388634", "74538962486451382053003235401998421065177297492596", "42375774664322131384779931961972626961548104390097"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10807;
+    if(result == expected) {
+        cout << "Test Case 70: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 70: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test71() {
+    vector<string> levelMap = {"26675963896210050037600852653679972156383668923217", "55365826524552483265625006513858834185507214130174", "43113599342779600248876347683040695520142612510749", "40015739256543606972438521671958696559253171888491", "73846720649896373698194759275721945058628870925330", "86133136052516360960278259610122610209148056060527", "61097033562307481934084484706939819608527796114723", "54688400987363164328983220468016871026577021379899", "81400891355845878006603565461872612990549349194155", "50030591395302386170124107368281354529782438257312", "27518065558818483351547185703119783124494045592577", "91765876567662913039260403613633004763800461259777", "58702343187998227075148973316944227592474981618731", "55533802825391572622592830068170830786252438856421", "29106258401343695878319067606210306712805840300254", "69440456352572228066997434731697577291995452239655", "47031129897927283209314509793093243496113934707757", "18416365854204466149412295764442679820899239203126", "41663090238595923887250416250939893225743839269987", "16909199468522515536584892892377454186235820862679", "54983083577304118055298876766051061696049255200424", "00271184800937011437915487991656333406534411959740", "71330827030880714767174031406265966032236460992836", "64235151414324884417343324556804056890019687112664", "20796347015630332673100516666220651491933679489477", "32535279286416851399396631048996331447419927072574", "86834428994306126470746302027636902786870633169204", "61220585878898391209645017895880460233722867149584", "12090875237037416303723508968172330520117050088018", "34796206808370916422495585359868659511322389923340", "89991563429497208058504346718302620300203280315363", "85625405393162717583950424072851467859369693133121", "19546115385546457229881758511198846612376415386944", "70488690306151153987782845733941128833834373619113", "88198549227788826025906816321203422401135379505227", "05785768682773169339500610958840756189396036012205", "36125650345492150148057686342358964708317363584733", "92837806883861526810151914048333863379343925782907", "94837981860433390034470837315728359819504305356589", "63112638895840718462570696083607755317294631888083", "86003983476576019861879697850817663493371676706209", "62103803829833513833066913990054504105871659029946", "45988408199865977140607061226102948452549604414942", "32473753056067992353116396052990363484862738767004", "55095131324811350243243286544421574509250461381071", "94680711932618685271420684434690074275391746755490", "36530711305543012728265266463131405473556263573122", "58635423275206780920613774078781840975747627670581", "35487451871131105115808932625978150946998423620815", "57175625807971730197365198170342186914292911104141"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10680;
+    if(result == expected) {
+        cout << "Test Case 71: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 71: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test72() {
+    vector<string> levelMap = {"69337102035958001710163749926500137445413328807217", "86068420696526759877586891759908776857685131509235", "15542801393589341572215508447894610303307308374697", "88384439017252268783687947618935039598659504456185", "64333258156671510751590290946581896972354217726269", "26524886156565779988000808702422304081172615176984", "99297501281951914463336353614914239604768509970081", "06800684188084753198179640818776520099740121666363", "05369496234236465603868241204270032405064053045684", "94072633363856933570162122073944335275257030554380", "31902541541414555005384833115418923623341153731435", "34467708120725367266340340496430260353448861339882", "93938636156341233421537793478330498594818151296838", "78221154440047882058689867163578705735394493335922", "55693375433735634951645608981273216595657987751010", "18501670462959410657542487245035010650318955153796", "10126495494799333190645753480643451328334694144368", "68806603609841887770650403931338740114867086297027", "75484220761832282353720259277637889435056483272059", "36202859661187622718864768049535856806921184009021", "81315038370546681370378446362160318824054346117130", "75725530814846945382239916018244859236322928270307", "91136865330120958053199831734058971183839860625651", "11738174067469112247506944710880763641443312533598", "21256717773196092116041676457486672822832479625081", "35631483501616547905329520299242981206250082143154", "50244713971556895442918099346317396932143132603663", "74774349701144658158461011901996475451753108311754", "68434147856027022591030611946533224829143961720923", "95200711075764211517596621400739951255450952085726", "14625038605291837692814034089224870925764856507831", "58265884504993203476714675928644457399592285989439", "62054121748246659755522784555948602007206653798745", "82389208452537468235294745681342888419880447937172", "05608884931447909903504886985291231098342959486085", "86313896184855456220017430649097249077300736371992", "76441127928080599677664942458494279493305370033938", "89550039970575905936697252615809074396936124722834", "39486668038080983715354208879491141978140824214080", "58993027114770224903948580494261731280116604136146", "87315105856589293141733068847838697754745271821779", "55667564098465893989635911654327253831862542298136", "93524965478591020048735077347295755839587984605728", "56506559467197049649786869954392872293750034346830", "32251574358075763444599410515851103125502139995909", "76740193125409227817978884121350817218608649103064", "52294309549579950051697787740171088661726207239939", "14915097711282444661332011173145521944385791618915", "11767122648977027203895441245814384943821729499445", "00410730091605939055263757662168515694693420095700"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10828;
+    if(result == expected) {
+        cout << "Test Case 72: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 72: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test73() {
+    vector<string> levelMap = {"86850", "76439", "15863", "24568", "45679", "71452", "05483"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 142;
+    if(result == expected) {
+        cout << "Test Case 73: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 73: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test74() {
+    vector<string> levelMap = {"00", "10", "11", "01"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3;
+    if(result == expected) {
+        cout << "Test Case 74: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 74: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test75() {
+    vector<string> levelMap = {"11111111111111111111111111111111111111111111111111", "22222222222222222222222222222222222222222222222222", "33333333333333333333333333333333333333333333333333", "44444444444444444444444444444444444444444444444444", "55555555555555555555555555555555555555555555555555", "66666666666666666666666666666666666666666666666666", "77777777777777777777777777777777777777777777777777", "88888888888888888888888888888888888888888888888888", "99999999999999999999999999999999999999999999999999", "00000000000000000000000000000000000000000000000000", "11111111111111111111111111111111111111111111111111", "22222222222222222222222222222222222222222222222222", "33333333333333333333333333333333333333333333333333", "44444444444444444444444444444444444444444444444444", "55555555555555555555555555555555555555555555555555", "66666666666666666666666666666666666666666666666666", "77777777777777777777777777777777777777777777777777", "88888888888888888888888888888888888888888888888888", "99999999999999999999999999999999999999999999999999", "00000000000000000000000000000000000000000000000000", "11111111111111111111111111111111111111111111111111", "22222222222222222222222222222222222222222222222222", "33333333333333333333333333333333333333333333333333", "44444444444444444444444444444444444444444444444444", "55555555555555555555555555555555555555555555555555", "66666666666666666666666666666666666666666666666666", "77777777777777777777777777777777777777777777777777", "88888888888888888888888888888888888888888888888888", "99999999999999999999999999999999999999999999999999", "00000000000000000000000000000000000000000000000000", "11111111111111111111111111111111111111111111111111", "22222222222222222222222222222222222222222222222222", "33333333333333333333333333333333333333333333333333", "44444444444444444444444444444444444444444444444444", "55555555555555555555555555555555555555555555555555", "66666666666666666666666666666666666666666666666666", "77777777777777777777777777777777777777777777777777", "88888888888888888888888888888888888888888888888888", "99999999999999999999999999999999999999999999999999", "00000000000000000000000000000000000000000000000000", "11111111111111111111111111111111111111111111111111", "22222222222222222222222222222222222222222222222222", "33333333333333333333333333333333333333333333333333", "44444444444444444444444444444444444444444444444444", "55555555555555555555555555555555555555555555555555", "66666666666666666666666666666666666666666666666666", "77777777777777777777777777777777777777777777777777", "88888888888888888888888888888888888888888888888888", "99999999999999999999999999999999999999999999999999", "00000000000000000000000000000000000000000000000000"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 10807;
+    if(result == expected) {
+        cout << "Test Case 75: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 75: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test76() {
+    vector<string> levelMap = {"11", "11", "11", "11"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 5;
+    if(result == expected) {
+        cout << "Test Case 76: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 76: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test77() {
+    vector<string> levelMap = {"11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111", "11111111111111111111"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 362;
+    if(result == expected) {
+        cout << "Test Case 77: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 77: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test78() {
+    vector<string> levelMap = {"1111", "1111", "1111"};
+    SpiralWalking* pObj = new SpiralWalking();
+    clock_t start = clock();
+    int result = pObj->totalPoints(levelMap);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 8;
+    if(result == expected) {
+        cout << "Test Case 78: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 78: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+
+
+int main(int argc, char* argv[]) {
+    int passed = 0;
+    int failed = 0;
+    test0() == 0 ? ++passed : ++failed;
+    test1() == 0 ? ++passed : ++failed;
+    test2() == 0 ? ++passed : ++failed;
+    test3() == 0 ? ++passed : ++failed;
+    test4() == 0 ? ++passed : ++failed;
+    test5() == 0 ? ++passed : ++failed;
+    test6() == 0 ? ++passed : ++failed;
+    test7() == 0 ? ++passed : ++failed;
+    test8() == 0 ? ++passed : ++failed;
+    test9() == 0 ? ++passed : ++failed;
+    test10() == 0 ? ++passed : ++failed;
+    test11() == 0 ? ++passed : ++failed;
+    test12() == 0 ? ++passed : ++failed;
+    test13() == 0 ? ++passed : ++failed;
+    test14() == 0 ? ++passed : ++failed;
+    test15() == 0 ? ++passed : ++failed;
+    test16() == 0 ? ++passed : ++failed;
+    test17() == 0 ? ++passed : ++failed;
+    test18() == 0 ? ++passed : ++failed;
+    test19() == 0 ? ++passed : ++failed;
+    test20() == 0 ? ++passed : ++failed;
+    test21() == 0 ? ++passed : ++failed;
+    test22() == 0 ? ++passed : ++failed;
+    test23() == 0 ? ++passed : ++failed;
+    test24() == 0 ? ++passed : ++failed;
+    test25() == 0 ? ++passed : ++failed;
+    test26() == 0 ? ++passed : ++failed;
+    test27() == 0 ? ++passed : ++failed;
+    test28() == 0 ? ++passed : ++failed;
+    test29() == 0 ? ++passed : ++failed;
+    test30() == 0 ? ++passed : ++failed;
+    test31() == 0 ? ++passed : ++failed;
+    test32() == 0 ? ++passed : ++failed;
+    test33() == 0 ? ++passed : ++failed;
+    test34() == 0 ? ++passed : ++failed;
+    test35() == 0 ? ++passed : ++failed;
+    test36() == 0 ? ++passed : ++failed;
+    test37() == 0 ? ++passed : ++failed;
+    test38() == 0 ? ++passed : ++failed;
+    test39() == 0 ? ++passed : ++failed;
+    test40() == 0 ? ++passed : ++failed;
+    test41() == 0 ? ++passed : ++failed;
+    test42() == 0 ? ++passed : ++failed;
+    test43() == 0 ? ++passed : ++failed;
+    test44() == 0 ? ++passed : ++failed;
+    test45() == 0 ? ++passed : ++failed;
+    test46() == 0 ? ++passed : ++failed;
+    test47() == 0 ? ++passed : ++failed;
+    test48() == 0 ? ++passed : ++failed;
+    test49() == 0 ? ++passed : ++failed;
+    test50() == 0 ? ++passed : ++failed;
+    test51() == 0 ? ++passed : ++failed;
+    test52() == 0 ? ++passed : ++failed;
+    test53() == 0 ? ++passed : ++failed;
+    test54() == 0 ? ++passed : ++failed;
+    test55() == 0 ? ++passed : ++failed;
+    test56() == 0 ? ++passed : ++failed;
+    test57() == 0 ? ++passed : ++failed;
+    test58() == 0 ? ++passed : ++failed;
+    test59() == 0 ? ++passed : ++failed;
+    test60() == 0 ? ++passed : ++failed;
+    test61() == 0 ? ++passed : ++failed;
+    test62() == 0 ? ++passed : ++failed;
+    test63() == 0 ? ++passed : ++failed;
+    test64() == 0 ? ++passed : ++failed;
+    test65() == 0 ? ++passed : ++failed;
+    test66() == 0 ? ++passed : ++failed;
+    test67() == 0 ? ++passed : ++failed;
+    test68() == 0 ? ++passed : ++failed;
+    test69() == 0 ? ++passed : ++failed;
+    test70() == 0 ? ++passed : ++failed;
+    test71() == 0 ? ++passed : ++failed;
+    test72() == 0 ? ++passed : ++failed;
+    test73() == 0 ? ++passed : ++failed;
+    test74() == 0 ? ++passed : ++failed;
+    test75() == 0 ? ++passed : ++failed;
+    test76() == 0 ? ++passed : ++failed;
+    test77() == 0 ? ++passed : ++failed;
+    test78() == 0 ? ++passed : ++failed;
+    cout << "Total Test Case: " << passed + failed << "; Passed: " << passed << "; Failed: " << failed << endl;
+    return failed == 0 ? 0 : 1;
+}
+
+/*******************************************************************************
+*    Top Submission URL: 
+*    http://community.topcoder.com/stat?c=problem_solution&cr=22658989&rd=12179&pm=9793
+********************************************************************************
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+ 
+using namespace std;
+ 
+class SpiralWalking {
+public:
+  int totalPoints(vector <string>);
+  bool valid(int x, int y, vector<string> lm)
+  {
+    if (x >= 0 && x < lm.size() && y >= 0 && y < lm[0].length() && lm[x][y] != 10)
+      return true;
+    return false;
+  }
+};
+ 
+int SpiralWalking::totalPoints(vector <string> lm) 
+{
+  int x = 0;
+  int y = 0;
+  int ix = 0;
+  int iy = 1;
+  
+  int score = 0;
+  
+  while (true)
+  {
+    score += lm[x][y] - '0';
+    
+    if (valid(x + ix, y + iy, lm))
+    {
+      lm[x][y] = 10;
+      x += ix;
+      y += iy;
+      continue;
+    }
+    
+    if (ix == 0 && iy == 1)
+    {
+      ix = 1;
+      iy = 0;
+    }
+    else if (ix == 1 && iy == 0)
+    {
+      ix = 0;
+      iy = -1;
+    }
+    else if (ix == 0 && iy == -1)
+    {
+      ix = -1;
+      iy = 0;
+    }
+    else if (ix == -1 && iy == 0)
+    {
+      ix = 0;
+      iy = 1;
+    }
+    
+    if (valid(x + ix, y + iy, lm))
+    {
+      score -= lm[x][y] - '0';
+      x += ix;
+      y += iy;
+      continue;
+    }
+    
+    break;
+  }
+  
+  return score;
+}
+ 
+ 
+//Powered by [KawigiEdit] 2.0!
+
+********************************************************************************
+*******************************************************************************/

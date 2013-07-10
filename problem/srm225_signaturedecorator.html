@@ -1,0 +1,256 @@
+<html>
+ <head>
+  <title>SignatureDecorator Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3077">Problem Statement for SignatureDecorator</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Some people like to have a particular custom signature following their emails or posts on online message boards. These signatures usually contain the handle by which they are known, but then are decorated by various punctuation marks to make them look more interesting. You, as administrator of a popular message board, would like to allow such decorations in people's signatures while enforcing a rule that the signature they use contains their name. In order to do this, you allow people to set up a series of rules to apply to their handles to automatically generate their signatures.</p> <p>You will be given a user's handle as a String, which will be made up of upper- and lower-case letters, numbers or underscores ('_'). You will also be given two String[]s representing a series of formatting commands. Each element in <b>commands</b> is <tt>&quot;prepend&quot;</tt>, <tt>&quot;append&quot;</tt> or <tt>&quot;surround&quot;</tt>. Each element of <b>decorations</b> is a series of punctuation characters (out of <tt>,./;'&lt;&gt;?:&quot;\|[]{}-=_+!@#$%^&amp;*()~`</tt> ) to use. The i<sup>th</sup> element of <b>commands</b> corresponds to the i<sup>th</sup> element of <b>decorations</b>.</p> <p>Each instruction should be executed as follows:</p> 
+      <ul> 
+       <li>For a &quot;prepend&quot; command, put the decoration at the beginning of the name.</li> 
+       <li>For an &quot;append&quot; command, put the decoration at the end of the name.</li> 
+       <li>For a &quot;surround&quot; command, put the decoration at the beginning of the name and backwards at the end of the name.</li> 
+      </ul> <p>The instructions should be executed in the order in which they appear, so if <b>name</b> is <tt>&quot;Bob&quot;</tt>, <b>commands</b> is <tt>{&quot;surround&quot;, &quot;append&quot;, &quot;prepend&quot;}</tt>, and <b>decorations</b> is <tt>{&quot;-=&quot;, &quot;(&quot;, &quot;)&quot;}</tt> name would progressively go from <tt>&quot;Bob&quot;</tt> to <tt>&quot;-=Bob=-&quot;</tt> to <tt>&quot;-=Bob=-(&quot;</tt> to <tt>&quot;)-=Bob=-(&quot;</tt>.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SignatureDecorator</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>applyDecoration</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String applyDecoration(String name, String[] commands, String[] decorations)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>name</b> will be between 1 and 50 characters long, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>commands</b> and <b>decorations</b> and will have between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>commands</b> and <b>decorations</b> will have the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>decorations</b> will have between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>decorations</b> will contain only the following characters: <tt>,./;'&lt;&gt;?:&quot;\|[]{}-=_+!@#$%^&amp;*()~`</tt></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>commands</b> will be either <tt>&quot;prepend&quot;</tt>, <tt>&quot;append&quot;</tt>, or <tt>&quot;surround&quot;</tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>name</b> will be made up of only upper- or lower-case letters, numbers, and underscores ('_').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;Bob&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;surround&quot;, &quot;append&quot;, &quot;prepend&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-=&quot;, &quot;(&quot;, &quot;)&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;)-=Bob=-(&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;Super_Man_01&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Super_Man_01&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;4BcD3FgHIjklMN0pqrS7uVWxYZ_&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;append&quot;, &quot;prepend&quot;, &quot;surround&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;`{[(&quot;, &quot;)]}'&quot;, &quot;,.;&lt;&gt;?:|-=_+!@#$%^&amp;*~&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;,.;&lt;&gt;?:|-=_+!@#$%^&amp;*~)]}'4BcD3FgHIjklMN0pqrS7uVWxYZ_`{[(~*&amp;^%$#@!+_=-|:?&gt;&lt;;.,&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;RacEcaR&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;surround&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;([{/&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;([{/RacEcaR/{[(&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Turning the punctuation around backwards doesn't mean flipping individual characters.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

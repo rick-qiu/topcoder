@@ -1,0 +1,410 @@
+<html>
+ <head>
+  <title>HillWalker Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8383">Problem Statement for HillWalker</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>John is currently on a hillwalking holiday in a mountainous region. He really enjoys getting to high altitudes to enjoy the spectacular views of the region and he is planning a walk today that will get him to as high an altitude as possible. However, he also wants to be back at his hotel before it starts to get dark.</p><br /><br /> <p>You are given a map of the region as a String[] <b>landscape</b>, describing a rectangluar section of the landscape. The altitude of the landscape at coordinates (j, i) is an integer represented by character j in element i of <b>landscape</b>, which will either be an uppercase letter ('A'-'Z') representing altitudes from 0 to 25, respectively, or a lowercase letter ('a'-'z'), representing altitudes from 26 to 51, respectively. John starts off at his hotel at coordinates (0, 0) and is planning to walk between points with integer coordinates. In each segment of his walk, he can walk to any orthogonally adjacent point, as long as the magnitude of the difference in altitude is no greater than <b>threshold</b>, otherwise the path is too steep. He cannot walk on a path that is too steep, regardless of whether he is walking uphill or downhill. If he walks from some point to another that is at equal or lower altitude (i.e., walking level or downhill) then the time it takes to walk between the points is 1. If he walks to a point at higher altitude (i.e., uphill) then the amount of time it takes is given by the difference in altitude between the points squared. For example, if he were to walk from a point with altitude 5 to one with altitude 9, then it would take (9 - 5) ^ 2 = 16 time units to walk that segment. If he were to walk the same segment, but in the opposite direction, it would only take him a single time unit.</p><br /><br /> <p>Return an int containing the altitude of the highest point that he can reach on any walk that starts and finishes at (0, 0), given that the total time taken for the walk may not be greater than <b>timeToDark</b>.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>HillWalker</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>highestPoint</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int highestPoint(String[] landscape, int threshold, int timeToDark)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>landscape</b> will contain between 1 and 25 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>landscape</b> will contain between 1 and 25 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>landscape</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>landscape</b> will be either a lowercase letter ('a'-'z') or an uppercase letter ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>threshold</b> will be between 1 and 52, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>timeToDark</b> will be between 1 and 1,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AD&quot;
+,&quot;JG&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">John has plenty of time until it gets dark, so he can get to the highest point. He can't move directly to the highest point, even though it is adjacent to his hotel, because the slope is too steep, but he can take a longer path which is less steep and he returns on the same path.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AD&quot;
+,&quot;JG&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>29</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the same map, but he now doesn't quite have enough time to make it to the top. Note that he cannot walk down a slope that is too steep, so he could not move directly from the highest point back to his hotel.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AABCDE&quot;
+,&quot;GJIHGF&quot;
+,&quot;MKLMNO&quot;
+,&quot;STSRQP&quot;
+,&quot;YUVWXY&quot;
+,&quot;edcbaZ&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>36</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 30</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the height map shown in the figure below. He has just enough time to make it to the top, but he has to follow a winding path. Otherwise he would run out of time.<br /><br /><br /><br /> <img src="http://www.topcoder.com/contest/problem/HillWalker/heights.jpg" /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BCDE&quot;
+,&quot;AJKF&quot;
+,&quot;AIHG&quot;
+,&quot;AAAA&quot;
+,&quot;AOMK&quot;
+,&quot;AQSI&quot;
+,&quot;ACEG&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>14</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This map has 2 separate mountains, as shown in the figure below. John doesn't have much time today, so he gets highest if he climbs the smaller one.<br /><br /><br /><br /> <img src="http://www.topcoder.com/contest/problem/HillWalker/heights1.jpg" /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BCDE&quot;
+,&quot;AJKF&quot;
+,&quot;AIHG&quot;
+,&quot;AAAA&quot;
+,&quot;AOMK&quot;
+,&quot;AQSI&quot;
+,&quot;ACEG&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>57</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 18</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the same map, but he has more time for his walk in this case. He can therefore climb right to the top of the higher mountain.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABCDEFK&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The highest point is unreachable in this case.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;TRRVUXefk&quot;
+,&quot;bSNMOWcff&quot;
+,&quot;bRPNNQZip&quot;
+,&quot;XSRUTVcfj&quot;
+,&quot;WbZQPXZbV&quot;
+,&quot;XdYSRWVOP&quot;
+,&quot;feedVVcZR&quot;
+,&quot;XhfdZZefg&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>50</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 28</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

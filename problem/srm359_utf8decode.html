@@ -1,0 +1,301 @@
+<html>
+ <head>
+  <title>UTF8Decode Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7862">Problem Statement for UTF8Decode</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Unicode is a standardized set of characters which includes the alphabets from many languages as well as mathematical and other symbols. UTF-8 is a scheme to encode Unicode characters into a byte stream. It has a number of nice features, most importantly backwards compatibility with ASCII, but the encoding is a little complicated. Each Unicode character is represented by between 1 and 4 bytes, inclusive.</p> <p>For this problem, you will be given a sequence of byte values representing a UTF-8 encoded string, and must decode it to obtain the Unicode character values. However, the string is transmitted by the very unreliable RFC 1149 protocol, so it may contain some extra bytes. RFC 1149 is also very slow, so you must decide whether to accept or reject each byte as soon as it is received, without knowing what the following bytes are, or even if there are any. You should accept a byte if and only if the accepted bytes would then form the start of some UTF-8 encoded string. If you reach the end of the string and have accepted an incomplete character (e.g., only 2 bytes of a 3-byte character), it should also be discarded.</p> <p>UTF-8 is used to represent Unicode characters between 0 and 1114111 (10FFFF in hex), inclusive. The following pseudo-code will convert a Unicode character into UTF-8 encoding (the output function appends one byte to the encoded string):</p> <pre>
+getbits(int value, int firstbit, int numbits):
+  return (value SHIFTRIGHT firstbit) MOD (1 SHIFTLEFT numbits)
+
+convert(int character):
+  if character &lt;= 0x7F:
+    output(character)
+  else if character &lt;= 0x7FF:
+    output(0xC0 + getbits(character, 6, 5))
+    output(0x80 + getbits(character, 0, 6))
+  else if character &lt;= 0xFFFF:
+    output(0xE0 + getbits(character, 12, 4))
+    output(0x80 + getbits(character, 6, 6))
+    output(0x80 + getbits(character, 0, 6))
+  else if character &lt;= 0x10FFFF:
+    output(0xF0 + getbits(character, 18, 3))
+    output(0x80 + getbits(character, 12, 6))
+    output(0x80 + getbits(character, 6, 6))
+    output(0x80 + getbits(character, 0, 6))
+  else:
+    abort - character is out of range
+</pre> <p>Write a class that accepts a sequence of bytes, in the order that they are received, and returns the sequence of Unicode character values decoded according to the rules above.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>UTF8Decode</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>decodeString</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] decodeString(int[] bytes)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The UTF-8 representation of a character is never a substring of the UTF-8 representation of any other character.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Different implementations of UTF-8 may allow characters to be encoded in more than one way or may allow characters beyond the range specified here. For this problem, you should consider a byte sequence to be legal if and only if it could have been produced by the pseudo-code above.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>bytes</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>bytes</b> wil be between 0 and 255, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{10,
+ 207, 168,
+ 226, 156, 144,
+ 240, 152, 154, 160}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {10, 1000, 10000, 100000 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">One case for each possible encoding length.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{10, 255,
+ 207, 17, 168, 193,
+ 226, 156, 144,
+ 240, 143, 152, 154, 160,
+ 240, 152, 154}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {10, 1000, 10000, 100000 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The same as the previous case, but with some invalid bytes added.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{191, 192, 193, 245, 255, 128, 129, 130, 189, 190, 191, 1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">None of these bytes except the last can start a UTF-8 encoded character.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{76, 95, 228, 250, 1, 100, 167, 59, 165, 27, 87, 32, 49, 22, 100, 236, 1,
+ 111, 209, 100, 155, 35, 156, 47, 135, 56, 114, 131, 32, 73, 24, 104, 92,
+ 221, 107, 12, 222, 60, 24, 113, 130, 217, 180, 144, 106, 136, 137, 234, 24, 173}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{76, 95, 18917, 27, 87, 32, 49, 22, 100, 50908, 47, 56, 114, 32, 73, 24, 104, 92, 1858, 1652, 106 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{240, 1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">240 is valid as the first byte of a four-byte character, so it must be accepted. Since we don't have enough bytes to complete this character, the output is empty.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

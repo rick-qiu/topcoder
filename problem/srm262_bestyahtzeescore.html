@@ -1,0 +1,281 @@
+<html>
+ <head>
+  <title>BestYahtzeeScore Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4797">Problem Statement for BestYahtzeeScore</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Yahtzee is a game played with 5 dice and a score card. The object of the game is to get the best score. A turn consists of the following:</p> 
+      <ol> 
+       <li>Roll all of the dice.</li> 
+       <li>Keep as many of the dice as you want.</li> 
+       <li>Re-roll the dice you decide not to keep. Note that at any time if you like your hand you can stop rolling.</li> 
+       <li>Repeat step two and three. Note that you can throw away some of the dice that you previously kept.</li> 
+       <li>Now that you've had up to three rolls, record the resulting roll in a single place on your score card (scoring only applies to the final hand you keep).</li> 
+      </ol> <p>Your score card is divided up as follows:</p> 
+      <ul> 
+       <li>4 of a kind - 4 or more dice the same, scores the face value of ALL the dice.</li> 
+       <li>full house - 3 dice equal to each other with the other 2 dice equal to each other as well. Scores 25 points.</li> 
+       <li>small straight - Any 4 of the dice in consecutive order, scores 30 points.</li> 
+       <li>large straight - All 5 dice in consecutive order, scores 40 points.</li> 
+       <li>yahtzee - All 5 dice equal to each other, scores 50 points.</li> 
+      </ul> <p> You are given a String <b>rolls</b> containing fifteen numbers, the first five of which are your first roll, and the next ten what you would get if you continued to roll in order. For instance, if input is &quot;123456123456123&quot; your first roll gives you &quot;12345&quot;. If you keep the 1, 2, and 5, and reroll the other two your hand would now look like &quot;12615&quot;. Now if you keep the two 1's and reroll the other three, your final hand would be &quot;12314&quot;. You are to return the best possible score you can get. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BestYahtzeeScore</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestScore</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int bestScore(String rolls)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You can choose only 1 category. That is, you can not get points for 2 categories if your hand satisfies requirements for both.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Straights cannot wrap around. &quot;12346&quot; would count as a small straight, but not a large straight.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You can reorder your dice as you want to fit into a category. That is, &quot;64523&quot; can be reordered as &quot;23456&quot; and scored as a large straight.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>rolls</b> will contain exactly 15 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>rolls</b> will be between '1' and '6', inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;354621111111111&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 50</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You get 3, 5, 4, 6 and 2 after the first roll. You should re-roll all dice and get with 1 on all five faces.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;666663213214444&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 50</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here you get Yahtzee after the first roll. You should keep all the dice.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;652353235164412&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 40</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After the first roll you get &quot;65235&quot; and throw away all the dice. The second roll gives you &quot;32351&quot;. You should keep &quot;235&quot; and re-roll the other two dice. You finish with &quot;23564&quot;, which is a large straight.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;265241155222313&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 25</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;144165526421151&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You can't satisfy the requirements for any category.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

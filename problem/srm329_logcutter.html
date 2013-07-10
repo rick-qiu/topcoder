@@ -1,0 +1,295 @@
+<html>
+ <head>
+  <title>LogCutter Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=5955">Problem Statement for LogCutter</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> A lumberjack needs to transport a log to a paper mill. However, it's too long to fit in his truck, so he needs to cut it into multiple pieces. The log's length is <b>L</b> centimeters, and due to its nonuniform density, it can only be cut at certain places. The points at which it can be cut are represented by the expression <tt>((<b>A</b>&nbsp;*&nbsp;i)&nbsp;mod&nbsp;(<b>L</b>&nbsp;-&nbsp;1))&nbsp;+&nbsp;1</tt>, for all integers <tt>i</tt> between 1 and <b>K</b>, inclusive. Coordinates are measured as the distance in centimeters from the leftmost end of the log. The lumberjack is allowed to make at most <b>C</b> cuts. </p> <p> Determine a strategy for cutting the log that minimizes the length of the longest resulting piece. The return value should be a String formatted as <tt>&quot;MaxPart&nbsp;FirstCut&quot;</tt> (quotes for clarity only), where <tt>MaxPart</tt> is the length of the longest piece and <tt>FirstCut</tt> is the coordinate of the leftmost cut. Both <tt>MaxPart</tt> and <tt>FirstCut</tt> must be integers with no leading zeroes. If there are multiple answers, return the one with the smallest <tt>FirstCut</tt> value. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>LogCutter</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestCut</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String bestCut(int L, int A, int K, int C)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>L</b> will be between 2 and 1000000000, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>A</b> will be between 1 and 1000000000, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>K</b> will be between 1 and 10000, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>C</b> will be between 1 and 10000, inclusive. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;5 4&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This log of length 9 can be cut at points 4 and 7. We cut it at point 4 to produce two parts with lengths 4 and 5.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;3 3&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This log of length 5 can only be cut in one place, which is 3 centimeters from the left end of the log.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;2 1&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This log of length 6 can be cut at any integer coordinate. We are allowed up to 3 cuts, so we can make the longest part 2 centimeters long. This requires only two cuts at points 2 and 4. To minimize the coordinate of the leftmost cut, we perform a third cut at point 1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>999983</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;13 2&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>7</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;1 1&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,267 @@
+<html>
+ <head>
+  <title>XBallGame Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6387">Problem Statement for XBallGame</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Fans of the game X-ball frequently use the official players' stats. These stats are presented as a list of players' names and the positions they can play. If a player can play at several positions, he is shown in the list once for each position.</p> <p>The fans want to get the statistics in a new format. In the old format, each element of the list contained a single player and a single position played by that player. In the new format, each element of the list will contain a single player and all the positions that the player can play. The new list must contain the same number of elements as the old one, and players must appear in the same order as before. Each element of the new list must contain the name of the player, a '-' character, and a comma-separated list of all the positions the player can play. The first position must be the same position that was in the corresponding element of the old list, and the other positions must be sorted in alphabetical order. </p> <pre>
+<b>Old format stats:</b>  |  <b>New format stats:</b>
+John-DH            |  John-DH,RP,SP         
+Jack-SP            |  Jack-SP               
+Sam-OF             |  Sam-OF                
+John-SP            |  John-SP,DH,RP         
+John-RP	           |  John-RP,DH,SP         
+</pre> <p> You will be given a String[] <b>placeboard</b> containing the statistics in the old format. Each element will contain a player's name and an abbreviation of the player's position in the form &quot;Name-Position&quot; (quotes for clarity). Return the list after converting it to the new format. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>XBallGame</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>newStatistics</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] newStatistics(String[] placeboard)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that the names of the players are case-sensitive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>placeboard</b> will contain between 1 and 50 elements, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>placeboard</b> will contain between 4 and 23 characters, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>placeboard</b> will be in the format &quot;Name-Position&quot; without any leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Position will consist of two upper-case letters ('A'-'Z'). </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Name will contain between 1 and 20 letters ('A'-'Z', 'a'-'z'), inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>placeboard</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;John-DH&quot;, 
+ &quot;Jack-SP&quot;, 
+ &quot;Sam-OF&quot;, 
+ &quot;John-SP&quot;, 
+ &quot;John-RP&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;John-DH,RP,SP&quot;, &quot;Jack-SP&quot;, &quot;Sam-OF&quot;, &quot;John-SP,DH,RP&quot;, &quot;John-RP,DH,SP&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;John-DH&quot;, 
+ &quot;Jack-SP&quot;, 
+ &quot;Sam-OF&quot;, 
+ &quot;John-SP&quot;, 
+ &quot;John-RP&quot;, 
+ &quot;John-RA&quot;, 
+ &quot;John-RZ&quot;, 
+ &quot;Jack-OF&quot;, 
+ &quot;Sam-SP&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;John-DH,RA,RP,RZ,SP&quot;,
+&quot;Jack-SP,OF&quot;,
+&quot;Sam-OF,SP&quot;,
+&quot;John-SP,DH,RA,RP,RZ&quot;,
+&quot;John-RP,DH,RA,RZ,SP&quot;,
+&quot;John-RA,DH,RP,RZ,SP&quot;,
+&quot;John-RZ,DH,RA,RP,SP&quot;,
+&quot;Jack-OF,SP&quot;,
+&quot;Sam-SP,OF&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;PFwL-GE&quot;, &quot;PFwL-EV&quot;,&quot;agXL-SR&quot;, &quot;PFwL-CS&quot;, &quot;PFwL-FE&quot;, &quot;PFwL-MS&quot;, &quot;agXL-VS&quot;, &quot;agXL-AL&quot;, &quot;PFwL-BI&quot;, &quot;PFwL-DK&quot;, 
+ &quot;PFwL-MW&quot;, &quot;PFwL-DS&quot;, &quot;agXL-XJ&quot;, &quot;agXL-PJ&quot;, &quot;agXL-CK&quot;, &quot;PFwL-KI&quot;, &quot;agXL-KP&quot;, &quot;agXL-EL&quot;, &quot;PFwL-EA&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;PFwL-GE,BI,CS,DK,DS,EA,EV,FE,KI,MS,MW&quot;,
+&quot;PFwL-EV,BI,CS,DK,DS,EA,FE,GE,KI,MS,MW&quot;,
+&quot;agXL-SR,AL,CK,EL,KP,PJ,VS,XJ&quot;,
+&quot;PFwL-CS,BI,DK,DS,EA,EV,FE,GE,KI,MS,MW&quot;,
+&quot;PFwL-FE,BI,CS,DK,DS,EA,EV,GE,KI,MS,MW&quot;,
+&quot;PFwL-MS,BI,CS,DK,DS,EA,EV,FE,GE,KI,MW&quot;,
+&quot;agXL-VS,AL,CK,EL,KP,PJ,SR,XJ&quot;,
+&quot;agXL-AL,CK,EL,KP,PJ,SR,VS,XJ&quot;,
+&quot;PFwL-BI,CS,DK,DS,EA,EV,FE,GE,KI,MS,MW&quot;,
+&quot;PFwL-DK,BI,CS,DS,EA,EV,FE,GE,KI,MS,MW&quot;,
+&quot;PFwL-MW,BI,CS,DK,DS,EA,EV,FE,GE,KI,MS&quot;,
+&quot;PFwL-DS,BI,CS,DK,EA,EV,FE,GE,KI,MS,MW&quot;,
+&quot;agXL-XJ,AL,CK,EL,KP,PJ,SR,VS&quot;,
+&quot;agXL-PJ,AL,CK,EL,KP,SR,VS,XJ&quot;,
+&quot;agXL-CK,AL,EL,KP,PJ,SR,VS,XJ&quot;,
+&quot;PFwL-KI,BI,CS,DK,DS,EA,EV,FE,GE,MS,MW&quot;,
+&quot;agXL-KP,AL,CK,EL,PJ,SR,VS,XJ&quot;,
+&quot;agXL-EL,AL,CK,KP,PJ,SR,VS,XJ&quot;,
+&quot;PFwL-EA,BI,CS,DK,DS,EV,FE,GE,KI,MS,MW&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a-AA&quot;, &quot;a-ZZ&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;a-AA,ZZ&quot;, &quot;a-ZZ,AA&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

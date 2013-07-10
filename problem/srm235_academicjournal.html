@@ -1,0 +1,267 @@
+<html>
+ <head>
+  <title>AcademicJournal Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4020">Problem Statement for AcademicJournal</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>In any field of research, there are many journals to which one can submit an article for publication. One criterion that is commonly used to choose between journals is the impact factor, a measure of the importance of a journal and the papers that are published there. The impact factor of a journal is defined as the average number of citations each paper in that journal receives from papers in other journals. Citations from papers in the same journal are not counted in order to prevent its editors from inflating their impact factor by preferentially accepting papers that cite other papers in their journal. Although impact factors are not a fair way to judge the quality of research, they do provide a quantitative method for comparing journals to each other.</p> <p>Write a class AcademicJournal with a method rankByImpact that takes a String[] <b>papers</b>, a collection of published papers from which to calculate impact factors, and returns a String[] with the journal names sorted in decreasing order by impact factor. Each element of <b>papers</b> contains the information for a single paper, and is formatted with the name of the paper's journal (consisting of only uppercase English characters and spaces), followed by a period, followed by zero or more integers specifying the zero-based indices of the papers it cites. The citation indices contain no extra leading zeroes, and are separated from each other and from the period character by single spaces. If there is a tie in the impact factors, the journal with more papers comes first in the return value. If there is still a tie, the journal with the lexicographically earlier name comes first.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>AcademicJournal</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>rankByImpact</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] rankByImpact(String[] papers)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Although it is not supposed to happen, it is possible for two papers to reference each other due to delays in the editing and publishing process.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A sloppy author or editor of a paper might accidentally include multiple citations to another paper. In your calculation of the impact factors, count citations from one paper to another only once.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>papers</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>papers</b> will contain between 2 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>papers</b> will be formatted as described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each index will be between 0 and the number of papers - 1, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A paper will not contain a reference to itself.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A.&quot;, &quot;B. 0&quot;, &quot;C. 1 0 3&quot;, &quot;C. 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;A&quot;, &quot;B&quot;, &quot;C&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The one paper in journal A is cited two times, so A's impact factor is 2/1. The one paper in journal B is cited once, so B's impact factor is 1/1. The two papers in journal C only receive citations from each other. Since citations from a paper in the same journal do not count, C's impact factor is 0/2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;RESPECTED JOURNAL.&quot;, &quot;MEDIOCRE JOURNAL. 0&quot;, &quot;LOUSY JOURNAL. 0 1&quot;,
+&quot;RESPECTED JOURNAL.&quot;, &quot;MEDIOCRE JOURNAL. 3&quot;, &quot;LOUSY JOURNAL. 4 3 3 4&quot;,
+&quot;RESPECTED SPECIFIC JOURNAL.&quot;, &quot;MEDIOCRE SPECIFIC JOURNAL. 6&quot;, &quot;LOUSY SPECIFIC JOURNAL. 6 7&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;RESPECTED JOURNAL&quot;,
+&quot;RESPECTED SPECIFIC JOURNAL&quot;,
+&quot;MEDIOCRE JOURNAL&quot;,
+&quot;MEDIOCRE SPECIFIC JOURNAL&quot;,
+&quot;LOUSY JOURNAL&quot;,
+&quot;LOUSY SPECIFIC JOURNAL&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is an impact factor tie between the SPECIFIC and non-specific versions of each tier of journal. Since the non-specific ones have more papers, they win the tiebreaker.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NO CITATIONS.&quot;, &quot;COMPLETELY ORIGINAL.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;COMPLETELY ORIGINAL&quot;, &quot;NO CITATIONS&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If there is a tie in impact factor and number of papers, the journal with the lexicographically earlier name comes first.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;CONTEMPORARY PHYSICS. 5 4 6 8 7 1 9&quot;,
+&quot;EUROPHYSICS LETTERS. 9&quot;,
+&quot;J PHYS CHEM REF D. 5 4 6 8 7 1 9&quot;,
+&quot;J PHYS SOC JAPAN. 5 4 6 8 7 1 9&quot;,
+&quot;PHYSICAL REVIEW LETTERS. 5 6 8 7 1 9&quot;,
+&quot;PHYSICS LETTERS B. 6 8 7 1 9&quot;,
+&quot;PHYSICS REPORTS. 8 7 1 9&quot;,
+&quot;PHYSICS TODAY. 1 9&quot;,
+&quot;REP PROGRESS PHYSICS. 7 1 9&quot;,
+&quot;REV MODERN PHYSICS.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;REV MODERN PHYSICS&quot;,
+&quot;EUROPHYSICS LETTERS&quot;,
+&quot;PHYSICS TODAY&quot;,
+&quot;REP PROGRESS PHYSICS&quot;,
+&quot;PHYSICS REPORTS&quot;,
+&quot;PHYSICS LETTERS B&quot;,
+&quot;PHYSICAL REVIEW LETTERS&quot;,
+&quot;CONTEMPORARY PHYSICS&quot;,
+&quot;J PHYS CHEM REF D&quot;,
+&quot;J PHYS SOC JAPAN&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

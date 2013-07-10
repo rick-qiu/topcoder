@@ -1,0 +1,315 @@
+<html>
+ <head>
+  <title>BedroomFloor Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4810">Problem Statement for BedroomFloor</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> You have decided to put new floor tiles on your bedroom floor. Consider an infinite pattern made of 1x5 wooden panels as in the picture below. The top-left corner of the picture has coordinates (0, 0). X coordinates increase from left to right, and y coordinates increase from top to bottom. </p> <br /><br /> <p> You have chosen a rectangular area within this infinite pattern that matches the exact size of your bedroom. The top-left corner of the rectangle is at (<b>x1</b>, <b>y1</b>) and the bottom-right corner is at (<b>x2</b>, <b>y2</b>). You want to reproduce this section on your bedroom floor. </p> <br /><br /> <p> The store that sells wooden floor panels only carries 1x5 panels. You can cut panels to get smaller panels, but you can't glue panels together to get larger ones. For example, you can cut a 1x5 panel to get one 1x3 panel and one 1x2 panel, or two 1x2 panel and one 1x1 panel, etc. </p> <br /><br /><img src="http://www.topcoder.com/contest/problem/BedroomFloor/floortiles.png" /><br /><br /> <br /><br /> <p> The picture above shows the rectangular area (8, 5, 20, 16). You need twenty-three 1x5 panels, six 1x2 panels and five 1x1 panels. You have to buy total of 27 panels to make these. </p> <br /><br /> <p> You are given ints <b>x1</b>, <b>y1</b>, <b>x2</b> and <b>y2</b>. Return the minimum number of panels you must buy at the store to produce the pattern in the given rectangular area. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BedroomFloor</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>numberOfSticks</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long numberOfSticks(int x1, int y1, int x2, int y2)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You can throw away any part of a panel that you don't need.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x1</b>, <b>y1</b>, <b>x2</b> and <b>x2</b> will be between 0 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x2</b> will be strictly greater than <b>x1</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>y2</b> will be strictly greater than <b>y1</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This rectangular area contains five 1x5 panels.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This rectangular area contains two 1x5 panels and five 1x2 panels. We have to buy 5 panels to make these.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>8</pre></td>
+            </tr>
+            <tr>
+             <td><pre>8</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This rectangle contains twelve 1x3 panels. We can't glue panels together, so we have to buy 12 panels.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>8</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>16</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 27</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example depicted in the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 200000000000</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

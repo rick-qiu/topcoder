@@ -1,0 +1,348 @@
+<html>
+ <head>
+  <title>RoboRace Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6621">Problem Statement for RoboRace</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You are playing a game with a friend involving two robots on a rectangular board. Each cell of the board is either empty, an obstacle, a starting point for a robot, or the destination. You win the game only if your robot is the first to reach the destination cell. Note that if both robots reach the destination cell at the same time or if neither reaches the destination at all, you lose.</p> <p>Both robots listen to the following movement commands: <br /><br /> - 'S' -- move south (the current row increases by one) <br /><br /> - 'N' -- move north (the current row decreases by one) <br /><br /> - 'E' -- move east (the current column increases by one) <br /><br /> - 'W' -- move west (the current column decreases by one) <br /><br /> </p> <p>During one time unit, the same movement command is given to both robots. A robot may choose to follow the command given or ignore it. Note that if the command makes the robot leave the board, or enter a cell occupied by an obstacle, it is automatically ignored and that both robots can be in the same cell at the same time. The robots will always make an optimal decision so that they reach the destination cell as soon as possible.</p> <p>You will be given a String[] <b>board</b>. Each character in <b>board</b> will represent a single cell on the game board and will be either '.' denoting an empty space, '#' denoting an obstacle, 'Y' denoting the starting point for your robot, 'F' denoting the starting point for your friend's robot, or 'X' denoting the destination cell. You will also be given a String[] <b>commands</b>. You should concatenate all elements of <b>commands</b> and make a long String of commands. The ith character of this string will represent the command given during the ith time unit. Starting the game at time 0 (in other words, from the first character of the string of commands) may not guarantee that your robot wins the race. Return the earliest starting time that will guarantee your robot will win. Starting the race at time T means that only the commands starting at index T in the input string are given, the ones with lower indexes will be ignored by both robots. If there is no starting time that can make your robot win, return -1.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RoboRace</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>startTime</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int startTime(String[] board, String[] commands)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>board</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of each element of <b>board</b> will be either '.', '#', 'Y', 'F' or 'X'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The characters 'Y', 'F' and 'X' will each appear exactly once in <b>board</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>commands</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>commands</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of each element of <b>commands</b> will be either 'S', 'N', 'E' or 'W'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;#F&quot;,
+ &quot;YX&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NES&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Your robot needs to move east to reach the destination, while your friend's robot needs to move south. You have three options: start the race at times 0, 1, or 2. If you start the race at time 2, your friend will win. If the race starts at time 0, both robots will have no choice but to ignore the first command, and your robot will win by following the second command. From the two options that guarantee your robot wins, choose the first one, at time 0.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;########&quot;,
+ &quot;#......#&quot;,
+ &quot;#.Y....#&quot;,
+ &quot;#.F.#..#&quot;,
+ &quot;#...X..#&quot;,
+ &quot;#...#..#&quot;,
+ &quot;#......#&quot;,
+ &quot;########&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;SSEEESSW&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Start the race at time 2 and your robot will follow the last 6 commands and reach the destination. Your friend's robot needs one of the first two 'S' commands, so you can not start the race sooner than time 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;########&quot;,
+ &quot;#......#&quot;,
+ &quot;#.Y....#&quot;,
+ &quot;#.F.#..#&quot;,
+ &quot;#...X..#&quot;,
+ &quot;#...#..#&quot;,
+ &quot;#......#&quot;,
+ &quot;########&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ESSEESSW&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only way for your robot to reach the destination is to start the race at time 0. However, the other robot will reach the destination sooner in this case.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;##.#.#.&quot;,
+ &quot;..##...&quot;,
+ &quot;..#...X&quot;,
+ &quot;Y...##.&quot;,
+ &quot;#...#.#&quot;,
+ &quot;..#..F.&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;SSSNWSSSEWNSENENENNNNENWNEWESE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If the race starts at time 5, the destination is reached at time 26. The commands followed by your robot are EEENEEE (the others are ignored). Note that starting the race at time 4 would result in both robots reaching the destination cell at the same time.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;#..#.........#...X##....&quot;,
+ &quot;#........#..........##.#&quot;,
+ &quot;.#.#........#.....#.#...&quot;,
+ &quot;..###...#..##.##...#....&quot;,
+ &quot;..#.#.....#....#.#.####.&quot;,
+ &quot;#...##.##.##..#.....##..&quot;,
+ &quot;.##...#.#....#.......#.#&quot;,
+ &quot;....##.#..#....#....#...&quot;,
+ &quot;....###.##.....###...#..&quot;,
+ &quot;#.#.......#.#......#..#.&quot;,
+ &quot;.##....##.#.##.......#.#&quot;,
+ &quot;......###...####......#.&quot;,
+ &quot;..#.##.#..#.#...#...#...&quot;,
+ &quot;.....#.#..........#...#.&quot;,
+ &quot;##.#....##F#.....#.##.#.&quot;,
+ &quot;.##....#.......##.##.##.&quot;,
+ &quot;..#...#..##....#..#...Y.&quot;,
+ &quot;#...........#...###..###&quot;,
+ &quot;.....#...#..#.........#.&quot;,
+ &quot;.#...##..#.#...#..#.##..&quot;,
+ &quot;#..#...######....###.#..&quot;,
+ &quot;#.#.....#.......#.##....&quot;,
+ &quot;#..#....###....#.#..#...&quot;,
+ &quot;..#...#.##.##.#.##.##..#&quot;,
+ &quot;#....##.##..........#..#&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NWWSEWSSNWESSWES&quot;,
+ &quot;ESEEENSNWNNWSNSNWWNWWNNNWE&quot;,
+ &quot;NSNENENNSEENWWNSNNNNWWSSN&quot;,
+ &quot;EENEWNWESESEEESNNNSEENNEWNNESNEESSEESEEENENNNWSSW&quot;,
+ &quot;NWNNWSNWSWSSSSEEWSSWSESWWNNWWENSNNWWSSWWNNE&quot;,
+ &quot;NWEWNEWSNEN&quot;,
+ &quot;NNNEWNSWSNWESWNNNSWWNNNWWWNNEWNEEWSSWNSSWWNNWESEWS&quot;,
+ &quot;WSSSEESSEEEEENNSWEWWWENSENWNSEENES&quot;,
+ &quot;NNSNESESWNESNENSEESESWSENNESESNESNESEEW&quot;,
+ &quot;ESNENEENWSNS&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 18</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

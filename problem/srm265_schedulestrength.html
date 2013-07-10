@@ -1,0 +1,310 @@
+<html>
+ <head>
+  <title>ScheduleStrength Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1993">Problem Statement for ScheduleStrength</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A common way to rank athletic teams is based on each team's winning percentage. However, when two teams have similar percentages, the team that played against better opponents will be ranked above the team that had easier opponents. The measure of how difficult a team's opponents are, is known as the team's strength of schedule. A team that has faced tough opponents is said to have a strong schedule, and a team with poor opponents is said to have a weak schedule. <p> We will use the cumulative winning percentage of Team X's opponents (the teams that Team X played against) as a measure of Team X's strength of schedule. This percentage is the number of wins recorded by Team X's opponents divided by the total games they played, excluding games that were played against Team X. </p> <p> Given a String[] of <b>teams</b> that contains the name of each team and a String[] <b>results</b> that indicates the outcome of games played during the season, return a String[] containing the names of the teams, ordered from strongest schedule to weakest. Teams with equivalent schedule strengths should appear in increasing alphabetical order. </p> <p> Element <tt>i</tt> of <b>results</b> corresponds to team <tt>i</tt> whose name is found in <b>teams</b> at index <tt>i</tt>. Character <tt>j</tt> of element <tt>i</tt> of <b>results</b> will be one of <tt>'W'</tt>, <tt>'L'</tt> or <tt>'-'</tt> respectively indicating whether team <tt>i</tt> won, lost, or did not play a game against team <tt>j</tt>. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ScheduleStrength</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>calculate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] calculate(String[] teams, String[] results)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>teams</b> will contain between 3 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>teams</b> and <b>results</b> will contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>teams</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>teams</b> will only contain uppercase letters (<tt>'A'</tt>-<tt>'Z'</tt>).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>teams</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>results</b> will contain N characters, where N is the number of elements in <b>teams</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>results</b> will only contain <tt>'W'</tt>, <tt>'L'</tt> and <tt>'-'</tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The <tt>ith</tt> character of the <tt>ith</tt> element of <b>results</b> will be <tt>'-'</tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If the <tt>jth</tt> character of the <tt>ith</tt> element of <b>results</b> is <tt>'W'</tt> then the <tt>ith</tt> character of the <tt>jth</tt> element of <b>results</b> will be <tt>'L'</tt>, and vice versa.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Every team will play at least two games.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BEARS&quot;,
+ &quot;GIANTS&quot;,
+ &quot;COWBOYS&quot;,
+ &quot;BRONCOS&quot;,
+ &quot;DOLPHINS&quot;,
+ &quot;LIONS&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-WLWW-&quot;,
+ &quot;L-WL-W&quot;,
+ &quot;WL---W&quot;,
+ &quot;LW--L-&quot;,
+ &quot;L--W--&quot;,
+ &quot;-LL---&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;BEARS&quot;, &quot;DOLPHINS&quot;, &quot;BRONCOS&quot;, &quot;COWBOYS&quot;, &quot;GIANTS&quot;, &quot;LIONS&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This season's <b>results</b> gives us the following win/loss records: <pre>
+        wins - losses
+BEARS      3 - 1
+GIANTS     2 - 2  (1 loss to the BEARS)
+COWBOYS    2 - 1  (1 win against the BEARS)
+BRONCOS    1 - 2  (1 loss to the BEARS)
+DOLPHINS   1 - 1  (1 loss to the BEARS)
+LIONS      0 - 2  (did not play the BEARS)
+</pre> <p> The <tt>BEARS</tt>'s opponents are the <tt>GIANTS</tt>, <tt>COWBOYS</tt>, <tt>BRONCOS</tt> and <tt>DOLPHINS</tt>. Their combined win/loss record is 6-6 (6 wins, 6 losses), but when we exclude games played against the <tt>BEARS</tt>, this record becomes 5-3. So, the <tt>BEARS</tt> have a schedule strength of 5/8 = .625 </p> Here are the cumulative records and winning percentages calculated for each team: <pre>
+           Record    Winning %
+BEARS      5 - 3    5/8 = .625
+GIANTS     4 - 4    4/8 = .5
+COWBOYS    4 - 3    4/7 = .5714
+BRONCOS    4 - 3    4/7 = .5714
+DOLPHINS   3 - 2    3/5 = .6
+LIONS      2 - 3    2/5 = .4
+</pre> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BEARS&quot;,
+ &quot;COWBOYS&quot;,
+ &quot;GIANTS&quot;,
+ &quot;PACKERS&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-LLW&quot;,
+ &quot;W-WW&quot;,
+ &quot;WL--&quot;,
+ &quot;LL--&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;GIANTS&quot;, &quot;BEARS&quot;, &quot;COWBOYS&quot;, &quot;PACKERS&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AZTECS&quot;,
+ &quot;COUGARS&quot;,
+ &quot;COWBOYS&quot;,
+ &quot;FALCONS&quot;,
+ &quot;HORNEDFROGS&quot;,
+ &quot;LOBOS&quot;,
+ &quot;RAMS&quot;,
+ &quot;REBELS&quot;,
+ &quot;UTES&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;---L-L--W&quot;,
+ &quot;--LL-LWL-&quot;,
+ &quot;-W--WWLLW&quot;,
+ &quot;WW---L--W&quot;,
+ &quot;--L--W-L-&quot;,
+ &quot;WWLWL-LW-&quot;,
+ &quot;-LW--W-L-&quot;,
+ &quot;-WW-WLW--&quot;,
+ &quot;L-LL-----&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;HORNEDFROGS&quot;,
+&quot;COUGARS&quot;,
+&quot;RAMS&quot;,
+&quot;LOBOS&quot;,
+&quot;REBELS&quot;,
+&quot;UTES&quot;,
+&quot;COWBOYS&quot;,
+&quot;AZTECS&quot;,
+&quot;FALCONS&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;E&quot;, &quot;D&quot;, &quot;C&quot;, &quot;B&quot;, &quot;Z&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{
+&quot;--LLL&quot;,
+&quot;---LL&quot;,
+&quot;W---L&quot;,
+&quot;WW---&quot;,
+&quot;WWW--&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;D&quot;, &quot;E&quot;, &quot;C&quot;, &quot;Z&quot;, &quot;B&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

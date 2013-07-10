@@ -1,0 +1,234 @@
+<html>
+ <head>
+  <title>TrueFalse Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2253">Problem Statement for TrueFalse</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Throughout the term in computer science class, Professor Smith's exams consisted entirely of true or false questions. The reason? He was too lazy to grade things by hand, so after a test was over, he would input each student's answers into his computer, and the grades would be automatically calculated. Easy!</p> <p>It is the end of the term now, and grades are due tomorrow. As luck would have it, Smith's computer has crashed, and he has no time to try and fix it. All he can do now is to try and dig up old test papers and regrade them by hand.</p> <p>The problem is, the answer keys for all the tests were on the computer. So now, he must try and reconstruct the answer keys so that he can grade things. All is not lost, however. He has all of the papers stored, and he can remember the number of correct answers for certain students. In addition, he is sure each question was answered correctly by at least one student. However, he still hasn't been able to figure out the answer keys for some of them, and he's asked you for help.</p> <p>For some given test, the papers for which he can remember grades are given as a String[] <b>graded</b>. Each String represents a single student's graded test paper for this specific test, and will start off with a non-negative integer without extra leading zeros indicating the number of questions that student got correct. Then that number is followed by a single space, and then a sequence of uppercase 'T's and 'F's, where the first represents that student's answer to the first question ('T' = true, 'F' = false), and so on. Your method should return the lexicographically earliest answer key that is consistent with the grades he remembers as a String, with the first character being the correct answer to the first question, the second character being the correct answer to the second, and so on. If there is no answer key that works, your method should return the String &quot;inconsistent&quot; (without the double quotes).</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TrueFalse</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>answerKey</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String answerKey(String[] graded)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each question has been answered correctly by at least one student. (See example 0.)</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>graded</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>graded</b> will be between 3 and 18 characters in length, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>graded</b> will contain a number N without extra leading zeros, followed by one space and then a sequence of 'T's and 'F's.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>graded</b> will have the same number of letters following the number.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>for each element of <b>graded</b>, N will be between 0 and the number of letters in each element, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;2 TTF&quot;,
+ &quot;1 FTF&quot;,
+ &quot;2 FTT&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;TTT&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Since the second question was answered 'T' by all of them, it must be right, since every question was answered correctly by at least one student. Then the second person's test paper tells us that the only possible correct answer key is &quot;TTT&quot;, which is consistent with the other two students' papers.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;7 TTFFTFT&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;TTFFTFT&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Only one person, and he had a perfect score.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;9 TTTFFFFTTFFTTFT&quot;,
+ &quot;7 FFFFFFFFFFFFFFF&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;inconsistent&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;9 TTTFFFFTTFFTTFT&quot;,
+ &quot;7 FFFFFFFFFFFFFFF&quot;,
+ &quot;8 TTTTTTTTTTTTTTT&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;FFFFFFFTTTTTTTT&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

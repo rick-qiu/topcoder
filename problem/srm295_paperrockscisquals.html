@@ -1,0 +1,253 @@
+<html>
+ <head>
+  <title>PaperRockScisQuals Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=5996">Problem Statement for PaperRockScisQuals</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A very exciting Paper-Rock-Scissors tournament has just begun! In qualifications, each player must face all his opponents in head to head games consisting of 5 throws. On each throw, each player will choose one of the following: Paper ('P'), Rock ('R') or Scissors ('S'). The winner of a throw is determined as follows:<br /><br /> <br /><br /> Paper always wins against Rock<br /><br /> Rock always wins against Scissors<br /><br /> Scissors always win against Paper<br /><br /> In case both players make the same choice, it's a tie and no one wins.<br /><br /> <br /><br /> The winner of a game is the player who wins more throws. If both players win the same number of throws, the game ends in a tie (since these are qualifications, ties are allowed). To determine who passed the qualifications, a scoring system is implemented as follows:<br /><br /> <br /><br /> For every game won, the player is awarded <i>one</i> point.<br /><br /> For every game tied, the player is awarded <i>half</i> of a point.<br /><br /> For every game lost, the player is awarded <i>zero</i> points.<br /><br /> <br /><br /> Only a single player will pass the qualifications, namely the player with the most points. If several players have the same amount of points, the player which comes first in the input wins.<br /><br /> <br /><br /> All players observe a simple strategy: each of them prepares a sequence of throws and plays the same sequence in every game. Write a program that will receive a String[] <b>players</b> representing the sequence of throws for all players and returns the 0-based index of the player who will pass the qualifications. Each element of <b>players</b> will contain exactly 5 characters. Character 'P' represents a Paper throw, 'S' represents a Scissors throw, and 'R' represents a Rock throw.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PaperRockScisQuals</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>whoPassed</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int whoPassed(String[] players)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>players</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>players</b> will contain exactly 5 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>players</b> will contain only the characters 'P', 'R' and 'S'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;PPRRS&quot;,&quot;PPRRP&quot;,&quot;PPRSP&quot;,&quot;PPSSP&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Player 0 will defeat players 1, 2 and 3 with 1, 2 and 3 throws won respectively so he gets 3 points. <br /><br /> Player 1 will defeat players 2 and 3 with 1 and 2 throws won respectively so he gets 2 points. <br /><br /> Player 2 defeats player 3 with 1 throw won so gets 1 point. <br /><br /> Player 3 does not win a single game so he gets 0 points. <br /><br /> <br /><br /> The winner is player 0 with 3 points.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;RRRRR&quot;,&quot;PPPPP&quot;,&quot;RRRRR&quot;,&quot;PPPPP&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Players 1 and 3 both defeat players 0 and 2 and have a tied game between themselves so they have 2.5 points in total.<br /><br /> Players 0 and 2 lose to players 1 and 3 and have a tied game between themselves so they have 0.5 points in total.<br /><br /> Since player 1 is before player 3 in input, the tie is resolved in his favor and he wins the qualifications.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;RRRRR&quot;,&quot;PPPPP&quot;,&quot;SSSSS&quot;,&quot;PPPPP&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Now player 2 defeats players 1 and 3 and loses to player 0 and has 2 points in total. <br /><br /> Players 1 and 3 defeat player 0 and tie each other ending with 1.5 points. <br /><br /> Player 0 defeats player 2 for 1 point in total. <br /><br /> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;RRRRR&quot;,&quot;PPPPP&quot;,&quot;SSSSS&quot;,&quot;SSSSS&quot;,&quot;RRRRR&quot;,&quot;RRRRR&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Players 0, 1, 4 and 5 have 3 points. Since player 0 comes first in the input, he wins.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;PPRPS&quot;,&quot;RRRPR&quot;,&quot;SSPRS&quot;,&quot;SSPRR&quot;,&quot;PPRSP&quot;,&quot;SPRPS&quot;,&quot;SPRSP&quot;,&quot;PRSPR&quot;,&quot;PRSPR&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,309 @@
+<html>
+ <head>
+  <title>PermissionTree Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3093">Problem Statement for PermissionTree</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You are building a web site for your clients to access, and want to create a welcome screen that serves as a starting point where they can view various pieces of data.</p> <p>All of your data is stored hierarchically in folders, much like a file system. You are given a String[] <b>folders</b>, where each element includes the id of the parent folder, a space, and a comma-delimited list of users who have permission to view that folder. The root level folder, 0, is its own parent, and all folders are descendants of the root node. Additionally, you are given a String[], <b>users</b>, which contains a list of the users who will be accessing the web site.</p> <p>For each user, you are to determine which folder should serve as their &quot;home folder&quot;. A user's home folder is defined as the deepest folder which contains all of the folders the user can access.</p> <p>Suppose the data is very simple, such that folders looks like this:</p> <pre>
+folders = { &quot;0 Administrator&quot;,
+            &quot;0 Joe,Phil&quot;,
+            &quot;0 Joe&quot; }
+</pre> <p>and your users are Administrator, Joe, and Phil. Clearly, the Administrator's home folder is 0, since he can access the root node. Similarly, Phil's home folder is 1, since he can only access folder 1. But Joe can access folders 1 and 2, so his home folder must be folder 0, which contains folders 1 and 2.</p> <p>The return value should be a int[], indicating the home folder for each corresponding element of <b>users</b>. Users who have access to no folders are assigned a home folder of -1.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PermissionTree</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findHome</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] findHome(String[] folders, String[] users)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>User names <i>are</i> case-sensitive</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>folders</b> will have between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>users</b> will have between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>users</b> will have between 1 and 50 alphabetic ('A'-'Z' or 'a'-'z') characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>folders</b> will be of the form &quot;&lt;parent&gt; &lt;user list&gt;&quot; (quotes added for clarity).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>folders</b> will contain between 3 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><i>&lt;parent&gt;</i> will be an integer index of an element of <b>folders</b>, between 0 and n - 1, inclusive, where n is the number of elements in folders. Leading zeroes are permitted.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><i>&lt;user list&gt;</i> will be a comma-delimited list of user names, with no spaces, and containing only the characters 'A'-'Z', 'a'-'z', or ','.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><i>&lt;user list&gt;</i> cannot be empty, but may contain repeats.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The elements of <b>folders</b> will define a valid tree.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 Admin&quot;, &quot;0 Joe,Phil&quot;, &quot;0 Joe&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;Admin&quot;, &quot;Joe&quot;, &quot;Phil&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  0,  1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 Admin&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;Peter&quot;, &quot;Paul&quot;, &quot;Mary&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { -1,  -1,  -1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is not much to access, and only the admin can see it.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 Admin&quot;, &quot;2 John&quot;, &quot;0 Peter,John&quot;, &quot;0 Tim&quot;, &quot;1 John&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;John&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 2 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Notice that, apart from the root node always being (0), other folders are not necessarily defined in order of depth. (Here, folder 2 is the parent of folder 1.)</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 Admin&quot;,
+&quot;0 Jeff&quot;, &quot;1 Mark,Tim&quot;, &quot;1 Tim,Jeff&quot;,
+&quot;0 Dan&quot;, &quot;4 Ed&quot;, &quot;4 Tom&quot;, &quot;4 Kyle,Ed&quot;,
+&quot;0 Ben&quot;, &quot;8 Rich&quot;, &quot;8 Sam&quot;, &quot;8 Tim&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;Jeff&quot;, &quot;Ed&quot;, &quot;Tim&quot;, &quot;Steve&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  4,  0,  -1 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 Admin&quot;, &quot;0 Bob,Joe,Bob&quot;, &quot;0 Joe&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;Joe&quot;, &quot;Bob&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Notice here that a username can be repeated for a given folder.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

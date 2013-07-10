@@ -1,0 +1,353 @@
+<html>
+ <head>
+  <title>AlphabetCount Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4668">Problem Statement for AlphabetCount</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> You will be given a 2-dimensional grid of letters and a length. Write a method to count the total number of distinct paths of consecutive letters of the given length, starting at 'A'. Paths can step from one square in the grid to any adjacent square (horizontally, vertically, or diagonally). </p> <p> For example, in the following grid, there are 7 paths of consecutive letters from 'A' to 'C': </p> <pre>
+    { &quot;ABC&quot;,
+      &quot;CBZ&quot;,
+      &quot;CZC&quot;,
+      &quot;BZZ&quot;,
+      &quot;ZAA&quot; }
+
+    A B C    A . C    A B .    A . .    A . .    A . .    . . .
+    . . .    . B .    C . .    C B .    . B .    . B .    . . .
+    . . .    . . .    . . .    . . .    C . .    . . C    C . .
+    . . .    . . .    . . .    . . .    . . .    . . .    B . .
+    . . .    . . .    . . .    . . .    . . .    . . .    . A .
+    (spaces are for clarity only)
+</pre> <p> so, for this grid and a length of 3, your method should return 7. </p> <p> If there are more than 1,000,000,000 paths, your method should return 1,000,000,000. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>AlphabetCount</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>count</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int count(String[] grid, int length)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>grid</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>grid</b> will be between 1 and 50 characters long, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>grid</b> will have the same length.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>grid</b> will contain only uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>length</b> will be between 1 and 26, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;ABC&quot;,
+  &quot;CBZ&quot;,
+  &quot;CZC&quot;,
+  &quot;BZZ&quot;,
+  &quot;ZAA&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;AAAA&quot;,
+  &quot;AAAA&quot;,
+  &quot;AAAA&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;ABAB&quot;,
+  &quot;BABA&quot;,
+  &quot;ABAB&quot;,
+  &quot;BABA&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 24</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;HIJKLMNOPQZZZONMLKHIDZYQR&quot;,
+  &quot;GYXWVUTSRASTZZPSTUJGECPXS&quot;,
+  &quot;FZABCDEFARQPUQRAAAVWFBOWT&quot;,
+  &quot;EONMJIHGAJMNOVAAAAAYXANUV&quot;,
+  &quot;DCBLKDEFIEKLEDWAAAZFGHMLK&quot;,
+  &quot;UVAZYBCGHFDFCAYXNPQZEDIJA&quot;,
+  &quot;TSWXAKLZGCZBGZIJOMZRUTCBZ&quot;,
+  &quot;RQPONMJIHBAZZHZZKLZZSVWXY&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>26</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;CZC&quot;,
+  &quot;ZBZ&quot;,
+  &quot;AZA&quot; }
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;,
+  &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;,
+  &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>26</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1000000000</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;BDBCBACABDDCCADCBDDCBDDDBCCCCABACADDDCCCBADDDBADCA&quot;,
+  &quot;DCBBBACBDBACCADABCCAABACDBADBCBBABACBCADADCBDABBBD&quot; }
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 20</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

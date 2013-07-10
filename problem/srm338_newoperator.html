@@ -1,0 +1,371 @@
+<html>
+ <head>
+  <title>NewOperator Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7387">Problem Statement for NewOperator</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Given a positive integer N, we may define the following unary functions: </p> 
+      <ul> 
+       <li><tt>sum(N)</tt> is the sum of the decimal digits of N.</li> 
+       <li><tt>prod(N)</tt> is the product of the decimal digits of N.</li> 
+       <li><tt>prod3(N)</tt> is the product of the three largest decimal digits of N. <br /><br /> If N has less than three digits, <tt>prod3(N)=prod(N)</tt>.</li> 
+       <li><tt>smallest(N)</tt> is the smallest decimal digit of N.</li> 
+       <li><tt>first(N)</tt> is the first (most significant) decimal digit of N.</li> 
+      </ul> <p> Now we may define the binary operator <tt>@</tt> as follows: </p> 
+      <ul> 
+       <li><tt>X@Y = 5 * prod3(X) + first(X) * sum(Y) + smallest(Y)</tt></li> 
+      </ul> <p> Examples: </p> 
+      <ul> 
+       <li><tt>sum(47) = 4+7 = 11</tt></li> 
+       <li><tt>prod(2322) = 2*3*2*2 = 24</tt></li> 
+       <li><tt>prod3(2322) = 3*2*2 = 12</tt></li> 
+       <li><tt>prod3(47) = 4*7 = 28</tt></li> 
+       <li><tt>smallest(427) = 2</tt></li> 
+       <li><tt>first(427) = 4</tt></li> 
+       <li><tt>12034@217 = 5 * (4*3*2) + 1 * (2+1+7) + 1 = 131</tt></li> 
+      </ul> <p> We will be interested in expressions that use only the operator <tt>@</tt> and a single variable <tt>x</tt>. Valid expressions are defined using the following rules: </p> 
+      <ul> 
+       <li><tt>x</tt> is a valid expression.</li> 
+       <li>If <tt>E</tt> and <tt>F</tt> are valid expressions, then <tt>(E@F)</tt> is a valid expression.</li> 
+       <li>Any string that can not be formed using the rules above is not a valid expression.</li> 
+      </ul> <p> You are given an int <b>x</b> containing the value of the variable <tt>x</tt> used above, and an int <b>goal</b>. Find the shortest valid expression that evaluates to <b>goal</b>, and return the number of operators it contains. If no such expression exists, return -1 instead. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>NewOperator</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minimumCount</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minimumCount(int x, int goal)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> will be between 1 and 1,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>goal</b> will be between 1 and 2,000,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>13</pre></td>
+            </tr>
+            <tr>
+             <td><pre>13</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">&quot;<tt>x</tt>&quot; is a valid expression that evaluates to 13.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>374</pre></td>
+            </tr>
+            <tr>
+             <td><pre>465</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">&quot;<tt>(x@x)</tt>&quot; is a valid expression. For <b>x</b>=374 its value is 5 * (7*4*3) + 3 * (3+7+4) + 3 = 465. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>374</pre></td>
+            </tr>
+            <tr>
+             <td><pre>469</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">&quot;<tt>(x@(x@x))</tt>&quot; evaluates to 469.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>374</pre></td>
+            </tr>
+            <tr>
+             <td><pre>659</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">&quot;<tt>((x@x)@x)</tt>&quot; evaluates to 659. Note that the operator is not associative.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>374</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1024</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>654321</pre></td>
+            </tr>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>654321</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1234567</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

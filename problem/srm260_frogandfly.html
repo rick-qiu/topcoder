@@ -1,0 +1,392 @@
+<html>
+ <head>
+  <title>FrogAndFly Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4750">Problem Statement for FrogAndFly</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> There are two buildings opposite each other as in the figure below. On the left building, there is a rectangular window, with the lower and upper sides given by <b>ylow</b> and <b>yhigh</b> (the y-coordinate as shown in the image: starting with 0.0 at the bottom and increasing upwards). On the building on the opposite side there is also a window, but it is not necessarily rectangular. Its shape is a convex polygon, with the x- and y-coordinates (as shown in the image: x-coordinate increasing to the back, y-coordinate starting with 0.0 at the bottom and increasing upwards) of the corners given by the int[]s <b>xwindow</b> and <b>ywindow</b> (the <b>i</b>-th corner is at the x-coordinate <b>xwindow[i]</b> and at the y-coordinate <b>ywindow[i]</b>). Between the two buildings there is an opaque wall of height <b>hwall</b>, at a distance of <b>dfrog</b> from the left building and <b>dfly</b> from the right building (assume that the wall is infinitely thin). </p> <p> <img src="http://www.topcoder.com/contest/problem/SRM_260/illustration.png" /> </p> <p> A frog lies at some point on the window of the left building, and a fly lies at some point on the window of the right building. Assuming that the frog and fly are positioned randomly (uniformly) at some point on the windows, what is the probability that the frog can see the fly (i.e., the line of sight between them does not cross the wall)? </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FrogAndFly</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>visibility</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int, int, int, int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double visibility(int hwall, int dfrog, int dfly, int ylow, int yhigh, int[] xwindow, int[] ywindow)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The return value must be within 1e-9 absolute or relative error of the actual result.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hwall</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dfrog</b> will be between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dfly</b> will be between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>ylow</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>yhigh</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>ylow</b> will be smaller than <b>yhigh</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>xwindow</b> and <b>ywindow</b> will have between 3 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>xwindow</b> and <b>ywindow</b> will have the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>xwindow</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>ywindow</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The polygon defined by the coordinates represented by the elements of <b>xwindow</b> and <b>ywindow</b> will be a convex polygon with non-zero area. There will be no two identical points, and no three points will be collinear.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>15</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5, 5, 15, 15}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5, 15, 15, 5}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The windows on both sides are rectangular with the lower sides at height 5 and the upper sides at height 15. The wall is exactly in the middle between the buildings and has a height of 10. Due to the symmetric configuration, the probability of the fly being visible by the frog here is exactly 0.5 (50%).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>14</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>15</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5, 5, 15, 15}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5, 15, 15, 5}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.02</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The same situation as above, just the wall has now a height of 14. If both the fly and the frog are above a height of 13, we have a symmetric configuration again with probability 0.5 of the fly being visible by the frog. If the frog or the fly (or both) is below a height of 13, the fly will not be visible by the frog. The probability of both being above a height of 13 is 0.2 * 0.2 = 0.04, so the total probability is 0.04 * 0.5 = 0.02.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>15</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10, 20, 15}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5, 5, 15}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.4166666666666665</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A triangular window.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0, 10, 20, 30, 15}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{20, 10, 10, 20, 40}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The wall has height 0, so even from the lowest point (<b>ylow</b>) the frog can always look at the fly.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>30</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>40</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10, 20, 30, 20}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{20, 10, 20, 30}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The wall is now too high and hides the whole opposite window, so the frog can never look directly at the fly.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

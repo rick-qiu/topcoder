@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ $# -ne 1 ]
+then
+    echo "Usage: run file"
+    exit 1
+fi
+echo ""
+echo "build $1 and run test cases..."
+echo ""
+$BUILD_CMD $1 -o test && ./test

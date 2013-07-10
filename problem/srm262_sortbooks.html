@@ -1,0 +1,307 @@
+<html>
+ <head>
+  <title>SortBooks Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4557">Problem Statement for SortBooks</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are an avid book collector, and you have dutifully catalogued your books on your computer. You had just entered your last book when you discovered that sometimes you put the author in the first field and the title in the second field, and sometimes you put the title in the first field and the author in the second field. You decide to write a program to sort out the list such that the author comes first, then the title of the book.<br /><br /><br /><br /> To sort your list, you decide to mark a field as the title if it satisfies at least one of the following criteria: <br /><br /><br /><br /> - It contains at least one of the following words: &quot;the&quot;, &quot;and&quot;, or &quot;of&quot;.<br /><br /> - It contains more than 3 space-delimited words. <br /><br /><br /><br /> You figure that following these rules will sort most of your books, but you need a routine to check the rest of them manually so you can sort them yourself.<br /><br /><br /><br /> You are given a String[] <b>field1</b>, and a String[] <b>field2</b>. Corresponding elements of <b>field1</b> and <b>field2</b> refer to the two catalogued fields of a single book. You are to return a int[] containing the 0-based indexes of the books in ascending order that need to be checked manually. A book must be checked manually if either both of its fields are titles or neither of its fields are titles according to the rules.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SortBooks</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>checkManually</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] checkManually(String[] field1, String[] field2)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>When checking for &quot;the&quot;, &quot;and&quot;, and &quot;of&quot;, note that they are case insensitive.<br /><br />Thus &quot;the&quot; = &quot;tHE&quot; = &quot;THE&quot;, etc.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>field1</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>field2</b> will contain an equal number of elements as <b>field1</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>field1</b> and <b>field2</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>field1</b> and <b>field2</b> will consist only of letters ('a'-'z', 'A'-'Z') and spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>field1</b> and <b>field2</b> will have no leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;J R R Tolkien&quot;, &quot;THE Jungle BOOK&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;THE HOBBIT&quot;, &quot;RUDYARD KIPLING&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Both &quot;J R R Tolkien&quot; and &quot;THE HOBBIT&quot; are considered titles because &quot;J R R Tolkien&quot; is 4 words and &quot;THE HOBBIT&quot; contains &quot;THE&quot;. Therefore it needs to be checked manually.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;Scaramouche&quot;, &quot;Dan Brown&quot;, &quot;War and Peace&quot; }	</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;Rafael Sabatini&quot;, &quot;The Da Vinci Code&quot;, &quot;Leo Tolstoy&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first book needs to be checked, because there is not enough information to tell which one is the title.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;Aesop&quot;, &quot;Little Women&quot;, &quot;Hans Christian Anderson&quot;, &quot;The Arabian Nights&quot;, 
+  &quot;Peter Christian Asbornsen&quot;, &quot;Mr Poppers Penguins&quot;, &quot;Enid Bagnold&quot;, &quot;Miss Hickory&quot;,
+  &quot;Sir James Barrie&quot;, &quot;The Wizard of OZ&quot;, &quot;Ludwig Bemelmans&quot;, &quot;The Five Chinese Brothers&quot;,
+  &quot;Edith Nesbit Bland&quot;, &quot;The Enchanted Castle&quot;, &quot;Edith Nesbit Bland&quot;,
+  &quot;Five Children and It&quot;, &quot;Michael Bond&quot;, &quot;The Children of Green Knowe&quot;,
+  &quot;James Boyd&quot;, &quot;Caddie Woodlawn&quot;, &quot;Walter Brooks&quot;, &quot;The Runaway Bunny&quot;,
+  &quot;Margaret Wise Brown&quot;, &quot;Big Red Barn&quot;, &quot;Jean De Brunhoff&quot;,
+  &quot;Old Mother West Wind&quot;, &quot;Frances Hodgson Burnett&quot;, &quot;A Little Princess&quot;,
+  &quot;Frances Hodgson Burnett&quot;, &quot;Mike Mulligan and His Steam Shovel&quot;,
+  &quot;Virginia Lee Burton&quot;, &quot;The Enormous Egg&quot;, &quot;Eleanor Cameron&quot;,
+  &quot;The Happy Orpheline&quot;, &quot;Natalie Savage Carlson&quot;, &quot;Through the Looking Glass&quot;,
+  &quot;Miguel Cervantes&quot;, &quot;Secret of the Andes&quot;, &quot;Beverly Cleary&quot;, &quot;Henry Huggins&quot;,
+  &quot;Elizabeth Coatsworth&quot;, &quot;The Adventures of Pinocchio&quot;, &quot;Barbara Cooney&quot;,
+  &quot;The Little Lame Prince&quot;, &quot;Paul Creswick&quot;, &quot;The Courage of Sarah Noble&quot;,
+  &quot;Alice Dagliesh&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;Aesops Fables&quot;, &quot;Louisa May Alcott&quot;, &quot;Fairy Tales&quot;, &quot;Hans Christian Anderson&quot;,
+  &quot;East of the Sun and West of the Moon&quot;, &quot;Richard and Florence Atwater&quot;,
+  &quot;National Velvet&quot;, &quot;Carolyn Bailey&quot;, &quot;Peter Pan&quot;, &quot;Frank L Baum&quot;, &quot;Madeline&quot;,
+  &quot;Claire Huchet Bishop&quot;, &quot;The Railway Children&quot;, &quot;Edith Nesbit Bland&quot;,
+  &quot;The Story of the Treasure Seekers&quot;, &quot;Edith Nesbit Bland&quot;, &quot;A Bear Called Paddington&quot;,
+  &quot;Lucy Boston&quot;, &quot;Drums&quot;, &quot;Carol Rylie Brink&quot;, &quot;Freddy the Detective&quot;,
+  &quot;Margaret Wise Brown&quot;, &quot;The Little Fur Family&quot;, &quot;Moon Goodnight&quot;, &quot;The Story of Babar&quot;,
+  &quot;Thornton W Burgess&quot;, &quot;Little Lord Fauntleroy&quot;, &quot;Frances Hodgson Burnett&quot;,
+  &quot;The Secret Garden&quot;, &quot;Virginia Lee Burton&quot;, &quot;The Little House&quot;, &quot;Oliver Butterworth&quot;,
+  &quot;The Wonderful Flight to the Mushroom Planet&quot;, &quot;Natalie Savage Carlson&quot;,
+  &quot;The Family Under the Bridge&quot;, &quot;Lewis Carroll&quot;, &quot;Don Quixote&quot;, &quot;Ann Nolan Clark&quot;,
+  &quot;Beezus and Ramona&quot;, &quot;Beverly Cleary&quot;, &quot;The Cat Who Went to Heaven&quot;, &quot;Carlo Collodi&quot;,
+  &quot;Chanticleer and the Fox&quot;, &quot;Dinah Mulock Craik&quot;, &quot;Robin Hood&quot;, &quot;Alice Dagliesh&quot;,
+  &quot;The Bears on Hemlock Mountain&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0, 1, 2, 6, 7, 8, 10, 18, 19, 23, 26, 27, 36, 39, 44 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;Lost     Horizon&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;James Hilton&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Words in titles and/or authors may be separated by more than one space.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;andy rooney&quot;, &quot;joe lofthouse&quot;, &quot;Theodore Taylor&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;love of life&quot;, &quot;the arrest&quot;, &quot;Softly Wandering&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {2 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

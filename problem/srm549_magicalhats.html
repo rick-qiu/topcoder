@@ -1,0 +1,466 @@
+<html>
+ <head>
+  <title>MagicalHats Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11966">Problem Statement for MagicalHats</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A magician has challenged you to a game of wits. First he shows you some coins. Different coins may have different values. Next he takes some hats and hides all the coins inside the hats, in such a way that no two coins are hidden in the same hat. Finally, he places each of the hats with their respective coin onto some cell of a checkerboard. Now he has given you some guesses. In each guess you may ask the magician to reveal the contents of one of the hats. <br /><br /><br /><br /> After you make your guess, but before he reveals the contents of a hat, the magician may magically reshuffle all coins that are still hidden. That is, he can use a magic spell to redistribute the coins among all hats that still were not revealed, including the hat you just selected. After reshuffling, each hat must again contain at most one coin. <br /><br /><br /><br /> After you make a guess and the magician reshuffles the hidden coins, the hat you selected is flipped upside down (and remains in this state until the end of the game). If it contained a coin, the coin remains in the hat, but it is now visible and the magician cannot move it in the future. If it did not contain a coin, the magician can't ever put a coin into this hat anymore. <br /><br /><br /><br /> Furthermore, the magician has given you one more set of guarantees. At any moment in the game, the following constraints will all be satisfied: 
+      <ul> 
+       <li>For each row, the number of hats in the row plus the number of coins in the row will be an even number.</li> 
+       <li>For each column, the number of hats in the column plus the number of coins in the column will be an even number.</li> 
+      </ul> You are given a String[] <b>board</b> representing the checkerboard. The j-th character of the i-th element of <b>board</b> is 'H' when there is a hat at row i column j of the checkerboard and '.' otherwise. You are also given an int[] <b>coins</b> representing the different coins that are hidden under hats. You are also given an int <b>numGuesses</b> representing the number of guesses that you get.<br /><br /><br /><br /> At the end of the game you get to keep all the coins that were revealed while playing. Your goal is to maximize the total value of the coins you get. The magician's goal is to minimize the total value of the coins you get. If it is not possible to hide all the coins in <b>coins</b> under the hats on the given board while meeting all the constraints above, return -1. Otherwise, return the total value of coins you'll get, assuming both you and the magician play optimally.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MagicalHats</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findMaximumReward</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int findMaximumReward(String[] board, int[] coins, int numGuesses)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain between 1 and 13 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain between 1 and 13 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of each element of <b>board</b> will be either 'H' or '.'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain at most 13 occurrences of the character 'H'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>coins</b> will contains between 1 and 13 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>coins</b> will be between 1 and 10,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will always be at least as many 'H' characters in <b>board</b> as elements in <b>coins</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>numGuesses</b> will be between 1 and the number of 'H' characters in <b>board</b>, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;H&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">One guess for one hat. The reward is just the contents of the hat.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;HHH&quot;,
+ &quot;H.H&quot;,
+ &quot;HH.&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only position the 9 coin can possibly be in is the top left corner.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;HH&quot;,
+ &quot;HH&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,2,3,4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The magician manages to always give you the worst possible reward regardless of how you guess.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;HHH&quot;,
+ &quot;HHH&quot;,
+ &quot;H.H&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{13,13,13,13}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;HHH&quot;,
+ &quot;HHH&quot;,
+ &quot;H.H&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{13,13,13,13}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 26</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;H.H.&quot;,
+ &quot;.H.H&quot;,
+ &quot;H.H.&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{17}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;HHH&quot;,
+ &quot;H.H&quot;,
+ &quot;HHH&quot;,
+ &quot;H.H&quot;,
+ &quot;HHH&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{33,337,1007,2403,5601,6003,9999}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1377</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.............&quot;,
+ &quot;.............&quot;,
+ &quot;.............&quot;,
+ &quot;.............&quot;,
+ &quot;.............&quot;,
+ &quot;.............&quot;,
+ &quot;.....H.H.....&quot;,
+ &quot;......H......&quot;,
+ &quot;.....H.H.....&quot;,
+ &quot;.............&quot;,
+ &quot;.............&quot;,
+ &quot;.............&quot;,
+ &quot;.............&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{22}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 22</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

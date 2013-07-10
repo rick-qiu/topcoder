@@ -1,0 +1,246 @@
+<html>
+ <head>
+  <title>ThreePhotos Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9954">Problem Statement for ThreePhotos</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A cube of size NxNxN was divided into small cubes of size 1x1x1. Then, some of the small cubes were removed, and three photos of the large cube were taken. You are given these three photos in the String[]s <b>A</b>, <b>B</b> and <b>C</b>. Character y of element x of <b>A</b> will be 'Y' if at least one small cube with x-coordinate x and y-coordinate y wasn't removed, or 'N' otherwise. Character z of element x of <b>B</b> will be 'Y' if at least one small cube with x-coordinate x and z-coordinate z wasn't removed, or 'N' otherwise. Character z of element y of <b>C</b> will be 'Y' if at least one small cube with y-coordinate y and z-coordinate z wasn't removed, or 'N' otherwise. Return the minimal number of small cubes which could've been removed to result in those three photos. If there is no way the three photos can be valid, return -1 instead.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ThreePhotos</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>removeCubes</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int removeCubes(String[] A, String[] B, String[] C)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>N will be between 1 and 50, inclusive. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>A</b>, <b>B</b> and <b>C</b> will each contain exactly N elements. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>A</b>, <b>B</b> and <b>C</b> will contain exactly N characters. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>A</b>, <b>B</b> and <b>C</b> will contain only 'Y' or 'N' characters. <br /><br /></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YY&quot;,&quot;YY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;YY&quot;,&quot;YY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;YY&quot;,&quot;YY&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Remove no cubes.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNN&quot;,&quot;NNN&quot;,&quot;NNN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NNN&quot;,&quot;NNN&quot;,&quot;NNN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NNN&quot;,&quot;NNN&quot;,&quot;NNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 27</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You will have to remove all cubes.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNNNN&quot;,&quot;NNNNN&quot;,&quot;NNNNN&quot;,&quot;YYNNN&quot;,&quot;NNNNN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NNNNN&quot;,&quot;NNNNN&quot;,&quot;NNNNN&quot;,&quot;NNYNY&quot;,&quot;NNNNN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NNYNN&quot;,&quot;NNNNY&quot;,&quot;NNNNN&quot;,&quot;NNNNN&quot;,&quot;NNNNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 123</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YY&quot;,&quot;YY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;YY&quot;,&quot;YY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;YN&quot;,&quot;YN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

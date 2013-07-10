@@ -1,0 +1,148 @@
+<html>
+ <head>
+  <title>BridgeSort Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2336">Problem Statement for BridgeSort</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A deck of cards contains 52 cards. Each card has a suit (Clubs, Diamonds, Hearts, or Spades) and a value (2, 3, ..., 9, 10, Jack, Queen, King, or Ace). <p> In the game of bridge a hand consists of 13 or fewer cards from the deck. The values of the cards are ordered as shown above, with Ace having the highest value. Suppose that <b>hand</b> is given as a String giving the cards in the hand. Each card is represented by a suit character C, D, H, or S followed by a value character 2, 3, ..., 9, T, J, Q, K, or A. There are no spaces separating adjacent cards in <b>hand</b>. </p><p> Create a class BridgeSort that contains a method sortedHand that is given a String <b>hand</b> and that returns the String that represents the hand in sorted order. The proper order is to list all the cards that are Clubs, then all the Diamonds, then all the Hearts, and finally all the Spades, with the cards within each suit listed in order of ascending value. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BridgeSort</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>sortedHand</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String sortedHand(String hand)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hand</b> will contain an even number of characters between 2 and 26 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hand</b> will contain a sequence of cards, each being a suit character followed by a value character as described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The cards in <b>hand</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;HAH2H3C4D5ST&quot; </pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;C4D5H2H3HAST&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> This <b>hand</b> contains the 4 of Clubs, which must come before all the other cards because Clubs comes before all the other suits. The 5 of Diamonds is next because Diamonds are the next suit. Next come the three Heart cards, in order of ascending value, namely 2 then 3 then Ace (which is represented by the A). Finally the 10 of Spades is last because of its suit. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;H3SAHA&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;H3HASA&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

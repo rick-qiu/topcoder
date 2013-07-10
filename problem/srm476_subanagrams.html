@@ -1,0 +1,225 @@
+<html>
+ <head>
+  <title>SubAnagrams Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10798">Problem Statement for SubAnagrams</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A string X is an anagram of string Y if X can be obtained by arranging all characters of Y in some order, without removing any characters and without adding new characters. For example, each of the strings &quot;baba&quot;, &quot;abab&quot;, &quot;aabb&quot; and &quot;abba&quot; is an anagram of &quot;aabb&quot;, and strings &quot;aaab&quot;, &quot;aab&quot; and &quot;aabc&quot; are not anagrams of &quot;aabb&quot;. <br /><br /><br /><br /> A string X is a subsequence of string Y if X can be obtained by removing some characters (possibly none) from Y and preserving the order of the remaining characters. For example, each of the strings &quot;ac&quot;, &quot;abd&quot;, &quot;abcd&quot; is a subsequence of &quot;abcd&quot;, and strings &quot;ca&quot;, &quot;abb&quot; and &quot;abcde&quot; are not subsequences of &quot;abcd&quot;. <br /><br /><br /><br /> A string X is called a subanagram of Y if there exists a string Z such that X is an anagram of Z and Z is a subsequence of Y. <br /><br /><br /><br /> Manao is a big fan of subanagrams and he tries to find them everywhere. This time, he works on splitting strings into several parts in such a way that each of the parts (except the last one) is a subanagram of the following part. Formally, for a given string X, Manao wants to split it into several non-empty strings S<sub>1</sub>, S<sub>2</sub>, ..., S<sub>n</sub> such that their concatenation S<sub>1</sub> + S<sub>2</sub> + ... + S<sub>n</sub> equals X and each string S<sub>i</sub> (0 &lt; i &lt; n) is a subanagram of string S<sub>i+1</sub>. <br /><br /><br /><br /> You're given a String[] <b>suppliedWord</b>. Concatenate all its elements in the order they are given to obtain a single string X. Return the maximum number of parts into which Manao can split X so that the condition from the previous paragraph is satisfied.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SubAnagrams</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>maximumParts</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int maximumParts(String[] suppliedWord)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>suppliedWord</b> will contain between 1 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>suppliedWord</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>suppliedWord</b> will consist of uppercase letters ('A'-'Z') only.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABABAB&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Manao can split the given string in three &quot;AB&quot;-s.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AAXAAAABX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">One of the possible ways to split &quot;AAXAAAABX&quot; into 4 parts is &quot;A&quot;+&quot;A&quot;+&quot;XA&quot;+&quot;AAABX&quot;. &quot;XA&quot; is the anagram of &quot;AX&quot;, a subsequence of &quot;AAABX&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABCDEFGHIJKL&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This word is not splittable.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABBAB&quot;,&quot;B&quot;,&quot;BBX&quot;,&quot;Z&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Don't forget to concatenate the given strings.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

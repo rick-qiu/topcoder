@@ -1,0 +1,277 @@
+<html>
+ <head>
+  <title>Lister Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2825">Problem Statement for Lister</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A listing of names can be arranged in rows and columns to make it compact. We want our listing to be arranged alphabetically in column major order (e.g. the first column should have all the earliest words in the list). Words should be left justified within their column. Each column has a fixed width, which may differ from the width of other columns. Each row should have a name in each column, except the last row, which may have no names in its final column(s). <p> Our list will be printed out row by row, with spaces inserted to position the names within each row properly. Each row must contain exactly <b>pageWidth</b> characters (including spaces). In order to avoid run-together, we require that only spaces can appear in the print position just prior to the start of a column. This applies even to the last row (where the final columns may contain no names). </p><p> Create a class Lister that contains a method doList that is given <b>pageWidth</b> and a String[] <b>names</b> and that returns the optimal listing as a String[] giving the rows to be printed (in order from top to bottom). Each element in the return should contain exactly <b>pageWidth</b> characters. Use the space character ' ' in your listing to position the names within each row (and to pad each row to <b>pageWidth</b> characters). </p><p> A listing is &quot;optimal&quot; if it has as few rows as possible. Among listings with the minimal number of rows, choose the one whose rightmost non-space character is as far to the left as possible. If multiple listings are still equally &quot;optimal&quot; choose the one with the fewest columns. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Lister</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>doList</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] doList(int pageWidth, String[] names)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pageWidth</b> will be between 10 and 80 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>names</b> will contain between 1 and 50 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>names</b> will contain between 1 and <b>pageWidth</b> characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>names</b> will contain only lowercase letters 'a'-'z'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;bob&quot;,&quot;abernathy&quot;,&quot;x&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;abernathy &quot;,  &quot;bob       &quot;,  &quot;x         &quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> Any column containing &quot;abernathy&quot; cannot be adjacent to another column since even a one-character name would be too much to avoid run-together and fit on the page (spaces shown as '.'):<pre>
+      abernathy.
+      bob.......
+      x.........</pre> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>11</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;bob&quot;,&quot;abernathy&quot;,&quot;x&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;abernathy x&quot;,  &quot;bob        &quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> There is just enough page width to get abernathy and x on the same row and keep them from running together, producing the following listing (spaces shown as '.'):<pre>
+      abernathy.x
+      bob........</pre> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;bob&quot;,&quot;a&quot;,&quot;x&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;a bob x   &quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;x&quot;,&quot;teddy&quot;,&quot;andy&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;andy  x   &quot;,  &quot;teddy     &quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note that there are 2 spaces between &quot;andy&quot; and &quot;x&quot; in the listing. It would be illegal to have only 1 space, since then the 'y' in &quot;teddy&quot; would occupy the print position just prior to the second column of names (spaces shown as '.'):<pre>
+      andy..x...
+      teddy.....</pre> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>33</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;g&quot;,&quot;babec&quot;,&quot;bafffebe&quot;,&quot;bffaf&quot;,
+ &quot;decdgfgcbc&quot;,&quot;bacfeddea&quot;,&quot;g&quot;,&quot;deecgabcg&quot;,&quot;c&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;babec     bffaf decdgfgcbc g     &quot;,
+ &quot;bacfeddea c     deecgabcg  g     &quot;,
+ &quot;bafffebe                         &quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

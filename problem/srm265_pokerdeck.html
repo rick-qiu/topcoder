@@ -1,0 +1,299 @@
+<html>
+ <head>
+  <title>PokerDeck Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1981">Problem Statement for PokerDeck</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Poker is usually played with a standard deck of 52 cards. Each card is marked with one of 13 face values and one of 4 suits. In a common version of poker, a player receives a hand of five cards. Hands that match certain combinations, or patterns, have specific names like <tt>&quot;FULL HOUSE&quot;</tt> or <tt>&quot;ROYAL FLUSH&quot;</tt>. The less likely it is that a particular hand will be dealt, the better that hand is. <p> You want to play poker with some friends, but your little sister has been using all the cards in the house to perform magic tricks. It seems the only trick she has perfected is a disappearing act which makes it impossible to find a complete deck of cards. You and your friends gather as many cards as you are able to find and put them into a single deck. This, however, might change the probability of getting certain poker hands. Given a String[] <b>decks</b> that lists the contents of the partial decks that were gathered, calculate the odds of getting each poker hand from the new combined deck. Return a String[] containing the names of each poker hand in order of increasing probability so that the best hand is listed first. Hands that have an equal chance of being dealt should be listed in alphabetical order. Hands that have no chance of being dealt should be excluded from the results. </p> <p> Each element in <b>decks</b> is a list of cards separated by spaces. Each card will be in the format <tt>&lt;face&gt;&lt;suit&gt;</tt> where <tt>&lt;face&gt;</tt> is one of the 13 face values, listed in increasing consecutive order ( <tt>2</tt>, <tt>3</tt>, <tt>4</tt>, <tt>5</tt>, <tt>6</tt>, <tt>7</tt>, <tt>8</tt>, <tt>9</tt>, <tt>10</tt>, <tt>J</tt>, <tt>Q</tt>, <tt>K</tt>, <tt>A</tt> ) and <tt>&lt;suit&gt;</tt> is one of ( <tt>C</tt>, <tt>D</tt>, <tt>H</tt>, <tt>S</tt> ). </p> <p> The possible hands from a combined deck are: </p> <pre>
+&quot;ONE PAIR&quot; - two of the five cards have the same face value (2C 4S 5H 8C 8D)
+&quot;TWO PAIR&quot; - two of one face value and two of a different face value (4H 4S 5H 8C 8D)
+&quot;THREE OF A KIND&quot; - three cards of the same face value (2C 4S 8H 8C 8D)
+&quot;FOUR OF A KIND&quot; - four cards of the same face value (2C 8S 8H 8C 8D)
+&quot;FULL HOUSE&quot; - three of one face value and two of a different face value (8H 8C 8D 4C 4S)
+&quot;FLUSH&quot; - five cards of the same suit (2C 5C 7C QC AC)
+&quot;STRAIGHT&quot; - five cards with consecutive face values (8C 9S 10C JH QD)
+             The ace may be used as the low card in a straight (AD 2C 3S 4C 5H)
+             However, wrapping is not allowed (QC KC AC 2D 3C)
+&quot;STRAIGHT FLUSH&quot; - matches both a FLUSH and a STRAIGHT (7H 8H 9H 10H JH)
+&quot;ROYAL FLUSH&quot; - ten, jack, queen, king, ace of the same suit (10S JS QS KS AS)
+&quot;FIVE OF A KIND&quot; - all five cards with the same face value (6C 6D 6C 6S 6H)
+&quot;NOTHING&quot; - a hand that does not match any of these combinations (2C 7D 8H 10C AS)
+</pre> <p> Since the order in which cards are dealt does not matter, a hand containing ( <tt>QD 9S JH 8C 10C</tt> ) is identical to ( <tt>8C 9S 10C JH QD</tt> ) and both would be classified as a <tt>&quot;STRAIGHT&quot;</tt>. A hand that matches more than one of the descriptions listed above is classified with the name that appears lowest. For instance, the hand ( <tt>3C 3D 3H KC KD</tt> ) would be classified as a <tt>&quot;FULL HOUSE&quot;</tt> even though it also matches the descriptions for <tt>&quot;THREE OF A KIND&quot;</tt> and <tt>&quot;ONE PAIR&quot;</tt>. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PokerDeck</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getRanking</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] getRanking(String[] decks)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The same card may appear multiple times in an element of <b>decks</b></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>decks</b> will have between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>decks</b> will have between 2 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>decks</b> will contain valid cards with a single space between cards.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The first character and the last character of each element of <b>decks</b> will not be a space.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A valid card will be formatted as &lt;face&gt;&lt;suit&gt;</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>&lt;face&gt; will be one of ( <tt>2</tt>, <tt>3</tt>, <tt>4</tt>, <tt>5</tt>, <tt>6</tt>, <tt>7</tt>, <tt>8</tt>, <tt>9</tt>, <tt>10</tt>, <tt>J</tt>, <tt>Q</tt>, <tt>K</tt>, <tt>A</tt> ).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>&lt;suit&gt; will be one of ( <tt>C</tt>, <tt>D</tt>, <tt>H</tt>, <tt>S</tt> ).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>decks</b> will represent at least 5 cards.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AC 2C 3C 4C 5C 6C 7C 8C 9C 10C JC QC KC&quot;,
+ &quot;AD 2D 3D 4D 5D 6D 7D 8D 9D 10D JD QD KD&quot;,
+ &quot;AH 2H 3H 4H 5H 6H 7H 8H 9H 10H JH QH KH&quot;,
+ &quot;AS 2S 3S 4S 5S 6S 7S 8S 9S 10S JS QS KS&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;ROYAL FLUSH&quot;,
+&quot;STRAIGHT FLUSH&quot;,
+&quot;FOUR OF A KIND&quot;,
+&quot;FULL HOUSE&quot;,
+&quot;FLUSH&quot;,
+&quot;STRAIGHT&quot;,
+&quot;THREE OF A KIND&quot;,
+&quot;TWO PAIR&quot;,
+&quot;ONE PAIR&quot;,
+&quot;NOTHING&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is a standard deck of cards, which will result in the following odds: <pre>
+    ROYAL FLUSH:       4/2598960
+ STRAIGHT FLUSH:      36/2598960
+ FOUR OF A KIND:     624/2598960
+     FULL HOUSE:    3744/2598960
+          FLUSH:    5108/2598960
+       STRAIGHT:   10200/2598960
+THREE OF A KIND:   54912/2598960
+       TWO PAIR:  123552/2598960
+       ONE PAIR: 1098240/2598960
+        NOTHING: 1302540/2598960
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AS 2C 3C 4C 5C 7D 7H 8C 8D 8H 10S JS QS KS&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;FLUSH&quot;,
+&quot;FULL HOUSE&quot;,
+&quot;ROYAL FLUSH&quot;,
+&quot;STRAIGHT&quot;,
+&quot;TWO PAIR&quot;,
+&quot;THREE OF A KIND&quot;,
+&quot;ONE PAIR&quot;,
+&quot;NOTHING&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This deck results in the following odds: <pre>
+          FLUSH:    1/2002
+     FULL HOUSE:    1/2002
+    ROYAL FLUSH:    1/2002
+       STRAIGHT:    1/2002
+       TWO PAIR:   27/2002
+THREE OF A KIND:   54/2002
+       ONE PAIR:  660/2002
+        NOTHING: 1257/2002
+</pre> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AS AS AS AS AS AS AS AS AS AS AS&quot;,
+ &quot;AS AS AS AS AS AS AS AS AS AS AS&quot;,
+ &quot;AS AS AS AS AS AS AS AS AS AS AS&quot;,
+ &quot;2C 4C 6C 8C&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;NOTHING&quot;, &quot;ONE PAIR&quot;, &quot;THREE OF A KIND&quot;, &quot;FOUR OF A KIND&quot;, &quot;FIVE OF A KIND&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;QC QH QD 6S 6H&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;FULL HOUSE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

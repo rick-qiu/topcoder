@@ -1,0 +1,277 @@
+<html>
+ <head>
+  <title>HuffmanDecoding Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6477">Problem Statement for HuffmanDecoding</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>When text is encoded using Huffman codes, each symbol is replaced by a string of 0s and 1s called a bit string representation. The replacement is done in such a way that the bit string representation of a symbol is never the prefix of the bit string representation of any other symbol. This property allows us to unambiguously decode the encoded text.</p> <p>You will be given a String <b>archive</b> and a String[] <b>dictionary</b>. The i-th element of <b>dictionary</b> will be the bit string representation of the i-th uppercase letter. Decode <b>archive</b> using <b>dictionary</b> and return the result as a single String.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>HuffmanDecoding</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>decode</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String decode(String archive, String[] dictionary)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>archive</b> will contain between 1 and 50 characters, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>archive</b> will contain only the characters '0' (zero) and '1' (one).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b> will contain between 1 and 26 elements, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contain between 1 and 50 characters, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contain only the characters '0' (zero) and '1' (one).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No element of <b>dictionary</b> will be a prefix of any other element of <b>dictionary</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>archive</b> will be decodable using <b>dictionary</b></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;101101&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;00&quot;,&quot;10&quot;,&quot;01&quot;,&quot;11&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;BDC&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Because there are no elements in dictionary that are prefixes of other elements, only one element of dictionary will be a prefix of <b>archive</b>. In this case, it is the second element (&quot;10&quot;) which represents 'B'. The rest of the text can be decoded using the same logic.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;10111010&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0&quot;,&quot;111&quot;,&quot;10&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;CBAC&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note that elements of <b>dictionary</b> can be of different lengths.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;0001001100100111001&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1&quot;,&quot;0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;BBBABBAABBABBAAABBA&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">'1' is replaced by 'A', '0' is replaced by 'B'.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;111011011000100110&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;010&quot;,&quot;00&quot;,&quot;0110&quot;,&quot;0111&quot;,&quot;11&quot;,&quot;100&quot;,&quot;101&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;EGGFAC&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;001101100101100110111101011001011001010&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;110&quot;,&quot;011&quot;,&quot;10&quot;,&quot;0011&quot;,&quot;00011&quot;,&quot;111&quot;,&quot;00010&quot;,&quot;0010&quot;,&quot;010&quot;,&quot;0000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;DBHABBACAIAIC&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

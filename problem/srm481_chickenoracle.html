@@ -1,0 +1,257 @@
+<html>
+ <head>
+  <title>ChickenOracle Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11004">Problem Statement for ChickenOracle</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>This time, instead of solving an easy problem with a known solution, you will be in charge in solving an old problem with a solution which was unknown to this date. The old question is whether the egg or the chicken came first. This question has been very difficult to answer over the ages, but a chance has finally come: It is said that a new oracle has appeared which knows everything.<br /><br /> <br /><br /> You tried asking the question to the oracle, but the oracle refused to answer, arguing that it has already answered the question to <b>n</b> other people and is tired of answering that question. Not to give up, you decided to interview each of the <b>n</b> people. Of them, <b>eggCount</b> people told you that the answer was &quot;The egg&quot;, while the remaining <b>n</b>-<b>eggCount</b> people claimed that the answer was &quot;The chicken&quot;. Confused by the results, you asked the oracle a second time. The oracle still refused to answer the question, but instead explained the results: In order to hide the truth to those unworthy, the oracle has intentionally given the wrong answer to exactly <b>lieCount</b> people. On the other hand, also to avoid sharing the secret, exactly <b>liarCount</b> people (not necessarily those that were told the right answer by the oracle) have intentionally given you the opposite answer to the one given to them by the oracle.<br /><br /> <br /><br /> You are still suspiscious that the explanation given by the oracle is another lie. Given ints <b>n</b>, <b>eggCount</b>, <b>lieCount</b> and <b>liarCount</b>, find out if scenarios exist such that &quot;The egg&quot; or &quot;The chicken&quot; is the correct answer. If there exist scenarios such that either answer is correct, return &quot;Ambiguous&quot; (quotes for clarity). If only one answer has a possible scenario, return &quot;The egg&quot; or &quot;The chicken&quot; (quotes for clarity) depending on the answer. If neither of the answers has a possible scenario, return &quot;The oracle is a lie&quot;. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ChickenOracle</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>theTruth</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String theTruth(int n, int eggCount, int lieCount, int liarCount)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>n</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>eggCount</b>, <b>lieCount</b> and <b>liarCount</b> will each be between 0 and <b>n</b>, inclusive. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;The egg&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In this case, every person has answered correctly.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>60</pre></td>
+            </tr>
+            <tr>
+             <td><pre>40</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>30</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;The oracle is a lie&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">According to the oracle, it has told the correct answer to all 60 people and then 30 of them lied to you. However, it contradicts the fact that 40 people have told you one answer and 20 people have told another one.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>60</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>25</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;The chicken&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>500</pre></td>
+            </tr>
+            <tr>
+             <td><pre>250</pre></td>
+            </tr>
+            <tr>
+             <td><pre>250</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Ambiguous&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

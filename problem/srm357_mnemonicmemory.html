@@ -1,0 +1,287 @@
+<html>
+ <head>
+  <title>MnemonicMemory Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2432">Problem Statement for MnemonicMemory</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> It is often helpful to have a mnemonic phrase handy for a math test. For example, the number 25735 can be remembered as &quot;is there anybody out there&quot;. If we count the number of characters in every word, we would get the sequence 2, 5, 7, 3, 5, which represents the original number! </p> <p> Unfortunately for you, your professor likes to make the students memorize random numbers and then test them. To beat the system, your plan is to come up with mnemonic phrases that will represent the numbers you must memorize. </p> <p> You are given a String <b>number</b> and a String[] <b>dictionary</b>. Return a single space delimited list of words, where each word is an element of <b>dictionary</b>, and no element of dictionary is used more than once. The phrase must contain exactly n words, where n is the number of digits in the <b>number</b>, and the length of the i-th word must be equal to the i-th digit of the <b>number</b> for all i. If more than one phrase is possible, return the one that comes first alphabetically (in other words, if you have several words of the same length, you should use them in alphabetical order). </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MnemonicMemory</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getPhrase</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String getPhrase(String number, String[] dictionary)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contain between 1 and 9 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contain only lowercase letters ('a'-'z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>number</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>number</b> will contain only digits between '1' and '9', inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will always be a possible solution with the given dictionary.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;25735&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;is&quot;, &quot;there&quot;, &quot;anybody&quot;, &quot;out&quot;, &quot;there&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;is there anybody out there&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;31415926&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;may&quot;, &quot;i&quot;, &quot;have&quot;, &quot;a&quot;, &quot;large&quot;, &quot;container&quot;, &quot;of&quot;, &quot;coffee&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;may a have i large container of coffee&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Make sure you use words of the same length in alphabetical order.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1212&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a&quot;, &quot;aa&quot;, &quot;a&quot;, &quot;aa&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;a aa a aa&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;11111111122&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a&quot;, &quot;b&quot;, &quot;d&quot;, &quot;c&quot;, &quot;a&quot;, &quot;e&quot;, &quot;f&quot;, &quot;z&quot;, &quot;zz&quot;, &quot;za&quot;, &quot;az&quot;, &quot;e&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;a a b c d e e f z az za&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;2222&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ab&quot;, &quot;cd&quot;, &quot;ef&quot;, &quot;a&quot;, &quot;b&quot;, &quot;ab&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;ab ab cd ef&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

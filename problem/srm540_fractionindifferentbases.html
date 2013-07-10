@@ -1,0 +1,306 @@
+<html>
+ <head>
+  <title>FractionInDifferentBases Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11135">Problem Statement for FractionInDifferentBases</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p><i> This problem statement contains superscripts and/or subscripts. It may not display properly outside the applet. </i></p><br /><br /> It is well-known that when writing a fraction as a rational number, we will either get a finite expansion or an infinite (but periodic) expansion. For example, 1/8 written in base 10 is 0.125, and 1/9 written in base 10 is 0.1111... <br /><br /><br /><br /> The same fraction can have a finite expansion in some bases and an infinite one in other bases. For example, 1/9 had an infinite expansion in base 10, but 1/9 written in base 3 is 0.01 and 1/9 in base 9 is 0.1. <br /><br /><br /><br /> Little Arthur loves numbers and especially the ones that are infinitely long. For a given fraction <b>P</b>/<b>Q</b> he would like to find all integer bases between <b>A</b> and <b>B</b>, inclusive, such that the fraction has an infinite expansion. <br /><br /><br /><br /> Given ints <b>P</b>, <b>Q</b>, <b>A</b>, and <b>B</b> return the number of such bases.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FractionInDifferentBases</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getNumberOfGoodBases</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>long, long, long, long</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long getNumberOfGoodBases(long P, long Q, long A, long B)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Number X written in an integer base b is a sequence of digits (containing a single separator point, if the number is not an integer) <tt>d<sub>n</sub>d<sub>n-1</sub>..d<sub>1</sub>d<sub>0</sub><b>.</b>d<sub>-1</sub>..d<sub>-m</sub></tt> where each d<sub>i</sub> has an integer value between 0 and b-1, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The notation effectively means that <tt>X = d<sub>n</sub>*b<sup>n</sup> + d<sub>n-1</sub>*b<sup>n-1</sup> + .. + d<sub>1</sub>*b<sup>1</sup> + d<sub>0</sub>*b<sup>0</sup> + d<sub>-1</sub>*b<sup>-1</sup> + .. + d<sub>-m</sub>*b<sup>-m</sup></tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that X having an infinite expansion in base b means that number X cannot be expressed as a sum with finitely many powers of b.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>P</b> will be between 0 and 1000000000000 (10<sup>12</sup>), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>Q</b> will be between 1 and 1000000000000 (10<sup>12</sup>), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>A</b> and <b>B</b> will each be between 2 and 1000000000000000000 (10<sup>18</sup>), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>A</b> will be less than or equal to <b>B</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">1/2 in base 10 is 0.5, thus, there is no base in the interval where 1/2 has an infinite expansion.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">From the problem statement we see that 1/9 has an infinite expansion in base 10, but not in base 9.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2662</pre></td>
+            </tr>
+            <tr>
+             <td><pre>540</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>662</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 639</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>650720</pre></td>
+            </tr>
+            <tr>
+             <td><pre>7032600</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2012</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2012540</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2010495</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

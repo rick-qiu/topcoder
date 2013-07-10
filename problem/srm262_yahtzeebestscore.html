@@ -1,0 +1,276 @@
+<html>
+ <head>
+  <title>YahtzeeBestScore Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4800">Problem Statement for YahtzeeBestScore</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Yahtzee is a game played with 5 dice and a score card. The object of the game is to get the best score. A turn consists of rolling the dice and recording the resulting roll in a single place on your score card. </p> <p> Your score card is divided up as follows:<br /><br /> </p>
+      <ul> 
+       <li>3 of a kind - 3 or more dice the same, scores the face value of ALL the dice.</li> 
+       <li>4 of a kind - 4 or more dice the same, scores the face value of ALL the dice.</li> 
+       <li>full house - 3 dice equal to each other with the other 2 dice equal to each other as well. Scores 25 points.</li> 
+       <li>small straight - Any 4 of the dice in consecutive order, scores 30 points.</li> 
+       <li>large straight - All 5 dice in consecutive order, scores 40 points.</li> 
+       <li>yahtzee - All 5 dice equal to each other, scores 50 points.</li> 
+       <li>chance - No requirements, scores the face value of ALL the dice.</li> 
+      </ul> When recording your roll to one of the spots in the score card, you check whether the roll satisfies the conditions for the spot. First of all, the spot cannot already be taken. So if you have all five dice equal to each other, but you've already scored a yahtzee, you have to use this roll somewhere else. Also, you get zero points if you use a roll in a position that does not qualify for the conditions. That is, &quot;66644&quot; gives you 26 points if used as 3 of a kind, 25 points as a full house, or 0 points as a small straight. <p></p> <p> You are given 7 rolls in a String[] <b>hands</b>. You are to put each of the 7 rolls in exactly one spot in the score card, using only one roll per spot. Each element of <b>hands</b> contains exactly 5 digits and represents the face values of all the dice for one of your rolls. The order of dice is insignificant, so if one of your rolls was four 1's and one 3 it could be &quot;11113&quot; or &quot;13111&quot;. You are to return the best possible score you can get. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>YahtzeeBestScore</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestLowerScore</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int bestLowerScore(String[] hands)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You are allowed to reorder the dice in your hand any way you need to. &quot;12121&quot; can be counted as a full house.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Straights cannot wrap around. &quot;12346&quot; would count as a small straight, but not a large straight.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If you have five of the same number it can be used as a full house.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hands</b> will consist of exactly 7 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>hands</b> will contain exactly 5 digits between '1' and '6', inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;66666&quot;, &quot;66666&quot;, &quot;66655&quot;, &quot;12345&quot;, &quot;12345&quot;, &quot;66666&quot;, &quot;66666&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 235</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The best possible score.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;12345&quot;, &quot;12345&quot;, &quot;12345&quot;, &quot;12345&quot;, &quot;12345&quot;, &quot;12345&quot;, &quot;12345&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 85</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here only the straights and chance score points; all the rest score 0.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;12121&quot;, &quot;12344&quot;, &quot;42365&quot;, &quot;22222&quot;, &quot;66666&quot;, &quot;66666&quot;, &quot;66666&quot; }	</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 235</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Another perfect score.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;13144&quot;, &quot;32342&quot;, &quot;66554&quot;, &quot;12321&quot;, &quot;65456&quot;, &quot;45654&quot;, &quot;33445&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 26</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;11223&quot;, &quot;11223&quot;, &quot;11223&quot;, &quot;11223&quot;, &quot;11223&quot;, &quot;11223&quot;, &quot;11223&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The smallest score possible.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

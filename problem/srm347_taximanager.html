@@ -1,0 +1,307 @@
+<html>
+ <head>
+  <title>TaxiManager Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7633">Problem Statement for TaxiManager</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are the manager of a small taxi firm with 2 cars. On a particular evening, you have a number of customers who wish to travel between various locations, and you have to decide how to schedule the trips. Both of your cars start out at your base at location 0, and as manager, you have to wait for both of the cars to return to base before you can leave work for the night. Your goal is to minimize the amount of time before all of the customers have been delivered to their destinations and the cars have both returned to location 0. <br /><br /><br /><br /> The area in which your customers want to travel is represented by M locations, indexed from 0 to M-1, some of which are connected by roads. You will be given a String[] <b>roads</b>, where the j-th digit of the i-th element is the time to travel on the direct road from location i to location j, or '0' if no direct route between these locations exists. You will also be given a String[] <b>customers</b>, where each element contains two space-separated integers that represent the indices of the starting location and destination of a customer. Customers have no preference as to which car picks them up and you may schedule the customers in any order, but once a car has picked up a customer, it must take him or her immediately to the required destination; the customer cannot be dropped off at an intermediate location to be picked up again later. Customers will also not share a car with each other, so if a taxi is carrying a customer it may not pick up another one. Picking up or dropping off a customer takes negligible time. <br /><br /><br /><br /> You should return the minimum amount of time before both of your cars have returned to base and you can go home for the night.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TaxiManager</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>schedule</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int schedule(String[] roads, String[] customers)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>roads</b> will not necessarily be symmetric. Therefore the time taken to drive from location i to j may not be the same as the time to drive from j to i.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>roads</b> will contain between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>roads</b> will contain exactly M characters, where M is the number of elements in <b>roads</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>roads</b> will be a digit ('0' - '9').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character in the i-th element of <b>roads</b> will be '0'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each location will be reachable from all other locations.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>customers</b> will contain between 1 and 12 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>customers</b> will contain 2 distinct space-separated integers.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each integer in <b>customers</b> will be between 0 and M-1, inclusive, with no leading zeros.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;020200&quot;
+,&quot;202020&quot;
+,&quot;020002&quot;
+,&quot;200020&quot;
+,&quot;020202&quot;
+,&quot;002020&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;5 3&quot;,&quot;2 4&quot;,&quot;1 5&quot;,&quot;3 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 16</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">An example of an optimal schedule is:<br /><br /> <tt><b>Time&nbsp;&nbsp;&nbsp;&nbsp;Action</b><br /><br /> 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 1 - Drive to location 3<br /><br /> 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 2 - Drive to location 1<br /><br /> 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 1 - Pick up customer 3, then drive to location 0, then 1, then 2<br /><br /> 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 2 - Pick up customer 2, then drive to location 2, then 5<br /><br /> 6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 2 - Drop off customer 2, pick up customer 0, then drive to location 4, then 3<br /><br /> 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 1 - Drop off customer 3, pick up customer 1, then drive to location 1, then 4<br /><br /> 10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 2 - Drop off customer 0, then drive to location 0<br /><br /> 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 2 - Arrive back at base<br /><br /> 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 1 - Drop off customer 1, then drive to location 1, then 0<br /><br /> 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car 1 - Arrive back at base<br /><br /></tt></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>
+{&quot;00020251090265906661&quot;
+,&quot;00763002550100090081&quot;
+,&quot;06003699000080062771&quot;
+,&quot;00000710460400035310&quot;
+,&quot;50000039119198350060&quot;
+,&quot;66060004050810046028&quot;
+,&quot;02333108565000200880&quot;
+,&quot;40212560000209205231&quot;
+,&quot;02601150098329905062&quot;
+,&quot;00210383709951005203&quot;
+,&quot;10111087340780827070&quot;
+,&quot;05065800003095040140&quot;
+,&quot;15604020082000100090&quot;
+,&quot;83430030070580600750&quot;
+,&quot;10588355007006001150&quot;
+,&quot;14400080790005400536&quot;
+,&quot;23400990400933060004&quot;
+,&quot;11053016300602000090&quot;
+,&quot;90040920084059282502&quot;
+,&quot;61300007077904050900&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 19&quot;,&quot;4 16&quot;,&quot;15 16&quot;,&quot;4 18&quot;,&quot;2 7&quot;,&quot;9 15&quot;,&quot;11 6&quot;,&quot;7 13&quot;,&quot;19 13&quot;,&quot;12 19&quot;,&quot;14 12&quot;,&quot;16 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 33</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>
+{&quot;095222800320504&quot;
+,&quot;107600288090501&quot;
+,&quot;760973530769345&quot;
+,&quot;963093337510830&quot;
+,&quot;338404069255826&quot;
+,&quot;291700050155264&quot;
+,&quot;002783031709004&quot;
+,&quot;404730701707712&quot;
+,&quot;068870030090995&quot;
+,&quot;320025180036103&quot;
+,&quot;468695042801904&quot;
+,&quot;233626561000105&quot;
+,&quot;070014432197086&quot;
+,&quot;887301000143802&quot;
+,&quot;230852749990330&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;3 6&quot;,&quot;0 4&quot;,&quot;2 7&quot;,&quot;9 7&quot;,&quot;13 9&quot;,&quot;1 6&quot;,&quot;7 13&quot;,&quot;14 2&quot;,&quot;8 7&quot;,&quot;10 1&quot;,&quot;11 13&quot;,&quot;7 12&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 28</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;00401&quot;,&quot;50990&quot;,&quot;00062&quot;,&quot;08008&quot;,&quot;03000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;2 4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With only one customer, you only need to send out one car.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

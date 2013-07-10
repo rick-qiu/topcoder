@@ -1,0 +1,273 @@
+<html>
+ <head>
+  <title>ImpossibleGame Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11326">Problem Statement for ImpossibleGame</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are creating a simple one-player computer game. The player must first choose and enter a string of length <b>k</b>, where each character is 'A', 'B', 'C' or 'D'. Each possible string of length <b>k</b> maps to a color, and these mappings will be predetermined by you. To win the game, the player must perform a series of transformations on the string until it is different from the original, but maps to the same color. Only the following two transformations are allowed at each step: 
+      <ol> 
+       <li>Swap two adjacent characters. </li> 
+       <li>Replace an occurrence of <b>before</b>[i] in the string with <b>after</b>[i], for some index i. </li> 
+      </ol> You want to create an &quot;Impossible Mode&quot;, in which the player can never win. Return the minimum number of colors required to make the game impossible. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ImpossibleGame</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getMinimum</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long getMinimum(int k, String[] before, String[] after)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>k</b> will be between 1 and 30, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>before</b> will contain between 1 and 50 elements, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>before</b> and <b>after</b> will contain the same number of elements. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>before</b> will contain between 1 and <b>k</b> characters, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For each index i, <b>before</b>[i] and <b>after</b>[i] will contain the same number of characters. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>before</b> and <b>after</b> will be 'A', 'B', 'C' or 'D'. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;A&quot; }
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;B&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If &quot;A&quot; and &quot;B&quot; are assigned the same color, the player can win by starting with &quot;A&quot; and replacing it with &quot;B&quot;. So at least two colors are needed. <br /><br /><br /><br /> Two colors are enough to make the game impossible. For example, you can assign red to &quot;A&quot; and &quot;C&quot;, and blue to &quot;B&quot; and &quot;D&quot;. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;A&quot;, &quot;A&quot;, &quot;D&quot; }
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;B&quot;, &quot;C&quot;, &quot;D&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;B&quot;, &quot;C&quot;, &quot;D&quot; }
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;C&quot;, &quot;D&quot;, &quot;B&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;AABBC&quot;, &quot;AAAADA&quot;, &quot;AAACA&quot;, &quot;CABAA&quot;, &quot;AAAAAA&quot;, &quot;BAAAA&quot; }
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;AACCB&quot;, &quot;DAAABC&quot;, &quot;AAAAD&quot;, &quot;ABCBA&quot;, &quot;AABAAA&quot;, &quot;AACAA&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 499</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

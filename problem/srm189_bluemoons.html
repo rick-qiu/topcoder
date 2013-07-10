@@ -1,0 +1,247 @@
+<html>
+ <head>
+  <title>BlueMoons Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=945">Problem Statement for BlueMoons</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>For the purposes of this problem, there are exactly 29.53 days between two full moons. A blue moon occurs whenever there is a full moon twice in one calendar month (January, February, etc). For example, if a full moon occurs at some point on January 1<sup>st</sup>, then another one will occur at some point on January 30<sup>th</sup> or 31<sup>st</sup> (depending on what time it occurred on the 1<sup>st</sup>). The second one is the blue moon. <br /><br /><br /><br /> Given an interval from one month to another, you are to determine how many blue moons there are between those two months, inclusive. To solve this you must know the following: 
+      <ol> 
+       <li>Every year has 12 months.</li> 
+       <li>In a normal year, the number of days in each month are, in order starting with January, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31</li> 
+       <li>In leap years, the second month (February) has 29 days instead of 28.</li> 
+       <li>Leap years occur every year that is divisible by 4 except for years that are divisible by 100 but not divisible by 400. Thus 1996 was a leap year, as was 2000 (2000 is divisible by 400), but not 1700, 1800, or 1900 (1700, 1800 and 1900 are divisible by 100 but not divisible by 400).</li> 
+      </ol> <br /><br /> Your task is to write a method, count, which takes a String, <b>interval</b>, and another String, <b>fullMoon</b>, as input and determines how many blue moons there are in that interval. <b>interval</b> will be formatted as &quot;MM/YYYY to MM/YYYY&quot; where &quot;MM&quot; represents the month (January is &quot;01&quot; and December is &quot;12&quot;) and &quot;YYYY&quot; represents the year. <b>fullMoon</b> will represent a specific time at which there was a full moon and will be formatted as &quot;DD.DD/MM/YYYY&quot; where &quot;MM&quot; and &quot;YYYY&quot; are formatted the same as they are in <b>interval</b>. &quot;DD.DD&quot; represents the day of the month, as a fraction. Thus &quot;01.00&quot; would mean 12 AM on the first day of the month. &quot;01.50&quot; would be exactly half way through the first day of the month (12 NOON). Thus, if <b>fullMoon</b> were &quot;05.75/05/2002&quot;, this would mean that there was a full moon precisely 3 quarters of the way through the 5<sup>th</sup> day of the 5<sup>th</sup> month of 2002 (6 PM May 5<sup>th</sup> 2002). </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BlueMoons</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>count</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int count(String interval, String fullMoon)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If a full moon occurs at 12AM (Midnight) it is part of the day which has just started, not the one that has just finished.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>interval</b> will be formatted exactly as &quot;MM/YYYY to MM/YYYY&quot;, with no leading, trailing, or extra spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>fullMoon</b> will be formatted exactly as &quot;DD.DD/MM/YYYY&quot;, with no leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each MM will contain leading 0's, if necessary, to have exactly 2 digits.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>DD.DD will contain leading and trailing 0's if necessary so that it is always formatted as &quot;DD.DD&quot;</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All dates and times will be valid times since 1900, inclusive. Thus &quot;MM&quot; will be between &quot;01&quot; and &quot;12&quot;, inclusive, &quot;YYYY&quot; will be between &quot;1900&quot; and &quot;9999&quot; inclusive, and &quot;DD.DD&quot; will be between &quot;01.00&quot; and &quot;31.99&quot; (depending on the month, the upper bound for the day could be lower), inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;01/2002 to 05/2002&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;28.95/01/2002&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Given that there was a full moon at the specified time, there are no blue moons during this period.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;01/2002 to 05/2002&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;01.00/01/2002&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;01/2002 to 01/2002&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;02.46/01/2002&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;01/2002 to 01/2002&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;01.00/02/2002&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note that <b>fullMoon</b> need not be within <b>interval</b>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

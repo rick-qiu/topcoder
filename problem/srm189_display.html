@@ -1,0 +1,273 @@
+<html>
+ <head>
+  <title>Display Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2295">Problem Statement for Display</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>We want to display a scatterplot in a 1000x1000 window. However, our points may have x and y values anywhere between -1,000,000,000 and 1,000,000,000. So, in order to display our data in a reasonable fashion, we want to make it fit in the window. Your task is, given the <b>x</b> and <b>y</b> values of the data, scale and translate the data so that the lowest x value is 0, and the highest is 1000. Do the same thing for the y values, being careful to preserve the relative distances in both the x and y directions. For example, if <b>x</b> = {-100, 0, 50, 100}, then it should be changed to {0,500,750,1000}. Note that changing the points may result in non-integral values, which should be rounded to the nearest integer (.5 rounds up). The return value should be a String[], each of whose elements is formatted as &quot;&lt;x&gt; &lt;y&gt;&quot;, where &lt;x&gt; and &lt;y&gt; are the scaled and translated values of the corresponding elements of the input. &lt;x&gt; and &lt;y&gt; should be separated by exactly one space and have no extra leading zeros.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Display</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>transform</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] transform(int[] x, int[] y)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>x</b> and <b>y</b> will be between -1,000,000,000 and 1,000,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> will contain at least two distinct values.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>y</b> will contain at least two distinct values.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> and <b>y</b> will contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> and <b>y</b> will each contain between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-100, 0, 50, 100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-100, 0, 50, 100}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0 0&quot;,  &quot;500 500&quot;,  &quot;750 750&quot;,  &quot;1000 1000&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If we translate all the points +100 in both the x and y directions, and then scale all the coordinates up by a factor of 5, we find that they meet our requirements.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,2000,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,2001,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0 0&quot;,  &quot;1000 1000&quot;,  &quot;1 0&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-1000000000,1000000000,500000,499999}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-1000000000,1000000000,500000,499999}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0 0&quot;,  &quot;1000 1000&quot;,  &quot;500 500&quot;,  &quot;500 500&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-53,652,-6132,673,74,-473,373,736363,234,234,234}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-6464,36464,-43,373,363,-37633,2022,-644,2520,2520,2520}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;8 421&quot;,
+ &quot;9 1000&quot;,
+ &quot;0 507&quot;,
+ &quot;9 513&quot;,
+ &quot;8 513&quot;,
+ &quot;8 0&quot;,
+ &quot;9 535&quot;,
+ &quot;1000 499&quot;,
+ &quot;9 542&quot;,
+ &quot;9 542&quot;,
+ &quot;9 542&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,1001,2000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,999,2000}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0 0&quot;,  &quot;501 500&quot;,  &quot;1000 1000&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Be sure to round up when the fractional part is .5.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

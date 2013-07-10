@@ -1,0 +1,247 @@
+<html>
+ <head>
+  <title>BusSeating Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6715">Problem Statement for BusSeating</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Three friends enter a bus. There are two rows of seats with 10 seats in each row along the left and right side of the bus. For this problem, consider the seats to be points. Each seat in the same row is separated from the one in front of it and the one behind it by exactly 1 meter, and from the one directly opposite it (i.e., in the other row) by exactly 2 meters. Some of the seats are occupied by passengers. The friends want to know which seats they should occupy so as to minimize the sum of the Euclidean distances between each pair of friends. Recall that the Euclidean distance is simply the length of the line segment joining two points.</p> <p>Create a class BusSeating that contains a method getArrangement. The method takes two Strings as arguments, <b>leftRow</b> and <b>rightRow</b>. Each string is composed of the characters '-' and 'X' only, with '-' denoting an empty seat, and 'X' denoting an occupied seat. The seats are given in order from the front to the back of the bus in each row. The method should return a double corresponding to the sum of the Euclidean distances between friends in the optimal arrangment.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BusSeating</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getArrangement</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double getArrangement(String leftRow, String rightRow)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Your return value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>leftRow</b> and <b>rightRow</b> will each contain exactly 10 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>leftRow</b> and <b>rightRow</b> will contain only the characters '-' and uppercase 'X'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be at least 3 empty seats among the 2 rows of seats.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;----------&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;----------&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The minimum sum of distances in this situation is achieved when the three friends sit behind each other in the same row of seats, giving a minimum distance of 4.0.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;XXX-X-XX-X&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;-XXXX---XX&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Once again, the friends can minimize the sum of distances by sitting behind each other in a row. This time, however, there is only one way to seat themselves in this manner.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;XXXXXXXXXX&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;-XX-XX-X--&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;XXX-X-XX-X&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;XXX-X-XX-X&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6.82842712474619</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

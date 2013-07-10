@@ -1,0 +1,268 @@
+<html>
+ <head>
+  <title>CactusCount Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10077">Problem Statement for CactusCount</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> A vertex cactus is a connected undirected graph such that each vertex belongs to at most one simple cycle. A simple cycle is a cycle that doesn't pass through any vertex more than once. For example, the graph pictured below is a vertex cactus: </p> <p> <img src="http://www.topcoder.com/contest/problem/Cactus/Cactus.png" /> </p> <p> You are given an int <b>n</b>, the number of vertices in a graph G. The vertices are numbered from 1 to <b>n</b>. The edges in G are given in the String[] <b>edges</b>. Concatenate the elements of <b>edges</b> to get a comma-separated list of integer pairs. The integers in each pair are separated by a space. The pair &quot;i j&quot; (quotes for clarity) means that there is an edge between vertices i and j. Return the number of connected components of G that are vertex cacti. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CactusCount</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>countCacti</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int countCacti(int n, String[] edges)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A connected component of a graph G is a set of vertices such that each pair of vertices in the set is connected by a path, and no vertex outside the set is connected to any vertex within the set.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>n</b> will be between 1 and 200, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>edges</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>edges</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>When concatenated, <b>edges</b> will contain a comma separated list of integer pairs.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The integers within each pair will be separated by a space.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The integers within each pair will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each integer will be between 1 and <b>n</b>, inclusive, with no leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Every pair of vertices will be connected by at most one edge.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 2,1 3,2 3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">One cycle is a vertex cactus.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here each vertex is a component by itself. A graph with one vertex is a vertex cactus.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 2,3 4,4 5&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Both components are trees. A tree is a vertex cactus.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>17</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 2,2 3,3 4,4 5,5 3,1 3,6 7,7 8,6 8,8 9,9 1&quot;,
+ &quot;0,10 11,11 9,12 13,14 15,15 16,16 17,14 17,14 16&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here are two cacti and two non-cacti. The component with vertices 1, 2, 3, 4 and 5 is not a vertex cactus because vertex 3 belongs to two cycles: 1-2-3 and 3-4-5. The component with vertices 14, 15, 16 and 17 is not a vertex cactus either. Vertex 14, for example, belongs to more than one cycle. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

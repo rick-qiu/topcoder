@@ -1,0 +1,349 @@
+<html>
+ <head>
+  <title>ShrinkingPills Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=5904">Problem Statement for ShrinkingPills</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You have to escape from a laboratory, and you have <b>pills</b> number of &quot;shrinking pills&quot; to help you. Your normal height is 100 units, but when you take one of these pills your height decreases by <b>pspeed</b> units each second. You keep shrinking until your height reaches zero or less, and at that moment, you instantly return to your normal height. For example, if you take a pill that reduces your height by 40 units per second at time 0, your height will be 60 at time 1, then 20 at time 2, and 100 again at time 3. Note that you will never be zero or less units tall. You can only take one pill at a time, and you can only take a pill when you are at your normal size.</p> <p>There are doors in the laboratory that close downward from the ceiling to the floor. All the doors start closing immediately. Each door is <b>door</b> units tall and drops down by <b>dspeed</b> units each second. For example, consider a door with a height of 200 units, and a closing speed of 150. The door will be 200 units from the floor at time 0, 50 units from the floor at time 1, and fully closed at time 2.</p> <p>All movements are discrete and simultaneous. For example, suppose you are standing next to a door that is 200 units from the floor. The door's closing speed is 125, and your pill's shrinking speed is 25. You take the pill and move towards the door. In the next second, the door will be 75 (200-125) units from the floor, you will be 75 units tall and you will be standing right under the door. If you do not move again, the door will kill you in the next second. If you do move, you'll be on the other side of the door with a height of 50 units, and the door will be fully closed.</p> <p> At each second, you can either stay where you are or move horizontally or vertically by one square. You will be given a map of the laboratory as a String[], where <tt>'@'</tt> represents your starting square, <tt>'E'</tt> the exit, <tt>'#'</tt> a wall, uppercase <tt>'X'</tt> a door and <tt>' '</tt> (space) an empty square. The laboratory will be completely surrounded by walls.</p> <p>You are given <b>pills</b>, the number of available pills, <b>pspeed</b>, the shrinking speed of the pills, <b>dspeed</b>, the closing speed of the doors, <b>door</b>, the height of each door, and <b>lab</b>, the map of the laboratory. Return the minimum number of seconds needed to escape from the laboratory, or -1 if it is not possible.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ShrinkingPills</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>escape</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int, int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int escape(int pills, int pspeed, int dspeed, int door, String[] lab)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pills</b> will be between 0 and 10, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pspeed</b> will be between 1 and 99, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>door</b> will be between 1 and 200, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dspeed</b> will be between 1 and <b>door</b>, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lab</b> will contain between 3 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>lab</b> will contain between 3 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>lab</b> will be of the same size.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>lab</b> will be either <tt>' '</tt>, <tt>'X'</tt>, <tt>'#'</tt>, <tt>'@'</tt> or <tt>'E'</tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lab</b> will contain exactly one <tt>'@'</tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lab</b> will contain exactly one <tt>'E'</tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lab</b> will be surrounded by <tt>'#'</tt>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>50</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;######################&quot;,
+ &quot;#@    X     X     X E#&quot;,
+ &quot;######################&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 19</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Second 0: You are standing on the <tt>'@'</tt> and all the doors are 100 units from the floor.<br /><br /> ...<br /><br /> Second 4: You are next to the first door and it is 96 units from the floor. Your height is 100, and therefore you have to take a pill to be able to pass under the door.<br /><br /> Second 5: You have taken a pill and your height is 50 units. You are standing under the door which is 95 units from the floor.<br /><br /> Second 6: You have returned to your normal height. The first door has been left behind.<br /><br /> ...<br /><br /> Second 17: You have taken the last pill. You are 50 units tall and you are standing under the last door that is 83 units from the floor.<br /><br /> ...<br /><br /> Second 19: You reach the exit point.<br /><br /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>60</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;##########&quot;,
+ &quot;#   #    #&quot;,
+ &quot;# @ X E  #&quot;,
+ &quot;#   #    #&quot;,
+ &quot;##########&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You take a pill as soon as possible, and still you have to wait 2 seconds before you can move towards the door.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>200</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;#########&quot;,
+ &quot;#@   X  #&quot;,
+ &quot;####### #&quot;,
+ &quot;#E   X  #&quot;,
+ &quot;#########&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>120</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;#############&quot;,
+ &quot;#   #####   #&quot;,
+ &quot;# @ XXXXX E #&quot;,
+ &quot;#   #####   #&quot;,
+ &quot;#############&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>120</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;#########&quot;,
+ &quot;#XX@XXXE#&quot;,
+ &quot;# ##### #&quot;,
+ &quot;#       #&quot;,
+ &quot;#########&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,255 @@
+<html>
+ <head>
+  <title>BatmanAndRobin Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10886">Problem Statement for BatmanAndRobin</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Batman is assigning the night surveillance activities for himself and Robin. Batman will assign a convex area of the plane to himself, and another convex area to Robin. To avoid jurisdictional problems, assigned areas must not intersect or touch each other. The surveilled area is then the union of the area surveilled by Batman and the area surveilled by Robin. There are several conflictive points in the city that need to be patrolled, so the assignment Batman will do needs to make sure all those points lay within the surveilled area or on its boundary. </p><p> Night surveillance is a very time and power consuming task. The power needed by either Batman or Robin to do the surveillance of a given area, measured in bat-units, is exactly the surface of the area. Batman is very lazy and wants to consume the minimum of his own power, but he does not care about Robin's consumption. However, since he is the most experienced and the leader of the team, and in order to keep Robin from suspecting he is lazy, he never assigns to Robin an area strictly larger than the area he assigns to himself. </p><p> You will be given the set of conflictive points in two integer arrays. The X coordinate of conflictive point i will be given by element i of <b>x</b>, and the Y coordinate by element i of <b>y</b>. Return the minimum power Batman will need for a night of surveillance if he optimizes the assignment of the areas. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BatmanAndRobin</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minArea</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double minArea(int[] x, int[] y)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A convex area is a set S of points in the plane such that if two points belong to S, the segment that connects them is fully contained in S.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> and <b>y</b> will contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number of elements in <b>x</b> will be between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>x</b> and <b>y</b> will be between -1000 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each represented point will be different.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100,100,90,90,-100,-100,-90,-90}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100,90,100,90,-100,-90,-100,-90}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 100.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This area can be partitioned into two small squares of size 100.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-1000,-1000,1000,1000,1000,-1000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-1000,1000,-1000,1000,0,0}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Both Batman and Robin can be assigned an area as small as Batman wants and still cover the necessary points.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-1000,-1000,1000,1000,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-1000,1000,-1000,1000,0}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1000000.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note that areas cannot overlap, and Batman gets stuck with the center point while Robin has a minimal surveillance area.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-904,-812,-763,-735,-692,-614,-602,-563,-435,-243,-87,-52,-28,121,126,149,157,185,315,336,390,470,528,591,673,798,815,837,853,874}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{786,10,-144,949,37,-857,-446,-969,-861,-712,5,-972,-3,-202,-845,559,-244,-542,-421,422,526,-501,-791,-899,-315,281,-275,467,743,-321}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1067472.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

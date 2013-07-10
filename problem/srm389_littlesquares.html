@@ -1,0 +1,329 @@
+<html>
+ <head>
+  <title>LittleSquares Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8543">Problem Statement for LittleSquares</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Two people are playing a game, taking turns filling in squares on a piece of graph paper. On each turn, they can either fill in a single empty square or fill in a 2x2 block of 4 empty squares. Once all the squares in the grid are filled, the last player to have filled in a square is the winner. </p> <p> The only restriction is that if we number the rows from top to bottom starting at zero, the top half of every 2x2 block that a player fills in during a turn must lie in an even-numbered row. For example, the following moves (in green) are legal: </p> <br /><br /> 
+      <center> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/littlesquares_good1.png" /> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/black10.png" /> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/littlesquares_good2.png" /> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/black10.png" /> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/littlesquares_good3.png" /> 
+      </center> <p> while the following moves (in red) are illegal: </p> <br /><br /> 
+      <center> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/littlesquares_bad1.png" /> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/black10.png" /> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/littlesquares_bad2.png" /> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/black10.png" /> 
+       <img src="http://www.topcoder.com/contest/problem/LittleSquares/littlesquares_bad3.png" /> 
+      </center> <p> The current state of the grid will be given as a String[] <b>state</b>. Each element of <b>state</b> will be one row of the grid, and each character of each element of <b>state</b> will represent one square in the row. A '.' (period) represents an empty square, and a '#' represents a filled-in square. </p> <p> From this current state, determine who can win the game assuming both people play optimally. If the next player to move can win return the String &quot;first&quot;, otherwise, return the String &quot;second&quot; (all quotes for clarity). </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>LittleSquares</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>winner</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String winner(String[] state)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>states</b> will contain an even number of elements, between 2 and 10, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The length of each element of <b>states</b> will be even and between 2 and 10, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The length of each element of <b>states</b> will be the same.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>states</b> will be '.' (period) or '#'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;..&quot;,
+  &quot;..&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;first&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">On an empty 2x2 grid, the first player can win the game with a single move.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;...#&quot;,
+  &quot;..##&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;first&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If the first player draws a 2x2 square on the left side of the grid, she will lose. Likewise if she draws a 1x1 square in the rightmost open space. However if she draws a 1x1 square in any of the other four empty spaces, that will leave 4 empty squares to be filled in and she will be able to move last.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;..&quot;,
+  &quot;..&quot;,
+  &quot;..&quot;,
+  &quot;..&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;second&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If the first player draws a 2x2 square on her first move, the second player will draw another 2x2 square and win. If the first player draws a 1x1 square first, the second player will draw another in the other half of the grid, leaving 6 empty spaces that can only be filled in one at a time.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;....&quot;,
+  &quot;....&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;first&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first player can draw a 2x2 square in the middle of the grid, leaving 4 empty spaces.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;.##.&quot;,
+  &quot;#..#&quot;,
+  &quot;#..#&quot;,
+  &quot;.##.&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;second&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;#.......&quot;,
+  &quot;.....##.&quot;,
+  &quot;.....##.&quot;,
+  &quot;........&quot;,
+  &quot;........&quot;,
+  &quot;........&quot;,
+  &quot;........&quot;,
+  &quot;#......#&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;first&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

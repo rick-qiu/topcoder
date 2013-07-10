@@ -1,0 +1,440 @@
+<html>
+ <head>
+  <title>TheSquares Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8418">Problem Statement for TheSquares</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Little John does a lot of programming, and is therefore very strange. Recently, he started talking with some geometrical figures. Squares are his favorite ones, and he gives names to them. Yes, it is very strange, but don't forget that John is a programmer! </p> <p> John has drawn many squares on a big sheet of paper and each square has its own name. Now John is looking for a sequence of <b>k</b> squares such that each square except the first one lies inside the previous square in the sequence. </p> <p> One square lies inside another one if all its points are inside the bigger square, possibly on a boundary. </p> <p> You are given String[]s <b>x</b>, <b>y</b>, <b>lengths</b> and <b>names</b>, and an int <b>k</b>. For each String[], concatenate all its elements to produce a single string. The concatenated versions of <b>x</b>, <b>y</b> and <b>lengths</b> contain single space separated lists of integers, where the i-th integers represent the x-coordinate and y-coordinate of the bottom left corner and side length, respectively, of the i-th square. The concatenated version of <b>names</b> contains a single space separated list of strings, where the i-th string represents the name of the i-th square. </p> <p> Return a String[] containing exactly <b>k</b> elements - the names of the squares in the sequence. If there are multiple such sequences, return the one among them that comes first lexicographically. If there is no such sequence, return an empty String[]. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TheSquares</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findSequence</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[], String[], String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] findSequence(String[] x, String[] y, String[] lengths, String[] names, int k)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each square can be used only once in the resulting sequence.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>String[] A comes lexicographically before String[] B if the i-th element of A comes lexicographically before the i-th element of B and the j-th element of A is equal to the j-th element of B for all j less than i.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b>, <b>y</b>, <b>lengths</b> and <b>names</b> will each contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>x</b>, <b>y</b>, <b>lengths</b> and <b>names</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b>, <b>y</b>, <b>lengths</b> and <b>names</b>, when concatenated, will each contain a single space separated list of items without leading or trailing spaces, and each list will contain the same number of items.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b>, <b>y</b> and <b>lengths</b>, when concatenated, will each contain a single space separated list of integers, where each integer is between 1 and 1000, inclusive, with no leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>names</b>, when concatenated, will contain a single space separated list of strings, where each string contains between 1 and 50 uppercase letters ('A'-'Z'), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>k</b> will be between 1 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 1 4 7 8 1000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 1 1 4 7 8 1000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 2 3 4 5 1 1000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;X Y Z ALPHA BETA GAMMA DELTA&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;BETA&quot;, &quot;GAMMA&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are several valid sequences of squares but (BETA, GAMMA) comes first lexicographically.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 1 4 7 8 1000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 1 1 4 7 8 1000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 2 3 4 5 1 1000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;X Y Z ALPHA BETA GAMMA DELTA&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;Z&quot;, &quot;Y&quot;, &quot;X&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Same example but with <b>k</b> = 3. This time there is no choice.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;4 4 4 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;7 7 7 7&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;47 47 47 47&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;GLUK GLUKA GLUKOVI GLUKOM&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;GLUK&quot;, &quot;GLUKA&quot;, &quot;GLUKOM&quot;, &quot;GLUKOVI&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Squares may coincide.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 15 27 39&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;3 13 22 36&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;8 3 5 974&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ACB DEF GHI JKL&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are no squares that lie inside other squares.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;123 453 754&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;119 487 874&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1000 500 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;SQUARE SQUARE SQUARE&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;SQUARE&quot;, &quot;SQUARE&quot;, &quot;SQUARE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Names of squares are not necessarily distinct.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;3 5 10 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;5 8 10 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;974 990 1 1000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;X Y X Y&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;Y&quot;, &quot;X&quot;, &quot;X&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are two pairs of squares with equal names.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 1 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 1 1 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 1 1 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A A A A&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The sequence John is looking for is too long.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

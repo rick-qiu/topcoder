@@ -1,0 +1,316 @@
+<html>
+ <head>
+  <title>RepeatedPatterns Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7294">Problem Statement for RepeatedPatterns</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Given are two Strings <b>P1</b> and <b>P2</b>. Each of these strings contains a pattern of zeros and ones. </p> <p> The string S(n) is formed by concatenating 1,000,000 copies of <b>P1</b> followed by n copies of <b>P2</b>. </p> <p> The infinite string S is formed by concatenating the strings S(1), S(2), S(3), ... in this order. </p> <p> The string T consists of the first 10^16 characters of the string S. </p> <p> We are interested in substrings of T that are <b>zeroCount</b> characters long and contain only zeros. Write a method that finds the first occurrence of such a substring in T, and returns the zero-based index of its first character. In case T contains no such substring return -1. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RepeatedPatterns</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findZeroSegment</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long findZeroSegment(String P1, String P2, String zeroCount)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number <b>zeroCount</b> may be large, and therefore it is specified as a String.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>P1</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>P2</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>P1</b> and <b>P2</b> will contain only zeroes ('0') and ones ('1').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>zeroCount</b> will contain between 1 and 17 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>zeroCount</b> will contain only digits ('0'-'9').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>zeroCount</b> will represent a positive integer between 1 and 10^16, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>zeroCount</b> will not contain leading zeros.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;111010100001010&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;010000001000&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;3&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first occurrence of three consecutive zeroes is right in the first copy of P1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1101010010&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;0001000&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;3&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9999999</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This time the first substring &quot;000&quot; starts with the last character of the 1,000,000th copy of P1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1101010010&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;0001000&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;5&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 20000011</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We have the same string T as in Example 1, only we look for the substring &quot;00000&quot;. The first occurrence is between the second and the third copy of P2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;10101010&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;101010101010&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;9876543219876&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Nowhere in the infinite string S can we find two consecutive zeroes. Clearly, in the string T there is no substring with 9876543219876 consecutive zeroes.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;11111111111111111111111111&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;0&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;9876543219876&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The infinite string S does contain 9876543219876 consecutive zeroes. However, the first occurrence is too far, thus the string T doesn't contain it.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

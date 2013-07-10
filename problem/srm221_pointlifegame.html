@@ -1,0 +1,300 @@
+<html>
+ <head>
+  <title>PointLifeGame Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3447">Problem Statement for PointLifeGame</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Given a set S of points in the plane we can generate a new set T in the following fashion: 
+      <ul> 
+       <li> 1) For all distinct points p and q in S, the midpoint of the line segment from p to q should be added to T. </li> 
+       <li> 2) Remove all duplicate points in T so that there is only one copy of each point in T. </li> 
+      </ul> The process used to convert S into T is called a <i>round</i>. <br /><br /> <br /><br /> You will be given int[]s <b>xs</b> and <b>ys</b> denoting the points contained in S. Point i will have x-coordinate <b>xs</b>[i] and y-coordinate <b>ys</b>[i]. After applying <b>rnds</b> rounds to S, you will return the best point. One point is better than another if it has a larger y-coordinate. In case of a tie, the point with the larger x-coordinate is then better. The returned point should have the form (quotes for clarity) &quot;x y&quot; where x and y denote the x and y coordinates respectively. Each coordinate has the format (quotes for clarity) &quot;####.####&quot;. In other words, there should be exactly 4 digits before the decimal place and 4 digits afterward. When necessary, round down to the nearest ten-thousandth. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PointLifeGame</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>simulate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String simulate(int[] xs, int[] ys, int rnds)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>xs</b> must contain between 3 and 50 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>ys</b> must contain the same number of elements as <b>xs</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>xs</b> will be between 0 and 5000 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>ys</b> will be between 0 and 5000 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>rnds</b> must be between 1 and 10 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each given point will be distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,0,10,10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,10,0,10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;0005.0000 0010.0000&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The given points are arranged in a 10 by 10 square. After 1 round the best point lies on the middle of the top edge of the original square.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,0,10,10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,10,0,10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;0005.0097 0007.5000&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Same as before, but now there are 10 rounds.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,10,20}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,10,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;0015.0000 0005.0000&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here we have a triangular arrangement. After 1 round the best point lies on the upper right edge of the original triangle.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,2,3,4,5,6,7,8,9,10, 
+ 1,2,3,4,5,6,7,8,9,10, 
+ 1,2,3,4,5,6,7,8,9,10, 
+ 1,2,3,4,5,6,7,8,9,10, 
+ 1,2,3,4,5,6,7,8,9,10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,1,1,1,1,1,1,1,1,1, 
+ 2,2,2,2,2,2,2,2,2,2,
+ 3,3,3,3,3,3,3,3,3,3,
+ 4,4,4,4,4,4,4,4,4,4,
+ 5,5,5,5,5,5,5,5,5,5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;0009.0009 0005.0000&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3,3,8,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2,1,1,3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;0002.4658 0002.1875&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

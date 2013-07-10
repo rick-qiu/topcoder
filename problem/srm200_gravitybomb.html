@@ -1,0 +1,330 @@
+<html>
+ <head>
+  <title>GravityBomb Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2417">Problem Statement for GravityBomb</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Tetris is one of those games that is everywhere; there aren't too many people who haven't seen it in some form or another since its conception in 1985. The concept is fairly simple. You have a vertically-oriented rectangular grid. Pieces, which are made up of some number of 1x1 blocks, fall downwards. Whenever an entire row of the grid is full of blocks, all of the blocks in that row disappear and all the pieces above are shifted downwards by a row.</p> <p>TopCoder member antimatter is not very good at Tetris. The pieces drop too fast, he says. He's been toying with the idea of coding his own version, with one twist: the addition of the Gravity Bomb, which does not appear on the board. When the Gravity Bomb is activated, if any block is immediately above an empty space, it falls into that space. This process is repeated until there are no more blocks immediately above empty spaces. Then, any completed row of blocks will be removed and the blocks above them shifted downwards, until there are no more complete rows.</p> <p>The board has a fixed width and height, and the initial state of the board will be represented as a String[] <b>board</b>. The first element of <b>board</b> is the top row, the second element is the row immediately below it, and so on. The character 'X' will represent the presence of a block, and the character '.' will represent an empty space. Your method should return the state of the board after the Gravity Bomb is used, in the same format. Your return value should have the same number of rows and columns as the input.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>GravityBomb</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>aftermath</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] aftermath(String[] board)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain between 1 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>board</b> will contain between 1 and 50 characters, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>board</b> will be the same length</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each character in <b>board</b> will be either 'X' or '.'</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;..X&quot;,
+ &quot;X.X&quot;,
+ &quot;.X.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;...&quot;,  &quot;...&quot;,  &quot;..X&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After the Gravity Bomb is used, the board looks like this:<br /><br /> <tt>...<br /><br /> ..X<br /><br /> XXX<br /><br /></tt> Then we remove the completed line at the bottom and move all blocks above downwards.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...&quot;,
+ &quot;X..&quot;,
+ &quot;.X.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;...&quot;,  &quot;...&quot;,  &quot;XX.&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here there are no complete lines.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;XXXXXX&quot;,
+ &quot;......&quot;,
+ &quot;......&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;......&quot;,  &quot;......&quot;,  &quot;......&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;XX.XX....XX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;XX.XX....XX&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;X&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,
+ &quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,
+ &quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,
+ &quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot;,
+ &quot;.&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;XXX&quot;, &quot;XXX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;...&quot;,  &quot;...&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

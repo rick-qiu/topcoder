@@ -1,0 +1,265 @@
+<html>
+ <head>
+  <title>WordSpaces Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1044">Problem Statement for WordSpaces</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> A spy, working as a reporter at a local newspaper, has been leaking information to enemy countries by hiding messages within the articles. However, he has been found out, and the local intelligence agency wants you to write a program to detect the occurrence of certain words within this newspaper. The difficulty is that the words are not written directly in the articles, but are spaced out by a constant number (possibly zero) of garbage characters. For example, by taking every other character (i.e. the constant number of garbage characters is 1) the word &quot;hello&quot; is encoded in the stream of letters: &quot;haeilelao&quot;. Also, the word &quot;the&quot; is encoded in &quot;at bah ate&quot; by starting at the second character and reading every fourth character. Note the number of garbage characters used can be any non-negative integer. </p><p> Create a class WordSpaces with a method which takes a String <b>sentence</b> and a String[] <b>words</b>. This method is to determine the first occurrence of each word in <b>words</b> within <b>sentence</b>. Elements of the int[] you return must correspond to <b>words</b>. That is, element <i>i</i> of the int[] corresponds to element <i>i</i> of <b>words</b>. If a word starts at character 0 of the sentence, then that element of the return int[] must be 0. Note that in the sentence: &quot; at bah ate&quot; (same as above, but with a leading space), the word &quot;the&quot; starts at position 2, whereas in the above example without the leading space, the word &quot;the&quot; starts as position 1. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WordSpaces</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>find</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] find(String sentence, String[] words)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In the event that a word does not occur in the sentence with any spacing, use the value -1 for that word.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sentence</b> will be between 1 and 50 characters in length, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sentence</b> will contain only lowercase letters (a-z) and spaces</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>words</b> will contain between 0 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>words</b> will be between 1 and 50 characters in length, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>words</b> will contain only lowercase letters (a-z)</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;at bah ate&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;the&quot;,&quot;aa&quot;,&quot;hae&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  0,  5 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">By taking the 2nd, 6th, and 10th characters (at positions 1, 5, and 9), we get &quot;the&quot;. Thus, the first element of the return value is 1. (garbage spacing is 3) The word &quot;aa&quot; occurs at a number of locations: <br /><br /> By taking characters at positions 0 and 4, we get &quot;aa&quot;. (garbage spacing is 3) However, we also get &quot;aa&quot; by taking the letters at positions 4 and 7. (garbage spacing is 2) <br /><br /> You are to return the position of the first occurrence, so the second element of the return value is 0. <br /><br /> &quot;hae&quot; is found by taking letters at positions 5, 7, and 9, so the third element of the return value is 5. (garbage spacing is 1) </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;test this one out&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;test&quot;,&quot;tst&quot;,&quot;hoe&quot;,&quot;not&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  0,  -1,  -1 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;t ah mi as this&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;this&quot;,&quot;mat&quot;,&quot;zebra&quot;,&quot;hh&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  5,  -1,  3 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;abcdefghijklmnoqrstuvwxyz zywvutsrponmlkjighfedcba&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;foy&quot;,&quot;foz&quot;,&quot;fox&quot;,&quot;ace&quot;,&quot;rom&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 5,  -1,  -1,  0,  33 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;ridikulus ridiculous&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;kuri&quot;,&quot;ks&quot;,&quot;cs&quot;,&quot;z&quot;,&quot;i&quot;,&quot;rsl&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 4,  4,  14,  -1,  1,  0 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

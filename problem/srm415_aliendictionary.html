@@ -1,0 +1,251 @@
+<html>
+ <head>
+  <title>AlienDictionary Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9877">Problem Statement for AlienDictionary</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Some alien civilization has a quite strange language. Each word has length <b>wordLength</b> and consists of only 'A' and 'B' characters. Some sequences of A's and B's are forbidden (by ancient tradition), and do not appear as a substring of any valid word. Any word that does not contain a forbidden substring is valid. The set of forbidden substrings is given in the String[] <b>forbiddenSubstrings</b>. Each element of <b>forbiddenSubstrings</b> contains 'A', 'B' or '?' characters, where '?' means any single character. For example, if <b>forbiddenSubstrings</b> contains the element &quot;ABB?B&quot;, then both &quot;ABBAB&quot; and &quot;ABBBB&quot; are forbidden substrings. <br /><br /> The alien dictionary contains all valid alien words in alphabetical order. Each page of the dictionary contains exactly one word. Pages are numbered starting from 0. Given a int[] <b>wordNumbers</b>, return a String[] containing the same number of elements as <b>wordNumbers</b>, where the i-th element is the word written on page <b>wordNumbers</b>[i] of the dictionary or &quot;NO PAGE&quot; (quotes for clarity) if there is no such page in the dictionary.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>AlienDictionary</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getWords</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] getWords(int wordLength, String[] forbiddenSubstrings, int[] wordNumbers)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>wordLength</b> will be between 1 and 50, inclusive. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>wordNumbers</b> will contain between 1 and 50 elements, inclusive. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>wordNumbers</b> will be between 0 and 1,000,000,000, inclusive. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>forbiddenSubstrings</b> will contain between 0 and 50 elements, inclusive. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>forbiddenSubstrings</b> will contain between 1 and 17 characters, inclusive. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>forbiddenSubstrings</b> will contain only characters 'A', 'B' or '?'. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>forbiddenSubstrings</b> will contain the same number of characters. <br /><br /></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;?AA&quot;,&quot;ABB&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{4,12,0,6,9}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;BBBAB&quot;, &quot;NO PAGE&quot;, &quot;AABAB&quot;, &quot;BBBBB&quot;, &quot;NO PAGE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Invalid combinations are &quot;AAA&quot;, &quot;BAA&quot; and &quot;ABB&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,4,7,5,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;AAB&quot;, &quot;BAA&quot;, &quot;BBB&quot;, &quot;BAB&quot;, &quot;AAB&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No invalid combinations.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;AA&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2,6,11,4,8}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;ABBB&quot;, &quot;BBBA&quot;, &quot;NO PAGE&quot;, &quot;BABB&quot;, &quot;NO PAGE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;BABB?&quot;,&quot;??A?B&quot;,&quot;A?AAA&quot;,&quot;A??AB&quot;,&quot;?A??A&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;AABBBABABA&quot;, &quot;AABBBBABAB&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

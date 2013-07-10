@@ -1,0 +1,339 @@
+<html>
+ <head>
+  <title>WordsGame Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10708">Problem Statement for WordsGame</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are playing a game with a NxN grid of letters. The goal of the game is to spell out a N-letter word somewhere on the grid either horizontally from left to right or vertically from top to bottom. To achieve this, you will perform a series of moves. On each move, you can swap either two rows or two columns of the grid.<br /><br /> You are given a String[] <b>grid</b> containing the initial state of the grid. The j-th character of the i-th element of <b>grid</b> is the letter at row i, column j. The word you must spell is given to you in the String <b>word</b>. All letters in <b>word</b> are distinct. Note that lowercase and uppercase versions of the same letter are considered different in this problem, so 'A' and 'a' are distinct. Return the minimal number of moves required to spell the given word on the grid, or -1 if it is impossible.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WordsGame</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minimumSwaps</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minimumSwaps(String[] grid, String word)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>word</b> will contain between 1 and 50 letters ('a'-'z', 'A'-'Z'), inclusive. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All characters in <b>word</b> will be distinct. <br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number of elements in <b>grid</b> will be equal to the length of <b>word</b>.<br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The length of each element of <b>grid</b> will be equal to the length of <b>word</b>.<br /><br /></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>grid</b> will contain only letters ('a'-'z', 'A'-'Z'). </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Mu&quot;,
+ &quot;uM&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;Mu&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first row of the grid already contains the required word.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;sdf&quot;,
+ &quot;bca&quot;,
+ &quot;hgf&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;abc&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">First we swap first and third column. Then we swap second and third column. The resulting grid contains word &quot;abc&quot; in the second row. There is no way to do that in less than two swaps so we return 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;cdf&quot;,
+ &quot;bca&quot;,
+ &quot;agf&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;abc&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We could perform the same two swaps to get word &quot;abc&quot; in the second row. However, swapping first and third row results in a grid containing word &quot;abc&quot; in the first column so we return 1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;xSZB&quot;,
+ &quot;gbHk&quot;,
+ &quot;kbgH&quot;,
+ &quot;WFSg&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;bkHg&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;eKUNGHktLB&quot;,
+ &quot;EtBFDndTlG&quot;,
+ &quot;RRFHmjwrDs&quot;,
+ &quot;eKYsHlYhlu&quot;,
+ &quot;ljxyJSwTds&quot;,
+ &quot;dUQToyWHvl&quot;,
+ &quot;azDPWRwioE&quot;,
+ &quot;EARdktoDBh&quot;,
+ &quot;dmIqcGSvCE&quot;,
+ &quot;wXypNQEMxz&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;oDmWcJHGNk&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ab&quot;,
+ &quot;bA&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;aB&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

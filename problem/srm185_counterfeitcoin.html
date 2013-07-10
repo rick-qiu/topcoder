@@ -1,0 +1,412 @@
+<html>
+ <head>
+  <title>CounterfeitCoin Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2371">Problem Statement for CounterfeitCoin</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> There is a famous puzzle in which you try to determine which of twelve coins is counterfeit. You know that the counterfeit coin is slightly heavier or lighter than the eleven good coins, and your only tool is a balance scale that can tell which of two stacks of coins is heavier, or if they are the same weight. In the famous puzzle, you must discover which coin is counterfeit and whether it is heavier or lighter than the good coins, using no more than three weighings. </p> <p> In this problem, you are given <b>N</b> coins. As in the puzzle, exactly one of the coins is counterfeit, and it is slightly heavier or lighter than the other coins, which are all the same weight. Using a balance scale, you want to determine which coin is counterfeit <i>and</i> whether it is heavier or lighter than the good coins, using the minimum number of weighings. It is possible that your weighing strategy will use different numbers of weighings in different cases. You want to minimize the maximum number of weighings required by your strategy. For example, a strategy that always takes four weighings is preferable to a strategy that usually takes three weighings but occasionally takes five weighings. </p> <p> You have already made several weighings, and now you need to determine which coins to weigh next. The individual coins are labeled with uppercase letters beginning with 'A'. For example, if <b>N</b> is 5, then the coins are labeled 'A', 'B', 'C', 'D', and 'E'. You will be given two String[]'s, <b>left</b> and <b>right</b>, where element <i>k</i> of <b>left</b> identifies which coins were on the left side of the scale during weighing <i>k</i>, and element <i>k</i> of <b>right</b> identifies which coins were on the right side of the scale during weighing <i>k</i>. (Note that the weighings are numbered from 0.) You will also be given a String <b>result</b>, where character <i>k</i> of <b>result</b> describes the result of weighing <i>k</i>. The character 'L' means that the left stack was heavier, the character 'R' means that the right stack was heavier, and the character 'E' means that the two stacks were the same weight. For example, in the following scenario, </p> <pre>
+   N      = 12
+   left   = { &quot;ABCD&quot;, &quot;ABC&quot; }
+   right  = { &quot;EFGH&quot;, &quot;IJK&quot; }
+   result = { &quot;EL&quot; }
+</pre> coins A, B, C, and D were compared to E, F, G, and H in weighing 0, and the two stacks were the same weight. In weighing 1, coins A, B, and C were compared to I, J, and K, and the left stack (A, B, and C) was heavier. <p> Your task is to decide which coins to weigh next. You want to choose the coins that minimize the maximum number of weighings needed from this point forward, assuming all subsequent weighings (if any) will be chosen optimally. For example, suppose you are trying to decide between two arrangements for the next weighing. Arrangement 1 will require one subsequent weighing regardless of the result of the current weighing. Arrangement 2 will require no subsequent weighings if the result of the current weighing is 'L' or 'R', but will require two subsequent weighings if the result of the current weighing is 'E'. Then you would choose arrangement 1. </p> <p> You will return the coins as a String of the form &quot;&lt;<i>left</i>&gt;-&lt;<i>right</i>&gt;&quot; where &lt;<i>left</i>&gt; is the coins in the left stack and &lt;<i>right</i>&gt; is the coins in the right stack. The coins in each stack should always be listed in alphabetical order. For example, if you wanted to compare the coins A and B to the coins C and D, you would return &quot;AB-CD&quot;. If two different configurations of coins achieve the same maximum number of weighings, prefer the one that uses the fewest coins. For example &quot;AB-CD&quot; would be preferred over &quot;ABC-DEF&quot;. If there is still a tie, prefer the configuration that comes first alphabetically. </p> <p> If the previous weighings are sufficient to determine which coin is counterfeit <i>and</i> whether it is heavier or lighter than the good coins, return the empty string (&quot;&quot;). If the results of the previous weighings are mutually inconsistent or otherwise incompatible with the hypothesis that exactly one of the coins is counterfeit, return &quot;error&quot;. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CounterfeitCoin</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>nextWeighing</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[], String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String nextWeighing(int N, String[] left, String[] right, String result)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>N</b> is between 3 and 26, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>left</b> contains between 0 and 5 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>right</b> contains the same number of elements as <b>left</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>result</b> contains the same number of characters as elements in <b>left</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>left</b> contains between 1 and 13 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Element <i>k</i> of <b>left</b> contains the same number of characters as element <i>k</i> of <b>right</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Every character in <b>left</b> and <b>right</b> is between 'A' and the <b>N</b>-th uppercase letter, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The characters in each element of <b>left</b> and <b>right</b> occur in alphabetical order, with no repeats.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Element <i>k</i> of <b>left</b> shares no characters in common with element <i>k</i> of <b>right</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>result</b> contains only the characters 'L', 'R', and 'E'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;ABCD-EFGH&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In the famous problem, the first weighing should weigh the first four coins against the next four coins.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;ABCD&quot;, &quot;ABC&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;EFGH&quot;, &quot;IJK&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;EL&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;I-J&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example above. <p> After the first weighing, we know that coins A, B, and C are not counterfeit. Therefore, after the second weighing, the counterfeit coin must be one of I, J, or K, and furthermore, the counterfeit coin must be lighter than the good coins. Next, we should weigh coin I against coin J. If one of them is lighter than the other, then the lighter one is counterfeit. If I and J weigh the same, then the counterfeit is coin K. </p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;ABCD&quot;, &quot;ABC&quot;, &quot;I&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;EFGH&quot;, &quot;IJK&quot;, &quot;J&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;ELR&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">I is the counterfeit coin, and it is light.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;AB&quot;, &quot;EF&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;CD&quot;, &quot;AC&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;EE&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;error&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The coins appear to all be the same weight. Or perhaps several of the coins are counterfeit. Either way, it's an error.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>7</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;ACE&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;BDF&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;E&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;A-G&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first weighing rules out coins A-F, so the counterfeit coin must be G. However, we do not yet know if it is heavy or light, so we need one more weighing to determine that.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;ACDJMNOQ&quot;, &quot;CD&quot;, &quot;G&quot;, &quot;ABC&quot;, &quot;R&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;BFIKLPST&quot;, &quot;AK&quot;, &quot;H&quot;, &quot;FIK&quot;, &quot;G&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;LEEEE&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;JLM-NOP&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>26</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;ABCDEFG-HIJKLMN&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

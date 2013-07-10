@@ -1,0 +1,297 @@
+<html>
+ <head>
+  <title>RoadReconstruction Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7921">Problem Statement for RoadReconstruction</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>There are several cities in the country, and some of them are connected by bidirectional roads. Unfortunately, some of the roads are damaged and cannot be used right now. Your goal is to rebuild enough of the damaged roads that there is a functional path between every pair of cities.<p></p> You are given String[] <b>roads</b>, each element of which describes a single road. Damaged roads are formatted as &quot;<i>id city1 city2 cost</i>&quot; and non-damaged roads are formatted as &quot;<i>id city1 city2</i>&quot; (all quotes for clarity). In this notation, <i>id</i> is the unique identifier of the road, and <i>city1</i> and <i>city2</i> are the case-sensitive names of the two cities directly connected by that road. If the road is damaged, <i>cost</i> represents the price of rebuilding that road. Each <i>id</i> will be formatted &quot;<i>Cx</i>&quot; (quotes for clarity), where <i>C</i> is an uppercase letter and <i>x</i> is a digit. Every city in the country will appear at least once in <b>roads</b>.<p></p> Return a String containing a single space separated list of the identifiers of the roads that must be rebuilt to achieve your goal. If there are multiple possibilities, select the one with the minimal total reconstruction cost. If a tie still exists, return the String that comes first lexicographically. If it is impossible to achieve your goal, return &quot;IMPOSSIBLE&quot; (quotes for clarity only).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RoadReconstruction</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>selectReconstruction</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String selectReconstruction(String[] roads)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There can be more than one road between a pair of cities.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>roads</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>roads</b> will contain between 6 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>roads</b> will be formatted as &quot;<i>id city1 city2</i>&quot; or &quot;<i>id city1 city2 cost</i>&quot; (all quotes for clarity). </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>id</i> will be formatted as &quot;Cx&quot; (quotes for clarity), where C is an uppercase letter ('A'-'Z') and x is a digit ('0'-'9').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>id</i> in <b>roads</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>city1</i> and <i>city2</i> will contain between 1 and 45 letters ('a'-'z', 'A'-'Z'), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>roads</b>, <i>city1</i> and <i>city2</i> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>cost</i> will be an integer between 1 and 1000, inclusive, with no leading zeroes.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;M1 Moscow Kiev 1&quot;, &quot;M2 Minsk Kiev&quot;, &quot;M3 Minsk Warsaw&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;M1&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Rebuilding road M1 will make all three cities connected to each other.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;R1 NY Washington&quot;, &quot;M1 Moscow StPetersburg 1000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;IMPOSSIBLE&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Even after reconstuction of the road M1, the resulting road network won't be connected. So, the answer is &quot;IMPOSSIBLE&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;B1 Bratislava Havka&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;M1 Moscow StPetersburg 1&quot;, &quot;M2 Moscow Saratov 2&quot;, &quot;S0 Saratov StPetersburg&quot;}}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;M1&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;O1 Beetown Fearnot 6&quot;,&quot;N7 Fearnot Hornytown&quot;,&quot;M8 Hornytown Belcher 10&quot;,
+ &quot;L5 Belcher Fearnot 8&quot;,&quot;C7 Fearnot Beetown 4&quot;,&quot;K7 Quiggleville Beetown 12&quot;,
+ &quot;H4 Beetown DryFork 6&quot;,&quot;Z0 Hornytown Belcher 1&quot;,&quot;O5 Belcher Quiggleville 10&quot;,
+ &quot;U7 Quiggleville Fearnot 2&quot;,&quot;A8 Fearnot Quiggleville 8&quot;,&quot;T6 Beetown DryFork 17&quot;,
+ &quot;E8 Quiggleville DryFork 8&quot;,&quot;Y4 DryFork Quiggleville 4&quot;,&quot;Q8 Hornytown DryFork 2&quot;,
+ &quot;J9 Quiggleville DryFork 19&quot;,&quot;M4 DryFork Quiggleville 7&quot;,&quot;T1 DryFork Fearnot 9&quot;,
+ &quot;G4 Fearnot DryFork 6&quot;,&quot;V9 Hornytown Beetown 5&quot;,&quot;O6 Quiggleville Beetown 4&quot;,
+ &quot;L8 Beetown Roachtown 5&quot;,&quot;D5 Belcher DryFork 8&quot;,&quot;W5 Belcher DryFork 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;C7 L8 U7 W5 Z0&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

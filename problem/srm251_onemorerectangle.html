@@ -1,0 +1,288 @@
+<html>
+ <head>
+  <title>OneMoreRectangle Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4590">Problem Statement for OneMoreRectangle</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>There are some rectangles on a plane, with sides parallel to the axes. They may intersect and overlap. You are to place a rectangle q on this plane (its sides must also be parallel to axes) and want to cover the maximum possible number of rectangles. <br /><br /><br /><br /> You are given a String[] <b>rectangles</b>, each element of which is formatted as &quot;X1 Y1 X2 Y2&quot;, where X1 and Y1 are the coordinates of the lower left corner of a rectangle, and X2 and Y2 are the coordinates of the upper right corner. You are given the lengths of the sides of q - <b>qa</b> and <b>qb</b>. You are to return the maximum number of rectangles that can be covered by q. A rectangle is covered by q if it lies fully inside q (for example, &quot;1 1 2 2&quot; is covered by &quot;-1 1 2 100&quot;).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>OneMoreRectangle</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>maxCover</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int maxCover(String[] rectangles, int qa, int qb)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The rectangle you place may be oriented in either of the two possible ways.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>rectangles</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>rectangles</b> will be formatted as &quot;X1 Y1 X2 Y2&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>X1, Y1, X2, and Y2 will each be an integer between -1000000000 and 1000000000, inclusive, with no extra leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>X2 will be greater than X1, and Y2 will be greater than Y1.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>qa</b> and <b>qb</b> will be between 1 and 1000000000 inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 2 2&quot;,&quot;2 2 3 3&quot;,&quot;3 3 4 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">q is 2x2, so it may cover the first and second rectangles, or the second and third ones - answer is 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 5 5&quot;,&quot;1 1 4 2&quot;,&quot;1 1 2 4&quot;, &quot;2 3 5 5&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">q may cover &quot;1 1 4 2&quot; and &quot;1 1 2 4&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 4 2&quot;,&quot;1 2 2 5&quot;,&quot;4 1 5 4&quot;,&quot;2 4 5 5&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 4 2&quot;,&quot;1 2 2 5&quot;,&quot;4 1 5 4&quot;,&quot;2 4 5 5&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 4 6573 345&quot;,&quot;23 4366 23545 366783&quot;,&quot;54 7895 2565 23567&quot;,&quot;3456 345 475457 45767654&quot;,
+&quot;-234 -654885 0 0&quot;,&quot;-32654 -43256 -34 -5463&quot;,&quot;-10000 -10000 10000 10000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

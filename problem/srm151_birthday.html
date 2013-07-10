@@ -1,0 +1,248 @@
+<html>
+ <head>
+  <title>Birthday Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1739">Problem Statement for Birthday</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Forgetting a close friend's birthday is quite embarrassing, but forgetting it two years in a row is a catastrophe. So what can a coder do to prevent this from happening again? Well, the thing he possibly can do best: code...<br /><br /> <br /><br /> Given a String <b>date</b> (the current date) and a String[] <b>birthdays</b>, a list of people's birthdays and names, return a String, the date of the next occurring birthday, starting from the current date.<br /><br /> <br /><br /> <b>date</b> is in the format &quot;MM/DD&quot; (quotes for clarity), where MM represents the two-digit month and DD represents the two-digit day (leading zero if necessary). Each element of <b>birthdays</b> is in the format &quot;MM/DD &lt;Name&gt;&quot; (quotes for clarity), where MM/DD is the date of &lt;Name&gt;'s birthday. &lt;Name&gt; is a sequence of characters from 'A'-'Z' and 'a'-'z'. There is exactly one space character between the date and &lt;Name&gt;. The date returned also has to be in the format &quot;MM/DD&quot; (quotes for clarity). </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Birthday</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getNext</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String getNext(String date, String[] birthdays)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>birthdays</b> contains between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>birthdays</b> contains between 7 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>date</b> and each element of <b>birthdays</b> follow the format described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All dates are legal dates and neither <b>date</b> nor any date in <b>birthdays</b> is the 29th of February.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;06/17&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;02/17 Wernie&quot;, &quot;10/12 Stefan&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;10/12&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;06/17&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;10/12 Stefan&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;10/12&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;02/17&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;02/17 Wernie&quot;, &quot;10/12 Stefan&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;02/17&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;12/24&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;10/12 Stefan&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;10/12&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;01/02&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;02/17 Wernie&quot;,
+ &quot;10/12 Stefan&quot;,
+ &quot;02/17 MichaelJordan&quot;,
+ &quot;10/12 LucianoPavarotti&quot;,
+ &quot;05/18 WilhelmSteinitz&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;02/17&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

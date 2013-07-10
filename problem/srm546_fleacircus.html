@@ -1,0 +1,335 @@
+<html>
+ <head>
+  <title>FleaCircus Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=12044">Problem Statement for FleaCircus</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> The amazing flea circus Nehryzma is in town! </p> <p> The most famous act of this flea circus looks as follows: On the table there are N marked spots, labeled 0 through N-1. Initially, there is a single flee sitting on each of the spots. The fleas have cute little t-shirts with numbers. For each i, the flea that starts on the spot number i has the number i on its t-shirt. During the act, the fleas jump between the spots according to the rules explained below. </p> <p> The fleas are directed by their trainer, Mr. Kocurisko. When practicing for the act, Mr. Kocurisko had drawn N arrows onto the table. Each arrow started at a marked spot and ended at a marked spot (possibly the same one). For each marked spot, there was exactly one arrow leaving it, and one arrow entering it. The fleas then had to jump according to the arrows. Each time Mr. Kocurisko clicked his tongue, each flea had to jump from her marked spot X to the marked spot at the end of the arrow that leaves the spot X. (Note that it is possible that some fleas just jumped on the spot.) Obviously, once all fleas landed, there was again exactly one flea on each of the marked spots, so the process could continue in the same way. </p> <p> Once the fleas mastered the routine, Mr. Kocurisko erased the arrows. Now the act looked pretty amazing: each time he clicked the tongue, all fleas jumped seemingly at random, and no two of them ever collided. What a wonderful trick! </p> <p> Little Julka came to see the show today. However, she was standing at the back of a huge crowd, so she only managed to catch a single glimpse of the act. </p> <p> You are given a String[] <b>afterFourClicks</b>. Concatenate the elements of <b>afterFourClicks</b> to obtain one long String. This String will contain a sequence S, consisting of N nonnegative integers separated by single spaces. For each i, the i-th element of S is the number of the flea that was on the marked spot number i after the trainer clicked his tongue four times. Count all possible configurations of arrows on the table that correspond to the state described by S. In other words, count all possible configurations of fleas after the first click of the tongue (i.e., three clicks before the current one). As this number can be huge, return it modulo 1,000,000,009 (10^9 + 9). </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FleaCircus</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>countArrangements</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int countArrangements(String[] afterFourClicks)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>It is possible that for the given input data no valid configuration of arrows exists. In that case the correct return value is obviously 0.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that the constraints imply that N is at most 652.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>afterFourClicks</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>afterFourClicks</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>afterFourClicks</b> will be a digit ('0'-'9') or a space (' ').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The string Z obtained by concatenating all elements of <b>afterFourClicks</b> will contain a sequence S of N nonnegative integers, separated by single spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The string Z will have no leading spaces and no trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The numbers in the string Z will have no unnecessary leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All integers in S will be between 0 and N-1, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All integers in S will be pairwise distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2 0 3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only possible configuration of arrows: 0-&gt;1, 1-&gt;2, 2-&gt;0, 3-&gt;3. This is what happens to each of the four fleas: 
+              <ul> 
+               <li>Flea 0 starts at the spot 0. It jumps to spot 1, then to spot 2, then to spot 0, and finally to spot 1.</li> 
+               <li>Flea 1 starts at the spot 1. It jumps to spot 2, then to spot 0, then to spot 1, and finally to spot 2.</li> 
+               <li>Flea 2 starts at the spot 2. It jumps to spot 0, then to spot 1, then to spot 2, and finally to spot 0.</li> 
+               <li>Flea 3 starts at the spot 3. It makes four jumps on the spot.</li> 
+              </ul></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2 &quot;, &quot;0 3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is exactly the same sequence S as in Example 0.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 1 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Either all three fleas jump on the spot, or one of them jumps on the spot and the other two swap places in each turn.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 1 2 3 5 4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If the fleas jump according to the rules in the problem statement, you cannot see this situation after four jumps.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;3 6 7 9 8 2 1&quot;, &quot;0 5 1 0 4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 0 7 5 6 3 4 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 48</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

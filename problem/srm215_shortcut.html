@@ -1,0 +1,269 @@
+<html>
+ <head>
+  <title>ShortCut Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2867">Problem Statement for ShortCut</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>My 4WD SUV can drive anywhere. Around here I can drive cross-country at a constant speed that is exactly half of my road speed. <p> Given a section of one-way road that is a sequence of straight-line segments, I want to know the fastest way to get from the start of the section to the end of the section. I can leave and re-enter the road as often as I wish. Create a method suvTime that is given a int[] <b>roadX</b> and a int[] <b>roadY</b> and that finds the quickest route, returning the time required as a fraction of the time required if I had to stay on the road. So, for example, a return of .75 means that by using my SUV capabilities I can get to my destination in 3/4 of the time required if I had to follow the road. </p><p> The i-th elements of <b>roadX</b> and <b>roadY</b> give the coordinates of i-th point along the road, where the first elements gives the start point and the last elements give the end point. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ShortCut</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>suvTime</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double suvTime(int[] roadX, int[] roadY)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>roadX</b> will contain between 2 and 50 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>roadY</b> will contain the same number of elements as <b>roadX</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>roadX</b> and in <b>roadY</b> will be between -1000 and 1000 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two road segments will touch or intersect (except that the last point of a segment is the first point of the next segment).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{10,14,14}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,0,4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><pre>
+        E
+        x
+        x
+        x
+    Sxxxx
+</pre> 'S' is the start point, 'E' the end, and 'x' shows the road. Cross country might be fun, but leaving the road in this case would be a mistake. It could shorten the distance of the trip, but it would increase the time taken. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,4,4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,4,-4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.8001991549907409</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><pre>
+       x
+      xx
+     x x
+    x  x
+   S   x
+    \  x
+     \ x
+       x
+       E
+</pre> The \ shows the appropriate shortcut, which is directly from the start point to a little south on the final segment. This off-road leg has length 4.6188 and rejoins the road at a point where the remaining on-road travel has length 1.7. The original road distance was about 13.66 (5.66 northeastward, 8 southward). The shortcut reduces the trip to an equivalent road distance of 2*4.6188 + 1.7 = 10.93 which requires only about 80% of the time required by those pitiful non-SUV owners. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,100,100,-100,-100,100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,0,20,20,40,40}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.2962962962962963</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><pre>  
+       xxxxxxxxxxxxxxxxxxxxE
+       x            /
+       xxxxxxxxxxxxxxxxxxxxx
+                  /        x
+                 Sxxxxxxxxxx
+</pre> Here the best path is to go cross country to the final part of the road and follow it to the destination. The long middle part of the road is no help because it is one-way the wrong way.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,-100,-100,100,90}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,0,20,20,40}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.4585856530883108</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><pre>
+                      E
+                    /  x
+    xxxxxxxxxxxxxxxxxxxxx
+    x          /
+    xxxxxxxxxxS
+</pre> The fastest way is to cut cross-country to the long middle straightline part of the road, follow it for a while, and then cut crosscountry directly to the destination. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

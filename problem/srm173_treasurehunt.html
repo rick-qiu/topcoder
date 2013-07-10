@@ -1,0 +1,373 @@
+<html>
+ <head>
+  <title>TreasureHunt Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1958">Problem Statement for TreasureHunt</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Hurray! You have found a map to a hidden treasure on an island somewhere in the Carribean. It's a classic pirate treasure map, with a big X marking the spot of the treasure. It also has instructions describing how to walk to reach the X, like &quot;north 2 paces&quot;, &quot;east 1 pace&quot;, etc. However, the instructions lack one vital piece of information: It doesn't say <i>where</i> on the island you should start from! Since you suspect the treasure is buried deep and that the X on the map is only a rough estimation, you might have to dig in a lot of places before finding the treasure. So before you start to dig, you pick up your laptop computer in order to determine where on the island the treasure is most likely to be buried. </p> <p> You assume that the intended start location is somewhere on the beach, and that if you follow the walking instructions, you should never have to walk across water. If several such starting positions exist, the position that will cause the treasure to be closest (Euclidean distance) to the estimated treasure position is considered most likely (see example 0). If there is a tie, select the northernmost position of these. If there is still a tie, select the westernmost position of these. </p> <p> The island will be given as a String[], where a dot ('.') represents water, uppercase letter 'O' represents a part of the island, and uppercase letter 'X' marks the estimated location of the treasure (this position is of course also part of the island). A square is only considered to be a beach if it's part of the island and is adjacent (in any of the four cardinal directions) to a water square. Squares outside the map are considered to be water squares as well (they are part of the ocean). Below is an example of a valid island. </p> <pre>
+{&quot;..OOOO..&quot;,
+ &quot;.OOOO...&quot;,
+ &quot;OOXOOOOO&quot;,
+ &quot;OOOOOOO.&quot;,
+ &quot;.OOOO...&quot;,
+ &quot;..OOO...&quot;}
+</pre> <p> The island will always be connected. This means that if you stand somewhere on the island, it will be possible to reach every part of the island by only walking on land in any of the four cardinal directions. Also, there will be no lakes, which means that from any water square it will be possible to go in cardinal directions on other water squares until the edge of the map is reached. </p> <p>The walking instructions will be given as a String[] where each element is in the form (quotes for clarity only) &quot;&lt;direction&gt; &lt;paces&gt;&quot;. Direction will be either 'N' (decreasing y), 'S' (increasing y), 'E' (increasing x) or 'W' (decreasing x). Paces will be an integer between 1 and 9, inclusive. Walking one pace corresponds to moving one square.</p> <p> Create a class TreasureHunt containing the method findTreasure which takes a String[] <b>island</b> and a String[] <b>instructions</b> describing the island and the instructions, respectively, in the formats above. The method should return a int[] containing the coordinates on the map where the treasure is most likely to be buried. The first element should be the x-coordinate (the first column being 0) and the second element the y-coordinate (the first row being 0). If the treasure can't be on the island, return a int[] containing zero elements (see example 4). </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TreasureHunt</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findTreasure</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] findTreasure(String[] island, String[] instructions)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All land cells that are on the edge of the grid are considered to be a beach since they're adjacent to squares outside the grid, which are water (see example 2).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The Euclidean distance between two points x<sub>1</sub>,y<sub>1</sub> and x<sub>2</sub>,y<sub>2</sub> is sqrt((x<sub>1</sub>-x<sub>2</sub>)*(x<sub>1</sub>-x<sub>2</sub>) + (y<sub>1</sub>-y<sub>2</sub>)*(y<sub>1</sub>-y<sub>2</sub>)).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>East is the positive x-direction and North is the negative y-direction.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>island</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>island</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements in <b>island</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The characters in each element in <b>island</b> will be '.', 'O' or 'X'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Exactly one character in <b>island</b> will be a 'X'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The island will be connected.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The island will not contain any lakes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>instructions</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>instructions</b> will be in the form &quot;&lt;direction&gt; &lt;paces&gt;&quot; where <i>direction</i> is 'N', 'S', 'E' or 'W' and <i>paces</i> is an integer between 1 and 9 (without leading zeros), inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;..OOOO..&quot;,
+ &quot;.OOOO...&quot;,
+ &quot;OOXOOOOO&quot;,
+ &quot;OOOOOOO.&quot;,
+ &quot;.OOOO...&quot;,
+ &quot;..OOO...&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;W 3&quot;,&quot;S 1&quot;,&quot;E 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 3,  2 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The treasure can't be buried where the 'X' is, because then we would have to walk on water.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.......&quot;,
+ &quot;.OOOOO.&quot;,
+ &quot;.OOOOO.&quot;,
+ &quot;.OOXOO.&quot;,
+ &quot;.OOOOO.&quot;,
+ &quot;.OOOOO.&quot;,
+ &quot;.......&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;N 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 3,  4 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Notice that you must start from the beach.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;OOOOOOOOOOO.&quot;,
+ &quot;OX..........&quot;,
+ &quot;OOOOOOOOOOO.&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;W 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  0 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;....OO.&quot;,
+ &quot;..OOXOO&quot;,
+ &quot;OOOO...&quot;,
+ &quot;.OOOOOO&quot;,
+ &quot;...OOOO&quot;,
+ &quot;.OOOOO.&quot;,
+ &quot;..OOO..&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;N 1&quot;,&quot;E 1&quot;,&quot;N 4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 3,  1 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;X&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;N 1&quot;,&quot;E 1&quot;,&quot;S 1&quot;,&quot;W 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.................O..&quot;,
+ &quot;..OO.......OOOOO.O..&quot;,
+ &quot;..OOO..OOO.OOOOOOOO.&quot;,
+ &quot;..OOOOOOOOOOOOOOOOO.&quot;,
+ &quot;..OOOOOOOOOOOOOOOOO.&quot;,
+ &quot;...OOOOOOOOOOOOOOOO.&quot;,
+ &quot;OO.OOOOOOOXOOOOOO...&quot;,
+ &quot;.OOOOOOO..OOOOOOOO..&quot;,
+ &quot;OOOOOOOOO..OOOOOOOO.&quot;,
+ &quot;OOOOOOOOO..OOOOOOO..&quot;,
+ &quot;.OOOOOOOOO..........&quot;,
+ &quot;OOOOOOOOOOOOOOOOOO..&quot;,
+ &quot;..OOOOOOOOOOOOOOO...&quot;,
+ &quot;OOOOOOOOOOOOOOOOO...&quot;,
+ &quot;.OOOOOOOOOOOOOOOOOOO&quot;,
+ &quot;OOOOOOOOOOOOOOOOOO..&quot;,
+ &quot;..OOOOOOOOOOOOOOOOO.&quot;,
+ &quot;OOOOO.OOOOOO..OOO...&quot;,
+ &quot;O..OO.OOOO.....OOO..&quot;,
+ &quot;O......O.OO......OO.&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;N 2&quot;,&quot;E 3&quot;,&quot;N 4&quot;,&quot;E 2&quot;,&quot;S 1&quot;,&quot;W 2&quot;,&quot;E 9&quot;,&quot;E 2&quot;,
+ &quot;N 3&quot;,&quot;W 5&quot;,&quot;N 1&quot;,&quot;W 6&quot;,&quot;N 6&quot;,&quot;S 1&quot;,&quot;S 1&quot;,&quot;E 7&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 10,  6 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

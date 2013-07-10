@@ -1,0 +1,204 @@
+<html>
+ <head>
+  <title>DequeSort Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1776">Problem Statement for DequeSort</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A &quot;deque&quot; is a data structure which allows constant time insertion and removal at both the front and back ends. In this problem, you will be given a int[] <b>data</b>, and asked to sort the numbers contained therein using the following algorithm. For each number <i>x</i> in <b>data</b>, you must do exactly one of the following:</p> 
+      <ul>
+       <li>1. Push <i>x</i> onto the front end of an existing deque.</li> 
+       <li>2. Push <i>x</i> onto the back end of an existing deque.</li> 
+       <li>3. Create a new deque with <i>x</i> as its only element.</li>
+      </ul> <p>You must process each number in <b>data</b> in the order they are given. It is not permissible to skip a number temporarily and process it at a later time. It is also not permissible to insert a number into the middle of an existing deque; only front and back insertions are allowed. To make things easier, <b>data</b> will not contain duplicate elements.</p> <p>Once all the numbers have been processed, if you have created your deques wisely, you should be able to create a single, sorted list by placing the resulting deques on top of each other in an order of your choice. Your method should return the minimum number of deques needed for this to be possible.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>DequeSort</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minDeques</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minDeques(int[] data)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>data</b> will contain between 3 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>data</b> will be between -1000 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>data</b> will not contain duplicate elements.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{50, 45, 55, 60, 65,
+ 40, 70, 35, 30, 75}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Only one deque is necessary to sort this list. The first element, 50, starts the deque. For each successive element encountered, if that element is less than 50, push it onto the front of the deque. Otherwise, if it is greater than 50, push it onto the back of the deque. Once all the data has been processed, the deque will contain all the elements and be in sorted order.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3, 6, 0, 9, 5, 4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Your algorithm could process the numbers in the following way:</p> 
+              <ul>
+               <li>Create a new deque <tt>d1 = {3}</tt>.</li> 
+               <li>Create a new deque <tt>d2 = {6}</tt>.</li> 
+               <li>Push 0 onto the front of <tt>d1</tt>; <tt>d1 = {0, 3}</tt></li> 
+               <li>Push 9 onto the back of <tt>d2</tt>; <tt>d2 = {6, 9}</tt></li> 
+               <li>Push 5 onto the front of <tt>d2</tt>; <tt>d2 = {5, 6, 9}</tt></li> 
+               <li>Push 4 onto the front of <tt>d2</tt>; <tt>d2 = {4, 5, 6, 9}</tt></li>
+              </ul> <p>We can now combine the deques together by putting <tt>d2</tt> after <tt>d1</tt>, resulting in the sorted list {0, 3, 4, 5, 6, 9}. Two deques were used (and it is impossible to succeed using any less than two), so the method returns 2.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 2, 1, 4, 3, 6, 5, 8, 7, 9}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>The five deques will be {0,1}, {2,3}, {4,5}, {6,7}, and {8,9}. It is impossible to use fewer than five deques and still be able to combine them into a single, sorted list at the end.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

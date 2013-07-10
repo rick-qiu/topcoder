@@ -1,0 +1,342 @@
+<html>
+ <head>
+  <title>ValidPlates Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6876">Problem Statement for ValidPlates</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Inmates on planet Elba II are making license plates for the various departments of interplanetary vehicles of the Federation. All plates denote positive numbers using the digits '0'-'9'. No plate ever contains a leading 0. </p><p> Unfortunately, certain pairs of digits are considered obscene by different planets. Therefore, no plate can be created that contains those adjacent sequences of digits. </p><p> The plates are ordered by the value of the positive number on them. They are then numbered by their placement on that ordered list; this numbering is called the sequence number. Thus, the plate with sequence number 1 has &quot;1&quot; on it, the plate with sequence number 9 has &quot;9&quot; on it, and beyond that, the plates are determined by what digit pairs are legal. For instance, if only the digit sequence &quot;10&quot; was illegal, then the plate with sequence number 10 would be &quot;11&quot;, and the plate with sequence digit 99 would be &quot;111&quot;. </p><p> Your task as a lowly programmer peon on Elba II is to write a method to determine the plate number, given the set of digit pairs that are illegal and the sequence number of the plate. If there can be no plate with that sequence number, return the empty string. </p><p> If the plate has more than 50 digits, only return the first 47 digits followed by &quot;...&quot; (quotes for clarity). </p><p> The illegal digits will be given in the String[] <b>profane</b>. Each element of <b>profane</b> will contain a sequence of digit pairs, separated by spaces. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ValidPlates</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getPlate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String getPlate(String[] profane, int seqno)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>seqno</b> will be between 1 and 2,000,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>profane</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>profane</b> will contain between 2 and 50 characters, in the format described above.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>profane</b> will contain only spaces and digits ('0'-'9').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>profane</b> will consist of a sequence of digit pairs separated by single spaces, with no leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;1000&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With no restrictions, the 1000th plate is simply &quot;1000&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;10&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;11&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If the digit sequence &quot;10&quot; is not allowed, the 10th plate must be 11.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;10&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2000000000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;2277659869&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;00 01 02 03 04 05 06 07 08 09 11 12 13 14 15 16 17&quot;,
+ &quot;18 19 22 23 24 25 26 27 28 29 33 34 35 36 37 38 39&quot;,
+ &quot;44 45 46 47 48 49 55 56 57 58 59 66 67 68 69 77 78&quot;,
+ &quot;79 88 89 99 99 99 99 99&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1023</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Disallowing any digit pair where the digits do not decrease only permits a total of 1022 plates. Note that profane may contain duplicate elements.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;00 01 02 03 04 05 07 08 09&quot;,
+ &quot;10 11 12 13 14 15 17 18 19&quot;,
+ &quot;20 21 22 24 25 26 27 28 29&quot;,
+ &quot;30 31 32 33 34 36 37 38 39&quot;,
+ &quot;41 43 45 46 48&quot;,
+ &quot;52 53 54 55 56 58 59&quot;,
+ &quot;60 61 63 64 66 67 68 69&quot;,
+ &quot;70 72 73 74 75 76 77 78&quot;,
+ &quot;80 81 82 83 84 86 87 88 89&quot;,
+ &quot;90 91 92 94 95 96 97 98&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2000000000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;79999999351623516571657999935799993&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;00 01 02 03 04 05 06 07 08 09&quot;,
+ &quot;10 11 12 13 14 16 17 19&quot;,
+ &quot;20 21 22 23 24 25 26 27 28 29&quot;,
+ &quot;30 31 32 33 34 35 36 38 39&quot;,
+ &quot;41 42 43 44 45 46 49&quot;,
+ &quot;50 52 53 54 55 57 58 59&quot;,
+ &quot;60 61 62 63 64 65 66 67 68 69&quot;,
+ &quot;70 72 73 74 75 76 77 78 79&quot;,
+ &quot;80 81 82 83 84 85 86 87 88 89&quot;,
+ &quot;90 91 92 93 94 95 98 99&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2000000000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;37151515151515151515151515151515151515151515151...&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The final plate has 166,666,668 digits.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

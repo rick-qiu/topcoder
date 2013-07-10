@@ -1,0 +1,341 @@
+<html>
+ <head>
+  <title>Palindromist Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6115">Problem Statement for Palindromist</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> A palindrome is a phrase that reads the same forward and backward (ignoring spaces). Given the first half of a palindrome (as described below), you must return a complete palindrome that contains only words from a given set of legal words. The returned palindrome must be a phrase where words are separated by single spaces. </p> <p> You will be given the first half of the palindrome as a String <b>text</b> containing only letters and no spaces. There are two complete palindromes that can be created from this first half. For example, given &quot;ABC&quot;, you could produce either &quot;ABCCBA&quot; or &quot;ABCBA&quot; as the complete palindrome. You must then insert spaces into the complete palindrome such that all the words in the phrase exist in the String[] <b>words</b> </p> <p> For example, given the list of words { &quot;A&quot;, &quot;CANAL&quot;, &quot;MAN&quot;, &quot;PANAMA&quot;, &quot;PLAN&quot; }, and the text &quot;AMANAPLANAC&quot;, your method would return the String &quot;A MAN A PLAN A CANAL PANAMA&quot;. </p> <p> If no palindrome can be made, your method should return &quot;&quot;. If more than one palindrome can be made, return the one that comes first lexicographically (please note that ' ' comes before all letters). </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Palindromist</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>palindrome</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String palindrome(String text, String[] words)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>text</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>text</b> will contain only uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>words</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>words</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>words</b> will contain only uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AMANAPLANAC&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;A&quot;, &quot;CANAL&quot;, &quot;MAN&quot;, &quot;PANAMA&quot;, &quot;PLAN&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;A MAN A PLAN A CANAL PANAMA&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AAAAA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;AA&quot;, &quot;A&quot;, &quot;AAA&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;A A A A A A A A A&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;CBA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;CBABC&quot;, &quot;CBAABC&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;CBAABC&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;RACEFAST&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;AR&quot;, &quot;CAR&quot;, &quot;FAST&quot;, &quot;RACE&quot;, &quot;SAFE&quot;, &quot;CEFA&quot;, &quot;ACE&quot;, &quot;STTS&quot;, &quot;AFEC&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;RACE FAST SAFE CAR&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AABAABA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;AA&quot;, &quot;AAB&quot;, &quot;BAA&quot;, &quot;BAB&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;AA BAA BAA BAA BAA&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;STRAWNOTOOSTUPIDAF&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;WARTS&quot;, &quot;I&quot;, &quot;TOO&quot;, &quot;A&quot;, &quot;FAD&quot;, &quot;STUPID&quot;, &quot;STRAW&quot;, &quot;PUT&quot;, &quot;NO&quot;, &quot;ON&quot;, &quot;SOOT&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;STRAW NO TOO STUPID A FAD I PUT SOOT ON WARTS&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AAAAA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;AAAA&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;A&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;A&quot;, &quot;AA&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;A&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

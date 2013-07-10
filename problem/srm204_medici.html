@@ -1,0 +1,289 @@
+<html>
+ <head>
+  <title>Medici Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2916">Problem Statement for Medici</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> In the new boardgame <i>Medici</i>, you play an aristocrat in 15th-century Florence. On each turn, you gather points in three categories: fame, fortune, and dirty secrets with which you can blackmail other players. The winner is the player with the most points in his <i>weakest</i> category at the end of the game. For example, suppose there are three players with the following points: </p> <pre>
+    NAME       FAME  FORTUNE  SECRETS
+    ---------------------------------
+    Salvestro   20      60       40
+    Giovanni    30      80       30
+    Cosimo      50      40       50
+</pre> Salvestro's weakest category is Fame, in which he has 20 points. Giovanni's weakest categories are Fame and Secrets, with 30 points in both. Cosimo's weakest category is Fortune, with 40 points. Cosimo is the winner. <p> You will be given three int[]s, <b>fame</b>, <b>fortune</b>, and <b>secrets</b>. The points for player <i>i</i> are given as the <i>i</i>-th elements of the three int[]s. You are to return the (zero-based) index of the winning player. If there is a tie for the winning score, the game is declared a draw and replayed, in which case you should return -1. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Medici</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>winner</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int winner(int[] fame, int[] fortune, int[] secrets)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>fame</b> contains between 2 and 20 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>fortune</b> and <b>secrets</b> each contain the same number of elements as <b>fame</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>fame</b>, <b>fortune</b>, and <b>secrets</b> are between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 20, 30, 50 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 60, 80, 40 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 40, 30, 50 }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example above. Salvestro is player 0, Giovanni is player 1, and Cosimo is player 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{   0, 100, 100, 100 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 100,   0, 100,  50 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{  50,  50,  50, 100 }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Players 2 and 3 both have 50 points in their weakest categories (Secrets and Fortune, respectively). The game is a draw.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 1, 0 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 1, 99 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 1, 99 }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Player 0 wins even though he scored 195 fewer total points than player 1. Total points is irrelevant in determining the winner.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 39, 42, 57 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 42, 39, 57 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 57, 39, 42 }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Players 0 and 1 tie for second place, but that does not cause the game to be declared a draw.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 3, 98, 0, 71, 81, 85, 99, 58, 93, 79, 100, 98, 73, 83, 52, 100, 37, 93, 39, 27 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 96, 34, 45, 20, 72, 71, 7, 18, 47, 35, 54, 51, 52, 21, 49, 20, 44, 72, 90, 93 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ 15, 72, 50, 84, 41, 49, 35, 71, 20, 29, 73, 18, 35, 61, 70, 34, 59, 68, 90, 18 }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 17</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

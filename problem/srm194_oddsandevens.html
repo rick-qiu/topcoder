@@ -1,0 +1,278 @@
+<html>
+ <head>
+  <title>OddsAndEvens Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2394">Problem Statement for OddsAndEvens</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Any integer is either odd or even. An even number is a number which divides by 2 without leaving any remainder. All other numbers are odd. We can create an arithmetic that deals with addition and multiplication of odd and even numbers. For example, the sum of two even numbers will also be an even number, but the sum of an odd and an even number must be an odd number. Here is the list of all possible sums and products in this arithmetic:</p> <pre>EVEN + EVEN = EVEN
+EVEN + ODD = ODD
+ODD + ODD = EVEN
+
+EVEN * EVEN = EVEN
+EVEN * ODD = EVEN
+ODD * ODD = ODD</pre> <p>A list of integers is chosen. For each unique pair of numbers in the list we record their sum and product. Given the final contents of String[] <b>sums</b> and String[] <b>products</b>, where each element is either &quot;ODD&quot; or &quot;EVEN&quot;, return the number of odd and even numbers in the original list. The corresponding elements in <b>sums</b> and <b>products</b> are NOT necessarily calculated from the same pair of numbers. Your return must be formatted as &quot;EVEN &lt;x&gt; ODD &lt;y&gt;&quot; where &lt;x&gt; is the number of evens and &lt;y&gt; is the number of odds. If the original list cannot be constructed then return &quot;IMPOSSIBLE&quot;.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>OddsAndEvens</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>find</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String find(String[] sums, String[] products)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sums</b> will contain N(N-1)/2 elements where N is an integer between 2 and 10 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>products</b> will contain the same number of elements as sums.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element in <b>sums</b> will be either &quot;ODD&quot; or &quot;EVEN&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element in <b>products</b> will be either &quot;ODD&quot; or &quot;EVEN&quot;.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;EVEN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ODD&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;EVEN 0 ODD 2&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only sum is even. Thus the two numbers are either both even or both odd. If the two numbers are both even then their product will also be even. This contradicts what we have in <b>products</b>. If the two numbers are both odd then their product will also be odd. This agrees with <b>products</b>. Thus there are two odd numbers.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ODD&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ODD&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;IMPOSSIBLE&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If the sum is odd then one number is odd and the other is even. The product of an odd and even number is even. This contradicts <b>products</b>. Thus this is IMPOSSIBLE.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;EVEN&quot;,&quot;EVEN&quot;,&quot;EVEN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;EVEN&quot;,&quot;EVEN&quot;,&quot;EVEN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;EVEN 3 ODD 0&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The sum and product of any two even numbers are always even. Here there are 3 even numbers.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;EVEN&quot;,&quot;ODD&quot;,&quot;ODD&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ODD&quot;,&quot;EVEN&quot;,&quot;EVEN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;EVEN 1 ODD 2&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Two numbers are odd and one number is even. The two odd numbers give us one even sum and one odd product. The even number combined with the other two odd numbers gives two odd sums and two even products.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ODD&quot;,&quot;EVEN&quot;,&quot;ODD&quot;,&quot;EVEN&quot;,&quot;ODD&quot;,&quot;EVEN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ODD&quot;,&quot;EVEN&quot;,&quot;EVEN&quot;,&quot;EVEN&quot;,&quot;ODD&quot;,&quot;ODD&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;EVEN 1 ODD 3&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

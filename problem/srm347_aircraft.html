@@ -1,0 +1,464 @@
+<html>
+ <head>
+  <title>Aircraft Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7741">Problem Statement for Aircraft</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>In aviation, a &quot;near miss&quot; occurs if the distance between two aircraft at some point in time is less than or equal to some threshold distance <b>R</b>. At a moment in time, the positions and velocities of two aircraft are known exactly. Assuming that each aircraft continues to fly with constant speed and direction, you need to work out if the aircraft will undergo a near miss now or at some point in the future. <br /><br /><br /><br /> You will be given the threshold distance <b>R</b> and the positions and velocities of the aircraft in 4 int[]s: <b>p1</b>, <b>v1</b>, <b>p2</b> and <b>v2</b>. The position of the first aircraft in 3-D cartesian space is given by (<b>p1</b>[0] , <b>p1</b>[1] , <b>p1</b>[2]) and its velocity vector by (<b>v1</b>[0] , <b>v1</b>[1] , <b>v1</b>[2]) and similarly the second aircraft's position and velocity are given by (<b>p2</b>[0] , <b>p2</b>[1] , <b>p2</b>[2]) and (<b>v2</b>[0] , <b>v2</b>[1] , <b>v2</b>[2]). So, if an aircraft's initial position is the vector <b>p</b> and its velocity vector is <b>v</b>, the position of this aircraft at some future time t will be <b>p</b> + <b>v</b> * t. You should return a String containing &quot;YES&quot; if the aircraft will undergo a near miss now or in the future or &quot;NO&quot; if they won't (quotes for clarity).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Aircraft</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>nearMiss</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int[], int[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String nearMiss(int[] p1, int[] v1, int[] p2, int[] v2, int R)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The distance between two points <tt>(x1, y1, z1)</tt> and <tt>(x2, y2, z2)</tt> is given by <tt>sqrt((x1-x2)<sup>2</sup> + (y1-y2)<sup>2</sup> + (z1-z2)<sup>2</sup>)</tt>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>p1</b>, <b>v1</b>, <b>p2</b> and <b>v2</b> will contain exactly 3 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>p1</b>, <b>v1</b>, <b>p2</b> and <b>v2</b> will be between -10000 and 10000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>R</b> will be between 0 and 10000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{15,50,5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{25,1,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{161,102,9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-10,-10,-1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;YES&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">At time 4, the first aircraft will be at position {115,54,5} and the second at {121,62,5}, which is the first point in time at which they are exactly 10 distance units apart.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,0,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2,2,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9,0,5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-2,2,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;YES&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">At time 2.25, aircraft 1 will be at {4.5, 4.5, 0} and aircraft 2 at {4.5, 4.5, 5}, exactly a distance of 5 units apart.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,0,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-2,2,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9,0,5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2,2,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NO&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The aircraft are flying away from each other here, so the distance always increases with time.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-2838,-7940,-2936}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,1,-2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{532,3850,9590}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,0,-3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3410</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;YES&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The closest approach of the aircraft occurs at time 12,158</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-8509,9560,345}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-89,-33,62}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-5185,-1417,2846}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-58,24,26}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>8344</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;YES&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A near miss occurs between times 111 and 112</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-7163,-371,-2459}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-59,-41,-14}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-2398,-426,-5487}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-43,27,67}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5410</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NO&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The aircraft almost have a near miss between times 15 and 16, but stay just outside the threshold distance.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1774,-4491,7810}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-12,19,-24}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2322,3793,9897}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-12,19,-24}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;YES&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The aircraft are here flying with identical velocities, so the distance between them never changes. The distance at time 0 is lower than the threshold, so a near miss is already underway.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3731,8537,5661}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{-70,71,32}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{8701,-1886,-5115}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{28,-13,7}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>9766</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NO&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

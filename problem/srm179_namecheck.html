@@ -1,0 +1,179 @@
+<html>
+ <head>
+  <title>NameCheck Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1855">Problem Statement for NameCheck</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A user has entered a list of Strings. We must check each String to see if it meets our criteria for a &quot;customer&quot;, and either reject the String or recapitalize and respace it to meet our standards. <p> Our formatting manual states:</p>
+      <ol>
+       <li> A well-formed customer consists of either 2 or 3 parts. The parts are separated by one or more spaces, but there are no leading spaces or trailing spaces. Each part must be a name or an initial, but the last part may not be an initial. An initial is a letter ('a-z' or 'A-'Z') followed by a period ('.') A name is a sequence of two or more letters ('a-z' or 'A'-'Z'). </li>
+      </ol><p></p><p> Our standard for recapitalizing a well-formed customer is that each name or initial should start with an uppercase letter and all other letters should be lowercase. Our standard for respacing a well-formed customer is that any extra spaces between parts should be removed leaving exactly one space between adjacent parts. </p><p> Create a class NameCheck that contains a method formatList that is given a String[] <b>namelist</b> and that returns a String[] that includes all the well-formed customers, properly recapitalized and respaced. They should appear in the same order as in the original <b>namelist</b>. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>NameCheck</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>formatList</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] formatList(String[] namelist)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>namelist</b> will contain between 1 and 50 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>namelist</b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>namelist</b> will be an ASCII character (32-126).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Doug#as good&quot;,&quot;bArneY R.&quot;, &quot;bArneY   Rubble&quot;,&quot; Bob Stone&quot;, &quot;Bob B. J. Toms&quot;,&quot;J. Lo&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;Barney Rubble&quot;,  &quot;J. Lo&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> &quot;Doug#as good&quot; is not well-formed because Doug#as is not a name or initial. &quot;bArneY R.&quot; is not well-formed because it does not end with a name. &quot; Bob Stone&quot; is not well-formed because it starts with a space. &quot;Bob B. J. Toms&quot; is not well-formed because it has 2 names and 2 initials. &quot;bArneY Rubble&quot; is well-formed, being a first name followed by a last name. &quot;J. Lo&quot; is well-formed, being a first initial followed by a last name. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Doug G.&quot;,&quot;GG WALNUT DOUG&quot;, &quot;AB. JONES&quot;, &quot;A. BOB J.&quot;, &quot;Gg DouG&quot;, &quot;GG DOUG&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;Gg Walnut Doug&quot;,  &quot;Gg Doug&quot;,  &quot;Gg Doug&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A BIG Mess&quot;, &quot;A. Big Mess.Mess&quot;, &quot;ABig&quot;,&quot;M.MESS&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

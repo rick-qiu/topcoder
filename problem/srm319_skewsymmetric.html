@@ -1,0 +1,238 @@
+<html>
+ <head>
+  <title>SkewSymmetric Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6151">Problem Statement for SkewSymmetric</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A <i>skew symmetric</i> matrix <b>M</b> satisfies <b>M</b><sup>T</sup> = -<b>M</b>, where <b>M</b><sup>T</sup> denotes the transpose of the matrix <b>M</b> and -<b>M</b> denotes the matrix obtained by multiplying each entry of <b>M</b> by -1. The transpose of a matrix <b>M</b> is obtained by replacing the element in the <i>i</i>'th row and <i>j</i>'th column of <b>M</b> with the element in the <i>j</i>'th row and <i>i</i>'th column of <b>M</b>. Note that this requires the diagonal elements of a skew-symmetric matrix to be equal to 0.</p> <p>Create a class SkewSymmetric which contains a method minChanges. The method will take a String[] <b>M</b>, each element of which is a single space separated list of integers. The <i>j</i>'th number in the <i>i</i>'th element of <b>M</b> represents the value at row <i>i</i> and column <i>j</i> of the matrix. The method should return the minimum number of values in <b>M</b> that must be changed such that the resulting matrix is skew symmetric.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SkewSymmetric</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minChanges</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minChanges(String[] M)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>M</b> will contain between 2 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>M</b> will be a single space separated list of exactly n integers, where n is the number of elements in <b>M</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>M</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each integer in <b>M</b> will be between -99 and 99 inclusive, with no extra leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The integer zero will be represented as '0' (quotes for clarity) only, and not '-0' (quotes for clarity) in <b>M</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2 8&quot;, &quot;-2 1 0&quot;, &quot;3 99 3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">One possible skew-symmetric matrix obtained by changing 5 elements in M is: <pre>
+  0  2  -3
+ -2  0 -99
+  3 99   0
+</pre> Note that the diagonal elements must be 0.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 1 1 1 1 1&quot;, &quot;-1 0 1 1 1 1&quot;, &quot;-1 -1 0 1 1 1&quot;, 
+&quot;-1 -1 -1 0 1 1&quot;, &quot;-1 -1 -1 -1 0 1&quot;, &quot;0 0 0 0 0 0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 0 0 0&quot;, &quot;0 0 0 0&quot;, &quot;0 0 0 0&quot;, &quot;0 0 0 0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 0&quot;, &quot;0 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

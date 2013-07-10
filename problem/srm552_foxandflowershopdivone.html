@@ -1,0 +1,355 @@
+<html>
+ <head>
+  <title>FoxAndFlowerShopDivOne Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11387">Problem Statement for FoxAndFlowerShopDivOne</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Fox Jiro came to a flower shop to buy flowers. The flowers in the shop are arranged in some cells of a rectangular grid. The layout of the grid is given as a String[] <b>flowers</b>. There are two types of flowers in the shop: lilies and petunias. If the j-th cell of the i-th row of the grid contains a flower, then the j-th character of the i-th element of <b>flowers</b> will be 'L' if it is a lily, and 'P' if it is a petunia. (All indices in the previous sentence are 0-based.) If the particular cell is empty, the corresponding character will be '.' (a period).</p> <br /><br /> <p>In order to buy flowers, Jiro has to draw two disjoint rectangles on this grid and buy all the flowers which lie inside the rectangles. Of course, the sides of the rectangles must be on cell boundaries. (Therefore, the sides of the rectangles will necessarily be parallel to the coordinate axes.) The rectangles are allowed to touch, but they may not intersect. In other words, the rectangles may share a common boundary, but no cell may belong to both rectangles. Each of the two rectangles must contain at least one cell.</p> <br /><br /> <p>Jiro wants to buy approximately the same number of lilies and petunias. More precisely, the positive difference between the number of lilies and petunias must be at most <b>maxDiff</b>, inclusive. Given that constraint, Jiro wants to buy as many flowers as possible.</p> <br /><br /> <p>You are given the String[] <b>flowers</b> and the int <b>maxDiff</b>. Return the maximum possible number of flowers Jiro can buy in this situation. If there is no valid way to buy flowers, return -1 instead.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FoxAndFlowerShopDivOne</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>theMaxFlowers</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int theMaxFlowers(String[] flowers, int maxDiff)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>flowers</b> will contain between 2 and 30 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>flowers</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>flowers</b> will contain between 1 and 30 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>flowers</b> will be either 'L', 'P', or '.'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>maxDiff</b> will be between 0 and 900, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;LLL&quot;,
+ &quot;PPP&quot;,
+ &quot;LLL&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Jiro cannot buy all the flowers, because the difference between the number of lilies and the number of petunias would be too large.</p> <p>The best he can do is to buy 7 flowers: 4 lilies and 3 petunias. One way of doing so is to draw two rectangles: (0,0)-(1,2) and (2,0)-(2,0).</p> <p>Note that (r1,c1)-(r2,c2) denotes a rectangle with cell (r1,c1) in the top left corner and cell (r2,c2) in the bottom right corner. (All indices are 0-based.)</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;LLL&quot;,
+ &quot;PPP&quot;,
+ &quot;LLL&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This time Jiro is required to buy the same number of lilies and petunias. Therefore the best he can do is to buy three of each kind.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...&quot;,
+ &quot;...&quot;,
+ &quot;...&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are no flowers.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;LLPL.LPP&quot;,
+ &quot;PLPPPPLL&quot;,
+ &quot;L.P.PLLL&quot;,
+ &quot;LPL.PP.L&quot;,
+ &quot;.LLL.P.L&quot;,
+ &quot;PPLP..PL&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 38</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;LLLLLLLLLL&quot;,
+ &quot;LLLLLLLLLL&quot;,
+ &quot;LLLLLLLLLL&quot;,
+ &quot;LLLLLLLLLL&quot;,
+ &quot;LLLLLLLLLL&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here it is impossible to draw the two rectangles. Regardless of how Jiro draws them, he will surely buy more lilies than petunias, and that is not allowed.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;LLLP..LLP.PLL.LL..LP&quot;,
+ &quot;L.PL.L.LLLL.LPLLPLP.&quot;,
+ &quot;PLL.LL.LLL..PL...L..&quot;,
+ &quot;.LPPP.PPPLLLLPLP..PP&quot;,
+ &quot;LP.P.PPL.L...P.L.LLL&quot;,
+ &quot;L..LPLPP.PP...PPPL..&quot;,
+ &quot;PP.PLLL.LL...LP..LP.&quot;,
+ &quot;PL...P.PPPL..PLP.L..&quot;,
+ &quot;P.PPPLPLP.LL.L.LLLPL&quot;,
+ &quot;PLLPLLP.LLL.P..P.LPL&quot;,
+ &quot;..LLLPLPPPLP.P.LP.LL&quot;,
+ &quot;..LP..L..LLPPP.LL.LP&quot;,
+ &quot;LPLL.PLLPPLP...LL..P&quot;,
+ &quot;LL.....PLL.PLL.P....&quot;,
+ &quot;LLL...LPPPPL.PL...PP&quot;,
+ &quot;.PLPLLLLP.LPP...L...&quot;,
+ &quot;LL...L.LL.LLLPLPPPP.&quot;,
+ &quot;PLPLLLL..LP.LLPLLLL.&quot;,
+ &quot;PP.PLL..L..LLLPPL..P&quot;,
+ &quot;.LLPL.P.PP.P.L.PLPLL&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 208</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

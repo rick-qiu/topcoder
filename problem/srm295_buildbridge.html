@@ -1,0 +1,274 @@
+<html>
+ <head>
+  <title>BuildBridge Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6122">Problem Statement for BuildBridge</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Suppose you have an infinite deck of cards all of length <b>L</b> and a table. What is the minimum number of cards required to build a &quot;bridge&quot; of length <b>D</b> over the edge of the table without the cards falling over? <br /><br /> For example if you have cards of length 10 centimeters and you want to create a 7.5 centimeter bridge you must use at least 2 cards. If you used a single card it would be 7.5 centimeters over the edge and 2.5 centimeters on the table and would consequently fall down. Using one 10 centimeter card you could maximally achieve a 5 centimeter bridge since that would be the equilibrium state (5 cm on the table and 5 cm over the table).<br /><br /> <br /><br /> In more general terms, a stack of cards is in an equilibrium state if the center of mass of the entire stack is located above the surface of the table, and the center of mass of each contiguous substack is above the surface of the next card. Let us examine the following two cases: <br /><br /> <br /><br /> <img src="http://www.topcoder.com/contest/problem/BuildBridge/BuildBridge1.PNG" /><br /><br /> <br /><br /> As you can see we have 2 cards here. The center of their mass (C12) is halfway between their centers (C1 and C2) because the cards are identical. Since C12 is right above the edge of the table the stack is in equlibrium and as you can't push it further forward this is the maximal extension you can get (1/4 (first card) + 1/2 (second card)) <br /><br /> <br /><br /> <img src="http://www.topcoder.com/contest/problem/BuildBridge/BuildBridge2.PNG" /><br /><br /> <br /><br /> Here we have 3 cards. First observe that the top two cards are simply the case presented above with only two cards. The center of their mass is located 1/4 of the card length from the right edge of the second card. Now we use this center and the center of the first card to locate the center of the entire stack. Note however that the mass contained in C23 is twice the mass contained in C1 and therefore the resulting center of mass (C123) is located 1/6 of the card length from the right edge of the bottom card. The total extension is therefore 1/6 + 1/4 + 1/2 = 11/12 <br /><br /> <br /><br /> Given an int <b>D</b>, the distance of the &quot;bridge&quot; and an int <b>L</b>, the length of the card, what is the minimal number of cards required for a stable bridge of length <b>D</b>? </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BuildBridge</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>howManyCards</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int howManyCards(int D, int L)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Both <b>D</b> and <b>L</b> are given in centimeters.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>D</b> will be between 1 and 9, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>L</b> will be between 1 and 9, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">3 cards extend 11/12 cm over the table edge... this is close but not enough. 4 cards extend 25/24 cm over the table edge and this is just above 1 cm. Therefore you need at least 4 one centimeter cards to build a one centimeter bridge.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A single 6 cm card is more than enough for a 1 cm bridge.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If you place the card exactly half-way over the edge you get a stable 3 cm bridge.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You can't do more than 3 with a single card so at least 2 cards are needed.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 36865412</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

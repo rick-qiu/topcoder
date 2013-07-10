@@ -1,0 +1,245 @@
+<html>
+ <head>
+  <title>BobTrouble Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6016">Problem Statement for BobTrouble</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>My company has given me a list containing the name of each employee along with the name of his supervisor (who is also an employee) if he has one. The company wants to know whether the list is consistent and, if so, how many of the employees are supervisors (supervise at least one employee). &quot;Consistent&quot; means that there is no supervision cycle in which A supervises himself or A supervises B who supervises C ... who supervises A. It is permissible to have multiple employees who have no supervisor. <p> But ... we have Bob trouble. All the employees have distinct names, except that there may be multiple distinct employees whose names are &quot;BOB&quot;. So there may be multiple ways to put together the supervision hierarchy. We want to construct the hierarchy so as to minimize the number of supervisors. </p><p> Create a class BobTrouble that contains a method minSupers that is given a String[] <b>name</b> and a String[] <b>bossName</b> giving the names of all the employees and their bosses. It returns the minimum number of supervisors that can appear in the supervision hierarchy. If no supervision hierarchy is consistent, it returns -1. </p><p> Each element of <b>name</b> refers to a distinct employee, and the supervisor of the i-th element is given by the i-th element of <b>bossName</b> (&quot;*&quot; indicates that the employee has no supervisor). Every employee is listed in <b>name</b>. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BobTrouble</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minSupers</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minSupers(String[] name, String[] bossName)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>name</b> contains between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>name</b> contains between 1 and 10 uppercase letters ('A'-'Z'), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The elements of <b>name</b> are distinct, except that &quot;BOB&quot; may appear more than once.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>bossName</b> contains the same number of elements as <b>name</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>bossName</b> is &quot;*&quot; or matches at least one element of <b>name</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BOB&quot;,&quot;BOB&quot;,&quot;BOB&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;BOB&quot;,&quot;*&quot;,&quot;BOB&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> There are 3 possible supervisory hierarchies: 1) the middle BOB supervises the first BOB who supervises the last BOB, 2) the middle BOB supervises the last BOB who supervises the first BOB, and 3) the middle BOB supervises the first BOB and also supervises the last BOB. This last choice gives the fewest supervisors. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;JOHN&quot;,&quot;AL&quot;,&quot;DON&quot;,&quot;BOB&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;*&quot;,&quot;*&quot;,&quot;*&quot;,&quot;*&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> All the employees are unsupervised, so there are no supervisors.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BOB&quot;,&quot;BOB&quot;,&quot;BOB&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;*&quot;,&quot;*&quot;,&quot;BOB&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> There are 2 possible hierarchies (the third BOB can be supervised by either of the other BOBs). Either way, exactly one of the BOBs is a supervisor.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BOB&quot;, &quot;BOB&quot;, &quot;JACK&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;BOB&quot;, &quot;BOB&quot;, &quot;*&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first BOB must be supervised by the second BOB (it is illegal to supervise yourself) and the second BOB must be supervised by the first BOB. But this is a supervision cycle, so there is no legal hierarchy satisfying this data. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

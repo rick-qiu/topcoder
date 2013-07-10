@@ -1,0 +1,305 @@
+<html>
+ <head>
+  <title>BoredPhilosophers Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10456">Problem Statement for BoredPhilosophers</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>The bored philosophers problem is a simple one. There are <b>N</b> philosophers in a classroom, and they are bored - so bored that they end up playing a game in which they use a random text excerpt from a book to challenge themselves. The first philosopher begins the game by saying the number of different words present in the excerpt. The second philosopher then tries to outdo the first by saying the number of different sequences of two consecutive words in the text. The game continues as each philosopher <i>i</i> says the number of different sequences of <i>i</i> consecutive words. (All indices in this problem are 1-indexed.) The game ends after all <b>N</b> philosophers have spoken.<br /><br /> <br /><br /> You are given the text as a String[] <b>text</b>. Concatenate the elements of <b>text</b> to get the complete text. Words in the text are separated by single spaces. Return a int[] containing exactly <b>N</b> elements, where the i-th element is the number said by the i-th philosopher.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BoredPhilosophers</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>simulate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] simulate(String[] text, int N)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Suppose the text excerpt consists of words W[1], W[2], ..., W[K] (in this exact order). Then the i-th philosopher counts the number of different word sequences among (W[1], W[2], ..., W[i]), (W[2], W[3], ..., W[i+1]), ..., (W[K-i+1], W[K-i+2], ..., W[K]).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Two word sequences of the same length (A[1], A[2], ..., A[L]) and (B[1], B[2], ..., B[L]) are different if A[i] and B[i] are different strings for at least one i between 1 and L, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>text</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>text</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>text</b> will contain only lowercase letters ('a'-'z') and spaces (' ').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The concatenation of the elements of <b>text</b> will contain no leading, trailing, or consecutive spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>N</b> will be between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>N</b> will not be greater than the number of words in <b>text</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;hello world&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {2, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are exactly two different words and a single sequence of two words.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;aaa bbb aaa bbb aaa aaa&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {2, 3, 3, 3 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first philosopher will notice 2 different words: &quot;aaa&quot; and &quot;bbb&quot;.<br /><br /> The second philosopher will notice 3 different sequences of 2 words: &quot;aaa bbb&quot;, &quot;bbb aaa&quot; and &quot;aaa aaa&quot;.<br /><br /> The third philosopher will notice 3 different sequences of 3 words: &quot;aaa bbb aaa&quot;, &quot;bbb aaa bbb&quot; and &quot;bbb aaa aaa&quot;.<br /><br /> The fourth philosopher will notice 3 different sequences of 4 words: &quot;aaa bbb aaa bbb&quot;, &quot;bbb aaa bbb aaa&quot; and &quot;aaa bbb aaa aaa&quot;.<br /><br /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;remember&quot;,&quot; t&quot;,&quot;o concatenate &quot;,&quot;the&quot;,&quot; &quot;,&quot;text&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {5 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a a a a a a a b a a b a a a b b a b a a a b a b&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {2, 4, 7, 11, 14, 17 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;aa ababaa c cbbcbc cabcbcb ba bccc ababb&quot;,
+ &quot;c cabcba caa ababaa c cbbcbc cabcbcb ba &quot;,
+ &quot;bccc ababbc cabcba c bbcbab&quot;,
+ &quot;b aaaa cbccaaa bccc ababbc cabcba c bbcb&quot;,
+ &quot;ab cbcaca&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>7</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {15, 17, 18, 19, 20, 20, 20 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

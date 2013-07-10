@@ -1,0 +1,301 @@
+<html>
+ <head>
+  <title>LandAndSea Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7512">Problem Statement for LandAndSea</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Bob's father bought him a toy map of islands and seas. The map is a two-dimensional grid where each cell is either 'x' or '.'. A sea is defined as a maximal connected group of '.' cells, where two '.' cells are connected if they are vertically or horizontally adjacent. An island is defined as a maximal connected group of 'x' cells, where two 'x' cells are connected if they are vertically, horizontally, or diagonally adjacent. An island has a level of 0 if it contains no other islands. An island has a level of K+1 if it contains one or more islands and the highest level of a contained island is K. An island A contains island B if A and B are different and, if you start sailing from any point of island B, you won't be able to sail out of island A (you can sail only horizontally and vertically, but not diagonally). </p> <p> For example, the given map below has 5 islands with level 0 (islands 0 - 4 on the right picture) and one island with level 1 (island 5). Please note that starting at island 3, you can not sail outside island 5 (you can not sail diagonally), but its possible get out of island 1 when starting at island 4. </p> <pre>
+xxx.x...xxxxx        000.0...11111
+xxxx....x...x        0000....1...1
+........x.x.x        ........1.4.1
+..xxxxx.x...x        ..55555.1...1
+..x...x.xxx.x        ..5...5.111.1
+..x.x.x...x..        ..5.3.5...1..
+..x...x...xxx        ..5...5...111
+...xxxxxx....        ...555555....
+x............        2............
+</pre> <p> Given a String[] <b>seaMap</b>, return a int[], where the k-th element is the number of islands of level k. The int[] must contain exactly (m + 1) elements, where m is the highest level of an island in the map. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>LandAndSea</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>howManyIslands</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] howManyIslands(String[] seaMap)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>seaMap</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>seaMap</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>seaMap</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>seaMap</b> will contain only '.' and lowercase 'x' characters.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;x&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;xxxxx&quot;,
+&quot;x...x&quot;,
+&quot;x.x.x&quot;,
+&quot;x...x&quot;,
+&quot;xxxxx&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;xxxxx&quot;,
+&quot;x...x&quot;,
+&quot;x.x.x&quot;,
+&quot;x...x&quot;,
+&quot;xxxxx&quot;,
+&quot;xxxxx&quot;,
+&quot;x...x&quot;,
+&quot;x.x.x&quot;,
+&quot;x...x&quot;,
+&quot;xxxxx&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {2, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;..&quot;,
+&quot;..&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;............&quot;,
+&quot;.......xxxx.&quot;,
+&quot;..xxx.x...x.&quot;,
+&quot;..x..x..x.x.&quot;,
+&quot;..x.x.x...x.&quot;,
+&quot;..xx...xxx..&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

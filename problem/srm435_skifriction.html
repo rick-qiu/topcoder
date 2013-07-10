@@ -1,0 +1,227 @@
+<html>
+ <head>
+  <title>SkiFriction Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10294">Problem Statement for SkiFriction</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Kate is standing on a pair of skis at the beginning of a straight path. The path consists of n segments of equal length. You are given a String <b>pathFriction</b> representing the friction of the path. The i-th character of <b>pathFriction</b> is a digit between '1' and '9', inclusive, representing the friction of the i-th segment of the path. (All indices in this problem are 0-based.)<br /><br /> <br /><br /> In this problem, we will treat Kate's skis as one single ski. The ski consists of m segments of equal length. A ski segment has the same length as a path segment. The friction of the ski is given in the String <b>skiFriction</b>, where the i-th character is a digit between '1' and '9', inclusive, representing the friction of the i-th segment of the ski.<br /><br /> <br /><br /> Initially, Kate is standing in such a way that the i-th segment of her ski touches the i-th segment of the path. She will move forward one segment at a time until the (m-1)-th segment of her ski touches the (n-1)-th segment of the path. Each time she moves forward one segment, she moves at the speed of the slowest segment of her ski. The time required for a segment of her ski to move forward by one segment is equal to the friction of that ski segment plus the friction of the path segment it currently touches.<br /><br /> <br /><br /> Return the total time required for Kate to ski to the end of the path.<br /><br /></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SkiFriction</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestPosition</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int bestPosition(String skiFriction, String pathFriction)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>skiFriction</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>skiFriction</b> will contain only digits between '1' and '9', inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pathFriction</b> will contain between m and 50 characters, inclusive, where m is the number of characters in <b>skiFriction</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pathFriction</b> will contain only digits between '1' and '9', inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;45&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;15196&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 33</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">At the beginning of Kate's first move, the segment of her ski with friction 4 touches the segment of the path with friction 1 (for a total friction of 5). The segment of her ski with friction 5 touches the segment of the path with friction 5 (for a total friction of 10). The biggest total friction is 10, so Kate needs 10 seconds to move forward one segment. On her second move, the total frictions are 4+5 and 5+1, so the biggest one is 9. On her last move, the total frictions are 4+1 and 5+9, so the the biggest one is 14. Kate takes a total of 10+9+14 = 33 seconds to ski to the end of the path.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;6&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;65&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;6723&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;562516639&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 61</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;623883347715596655&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;724951246328811474&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Kate is already standing at the end of the path.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

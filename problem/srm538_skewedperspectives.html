@@ -1,0 +1,466 @@
+<html>
+ <head>
+  <title>SkewedPerspectives Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11404">Problem Statement for SkewedPerspectives</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><i>NOTE: This problem statement contains images that may not display properly if viewed outside of the applet.</i><br /><br /> <br /><br /> Cat Taro has the following building blocks:<br /><br /> 
+      <ul> 
+       <li><b>cubes</b>[0] red unit cubes,</li> 
+       <li><b>cubes</b>[1] yellow unit cubes,</li> 
+       <li><b>cubes</b>[2] blue unit cubes,</li> 
+       <li><b>B</b> black rectangular prisms with dimensions 2x1x1.</li> 
+      </ul><br /><br /> Cat Taro is using the blocks to build <b>w</b> adjacent towers of blocks (some possibly empty), as shown on the right side of the picture below. Taro will always place the rectangular prisms vertically. In other words, each prism will look like two black unit cubes placed one on top of the other. Taro is not required to use all of the blocks when building the towers. (In fact, he may even decide not to use any blocks at all.)<br /><br /> <br /><br /> <img src="http://community.topcoder.com/contest/problem/SkewedPerspectives/pniub.jpg" /> <br /><br /> <br /><br /> Rabbit Hanako is looking at Taro's towers from the left side of the room. To him, the towers seem as a single tower which we will call a <i>view</i>, as shown on the left side of the picture above. More precisely, at each height i Hanako sees the color of the block at height i in the leftmost tower that has such a block. Hanako's view can be described as a string of characters, giving the colors of each 1x1 square seen by Hanako in the order from bottom to top. Black squares will be denoted 'b', and colored squares will be denoted '0', '1', and '2' (in the same order used in <b>cubes</b>).<br /><br /> <br /><br /> You are given the int[] <b>cubes</b>, the int <b>B</b>, the int <b>w</b>, and a String[] <b>views</b>. Each element of <b>views</b> specifies one view Taro wants Hanako to see, in the format specified above. Return a String[] with the same number of elements as <b>views</b>. If Taro can build the towers in such a way that Hanako will see the view <b>views</b>[i], the i-th element of the return value should be &quot;valid&quot;, otherwise it should be &quot;invalid&quot; (quotes for clarity).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SkewedPerspectives</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>areTheyPossible</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int, int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] areTheyPossible(int[] cubes, int B, int w, String[] views)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>w</b> will be between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>cubes</b> will contain exactly 3 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>cubes</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>B</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>views</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>views</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>views</b> will be one of 'b', '0', '1', and '2'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,1,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{ &quot;012&quot;, &quot;012bb&quot;, &quot;bb0&quot;, &quot;21bb&quot;, &quot;21b&quot;, &quot;1bb20&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The following picture shows a way to achieve each of the given views.<br /><br /> <img src="http://community.topcoder.com/contest/problem/SkewedPerspectives/vqsa6c.jpg" /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,1,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;b&quot;,&quot;bb&quot;,&quot;bbb&quot;,&quot;bbbb&quot;,&quot;bbbbb&quot;,&quot;bbbbbb&quot;,
+ &quot;1&quot;, &quot;1b&quot;,&quot;1bb&quot;,&quot;1bbb&quot;,&quot;1bbbb&quot;,&quot;1bbbbb&quot;,&quot;1bbbbbb&quot;,
+ &quot;b1&quot;,&quot;b1b&quot;,&quot;b1bb&quot;,&quot;b1bbb&quot;,&quot;b1bbbb&quot;,&quot;b1bbbbb&quot;,
+ &quot;bb1&quot;,&quot;bb1b&quot;,&quot;bb1bb&quot;,&quot;bb1bbb&quot;,&quot;bb1bbbb&quot;,
+ &quot;bbb1&quot;,&quot;bbb1b&quot;,&quot;bbb1bb&quot;,&quot;bbb1bbb&quot;,
+ &quot;bbbb1&quot;,&quot;bbbb1b&quot;,&quot;bbbb1bb&quot;,
+ &quot;bbbbb1&quot;,&quot;bbbbb1b&quot;,
+ &quot;bbbbbb1&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;invalid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;valid&quot;,
+&quot;invalid&quot;,
+&quot;valid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;valid&quot;,
+&quot;invalid&quot;,
+&quot;valid&quot;,
+&quot;invalid&quot;,
+&quot;invalid&quot;,
+&quot;valid&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100,0,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;00000000000000000000000000000000000000000000000000&quot;,
+ &quot;00000000000000000000000000000000000b00000000000000&quot;,
+ &quot;0000000000000000000000000000000000000000000000000b&quot;,
+ &quot;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb0000000000000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{5,6,3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;00000111111222&quot;, &quot;0000111111222&quot;, &quot;0000011111222&quot;, &quot;000001111111222&quot;, &quot;0000011111122&quot;, &quot;b&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot;, &quot;invalid&quot;, &quot;valid&quot;, &quot;invalid&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100,100,100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>50</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;2&quot;,
+ &quot;bb1b012012012012012012012&quot;,
+ &quot;bb1b012012012012012012012b&quot;,
+ &quot;bb1b012012012b012b012b012012b&quot;,
+ &quot;bb1b0b1b2b0b1b2b0b1b2bb012b012b012012b&quot;,
+ &quot;b1b0b1b2b0b1b2b0b1b2bb012b012b012012b&quot;,
+ &quot;bbb1b012012012012012012012&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot;, &quot;valid&quot;, &quot;invalid&quot;, &quot;valid&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,0,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0&quot;, &quot;bb&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;invalid&quot;, &quot;invalid&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Taro has no cubes and no prisms, therefore he cannot create any non-empty view.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3,0,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;00b0b&quot;, &quot;bbbbbbbb&quot;, &quot;000b&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;invalid&quot;, &quot;valid&quot;, &quot;valid&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

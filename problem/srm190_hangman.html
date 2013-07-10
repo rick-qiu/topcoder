@@ -1,0 +1,300 @@
+<html>
+ <head>
+  <title>Hangman Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2343">Problem Statement for Hangman</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are playing a game of Hangman with your brother. He begins by choosing a word, and he writes down one blank for each letter in the word. You then repeatedly guess letters that you think could be in the word. Every time you guess a letter, your brother indicates every occurrence of that letter in the word by replacing blanks with the corresponding letter. For example, suppose your brother chooses the word, &quot;NINJA&quot;. 
+      <ul> 
+       <li>- He begins by writing down 5 blanks, indicated here by dashes: &quot;-----&quot;.</li> 
+       <li>- Suppose you first guess the letter 'A'. Then, your brother would reveal the one instance of 'A' in the word: &quot;----A&quot;.</li> 
+       <li>- Suppose you next guess the letter 'N'. Then, your brother would reveal both instances of 'N' in the word: &quot;N-N-A&quot;.</li> 
+       <li>- Suppose you next guess the letter 'E'. Then, your brother would reveal nothing new since 'E' is not in the word: &quot;N-N-A&quot;.</li> 
+      </ul> Create a class Hangman that contains a method guessWord, which is given a String <b>feedback</b> and a String[] <b>words</b>. Since your brother is fairly predictable, you have determined that the word he is thinking of is an element of <b>words</b>. You also have the information he has given you after some number of guesses (possibly 0), given in <b>feedback</b>. As above, blanks are represented by dashes ('-'), and revealed letters are represented by capital letters ('A'-'Z'). You now wish to guess the word that your brother is thinking of. If there is exactly one element of <b>words</b> that is consistent with <b>feedback</b>, the method should return that element. Otherwise, it should return &quot;&quot;. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Hangman</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>guessWord</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String guessWord(String feedback, String[] words)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>feedback</b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>feedback</b> will be either a capital letter ('A'-'Z') or a dash ('-').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>words</b> will contain between 1 and 50 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>words</b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two elements in <b>words</b> will be equal.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>words</b> will be a capital letter ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;N-N-A&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NINJA&quot;, &quot;NINJAS&quot;, &quot;FLIPS&quot;, &quot;OUT&quot;, &quot;FRISBEE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NINJA&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">As described above, this feedback is consistent with &quot;NINJA&quot; after 'A' and 'N' have been guessed. It is not consistent with &quot;NINJAS&quot;, since there are only 5 letters in <b>feedback</b>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;B--B--&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;BRINGS&quot;, &quot;BARBED&quot;, &quot;BUBBLE&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;BARBED&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only correct letter you have guessed is 'B'. If your brother had chosen the word, &quot;BRINGS&quot;, then <b>feedback</b> would have been &quot;B-----&quot;, and if your brother had chosen the word, &quot;BUBBLE&quot;, then <b>feedback</b> would have been &quot;B-BB--&quot;. This leaves only the possibility that your brother chose &quot;BARBED&quot;, which is, in fact, consistent.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;---------&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;MONKEY&quot;, &quot;FORCE&quot;, &quot;IS&quot;, &quot;GAINING&quot;, &quot;STRENGTH&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>feedback</b> is consistent with all nine-letter words, but there are no nine-letter words.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;-AAA--&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;CAAABB&quot;, &quot;BAAACC&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>feedback</b> is consistent with both words.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;---H-O-H-B-OPHOB--&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ROSACEA&quot;, &quot;GYROVAGUE&quot;, &quot;SHACONIAN&quot;, &quot;ALTITONANT&quot;,
+ &quot;BRACHIATION&quot;, &quot;CERCOPITHECAN&quot;, &quot;SCOLECOPHAGOUS&quot;,
+ &quot;RESISTENTIALISM&quot;, &quot;SLUBBERDEGULLION&quot;, 
+ &quot;AICHMORHABDOPHOBIA&quot;, &quot;SPECTOCLOACAPHOBIA&quot;,
+ &quot;ULTRACREPIDARIANISM&quot;, &quot;HIPPOPOTOMONSTROSESQUIPEDALIAN&quot;,
+ &quot;CHARGOGGAGOGGMANCHAUGGAGOGGCHAUBUNAGUNGAMAUGG&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;AICHMORHABDOPHOBIA&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Your brother has a big vocabulary.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

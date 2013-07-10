@@ -1,0 +1,311 @@
+<html>
+ <head>
+  <title>GradingGridIns Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4608">Problem Statement for GradingGridIns</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>The Grid-In questions on the SAT require that the test-taker fill in a numerical answer from a small set of symbols. In particular, each answer is a String of four characters. 
+      <ul> 
+       <li>Each character is one of ' ' (a space), '.', '/', or a digit '0'-'9'.</li> 
+       <li>Spaces are interpreted as unneeded characters. Whitespace must not be surrounded by non-space characters.</li> 
+       <li>The '<b>.</b>' is a decimal point; only one may appear in any answer. The '<b>/</b>' is a division sign; only one may appear in any answer. No answer may contain both a '<b>.</b>' and a '<b>/</b>'.</li> 
+       <li>All characters to the left of a '<b>/</b>' are interpreted as the numerator, and all characters to the right of a '<b>/</b>' are interpreted as the denominator. If there is a '/', both the numerator and the denominator must contain at least one digit '0'-'9', and the denominator must not be 0.</li> 
+       <li>At least one digit '0'-'9' must appear in each answer.</li> 
+      </ul> A range will be given between a lower bound and upper bound, inclusive. Both bounds are specified as fractions with integer numerators and denominators. <b>lower</b> and <b>upper</b> are both int[]s containing two elements, the first the numerator and the second the denominator. An answer is correct if and only if either it lies between the bounds or there is no possible submission between the answer and one of the bounds. See example 1 for clarification. <br /><br /> An answer which satisfies the symbol constraints (the first item on the list) but does not satisfy other constraints (such as &quot;1 23&quot;, &quot;8//5&quot;, or &quot;9.4.&quot; is considered malformed. Furthermore, any answer with a denominator of 0 is considered malformed. <br /><br /> <br /><br /> You will be given a String[] <b>answer</b> whose elements each contain exactly 4 characters. You are to return a String[] with the same number of elements as the number of elements in <b>answer</b>. Each element of the return value should be one of three possible responses: &quot;CORRECT&quot; for a correct answer, &quot;INCORRECT&quot; if incorrect, or &quot;MALFORMED&quot; if the answer does not conform to the guidelines above. The i-th element of the return value should correspond to the i-th element of <b>answer</b>. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>GradingGridIns</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>score</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] score(String[] answer, int[] lower, int[] upper)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Leading zeros are allowed.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>An answer which has a denominator of 0 will be considered malformed.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>answer</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>answer</b> will contain exactly 4 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in an answer will be a ' ', '.', '/', or a digit '0'-'9'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>upper</b> and <b>lower</b> will each contain exactly 2 elements between 0 and 9999, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Neither <b>lower</b>[1] nor <b>upper</b>[1] will be 0.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lower</b>[0] / <b>lower</b>[1] will be less than or equal to <b>upper</b>[0] / <b>upper</b>[1].</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;4/7 &quot;,&quot; 4/7&quot;,&quot;4/07&quot;,&quot;8/14&quot;,&quot;.571&quot;,&quot;.572&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{4,7}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{4,7}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;CORRECT&quot;, &quot;CORRECT&quot;, &quot;CORRECT&quot;, &quot;CORRECT&quot;, &quot;CORRECT&quot;, &quot;CORRECT&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Each of these is correct. Notice that neither .571 nor .572 are equal to 4 divided by 7.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot; 4/7&quot;,&quot;1.01&quot;,&quot;1.02&quot;,&quot; 000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;CORRECT&quot;, &quot;CORRECT&quot;, &quot;INCORRECT&quot;, &quot;CORRECT&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Any answer within the allowed range is acceptable. Notice also that 1.01, which is greater than the upper bound, is acceptable because there are no possible submissions greater than 1 and less than 1.01.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1.15&quot;,&quot;1 14&quot;,&quot;1.14&quot;,&quot; 8/7&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1142,1000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1142,1000}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;INCORRECT&quot;, &quot;MALFORMED&quot;, &quot;CORRECT&quot;, &quot;CORRECT&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;    &quot;,&quot;....&quot;,&quot; .  &quot;,&quot;1 23&quot;,&quot;8//5&quot;,&quot;9.4.&quot;,&quot;85/ &quot;,&quot;/123&quot;,&quot;123/&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;MALFORMED&quot;,
+&quot;MALFORMED&quot;,
+&quot;MALFORMED&quot;,
+&quot;MALFORMED&quot;,
+&quot;MALFORMED&quot;,
+&quot;MALFORMED&quot;,
+&quot;MALFORMED&quot;,
+&quot;MALFORMED&quot;,
+&quot;MALFORMED&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1/0 &quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9999,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;MALFORMED&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

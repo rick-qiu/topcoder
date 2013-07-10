@@ -1,0 +1,430 @@
+<html>
+ <head>
+  <title>Amoebae Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1814">Problem Statement for Amoebae</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Your boss, the absent-minded biologist, has gone too far. It's one thing if he chills his lemonade in the lab refrigerator, but this morning he inadvertently rearranged the petri dishes. Now the old bird is calling for Culture X. You've found a dish of amoebae that looks like it might be Culture X, and you even have a photograph of Culture X taken yesterday, but these critters move around freely. They spin and glide through the dish and even flip over, making it hard to tell whether you're still looking at the same culture. </p> <p> You are given a String[] describing a known state of Culture X. Consider it as a rectangular grid of squares, each of which is marked either '.' or 'X'. An amoeba is a component formed of directly adjacent 'X' squares. If an amoeba is composed of more than one 'X' square, then each of its 'X' squares shares an edge with at least one other 'X' square in the same amoeba. No two 'X' squares belonging to different amoebae may share an edge, but they are permitted to neighbor each other diagonally. An amoeba may contain holes. For example, the dish below contains five amoebae. Observe that one of them comprises exactly two squares, while another consists of a single square. </p> <pre>
+
+          ...XXXXXXX.......
+          ....X.X.X........
+          ...XXXXXX........
+          ...............XX
+          ......X.....XX..X
+          .XXXXX........X.X
+          .X.XXX.......XXXX
+</pre> <p> Given a second String[] with the same dimensions, decide whether it depicts the same collection of amoebae. Amoebae are considered identical under rotation (at right angles), reflection (in the horizontal or vertical axis), and translation (to any extent, as long as the amoeba remains wholly within the petri dish). Return 0 if both dishes contain the same amoebae. Otherwise, return the sum of these two figures: (a) the number of amoebae in Culture X that are not present in the candidate dish and (b) the number of amoebae in the candidate dish that are not present in Culture X. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Amoebae</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>cultureX</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int cultureX(String[] known, String[] candidate)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>known</b> and <b>candidate</b> have the same number of elements</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>known</b> and <b>candidate</b> each have between 1 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>all elements of <b>known</b> and <b>candidate</b> are equally long</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>elements of <b>known</b> and <b>candidate</b> are each between 1 and 50 characters long, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>all characters in <b>known</b> and <b>candidate</b> must be either '.' or 'X'</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...XXXXXXX.......&quot;,
+ &quot;....X.X.X........&quot;,
+ &quot;...XXXXXX........&quot;,
+ &quot;...............XX&quot;,
+ &quot;......X.....XX..X&quot;,
+ &quot;.XXXXX........X.X&quot;,
+ &quot;.X.XXX.......XXXX&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;X.X..........XXXX&quot;,
+ &quot;XXX...XX......X.X&quot;,
+ &quot;X.X...XX........X&quot;,
+ &quot;XXX...XX.......XX&quot;,
+ &quot;X.X....X.X.......&quot;,
+ &quot;XXX...XX.X.......&quot;,
+ &quot;X.......X........&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You've found Culture X! All the amoebae have been translated since yesterday. The one that was in the lower right corner has also been reflected in the horizontal axis. The one at lower left has been reflected and rotated, as has the big ugly one with two holes. The amoeba formed of two squares has been rotated.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...XXXXXXX.......&quot;,
+ &quot;....X.X.X........&quot;,
+ &quot;...XXXXXX........&quot;,
+ &quot;...............XX&quot;,
+ &quot;......X.....XX..X&quot;,
+ &quot;.XXXXX........X.X&quot;,
+ &quot;.X.XXX.......XXXX&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;X.X..........XXXX&quot;,
+ &quot;XXX...XX......X.X&quot;,
+ &quot;X.X...XX........X&quot;,
+ &quot;......XX.......XX&quot;,
+ &quot;X.X....X.X.......&quot;,
+ &quot;XXX...XX.X.......&quot;,
+ &quot;X.......X........&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Four amoebae from Culture X are present in the candidate petri dish, but the big ugly one with two holes is missing. Furthermore, the candidate dish has two amoebae that were not present in Culture X. In total, this makes a difference of 1+2=3.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;......................&quot;,
+ &quot;....XXX...............&quot;,
+ &quot;..X...X......XX.XX....&quot;,
+ &quot;..XX.........XX.XX....&quot;,
+ &quot;...XX.................&quot;,
+ &quot;..........X...X..XXXX.&quot;,
+ &quot;..XXX.....XX.XX.XX..XX&quot;,
+ &quot;..X........X.X..X....X&quot;,
+ &quot;.....XX....XXX..X....X&quot;,
+ &quot;.....XX.....X...XX..XX&quot;,
+ &quot;............X....XXXX.&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;....X......XX.XX.XX...&quot;,
+ &quot;....XXX....XX.XX.XX...&quot;,
+ &quot;.........XX...........&quot;,
+ &quot;.........XX...........&quot;,
+ &quot;......................&quot;,
+ &quot;..X....XXXX....X......&quot;,
+ &quot;..X...XX..XX...X......&quot;,
+ &quot;.XXX..X....X..XXX.....&quot;,
+ &quot;.X.X..X....X..X.X.....&quot;,
+ &quot;XX.XX.XX..XX.XX.XX....&quot;,
+ &quot;X...X..XXXX..X...X....&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Compared to Culture X, the candidate dish has an extra Y-shaped amoeba and an extra two-by-two amoeba, but it's missing a small L-shaped amoeba, and it doesn't have the squiggly one at all. That makes a symmetric difference of 4.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.XXXX.X...X...XXXX..&quot;, 
+&quot;X..XXXXXXX.X.....XX.&quot;, 
+&quot;.X.X.XX....X..XXX..X&quot;, 
+&quot;..XXX.X.X....X......&quot;, 
+&quot;.XXXXX...X.....XXXX.&quot;, 
+&quot;..X.XXX..XX....XXX.X&quot;, 
+&quot;.......XXX..X.X...XX&quot;, 
+&quot;XX....X.....X...X.X.&quot;, 
+&quot;.....X.....XX..XXX.X&quot;, 
+&quot;X...XX.X.X..X....X.X&quot;, 
+&quot;.X........X.........&quot;, 
+&quot;.X..X.........X.....&quot;, 
+&quot;..X.X..X..........XX&quot;, 
+&quot;........X.X...X.XX..&quot;, 
+&quot;....X.......X.X..X.X&quot;, 
+&quot;....XX..X..X.X.X...X&quot;, 
+&quot;X.....X.........X.X.&quot;, 
+&quot;X.X...X.............&quot;, 
+&quot;..XXX.X...X..X..XX..&quot;, 
+&quot;X.......XX...X......&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;.X.....X.X......XX.X&quot;, 
+&quot;X.X.X..X..XX........&quot;, 
+&quot;X..XXX......X....XX.&quot;, 
+&quot;XXXXX.............X.&quot;, 
+&quot;XX.XXX...X.XX.XX..X.&quot;, 
+&quot;.XX.XX..XX.....X....&quot;, 
+&quot;XXXX.X.X........XXX.&quot;, 
+&quot;.X....X..X..X.......&quot;, 
+&quot;.X.X..X......X.X...X&quot;, 
+&quot;.X..XXX..X.........X&quot;, 
+&quot;X....X....X..X....X.&quot;, 
+&quot;.XX.....X......X....&quot;, 
+&quot;......XXXX....X.....&quot;, 
+&quot;...X...........X..XX&quot;, 
+&quot;X.X...X....X.XX.....&quot;, 
+&quot;X.X.XX..X......X....&quot;, 
+&quot;X.X.XX.XX....X..X.X.&quot;, 
+&quot;XX..XX..XX...XX...X.&quot;, 
+&quot;.X..X.XX....X...X...&quot;, 
+&quot;..X..XX.XX..X.XX....&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.....XXX...X.....XX.....XX.XX..XX..&quot;, 
+&quot;..X.XX.XX.X....XXX....X......X.....&quot;, 
+&quot;.....XX...X....X.X....X.X.X........&quot;, 
+&quot;X.....X.......XXX.X....X..XX.X.....&quot;, 
+&quot;.X.X....X.X........X..........XX...&quot;, 
+&quot;........XX........X.....X..X.X.....&quot;, 
+&quot;.X..X...X...XX.X..X.....X..........&quot;, 
+&quot;..............X......X...X....X..X.&quot;, 
+&quot;XX..X.....XX..X...X...X.X..X....X..&quot;, 
+&quot;.X....XX..X...............X.X.XXXX.&quot;, 
+&quot;...XXXXX.....X...X....X.XX..XXX..X.&quot;, 
+&quot;.........X..XX....X.X......XXXX....&quot;, 
+&quot;..XXXX.X..XXX.X...........X..X.XX..&quot;, 
+&quot;X...X...........X..X.X..X.XX..X.X..&quot;, 
+&quot;..X....X.....X..X.X....X..X.X..XXXX&quot;, 
+&quot;X..XXX..X..XX.XX.X..X...X...X..X.XX&quot;, 
+&quot;....X....X.X...X..X..X..XXX...XXXX.&quot;, 
+&quot;.X..XX.XX.....X..XX..............XX&quot;, 
+&quot;X..........X..X......XXXX.....X..X.&quot;, 
+&quot;.X.XXX...X..X..XX.X.X.X.X..X.......&quot;, 
+&quot;X....X.........X....XXXX..X....X..X&quot;, 
+&quot;..X.XX...X......X.X.......XX....X..&quot;, 
+&quot;X.XXXX....X.XXX..XX..XXXX.X.XX.....&quot;, 
+&quot;XXX.X........X.X..X..X....X..X.....&quot;, 
+&quot;......X..X..XX..X.....XX........X..&quot;, 
+&quot;...X.....XX..X..X..X.X......XX..X.X&quot;, 
+&quot;..X..X.......XX......X......X...XX.&quot;, 
+&quot;..X.XX......XX.X..X.....X...X.X..X.&quot;, 
+&quot;.X.X.XX.XXX.X..X.X.................&quot;, 
+&quot;.......X.XX..X..X..X.....X.X..XX..X&quot;, 
+&quot;X...XX.......X...X...X.X....X......&quot;, 
+&quot;X.......X.X......X.X.X......X.....X&quot;, 
+&quot;....X.X.X.X....XXX..XX.....XX.X..X.&quot;, 
+&quot;...X..X.X.XX......X.....XX.XXXX....&quot;, 
+&quot;..X......X...X.X...X...X.X.XXXX...X&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;..XX......X..XX.X....X..X.XX..X....&quot;, 
+&quot;...X.X.X.......X..X....X...........&quot;, 
+&quot;.XXX.X.XXX.....X.X.X..XX.XX.X.XX.XX&quot;, 
+&quot;X...X......X.X........X...X.X.....X&quot;, 
+&quot;X.....X....X...XX....X.X........XX.&quot;, 
+&quot;..XXX...XXX............X.XX..XX..XX&quot;, 
+&quot;....X.X..X..X.X...X.X....X.XX...X..&quot;, 
+&quot;.XX..X........XX..X......XX..X....X&quot;, 
+&quot;...X......X...X..X...XX...XXX..X.X.&quot;, 
+&quot;..XX...X..X...X...X.XX.....X.....X.&quot;, 
+&quot;.XX.X........X..X..X......XX.X.XX..&quot;, 
+&quot;.X.X..XX..X.XX......X....X.........&quot;, 
+&quot;X..X.X..X........X.....X..X..XX...X&quot;, 
+&quot;X.X.........X.XXX..XX..X.........X.&quot;, 
+&quot;.........X......XX.....X.....X..X.X&quot;, 
+&quot;X..X.X.XXX.X.....X...X...X...X..X.X&quot;, 
+&quot;X......X..X.XX.X......X....XX.....X&quot;, 
+&quot;X.X...................X...X..X..XX.&quot;, 
+&quot;.........X........X..XX..X......X.X&quot;, 
+&quot;.X....X.X.X.......X..XX..XX.XXX...X&quot;, 
+&quot;.................XXX...XX...X..X...&quot;, 
+&quot;..X...X...XX.....X.....X..XX....XX.&quot;, 
+&quot;.......XXX.XX....X...XX..XXX.X....X&quot;, 
+&quot;........X...XXXX..X..........X.....&quot;, 
+&quot;..........XX.X.XX.X.........XX....X&quot;, 
+&quot;...X.....X.X.................X....X&quot;, 
+&quot;...XX.X.....X.....XXXX...X...X.X...&quot;, 
+&quot;.............X.....X..X..X.X.X..X..&quot;, 
+&quot;...............X....X....X..X.X.X.X&quot;, 
+&quot;.XX..XX........X.....X.XX....X....X&quot;, 
+&quot;...X....X..X...XXX..X........X.....&quot;, 
+&quot;X.XXX.XX..X......XX.X......X.X.X...&quot;, 
+&quot;.XX.X....X..X..X.X.................&quot;, 
+&quot;....XXX.X.X......XX.....XX...X.XX..&quot;, 
+&quot;......X....XX..X.....X...XX.X.....X&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 64</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

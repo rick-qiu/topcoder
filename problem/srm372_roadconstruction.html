@@ -1,0 +1,291 @@
+<html>
+ <head>
+  <title>RoadConstruction Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8223">Problem Statement for RoadConstruction</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> During today's meeting of the Council of Rainban, your advisors warned you about the growing traffic problems in your fair country. It seems that the Daring Ostrich Society has shut down the Rainban Access Motorway due to the annual migration of ostriches across the highway. This is rather unfortunate, as many cars are now trapped on the highway. Construction crews have begun to build an emergency exit so that the trapped cars can exit, but there will be chaos without rules on when cars can exit. To promote friendly driving, you decide to enforce the following rules: </p>
+      <ol> 
+       <li>A car may not exit if there is a car in front of it in its lane.</li> 
+       <li>A car may not exit if a car in a lower numbered lane is about to exit.</li> 
+       <li>Once a car has reached the front of its lane, it must (if possible) yield exactly once to a car from a higher numbered lane. This means that the car will allow a car from a higher numbered lane to exit (if one exists).</li> 
+       <li>If a car has fulfilled all of the above requirements, it may exit the highway. The next car in that lane (if there is one) then moves to the front of the lane.</li> 
+      </ol> As an example, suppose that there are five cars in the highway, as pictured below (with the front of the lane located on the left): <p></p> <pre>
+0 A B
+1 C D
+2 E
+</pre> <p> Car A has not yet yielded, so it must yield. The same happens for car C. Car E cannot yield (as there are no cars in higher lanes), and so it exits. Now car A fulfills the exiting rules (having yielded to car E), and it can exit. Car B moves up to the front, but has not yet yielded, and thus must yield to car C. Car B then can exit, followed by car D. </p><p> You will be given <b>currentLanes</b>. The i-th element of <b>currentLanes</b> corresponds to the cars currently located in lane i. The 0-th character in each element corresponds to the car at the front of the lane. No car in <b>currentLanes</b> has yielded yet. The car represented by the character 'D' is a diplomat from a far-off country. You want to know how many cars exit in front of this diplomat (so that you know whether you have time to take a bath before his arrival), and return this number. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RoadConstruction</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getExitTime</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int getExitTime(String[] currentLanes)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>currentLanes</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>currentLanes</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of <b>currentLanes</b> will be an uppercase letter ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly one 'D' in <b>currentLanes</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AB&quot;,
+ &quot;CD&quot;,
+ &quot;E&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AH&quot;,
+ &quot;D&quot;,
+ &quot;BCG&quot;,
+ &quot;E&quot;,
+ &quot;F&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Car F goes first. Having yielded right of way, car A moves next, followed by car D (which already yielded to car F).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AAA&quot;,
+ &quot;A&quot;,
+ &quot;AAA&quot;,
+ &quot;A&quot;,
+ &quot;AAD&quot;,
+ &quot;A&quot;,
+ &quot;AAB&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Multiple cars can be represented by the same letter, but there will be exactly one diplomat.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;DEFGHIJK&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;I&quot;,
+ &quot;WANT&quot;,
+ &quot;TO&quot;,
+ &quot;DRINK&quot;,
+ &quot;SOME&quot;,
+ &quot;COFFEE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

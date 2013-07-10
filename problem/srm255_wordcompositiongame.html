@@ -1,0 +1,233 @@
+<html>
+ <head>
+  <title>WordCompositionGame Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4483">Problem Statement for WordCompositionGame</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Three players are playing a game of word composition in which each player writes down a list of words. After the time expires the scores are calculated using the following rules. Each player gains 3 points for each unique word that only he has, 2 points for each word that is shared with exactly one other player, and 1 point for each word that is shared with both of the other players.</p> <p>You will be given String[]s <b>listA</b>, <b>listB</b> and <b>listC</b> - the word lists of playerA, playerB and playerC respectively. Your method should return scores of playerA, playerB and playerC in the form &quot;scoreA/scoreB/scoreC&quot; (quotes for clarity).</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WordCompositionGame</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>score</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String score(String[] listA, String[] listB, String[] listC)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>listA</b>, <b>listB</b> and <b>listC</b> will have between 1 and 50 elements each, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>listA</b>, <b>listB</b> and <b>listC</b> will contain between 1 and 20 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>listA</b>, <b>listB</b> and <b>listC</b> will contain only lowercase letters ('a'-'z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements in <b>listA</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements in <b>listB</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements in <b>listC</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;cat&quot;, &quot;dog&quot;, &quot;pig&quot;, &quot;mouse&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;cat&quot;, &quot;pig&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;dog&quot;, &quot;cat&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;8/3/3&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;mouse&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;cat&quot;, &quot;pig&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;dog&quot;, &quot;cat&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;3/5/5&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;dog&quot;, &quot;mouse&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;dog&quot;, &quot;pig&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;dog&quot;, &quot;cat&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;4/4/4&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;bcdbb&quot;,&quot;aaccd&quot;,&quot;dacbc&quot;,&quot;bcbda&quot;,&quot;cdedc&quot;,&quot;bbaaa&quot;,&quot;aecae&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;bcdbb&quot;,&quot;ddacb&quot;,&quot;aaccd&quot;,&quot;adcab&quot;,&quot;edbee&quot;,&quot;aecae&quot;,&quot;bcbda&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;dcaab&quot;,&quot;aadbe&quot;,&quot;bbaaa&quot;,&quot;ebeec&quot;,&quot;eaecb&quot;,&quot;bcbba&quot;,&quot;aecae&quot;,&quot;adcab&quot;,&quot;bcbda&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;14/14/21&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

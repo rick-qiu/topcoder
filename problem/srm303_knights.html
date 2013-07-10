@@ -1,0 +1,274 @@
+<html>
+ <head>
+  <title>Knights Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6070">Problem Statement for Knights</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> There are several knights located on a <b>N</b>x<b>N</b> chessboard. Chessboard rows are numbered from 1 to <b>N</b>, inclusive. Chessboard columns are numbered with single characters from 'A' to 'A'+<b>N</b>-1, inclusive. For example, a standard 8x8 chessboard has rows 1...8 and columns A...H. </p> <p> A knight is a chess piece that attacks the following squares (marked with X symbols): <br /><br /> <img src="http://www.topcoder.com/contest/problem/Knights/knight.png" /> <br /><br /> If one of those squares is occupied by some other knight, those two knights are attacking each other. </p> <p> An arrangement of knights is called friendly if no knight attacks another knight. Your task is to determine the minimum number of knights that can be removed to make a friendly arrangement. You will be given an int <b>N</b> denoting the size of the chessboard and a String[] <b>pos</b> containing the knight positions. Each element of <b>pos</b> will contain a space separated list of &lt;COL&gt;&lt;ROW&gt; knight positions on the board where &lt;COL&gt; is the column and &lt;ROW&gt; is the row. Each &lt;COL&gt; is a letter between 'A' and 'A'+<b>N</b>-1, inclusive, and each &lt;ROW&gt; is an integer between 1 and <b>N</b>, inclusive, with no leading zeros. There will be no leading or trailing spaces. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Knights</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>makeFriendly</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int makeFriendly(int N, String[] pos)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td> <b>N</b> will be between 1 and 26, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td> <b>pos</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td> <b>pos</b> will be formatted as described in the statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td> Each element of <b>pos</b> will contain between 2 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td> No two knights will occupy the same position.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A2 A4&quot;, &quot;B1 B5&quot;, &quot;D1 D5 E2 E4 C3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">8 knights on the chessboard are attacked by knight C3, so it should be removed.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A1 A2 B1 B2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is a 2x2 chessboard, so no knight is under attack.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A1 A5 B3 C1 C5 D2 D4 E6 F5&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">One possible way is to remove B3, C5 and D4.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>8</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A2 A4 A5 A6 B2 B5 B6 B7 B8&quot;,
+ &quot;C3 C8 D1 D2 D3 D4 D5 D6 D8&quot;,
+ &quot;E1 E3 E8 F1 F2 F8 G3 G5 H4 H7 H8&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A3 A4 A5 A7 A8 B6 B8 C3 C6&quot;,
+ &quot;C7 C9 D4 D5 D8 D9 E1 E3 E7&quot;,
+ &quot;F2 G2 G6 G7 H2 H9 I2 I4 I5&quot;,
+ &quot;I6 I7 I8 I9&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

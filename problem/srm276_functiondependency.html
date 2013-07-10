@@ -1,0 +1,213 @@
+<html>
+ <head>
+  <title>FunctionDependency Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=5942">Problem Statement for FunctionDependency</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You are developing a database platform that supports, among other things, user defined functions. User-defined functions may call internal functions, other user-defined functions, or both. A user-defined function, <i>FuncA</i>, is said to be dependent on another function, <i>FuncB</i>, if it calls <i>FuncB</i>.</p> <p>You have been tasked with writing a module that will &quot;script&quot; (list out the code for) all of the functions in a given database. However, because of dependency issues, they must be scripted in a specific order that meets the following criteria:</p> 
+      <ul> 
+       <li>A function cannot be scripted until all of its dependent functions have already been scripted.</li> 
+       <li>Whenever more than one function could be scripted (subject to the first requirement), the one whose name occurs first lexicographically will be scripted first.</li> 
+      </ul> <p>You are given a String[] <b>funcs</b>, each element of which is the name of a function in the database. You are also given a String[] <b>depends</b>, a list describing the dependency of each function. Each element of <b>depends</b> is a space-delimited list of integers. Each element of <b>depends</b> corresponds to the element of <b>funcs</b> with the same index. Each number represented in each element of <b>depends</b> refers to the 0-based index of another function.</p> <p>For instance, suppose a database has two functions, <i>A</i> and <i>B</i>, each of which is dependent on a third function, <i>C</i>. The input might then be given by:</p> <pre>
+{&quot;B&quot;, &quot;C&quot;, &quot;A&quot;}
+{&quot;1&quot;, &quot;&quot;, &quot;1&quot;}
+</pre> <p>Now, since functions <i>A</i> and <i>B</i> both depend upon <i>C</i>, we have to script <i>C</i> first. After that, either <i>A</i> or <i>B</i> could be scripted, since <i>C</i> has already been scripted. We use the second rule to determine that we should script <i>A</i> first. Our return is thus:</p> <pre>
+{&quot;C&quot;, &quot;A&quot;, &quot;B&quot;}
+</pre> <p>You are to return a String[] containing the names of the functions in the order in which they should be scripted.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FunctionDependency</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>scriptingOrder</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] scriptingOrder(String[] funcs, String[] depends)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>funcs</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>depends</b> will contain the same number of elements as <b>funcs</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>funcs</b> will contain between 1 and 50 upper case ('A'-'Z') character, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>depends</b> will be a space-delimited list of integers, with no leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each integer represented in <b>depends</b> will be between 0 and <i>n</i>-1, inclusive, where <i>n</i> is the number of elements in <b>funcs</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be no circular dependencies.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;B&quot;, &quot;C&quot;, &quot;A&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1&quot;, &quot;&quot;, &quot;1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;C&quot;, &quot;A&quot;, &quot;B&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;B&quot;, &quot;C&quot;, &quot;A&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1&quot;, &quot;&quot;, &quot;0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;C&quot;, &quot;B&quot;, &quot;A&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;K&quot;, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;&quot;, &quot;&quot;, &quot;1 1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, &quot;K&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Careful! It is permissible for the same dependency to be listed twice.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

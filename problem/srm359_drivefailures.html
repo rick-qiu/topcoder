@@ -1,0 +1,201 @@
+<html>
+ <head>
+  <title>DriveFailures Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7702">Problem Statement for DriveFailures</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A redundant storage system can survive a certain number of hard drive failures without losing any data. You are doing some analysis to determine the risk of various numbers of drives failing during one week. Your task is complicated by the fact that the drives in this system have different failure rates. You will be given a double[] containing n elements that describe the probability of each drive failing during a week. Return a double[] containing n + 1 elements, where element i is the probability that exactly i drives will fail during a week. Assume that drive failures are independent events.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>DriveFailures</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>failureChances</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>double[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double[] failureChances(double[] failureProb)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must be accurate to within a relative or absolute value of 1E-9.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If events with probabilities <i>p<sub>1</sub></i> and <i>p<sub>2</sub></i> are independent, then the probability of both occurring is <i>p<sub>1</sub>p<sub>2</sub></i>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>failureProb</b> will contain between 1 and 15 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>failureProb</b> will be between 0.0 and 1.0, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1.0, 0.25, 0.0}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0.0, 0.75, 0.25, 0.0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first drive is guaranteed to fail, the second has a 25% chance of failing, and the third is guaranteed not to fail. So there is a 25% of two failures and a 75% chance of only one failure. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0.4, 0.7}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0.18000000000000002, 0.54, 0.27999999999999997 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is a probability of 0.4 x 0.7 = 0.28 that both drives will fail. The chance that only the first will fail is 0.12 and that only the second will fail is 0.42, for a total probability of 0.54 that exactly one drive will fail. This leaves a probability of 0.18 that no drives will fail.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0.2, 0.3, 0.0, 1.0, 0.8, 0.9}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{0.0, 0.011199999999999993, 0.15319999999999995, 0.5031999999999999, 0.2892, 0.0432, 0.0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

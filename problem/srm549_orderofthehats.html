@@ -1,0 +1,412 @@
+<html>
+ <head>
+  <title>OrderOfTheHats Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11955">Problem Statement for OrderOfTheHats</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>The Order of the Hats is a magical organization. One of their duties is to teach students how to cast spells. There are N spells numbered from 0 to N-1. As an aid for the students, the teachers have prepared a spell chart. The chart lists suggestions on the order in which to study the spells. (This is explained in more detail below.)<br /><br /><br /><br /> Recently, some changelings broke into the Order's spell archive and messed up the spell chart. You are given a String[] <b>spellChart</b> containing the new, messed-up state of the spell chart. Each character of each element of <b>spellChart</b> is either 'Y' or 'N'. The students will come to study soon. They will interpret the chart in the following way: If <b>spellChart</b>[i][j] is 'Y' then spell i must be learned before spell j. <br /><br /><br /><br /> As the chart is now messed up, it may be impossible to learn all the spells in the chart because of cycles in the requirements. Your task is to repair the given chart. Determine the minimum number of changes needed to remove all the cycles in the requirements. In a single change, you may either change some character <b>spellChart</b>[i][j] from 'Y' to 'N', or change some character from 'N' to 'Y'. <br /><br /><br /><br /></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>OrderOfTheHats</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minChanged</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minChanged(String[] spellChart)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>spellChart</b> will contain between 1 and 20 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>spellChart</b> will contain N characters, where N is the number of elements in <b>spellChart</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>spellChart</b> will be either 'Y' or 'N'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Y&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This spell chart contains a spell that should be learned before itself. The students would never be able to learn such a spell. We can remove this cyclic dependency by changing the 'Y' to 'N'.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYN&quot;,
+ &quot;NNY&quot;,
+ &quot;NNN&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This spell chart is already OK.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYN&quot;,
+ &quot;NNY&quot;,
+ &quot;YNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Changing any single 'Y' to a 'N' will fix this spell chart.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYYYYYY&quot;,
+ &quot;YNYYYYY&quot;,
+ &quot;YYNYYYY&quot;,
+ &quot;YYYNYYY&quot;,
+ &quot;YYYYNYY&quot;,
+ &quot;YYYYYNY&quot;,
+ &quot;YYYYYYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 21</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNNY&quot;,
+ &quot;YNYN&quot;,
+ &quot;YNNN&quot;,
+ &quot;YYYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YYYYYNNYYYNYNNNNYNNY&quot;,
+ &quot;NYNNNYYNNYNYYYNYYYYY&quot;,
+ &quot;NNYNNNYYNNNNNNYYYYNY&quot;,
+ &quot;YYNYNYYNNYYYNYNNNYYY&quot;,
+ &quot;NYYNNYNYNYNNNNYYYNYN&quot;,
+ &quot;NNNNNYYNYNNYYYYNYYYN&quot;,
+ &quot;YNYNYYNNNYNNNNNYNNYY&quot;,
+ &quot;NYYYYNYNYNNYNNYNNNNY&quot;,
+ &quot;YYYYNYYNNYYYNNYNNYNY&quot;,
+ &quot;YYYYYYNYNYNYNNNNNNYN&quot;,
+ &quot;NNYYYYYNNNYNNNYNNNNY&quot;,
+ &quot;YYNNNYNYYNYYNYYNYNYN&quot;,
+ &quot;NNYNYYNYYNYYNYNYNYYN&quot;,
+ &quot;YNYNYYNYNNNYNYNYYNYY&quot;,
+ &quot;NNYNNNYYYYYYYYYYYNYY&quot;,
+ &quot;YYYYYNYYNYYYYYNNYNNN&quot;,
+ &quot;NYYYYYYYYNNNNNYYNNYN&quot;,
+ &quot;YNNYNNNYYNYYYNYNYYYY&quot;,
+ &quot;YYNNYNYYYNYYNNNYYNNY&quot;,
+ &quot;NNYNYNYYYNYYNYNNYNNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 79</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YYNYNN&quot;,
+ &quot;YNYNNY&quot;,
+ &quot;YYYYNN&quot;,
+ &quot;NNNYNN&quot;,
+ &quot;NNNYNN&quot;,
+ &quot;YNYNYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNNNNNNNNN&quot;,
+ &quot;NNNNNNNNNN&quot;,
+ &quot;NNNYNNYNNN&quot;,
+ &quot;NNNYNNYNNN&quot;,
+ &quot;NNNYNNYNNN&quot;,
+ &quot;NNNNNNNNNN&quot;,
+ &quot;NNYYYYYYNN&quot;,
+ &quot;NNYNNNNYNN&quot;,
+ &quot;NNNYYYYNNN&quot;,
+ &quot;NNNNNNNNNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

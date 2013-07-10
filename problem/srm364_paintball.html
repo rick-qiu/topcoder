@@ -1,0 +1,347 @@
+<html>
+ <head>
+  <title>Paintball Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8060">Problem Statement for Paintball</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> For his birthday, Bart received the brand new video game &quot;Paintball!&quot;. In this game, a person plays on teams over the Internet against various competitors, attempting to hit their opponents with paint balls. Each player earns a point each time that they &quot;splatter&quot; an opponent with a paintball, and lose a point for each time they get &quot;splattered&quot;. Due to the way that the game is played, it is also possible to accidentally splatter yourself or a teammate. In that case, the shooter loses a point, and the person who was splattered (if not the shooter) does not lose any points. A team's score is simply the sum of the scores of its players. </p><p> Although Bart loves the game, he is disappointed that the game does not provide a leaderboard during gameplay. However, it does provide the list of <b>players</b>, formatted as &quot;NAME TEAM&quot; (where NAME is the player's name, and TEAM is his team), and a series of <b>messages</b>, each formatted as &quot;NAME1 SPLATTERED NAME2&quot; (all quotes for clarity), where NAME1 indicates the name of the person who shot the paintball, and NAME2 indicates the name of the person who got splattered. Bart would like to have an updated scoreboard, and that is where you come in. </p><p> All teams will receive a rank number from 1 to M (the total number of teams), based on the team scores (with 1 corresponding to the highest score). If multiple teams have the same score, then the team with the name that comes first alphabetically will receive a lower rank number. For each team (in order from 1 to M), its leaderboard entry will be formatted as follows: </p>
+      <ol> 
+       <li>The first line will be &quot;TEAM SCORE&quot; (quotes for clarity), where TEAM is the team name, and SCORE is the team score (with no extra leading zeroes).</li> 
+       <li>Let N be the number of players on the team. Assign rank numbers to the N players from 1 to N, giving a lower rank number to a higher score. If multiple players have the same score, assign the player whose name comes first alphabetically to the lower rank number.</li> 
+       <li>From the player with rank 1 to rank N, output a line with 2 spaces, the player's name, a single space, and then the player's score (with no extra leading zeroes).</li> 
+      </ol> Thus, if player A from team RED splatters player B from team BLUE (and they are the only players in the game), the leaderboard will be: <p></p><pre>
+RED 1
+  A 1
+BLUE -1
+  B -1
+</pre><p> You are to generate the leaderboard and return it. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Paintball</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getLeaderboard</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] getLeaderboard(String[] players, String[] messages)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A SCORE of 0 should be output as 0, not as -0.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>players</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>players</b> will contain between 3 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>players</b> will be formatted as &quot;NAME TEAM&quot; (quotes for clarity).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>players</b>, NAME will consist of uppercase characters ('A'-'Z') and will contain at least 1 character.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be no duplicate NAMEs in <b>players</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>players</b>, TEAM will consist of uppercase characters ('A'-'Z') and will contain at least 1 character.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>messages</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>messages</b> will contain between 14 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>messages</b> will be formatted as described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>messages</b>, NAME1 and NAME2 will be NAMEs found in <b>players</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A RED&quot;, &quot;B BLUE&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A SPLATTERED B&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;RED 1&quot;, &quot;  A 1&quot;, &quot;BLUE -1&quot;, &quot;  B -1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;LISA RED&quot;, &quot;BART RED&quot;, &quot;HOMER BLUE&quot;, &quot;MARGE BLUE&quot;, &quot;MAGGIE GREEN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;MAGGIE SPLATTERED HOMER&quot;, &quot;MAGGIE SPLATTERED MARGE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;GREEN 2&quot;,
+&quot;  MAGGIE 2&quot;,
+&quot;RED 0&quot;,
+&quot;  BART 0&quot;,
+&quot;  LISA 0&quot;,
+&quot;BLUE -2&quot;,
+&quot;  HOMER -1&quot;,
+&quot;  MARGE -1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;TODD STRIKEFORCE&quot;,
+ &quot;BART OMEGA&quot;,
+ &quot;DATA STRIKEFORCE&quot;,
+ &quot;MILHOUSE OMEGA&quot;,
+ &quot;NELSON DISCOVERYCHANNEL&quot;,
+ &quot;MARTIN DISCOVERYCHANNEL&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;BART SPLATTERED MARTIN&quot;,&quot;TODD SPLATTERED MARTIN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;OMEGA 1&quot;,
+&quot;  BART 1&quot;,
+&quot;  MILHOUSE 0&quot;,
+&quot;STRIKEFORCE 1&quot;,
+&quot;  TODD 1&quot;,
+&quot;  DATA 0&quot;,
+&quot;DISCOVERYCHANNEL -2&quot;,
+&quot;  NELSON 0&quot;,
+&quot;  MARTIN -2&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;DR COHO&quot;, &quot;ST COHO&quot;, &quot;PE COHO&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;DR SPLATTERED ST&quot;,
+ &quot;ST SPLATTERED PE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;COHO -2&quot;, &quot;  PE 0&quot;, &quot;  DR -1&quot;, &quot;  ST -1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Don't shoot your teammates!</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A B&quot;, &quot;AA AA&quot;, &quot;AAA AAA&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A SPLATTERED AAA&quot;, &quot;A SPLATTERED AAA&quot;, &quot;A SPLATTERED AAA&quot;, 
+&quot;AA SPLATTERED AAA&quot;, &quot;AA SPLATTERED AAA&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;B 3&quot;, &quot;  A 3&quot;, &quot;AA 2&quot;, &quot;  AA 2&quot;, &quot;AAA -5&quot;, &quot;  AAA -5&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,292 @@
+<html>
+ <head>
+  <title>WordWrap Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2413">Problem Statement for WordWrap</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Some text editors, such as vi, model the user's document as a sequence of lines containing a variable number of characters. Because the human eye prefers to read lines of equal length, such editors typically supply a function that will adjust the lines to make them fit within a column of fixed width. This process is called justification. (Other editors, such as OpenOffice.org, will justify lines on the fly.) </p><p> Your job is to write a justifier for a simplified piece of text. You are given a String[], <b>lines</b>, each element of which is a single line consisting of tokens separated by single spaces. For the present purposes, a token is a sequence of lowercase alphabetical characters. You are to return a String[] containing the same tokens in the same order and still separated by single spaces, distributed in such a way that no line exceeds the desired column width, which is specified by the int <b>columnWidth</b>. Within these constraints, you should put as many tokens as possible in the first line, then as many as possible in the second, and so on. </p><p> Note that tokens must not be split between consecutive lines, and that the number of lines in the result may differ from that in the input. The resulting lines must contain tokens separated by single spaces, without extraneous spaces at the beginning or end of a line, akin to the input. No input token will be longer than the column width. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WordWrap</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>justify</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] justify(String[] lines, int columnWidth)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lines</b> contains between 1 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>lines</b> is between 1 and 50 characters long, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>in each element of <b>lines</b>, only the space character (' ') and the lowercase alphabetical characters ('a' through 'z') are allowed</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>in each element of <b>lines</b>, neither the first nor last character may be a space</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>in each element of <b>lines</b>, there may not be two or more consecutive spaces</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>columnWidth</b> is between 1 and 50, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>in each element of <b>lines</b>, no sequence of alphabetic characters is more than <b>columnWidth</b> characters long</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;now is the time for all good men&quot;,
+ &quot;to come to the aid of their country&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;now is the time for&quot;,
+ &quot;all good men to come&quot;,
+ &quot;to the aid of their&quot;,
+ &quot;country&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Token order is preserved in the result, but no line exceeds 20 characters in length.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;now&quot;,
+ &quot;is the time for&quot;,
+ &quot;all&quot;,
+ &quot;good&quot;,
+ &quot;men&quot;,
+ &quot;to&quot;,
+ &quot;come to the aid&quot;,
+ &quot;of&quot;,
+ &quot;their&quot;,
+ &quot;country&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;now is the time for&quot;,
+ &quot;all good men to come&quot;,
+ &quot;to the aid of their&quot;,
+ &quot;country&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Each line is made as long as possible without exceeding the column width.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;four score and seven years ago&quot;, 
+ &quot;our fathers brought forth&quot;,
+ &quot;upon this continent&quot;,
+ &quot;a new nation&quot;,
+ &quot;conceived in liberty&quot;, 
+ &quot;and dedicated to the proposition&quot;, 
+ &quot;that all men are created&quot;,
+ &quot;equal&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>50</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;four score and seven years ago our fathers brought&quot;,
+ &quot;forth upon this continent a new nation conceived&quot;,
+ &quot;in liberty and dedicated to the proposition that&quot;,
+ &quot;all men are created equal&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;th e ow l an d th e pu ss yc at&quot;,
+ &quot;we nt to se a&quot;,
+ &quot;on a be au ti fu l pe a gr ee n bo at&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;th e&quot;,
+ &quot;ow l&quot;,
+ &quot;an d&quot;,
+ &quot;th e&quot;,
+ &quot;pu&quot;,
+ &quot;ss&quot;,
+ &quot;yc&quot;,
+ &quot;at&quot;,
+ &quot;we&quot;,
+ &quot;nt&quot;,
+ &quot;to&quot;,
+ &quot;se a&quot;,
+ &quot;on a&quot;,
+ &quot;be&quot;,
+ &quot;au&quot;,
+ &quot;ti&quot;,
+ &quot;fu l&quot;,
+ &quot;pe a&quot;,
+ &quot;gr&quot;,
+ &quot;ee n&quot;,
+ &quot;bo&quot;,
+ &quot;at&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

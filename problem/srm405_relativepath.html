@@ -1,0 +1,293 @@
+<html>
+ <head>
+  <title>RelativePath Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9760">Problem Statement for RelativePath</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>In a typical filesystem, there are files, representing complete units of data. These files are contained in directories, and these directories, in turn, may be contained in other directories, and so on. A <i>path</i> is a pointer to a specific file or directory in this stucture. Most Unix-like OSes have a single <i>root</i> directory, that has all other directories and files directly or indirectly (via other directories) inside it. Such OSes use the following structure for file paths:</p> <p>/&lt;directory-name&gt;/&lt;directory-name&gt;/.../&lt;directory-name&gt;/&lt;file-name&gt;</p> <p>and, correspondingly, the following structure for directory paths:</p> <p>/&lt;directory-name&gt;/&lt;directory-name&gt;/.../&lt;directory-name&gt;</p> <p>For example, &quot;/etc/passwd&quot; (all quotes here and below are for clarity only) points to a file named &quot;passwd&quot; inside a directory named &quot;etc&quot; inside the root directory. Other valid file names might be &quot;/home/user/pictures/me&quot; or just &quot;/file&quot;. In this problem, we allow only nonempty sequences of lowercase letters ('a'-'z') as file and directory names.</p> <p>A special case is the root directory itself, which is referred to as just &quot;/&quot;.</p> <p>When a user works with such an OS, one of the directories is chosen as 'current'. Such a designation allows her to refer to the files in that directory without specifying the full path to the current directory. For example, if the current directory is &quot;/home/user/pictures&quot;, then one might refer to the file &quot;/home/user/pictures/me&quot; as just &quot;me&quot; (note that such a short form can be easily spotted by the absence of the starting '/' character). Moreover, the files in subdirectories of the current directory can also be referred to in a short manner: &quot;/home/user/pictures/others/she&quot; can be referred to as &quot;others/she&quot;.</p> <p>And even more exciting is the ability to have short references for files outside the current folder. More specifically, &quot;..&quot; means &quot;the directory one level above the current directory&quot;, &quot;../..&quot; means &quot;the directory two levels above the current directory&quot;, and so on. For example, if the current directory is &quot;/home/user/pictures&quot;, and you want to refer to &quot;/home/top/data/file&quot;, you can express that as &quot;../../top/data/file&quot;.</p> <p>Given a String <b>path</b>, indicating the complete path to the file that needs to be referred to, and a String <b>currentDir</b>, indicating the current directory, return a String that contains the relative path to that file according to the above rules. You should choose the shortest of all possible relative paths (for example, if the current directory is &quot;/home/user/pictures&quot;, you should use &quot;../movies/title&quot; and not &quot;../../user/movies/title&quot; as a pointer to &quot;/home/user/movies/title&quot;).</p> <p>Some files and/or directories may have coinciding names, but it is impossible to have two files or two directories or a file and a directory with the same name inside the same directory, so file and directory paths are not ambiguous. It is guaranteed that the given data describes a valid file and directory according to the above rules. In particular, they will not contradict - for example, <b>path</b>=&quot;/home/user/some&quot; and <b>currentDir</b>=&quot;/home/user/some/other&quot; are a contradiction, since it implies that a file and a directory both named &quot;some&quot; exist inside the directory &quot;/home/user&quot;.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RelativePath</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>makeRelative</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String makeRelative(String path, String currentDir)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A file name never ends with the '/' character. A directory name never ends with the '/' character, with the exception of the root directory, which is specified as just &quot;/&quot;.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>path</b> and <b>currentDir</b> will each contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of <b>path</b> and <b>currentDir</b> will be '/', or a lowercase letter ('a'-'z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>path</b> will contain a valid file path according to the above rules.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>currentDir</b> will contain a valid directory path according to the above rules.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>path</b> and <b>currentDir</b> will not contradict (see the last paragraph of the statement).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;/home/top/data/file&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;/home/user/pictures&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;../../top/data/file&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;/home/user/movies/title&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;/home/user/pictures&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;../movies/title&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">And another one from the statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;/file&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;/&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;file&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Remember about the root directory.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;/a/b/a/b/a/b&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;/a/b/a/a/b/a/b&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;../../../../b/a/b&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Some file and directory names may be the same.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;/root/root/root&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;/root&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;root/root&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Some files and/or directories can be named &quot;root&quot; - but that doesn't make them root directories.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

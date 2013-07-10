@@ -1,0 +1,283 @@
+<html>
+ <head>
+  <title>WalkingDistance Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9924">Problem Statement for WalkingDistance</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A map of the city consists of a number of streets connecting several junctions. All the streets are straight line segments connecting two junctions, organized in such a way that starting at any junction and walking along the streets one can reach any other junction. The walking distance between two points (each either a junction or some intermediate point of a street) in the city is the shortest path from the first point to the second, if you are allowed to walk only along the streets. The length of the street is the Cartesian distance between its ends. Streets never intersect outside the junctions. Tunnels and overpasses are used whenever necessary to achieve this (see example 1 for further clarification).</p> <br /><br /> <p>Given a map of the city, your goal is to find the maximal walking distance among any two points in the city. The map of the city is provided as follows. You are given two int[]s <b>x</b> and <b>y</b>, each of the same length N. These two int[]s represent N junctions with Cartesian coordinates (<b>x</b>[i], <b>y</b>[i]) for i = 0..N-1. You are also given a String[] <b>streets</b>, where the j-th element of <b>streets</b>[i] is 'Y' if the junctions i and j are connected by a street, and 'N' otherwise.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WalkingDistance</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getLongestShortest</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double getLongestShortest(int[] x, int[] y, String[] streets)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Your return value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> and <b>y</b> and <b>streets</b> will each contain between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b>, <b>y</b> and <b>streets</b> will have the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>x</b> and <b>y</b> will be between -1000 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>streets</b> will contain exactly n characters, where n is the number of elements in <b>streets</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>streets</b> will contain only 'N' and 'Y' characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the i-th element of <b>streets</b> will always be 'N'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the j-th element of <b>streets</b> will always be equal to the j-th character of the i-th element of <b>streets</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All junctions represented by <b>x</b> and <b>y</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be a path between every pair of junctions.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NY&quot;,&quot;YN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.4142135623730951</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are just two junctions conntected by a road. So the answer is the length of the street, which is the square root of 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,2,2,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,0,2,2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NNYY&quot;,&quot;NNYY&quot;,&quot;YYNN&quot;,&quot;YYNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4.82842712474619</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Both points on which this maximal shortest distance is achieved have coordinates (1, 1), but they are located on different streets. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,1,0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,0,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NYY&quot;,&quot;YNY&quot;, &quot;YYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.7071067811865475</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The three junctions form a right isosceles triangle. Two points for which the maximal walking distance is achieved are (0,0) and (1/2, 1/2).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 1, 2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0, 1, 2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NYY&quot;, &quot;YNN&quot;, &quot;YNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4.242640687119286</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

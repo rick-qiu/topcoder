@@ -1,0 +1,230 @@
+<html>
+ <head>
+  <title>Thesaurus Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3037">Problem Statement for Thesaurus</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>An entry in a Thesaurus is a list of words that are all synonyms. Each entry contains no duplicates within it. It is possible that two entries might have some common words, but the editors (who are somewhat cheap) have decided that if any two entries have 2 or more words in common then they should be combined into a single entry. <p> This editing process may produce new entries which can be combined. The final Thesaurus must contain no pair of entries that have 2 or more words in common. Of course, each entry must contain no duplicates. </p><p> Create a class Thesaurus that contains a method edit that is given a String[] <b>entry</b>, the entries in the original Thesaurus. The method returns the edited Thesaurus as a String[]. Each element of <b>entry</b> has no leading or trailing spaces and has its words separated by a single space. Each element of the return should also have no leading or trailing spaces and have its words separated by a single space. In addition, the words within each element of the return must be in alphabetical order, and the elements in the return must appear in alphabetical order. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Thesaurus</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>edit</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] edit(String[] entry)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>entry</b> will contain between 1 and 50 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>entry</b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>entry</b> will consist of 1 or more &quot;words&quot; separated by single spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>entry</b> will contain no leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each &quot;word&quot; will consist of 1 or more lowercase letters 'a'-'z'</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No element of <b>entry</b> will contain two identical words.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ape monkey wrench&quot;, &quot;wrench twist strain&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;ape monkey wrench&quot;,  &quot;strain twist wrench&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> These two entries have only one common word so they cannot be combined. After rearranging the words within each entry to put the words into alphabetical order, the first entry is first alphabetically. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ape monkey wrench&quot;, &quot;wrench twist strain&quot;, &quot;monkey twist frugue&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;ape monkey wrench&quot;,  &quot;frugue monkey twist&quot;,  &quot;strain twist wrench&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> No entries could be combined, but two had to be arranged, and the order was changed.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ape monkey wrench&quot;, &quot;wrench twist strain&quot;, &quot;monkey twist frugue strain&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;ape frugue monkey strain twist wrench&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> The first two entries could not be combined, but the last two could. After they were combined, the first entry shared both &quot;wrench&quot; and &quot;monkey&quot; with the new combined entry, so we ended up with just one entry. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;point run score&quot;,&quot;point dot&quot;,&quot;cut run tear score&quot;,&quot;cut valley&quot;,&quot;cute pretty&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;cut point run score tear&quot;,  &quot;cut valley&quot;,  &quot;cute pretty&quot;,  &quot;dot point&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

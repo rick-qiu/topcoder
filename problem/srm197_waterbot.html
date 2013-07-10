@@ -1,0 +1,398 @@
+<html>
+ <head>
+  <title>WaterBot Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2428">Problem Statement for WaterBot</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Every spring, your grandmother plants a garden. Since she is in her later years, she often needs help with watering the plants. Of course, you always offer a helping hand but you also have a more permanent solution. You call your invention &quot;I can't believe it works!&quot;, and it is about to bring a revolution to the garden-watering industry. Your creation is a robot that will water the garden, taking the least time possible. <pre></pre> Your job is to implement part of the software that will guide the robot. The robot may only move and see in the four cardinal directions: North, East, West or South. The garden will be represented by the String[] <b>garden</b>, which consists of digits, dots, a single 'R' and a single 'W' (quotes for clarity). Each digit will represent how many units of water a plant in that location needs. The character '.' marks an empty location, 'R' marks the robot's current location and 'W' marks the location of a well (quotes for clarity). During the robot's travels, it may not step on any plants (that would only upset your grandmother) or the well (that would really make you angry). <pre></pre> Given <b>garden</b> and <b>carryLimit</b>, calculate and return the minimum amount of time needed to water all plants if the robot may only carry at most <b>carryLimit</b> units of water at any time. It takes n time units to water a plant that needs n units of water. In addition, m time units are needed to get m units of water from the well and each step in any direction takes 1 unit of time. The robot can change the direction in which it is facing instantly, taking zero time units. The robot may only water a plant if it is directly next to it; the same requirement must be met when taking water from the well. Finally, the robot may water only one plant at a time. If it is impossible to water all plants, return -1.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WaterBot</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minTime</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minTime(String[] garden, int carryLimit)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Initially, the robot is holding zero units of water.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The robot may not step out of the garden at any time.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>garden</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>garden</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements in <b>garden</b> will be of the same size.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>garden</b> may only contain the following characters: 'W', 'R', '.', '1', '2', '3', '4', '5' (quotes for clarity).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>garden</b> will contain exactly one occurrence of 'R' and 'W'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>garden</b> will contain between 0 and 4 digits, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>carryLimit</b> will be between 1 and 5, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;5....&quot;,
+ &quot;.....&quot;,
+ &quot;.....&quot;,
+ &quot;.....&quot;,
+ &quot;...RW&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 16</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The robot begins its journey next to the well. It takes 5 units of time to collect 5 units of water. Then, it takes 6 units of time to move to the only plant that needs watering. At last, the robot will water the plant for 5 units of time. The total time required is 16 units.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;3.2..&quot;,
+ &quot;.....&quot;,
+ &quot;.....&quot;,
+ &quot;....R&quot;,
+ &quot;....W&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 16</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Once again, the robot is next to the well. The most efficient schedule is to collect 5 units of water, then water both plants without returning to the well.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.5555&quot;,
+ &quot;.....&quot;,
+ &quot;.....&quot;,
+ &quot;....R&quot;,
+ &quot;....W&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 85</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;R.....55&quot;,
+ &quot;......55&quot;,
+ &quot;........&quot;,
+ &quot;........&quot;,
+ &quot;........&quot;,
+ &quot;.......W&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The robot cannot reach the top-right plant without stepping on at least one other plant.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;R.......&quot;,
+ &quot;........&quot;,
+ &quot;....5...&quot;,
+ &quot;...5W5..&quot;,
+ &quot;....5...&quot;,
+ &quot;........&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The robot cannot get any water from the well.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.1&quot;,
+ &quot;.2&quot;,
+ &quot;.3&quot;,
+ &quot;.4&quot;,
+ &quot;R.&quot;,
+ &quot;W.&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 28</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;R....&quot;,
+ &quot;.....&quot;,
+ &quot;.....&quot;,
+ &quot;.....&quot;,
+ &quot;....W&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are no plants to water here.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

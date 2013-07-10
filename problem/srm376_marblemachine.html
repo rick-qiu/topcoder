@@ -1,0 +1,239 @@
+<html>
+ <head>
+  <title>MarbleMachine Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8045">Problem Statement for MarbleMachine</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You have built a moving sculpture containing several devices that move marbles around on a grid. Each device occupies a single square on the grid and repeatedly executes a sequence of actions. The possible actions are:</p> 
+      <ul>
+       <li>Digits 0-9: Bring up 0-9 marbles from the central store (which never runs out of marbles) and place them on the square.</li> 
+       <li>N,E,S,W: Move all the marbles on the square one square North, East, South, or West. If this causes the marbles to leave the grid, they will be removed and placed back in the central store.</li> 
+       <li>D: Remove all the marbles from the square and drop them back into the central store.</li>
+      </ul> <p>Each device has its own sequence of actions, and different devices may have sequences of different lengths. At time 0, each device executes its first action, at time 1, each device executes its second action, etc. When a device reaches the end of its sequence, it starts again at the beginning of the sequence.</p> <p>&nbsp;</p> <p>During each unit of time, all actions happen simultaneously and only operate on marbles on the squares at the beginning of that time unit. For example, suppose there is one marble on square (0, 0) and one on square (1, 0). Now suppose the first square's action is 'E' and the second square's action is 'D'. At the end of this time unit, the first square will have 0 marbles and the second will have 1. The second square drops the marble that it had at the beginning of the time unit, but it does not drop the marble that arrives from the first square during that time unit.</p> <p>&nbsp;</p> <p>You are given a String[] <b>actions</b>, the i-th element of which is the action sequence for a device of type i (where i is a 0-based index). You are also given a String[] <b>layout</b>, where the j-th character of the i-th element is a digit representing the type of device located in row i, column j of the grid. Rows are numbered in increasing order from North to South, and columns are numbered in increasing order from West to East. Return the maximum number of marbles that exist on a single square after <b>t</b> time units have passed.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MarbleMachine</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>maxMarbles</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long maxMarbles(String[] layout, String[] actions, int t)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>layout</b> will contain between 1 and 8 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>layout</b> will contain between 1 and 8 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>layout</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>layout</b> will contain only digits between 0 and n-1, inclusive, where n is the number of elements in actions.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>actions</b> will contain between 1 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>actions</b> will contain between 1 and 6 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>actions</b> will contain only digits ('0'-'9') and the characters 'N', 'E', 'S', 'W' and 'D'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>t</b> will be between 1 and 100,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;0101&quot;,
+&quot;1010&quot;,
+&quot;0101&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;4&quot;,&quot;5353&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 21</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Devices of type 0 are simple; they pull up 4 marbles on each turn. Over 5 cycles, this is 20 marbles. Devices of type 1 will complete just over 1 cycle in this time - pulling up a total of 5+3+5+3+5=21 marbles. So the maximum marbles at any position will be 21 (which occurs at each location with a device of type 1).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;011112&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1E&quot;,&quot;E&quot;,&quot;0&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 498</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This structure functions as a kind of conveyor belt. At the left, the device of type 0 alternately grabs one marble and pushes it East. The devices of type 1 move the marble along to the East until they reach the device of type 2, which accumulates the marbles. After 1000 cycles, 500 marbles have been brought up. 2 are still on the &quot;conveyor belt&quot;, and 498 are on the square at the East end. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;01&quot;,
+&quot;32&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1E&quot;,&quot;SSDSS&quot;,&quot;W&quot;,&quot;00000W&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>23</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This machine delivers marbles to the Southwest corner, from which they are periodically dumped off the West edge. The Northeast corner also occasionally loses its marbles.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

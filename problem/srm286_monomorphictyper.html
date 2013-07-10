@@ -1,0 +1,397 @@
+<html>
+ <head>
+  <title>MonomorphicTyper Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=5898">Problem Statement for MonomorphicTyper</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Given an expression, we must determine its type. Expressions are formatted as follows: </p> 
+      <ul> 
+       <li><tt>&lt;expression&gt; ::= &lt;constant&gt; | &lt;function&gt;(&lt;args&gt;)</tt></li> 
+       <li><tt>&lt;args&gt; ::= &lt;expression&gt; | &lt;expression&gt;,&lt;args&gt;</tt></li> 
+       <li><tt>&lt;constant&gt; ::= &lt;identifier&gt;</tt></li> 
+       <li><tt>&lt;function&gt; ::= &lt;identifier&gt;</tt></li> 
+       <li><tt>&lt;identifier&gt; ::= </tt>between 1 and 10 letters (<tt>'a'-'z'</tt>, <tt>'A'-'Z'</tt>), inclusive</li> 
+      </ul> <p> Some examples of valid expressions are <tt>&quot;x&quot;</tt>, <tt>&quot;upper(x)&quot;</tt>, <tt>&quot;ord(upper(x))&quot;</tt>, <tt>&quot;succ(succ)&quot;</tt>, <tt>&quot;fst(x,x)&quot;</tt>. </p> <p> To aid us in determining the type of an expression, we are given a list of type definitions. Each element of the String[] <b>definitions</b> is formatted as follows: </p>
+      <ul> 
+       <li><tt>&lt;definition&gt; ::= &lt;type_expression&gt;:&lt;type_name&gt;</tt></li> 
+       <li><tt>&lt;type_expression&gt; ::= &lt;constant&gt; | &lt;function&gt;(&lt;type_args&gt;)</tt></li> 
+       <li><tt>&lt;type_args&gt; ::= &lt;type_name&gt; | &lt;type_name&gt;,&lt;type_args&gt;</tt></li> 
+       <li><tt>&lt;type_name&gt; ::= &lt;identifier&gt;</tt></li> 
+      </ul> <p></p> <p> For example: </p>
+      <ul> 
+       <li><tt>&quot;x:Char&quot;</tt> means that the constant <tt>&quot;x&quot;</tt> has type <tt>&quot;Char&quot;</tt>.</li> 
+       <li><tt>&quot;succ(Int):Int&quot;</tt> means that the function named <tt>&quot;succ&quot;</tt> that takes a parameter of type <tt>&quot;Int&quot;</tt> has type <tt>&quot;Int&quot;</tt>.</li> 
+       <li><tt>&quot;upper(Char):Char&quot;</tt> means that the function named <tt>&quot;upper&quot;</tt> that takes a parameter of type <tt>&quot;Char&quot;</tt> has type <tt>&quot;Char&quot;</tt>.</li> 
+       <li><tt>&quot;ord(Char):Int&quot;</tt> means that the function named <tt>&quot;ord&quot;</tt> that takes a parameter of type <tt>&quot;Char&quot;</tt> has type <tt>&quot;Int&quot;</tt>.</li> 
+       <li><tt>&quot;fst(Int,Int):Int&quot;</tt> means that the function named <tt>&quot;fst&quot;</tt> that takes two parameters, both of type <tt>&quot;Int&quot;</tt>, has type <tt>&quot;Int&quot;</tt>.</li> 
+      </ul> <p></p> <p> In general, <tt>&quot;&lt;constant&gt;:&lt;type_name&gt;&quot;</tt> means that the constant named <tt>&lt;constant&gt;</tt> will have type <tt>&lt;type_name&gt;</tt>, and <tt>&quot;&lt;function&gt;(&lt;type_args&gt;):&lt;type_name&gt;&quot;</tt> means that the function named <tt>&lt;function&gt;</tt> will have type <tt>&lt;type_name&gt;</tt> if and only if its argument types match <tt>&lt;type_args&gt;</tt> exactly (the same number of arguments, with the types in the exact order given). </p> <p> Using these example definitions, we can determine the types of three of the example expressions given above. <tt>&quot;x&quot;</tt> has type <tt>&quot;Char&quot;</tt>, <tt>&quot;upper(x)&quot;</tt> has type <tt>&quot;Char&quot;</tt>, and <tt>&quot;ord(upper(x))&quot;</tt> has type <tt>&quot;Int&quot;</tt>. We cannot determine the type of <tt>&quot;succ(succ)&quot;</tt> because all we know is that a function named <tt>&quot;succ&quot;</tt> has type <tt>&quot;Int&quot;</tt> if its argument is of type <tt>&quot;Int&quot;</tt>. In this case, we cannot determine the type of its argument. We cannot determine the type of <tt>&quot;fst(x,x)&quot;</tt> because all we know is that <tt>&quot;fst&quot;</tt> is of type <tt>&quot;Int&quot;</tt> if its two arguments are of type <tt>&quot;Int&quot;</tt>. In this case, both arguments are of type <tt>&quot;Char&quot;</tt>. </p> <p> Given a String <b>expression</b> and a String[] <b>definitions</b>, return the type of <b>expression</b>. If the type cannot be determined using the given definitions, return an empty String (&quot;&quot;). </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MonomorphicTyper</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>infer</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String infer(String expression, String[] definitions)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All identifiers used are case-sensitive, i.e., &quot;a&quot; is not the same identifier as &quot;A&quot;.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>expression</b> will be a valid expression (as described in the problem statement).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>expression</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>definitions</b> will contain between 0 and 20 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>definitions</b> will contain between 3 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>definitions</b> will be a valid definition (as described in the problem statement); they will contain no spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>definitions</b> will contain no duplicate <tt>&lt;function&gt;</tt>s and no duplicate <tt>&lt;constant&gt;</tt>s.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No <tt>&lt;function&gt;</tt> in <b>definitions</b> will have the same name as a <tt>&lt;constant&gt;</tt> in <b>definitions</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;x&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;x:Char&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Char&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>definitions</b> tells us that a constant with the name <tt>&quot;x&quot;</tt> has type <tt>&quot;Char&quot;</tt>. <b>expression</b> is a constant named <tt>&quot;x&quot;</tt>, so we know that its type is <tt>&quot;Char&quot;</tt>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;upper(x)&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;x:Char&quot;,&quot;upper(Char):Char&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Char&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>expression</b> is a function named <tt>&quot;upper&quot;</tt> that takes a constant named <tt>&quot;x&quot;</tt> as an argument. According to the <b>definitions</b>, a constant named <tt>&quot;x&quot;</tt> has type <tt>&quot;Char&quot;</tt>, and a function named <tt>&quot;upper&quot;</tt> that takes an argument of type <tt>&quot;Char&quot;</tt> has type <tt>&quot;Char&quot;</tt>. Therefore, we know that the type of <tt>&quot;upper(x)&quot;</tt> is <tt>&quot;Char&quot;</tt>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;ord(upper(letter))&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ord(Char):Int&quot;,&quot;upper(Char):Char&quot;,&quot;letter:Char&quot;,&quot;Letter:String&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Int&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, the argument to the outer function <tt>&quot;ord&quot;</tt> is a function named &quot;upper&quot;, which takes a constant named <tt>&quot;letter&quot;</tt> as its argument. Using the logic from the previous example, we can determine that <tt>&quot;upper(letter)&quot;</tt> has type <tt>&quot;Char&quot;</tt>. This means that the function <tt>&quot;ord&quot;</tt> in our expression is given an argument of type <tt>&quot;Char&quot;</tt>. We can therefore conclude that the expression has type <tt>&quot;Int&quot;</tt>. Note also that <tt>&quot;letter&quot;</tt> and <tt>&quot;Letter&quot;</tt> are different constants (with different types).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;id(id)&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;id(Int):Int&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>expression</b> is a function named <tt>&quot;id&quot;</tt> that takes a constant named <tt>&quot;id&quot;</tt> as an argument. <b>definitions</b> contains no type definition for a constant named <tt>&quot;id&quot;</tt>, so we cannot determine the type of the expression.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;f(unknown)&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;f(A):B&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The constant passed as a parameter has no declared type.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;fst(zero)&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;fst(Int,Int):Int&quot;,&quot;zero:Int&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The definition of <tt>&quot;fst&quot;</tt> takes two <tt>&quot;Int&quot;</tt> parameters, but only one is provided in the expression.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;Func(Int,Char,a)&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;Int:Char&quot;, &quot;Func(Char,Char,Int):Int&quot;, &quot;Char:Char&quot;, &quot;a:Int&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Int&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Function and constant names are not the same as type names. The expression is well-typed and has type <tt>&quot;Int&quot;</tt>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

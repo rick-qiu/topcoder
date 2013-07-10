@@ -1,0 +1,293 @@
+<html>
+ <head>
+  <title>SwimmersDelight Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4821">Problem Statement for SwimmersDelight</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You want to cross a river 10 feet wide and there are 2 stones in the water you can jump on. A few jumps are needed, but your only concern is the longest one. This is obviously the most problematic, so you wish to choose a path that makes this jump as small as possible. <br /><br /><br /><br /> The length of a jump between two stones of coordinates (x1,y1) and (x2,y2) is defined as the Euclidian distance: <br /><br /> <pre>  sqrt((x1 - x2) * (x1 - x2)  +  (y1 - y2) * (y1 - y2))</pre> <br /><br /> You will be given a int[] <b>x</b> and a int[] <b>y</b> with exactly 2 elements each, representing the coordinates of the stones: (x[i],y[i]) is the location of the i-th stone. The edge of the shore on which you initially stand has an x-value of 0 and could take any y-value. Thus, the minimal distance between the shore and the first stone you jump on is the x-value in the location of that stone. The edge of the other shore has an x-value of 10 and could take any y-value as well. <br /><br /><br /><br /> Return the distance of the longest jump you need to make, rounded to the nearest integer. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SwimmersDelight</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>longestJump</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int longestJump(int[] x, int[] y)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You may jump on the 2 stones in any order, or just on one stone.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> and <b>y</b> will each contain 2 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All values in <b>x</b> are between 1 and 9, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All values in <b>y</b> are between 0 and 10, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The two stones are not in the same location.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No actual distance will be more than 1e-4 close to some integer + 0.5.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3,7}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5,5}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The three stones are arranged in a line, so the strategy is quite simple here: you first jump on the stone at (3,5), then on the stone at (7,5) and you finally reach the other shore at (10,5). The longest jump has a length of 4 feet: from (3,5) to (7,5). <br /><br /> If you like to play around, you can follow the path (0,5) - (7,5) - (3,5) - (10,5), but this is not optimal since you have to make a jump of 7 feet! <br /><br /> Thus, the correct answer is 4. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3,6}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5,2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The path you should take is (0,5) - (3,5) - (6,2) - (10,2). Between (3,5) and (6,2) there is a distance of sqrt(3*3 + 3*3) = 4.2426. There are no jumps longer than this and because the answer is rounded to the nearest integer, you should return 4.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{4,6}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If you can jump 9 feet at once, chances are you are also a good swimmer ...</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3,8}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,10}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Only the stone at (3,0) is used in this case. The stone at (8,10) is more than 7 feet away from both the shore and the stone at (3,0). </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{4,2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5,5}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The river can be a good initiation in the triple-jump technique. But you can also skip the stone at (2,5), as you need to take a 6 feet jump anyway.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

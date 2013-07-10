@@ -1,0 +1,347 @@
+<html>
+ <head>
+  <title>TwoConvexShapes Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11492">Problem Statement for TwoConvexShapes</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A platypus has been given the mission to paint the cells on a grid either black or white according to the following two conditions:<br /><br /> <br /><br /> 
+      <ul>
+       <li>For each color, all cells of that color must be connected. Formally, a pair of cells of color X is connected if there is a path of adjacent cells of color X between them. (Two cells are adjacent if they share a common edge.) We require that for each color, each pair of cells of that color must be connected.</li> 
+       <li>All the cells of each color must form a convex shape. A group of cells of a given color is convex if in each row and each column the cells of that color form a connected segment (possibly taking the whole row or column). In other words, whenever two cells of the same color share the same row or the same column, all cells between them must also have that particular color.</li> 
+      </ul> The platypus is also allowed to paint the grid completely white or black.<br /><br /> <br /><br /> The platypus may have already painted some of the cells. The current state of the grid is given as a String[] <b>grid</b>. The i-th character of the j-th element of <b>grid</b> that represents the cell at row j, column i is 'W' if it has been painted white, 'B' if it has been painted black, and '?' if it does not have a color yet. Let X be the number of different ways how to color the rest of the grid according to the above conditions. Return the value X modulo 1000000007 (10^9 + 7). Two ways to color a grid are different if the color of at least one cell differs. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TwoConvexShapes</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>countWays</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int countWays(String[] grid)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>grid</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Element 0 of <b>grid</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The remaining elements of <b>grid</b> will contain the same number of characters as element 0.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>grid</b> will be one of 'B', 'W', and '?' (quotes for clarity).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;??&quot;,
+ &quot;??&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Of all the 16 different ways to color the grid, only the following 2 are <i>not</i> valid. <pre>
+BW WB
+WB BW
+</pre> <p>This is because cells of the same color are not connected.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;B?&quot;,
+ &quot;??&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The following seven ways to color the grid are correct: <pre>
+BB BW BB BW BB BB BW
+BB BW WW WW WB BW BB
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;WWB&quot;,
+ &quot;WWW&quot;,
+ &quot;WWW&quot;,
+ &quot;WWW&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All colors have already been picked. The only possible coloring is already valid.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BBBBBB&quot;,
+ &quot;WWBBBB&quot;,
+ &quot;WBBBBB&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This coloring of the grid is not valid, the black cells do not form a convex shape.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?BB?&quot;,
+ &quot;BBBB&quot;,
+ &quot;?BB?&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;B?WWWWWWWWWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BB?WWWWWWWWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBB?WWWWWWWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBB?WWWWWWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBB?WWWWWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBB?WWWWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBB?WWWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBB?WWWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBB?WWWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBB?WWWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBB?WWWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBB?WWWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBB?WWWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBB?WWWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBB?WWWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBB?WWWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBB?WWWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBB?WWWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBB?WWWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBB?WWWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBB?WWWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBBB?WWWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBBBB?WWWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBBBBB?WWWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBBBBBB?WWWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBBBBBBB?WWWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBBBBBBBB?WWW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBBBBBBBBB?WW&quot;,
+ &quot;BBBBBBBBBBBBBBBBBBBBBBBBBBBBB?W&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 73741817</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Each of the 2^30 ways to color the remaining cells in the grid is valid.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

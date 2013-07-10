@@ -1,0 +1,307 @@
+<html>
+ <head>
+  <title>InstantRunoffVoting Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8607">Problem Statement for InstantRunoffVoting</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Instant run-off voting is a system for selecting the most preferred candidate in an election. At the beginning of the process, each voter ranks the candidates from most preferred to least preferred. A series of automated voting rounds are then held to determine the overall winner.</p> <p>In each round, each voter casts a single vote for his most preferred remaining candidate. If a candidate receives strictly more than 50% of the votes cast in that round, that candidate is declared the winner of the election. Otherwise, the candidate with the fewest votes in that round is eliminated, and another round is held. If multiple candidates are tied for the least number of votes, they are all eliminated. If all the candidates are eliminated, the election ends without a winner.</p> <p>You are given the preferences of the voters in an election, and you must determine the outcome. There are N candidates numbered 0 to N-1, inclusive. The preferences are given in a String[] <b>voters</b>, where each element describes the preferences of a single voter. This is a permutation of the digits 0 to N-1 in decreasing order of preference. In other words, the first digit is the voter's most preferred candidate, the second digit is his second most preferred candidate, and so on. Return the number of the candidate who wins the election, or -1 if the election ends without a winner.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>InstantRunoffVoting</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>winner</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int winner(String[] voters)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>voters</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>voters</b> will contain between 1 and 10 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>voters</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>voters</b> will be a permutation of the digits between 0 and N-1, where N is the number of characters in each element of <b>voters</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;01&quot;,&quot;10&quot;,&quot;01&quot;,&quot;01&quot;,&quot;10&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In the first round, candidate 0 gets 3 votes and candidate 1 gets 2 votes, so candidate 0 wins.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;120&quot;,&quot;102&quot;,&quot;210&quot;,&quot;021&quot;,&quot;012&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Nobody gets an absolute majority in the first round and candidate 2 is eliminated. Candidate 1 then receives 3 votes in the next round, giving an absolute majority.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;10&quot;,&quot;01&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Each candidate gets 1 vote, so nobody can be declared winner.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;3120&quot;,&quot;3012&quot;,&quot;1032&quot;
+,&quot;3120&quot;,&quot;2031&quot;,&quot;2103&quot;
+,&quot;1230&quot;,&quot;1230&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Candidate 0 is eliminated in the first round of voting. Candidate 2 is eliminated in the second round. In the third round, candidates 1 and 3 get 4 votes each. Neither candidate receives an absolute majority, and they are both eliminated for having the least number of votes, so the election ends without a winner.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;24103&quot;,&quot;30412&quot;,&quot;32014&quot;,&quot;21043&quot;,&quot;30412&quot;
+,&quot;32401&quot;,&quot;14203&quot;,&quot;04123&quot;,&quot;30241&quot;,&quot;02413&quot;
+,&quot;13042&quot;,&quot;01432&quot;,&quot;01342&quot;,&quot;32401&quot;,&quot;24301&quot;
+,&quot;12430&quot;,&quot;41023&quot;,&quot;02413&quot;,&quot;42310&quot;,&quot;12043&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0649853172&quot;,&quot;2146875039&quot;,&quot;2671548309&quot;
+,&quot;5897216403&quot;,&quot;4719823056&quot;,&quot;7945213860&quot;
+,&quot;9021538647&quot;,&quot;9286145307&quot;,&quot;9176403528&quot;
+,&quot;3709486152&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

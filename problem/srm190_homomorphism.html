@@ -1,0 +1,279 @@
+<html>
+ <head>
+  <title>Homomorphism Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2363">Problem Statement for Homomorphism</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A binary string is a non-empty finite sequence of 0's and 1's. Given two binary strings, <i>u</i> and <i>v</i>, their concatenation, <i>u</i> * <i>v</i>, is defined to be the binary string obtained by appending <i>v</i> to the end of <i>u</i>. For example, if <i>u</i> = 01100 and <i>v</i> = 110, then <i>u</i> * <i>v</i> = 01100110.</p> <p>Consider a function, <i>h</i>, that maps binary strings to other binary strings. Suppose that for every string <i>u</i> with digits <i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, ..., <i>a</i><sub>k</sub> in that order, it is true that <i>h</i>(<i>u</i>) = <i>h</i>(<i>a</i><sub>1</sub>) * <i>h</i>(<i>a</i><sub>2</sub>) * ... * <i>h</i>(<i>a</i><sub>k</sub>). Then, <i>h</i> is called a <i>non-degenerate homomorphism</i>. In general, this means that <i>h</i> is uniquely determined by the values of <i>h</i>(0) and <i>h</i>(1). For example, if <i>h</i>(0) = 001, and <i>h</i>(1) = 10, then, </p>
+      <ul> 
+       <li>- <i>h</i>(110) = <i>h</i>(1) * <i>h</i>(1) * <i>h</i>(0) = 1010001.</li> 
+       <li>- <i>h</i>(00) = <i>h</i>(0) * <i>h</i>(0) = 001001.</li> 
+       <li>- <i>h</i>(0101) = <i>h</i>(0) * <i>h</i>(1) * <i>h</i>(0) * <i>h</i>(1) = 0011000110.</li> 
+      </ul><p></p> <p>Create a class Homomorphism that contains a method count, which is a given a String <b>u</b> and a String <b>v</b>. The method should return the number of distinct non-degenerate homomorphisms, <i>h</i>, which satisfy <i>h</i>(<b>u</b>) = <b>v</b>. If there are infinitely many such non-degenerate homomorphisms, the method should return -1.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Homomorphism</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>count</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int count(String u, String v)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Two non-degenerate homomorphisms, <i>h</i> and <i>h'</i> are considered distinct if and only if <i>h</i>(<i>u</i>) is different from <i>h'</i>(<i>u</i>) for at least one binary string, <i>u</i>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>u</b> and <b>v</b> will each contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in both <b>u</b> and <b>v</b> will be either '0' or '1'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;10&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;11001&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Since <i>h</i>(0) and <i>h</i>(1) cannot be empty strings, there are precisely 4 legal non-degenerate homomorphisms: <br /><br /> <br /><br /> 1. <i>h</i>(1) = 1 and <i>h</i>(0) = 1001.<br /><br /> 2. <i>h</i>(1) = 11 and <i>h</i>(0) = 001.<br /><br /> 3. <i>h</i>(1) = 110 and <i>h</i>(0) = 01.<br /><br /> 4. <i>h</i>(1) = 1100 and <i>h</i>(0) = 1.<br /><br /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;00&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;11111&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If <i>h</i> is a valid non-degenerate homomorphism, then <i>h</i>(00) = <i>h</i>(0) * <i>h</i>(0), which implies that <i>h</i>(00) has an even length. Thus, there are no non-degenerate homomorphisms satisfying <i>h</i>(00) = 11111.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;11&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;00&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Any non-degenerate homomorphism, <i>h</i>, satisfying <i>h</i>(1) = 0 will also satisfy <i>h</i>(11) = 00. This leaves no restrictions at all on <i>h</i>(0), so there are an infinite number of such non-degenerate homomorphisms.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;001&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1010001&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The unique non-degenerate homomorphism, <i>h</i>, satisfying <i>h</i>(001) = 1010001 is given by <i>h</i>(0) = 10 and <i>h</i>(1) = 001.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;101&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;11111111111111111111111111111111111111111111111111&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 24</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

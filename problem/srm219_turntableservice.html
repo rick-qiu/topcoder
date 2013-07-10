@@ -1,0 +1,243 @@
+<html>
+ <head>
+  <title>TurntableService Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3117">Problem Statement for TurntableService</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You are out for Chinese food with a bunch of friends. You are all sitting at a round table, and in the center of the table is a turntable onto which all of the entrees are placed. There is one entree immediately in front of each of you.</p> <p>Each of you likes certain items, given as a String[] <b>favorites</b>, each element of which is a space delimited list of integers. Each integer corresponds to an entree, where 0 is the entree initially in front of person 0, etc. Element i of <b>favorites</b> contains the indexes of all the entrees that person i likes. </p> <p>The turntable rotates in either direction. When someone is serving himself, he can only take from the entree that is directly in front of him. However, he is not required to take the entree presented to him, even if it is one of his favorites.</p> <p>It takes 2 seconds to rotate the turntable by one position. But, to rotate it by two positions takes 3 seconds, and in general it takes <i>n</i>+1 seconds to rotate the turntable by <i>n</i> positions. It takes 15 seconds for a person to serve himself the entree in front of him. If multiple people have favorite entrees in front of them, they can serve themselves simultaneously. The turntable cannot be rotated while anyone is serving himself.</p> <p>You are to return an int indicating the minimum number of seconds it takes for each person to have served himself one entree.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TurntableService</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>calculateTime</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int calculateTime(String[] favorites)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You may assume that each of the entrees on the turntable is unique.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>favorites</b> will contain between 1 and 15 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>favorites</b> will be a list of integers, separated by a single space, with no leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>favorites</b> will contain only digits ('0'-'9') and spaces (' ').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>favorites</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each number in each element of <b>favorites</b> will be between 0 and n - 1, inclusive, where n is the number of elements in <b>favorites</b>. Leading zeros are permitted, and numbers may be repeated.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 2&quot;, &quot;1&quot;, &quot;0 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 32</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first two people serve themselves immediately (15 seconds). Then, we have to turn the turntable one unit, in either direction (2 seconds), so the last person can serve himself (another 15 seconds). This takes 32 seconds.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0&quot;, &quot;0&quot;, &quot;0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 49</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, each person only likes one entree, so they have to be served one at a time. Three servings (15 seconds each) and two single-unit rotations (2 seconds each) takes a total of 49 seconds.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;4&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 50</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">First, the middle three people take their entrees (15 seconds). Then, we rotate one unit--either way (2 seconds), serve the entree (15 seconds), and then rotate back two units (3 seconds) and serve the last person (15 seconds). All together this takes 50 seconds.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 004&quot;, &quot;2 3&quot;, &quot;0 01&quot;, &quot;1 2 3 4&quot;, &quot;1 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 35</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note here that leading zeros are permitted, and that elements may contain repeats.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

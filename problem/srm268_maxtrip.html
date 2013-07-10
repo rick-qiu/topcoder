@@ -1,0 +1,199 @@
+<html>
+ <head>
+  <title>MaxTrip Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4677">Problem Statement for MaxTrip</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You have won a collection of tickets on luxury cruisers. Each ticket can be used only once, but can be used in either direction between the 2 cities printed on the ticket. Your prize gives you free airfare to any city to start your cruising, and free airfare back home from wherever you finish your cruising. <p> You love to sail and don't want to waste any of your free tickets. How many additional tickets would you have to buy so that your cruise can use all of your tickets? </p><p> Create a class MaxTrip that contains a method minBuy that is given Strings <b>portA</b> and <b>portB</b> and that returns the smallest number of additional tickets that can be purchased to allow you to use all of your free tickets. Each position in <b>portA</b> and <b>portB</b> corresponds to one free ticket, allowing you to travel either way between the cities denoted by the corresponding character in <b>portA</b> and in <b>portB</b>. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MaxTrip</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minBuy</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minBuy(String portA, String portB)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>portA</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>portB</b> will contain the same number of characters as <b>portA</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>portA</b> and <b>portB</b> will contain only uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AAX&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CBY&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> You have 3 free tickets, one between A and C, one between A and B, and one between X and Y. You can use all of these tickets if you purchase one additional ticket. One way is to buy a ticket between C and X. Now your cruise could start at B, go from B to A using your 2nd free ticket, then from A to C using your first free ticket, then from C to X using your purchased ticket, and finally from X to Y using your 3rd free ticket. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AAAAA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CBXYQ&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> One plan is to cruise from C to A to B to Q (using a purchased ticket) to A to X to A (using a purchased ticket) to Y. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AB&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;AB&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Your 2 free tickets are circle cruises that end at the same port that they debark from. To use both of them, you will need to purchase a ticket that goes between A and B.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

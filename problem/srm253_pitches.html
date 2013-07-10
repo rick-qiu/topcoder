@@ -1,0 +1,329 @@
+<html>
+ <head>
+  <title>Pitches Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4667">Problem Statement for Pitches</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> A struggling baseball pitcher is hoping to improve his results by analyzing the statistics of how various batters perform against each of his two types of pitches: his &quot;fast ball&quot; and his &quot;curve ball&quot;. He has developed a model to help him decide which pitch to select in any given circumstance. </p> <p> In the game of baseball (slightly simplified for this problem), each pitch thrown will result in one of three outcomes: a &quot;strike&quot;, a &quot;ball&quot;, or a &quot;hit&quot;. If a batter ever gets a hit or accumulates 4 balls before accumulating 3 strikes, this is a victory for the batter. However, if he gets 3 strikes first, this is a victory for the pitcher. The running count of balls and strikes is collectively referred to as the &quot;count&quot;. </p> <p> For this analysis, both the pitcher and batter are modelled as having a table of probabilities computed before the game. For each of the 12 possible counts, the pitcher has a probability for selecting to throw a curve ball instead of a fast ball. Similarly, for each possible count, the batter has a probability for <i>expecting</i> the pitcher to throw a curve ball. Before each pitch, the pitcher randomly selects which pitch to throw and the batter randomly selects which pitch to expect strictly according to the probabilities in the table for the current count. </p> <p> Computing the optimal values for the probabilities in this table depends on the statistics for how the batter performs for each of the 4 possible combinations of thrown and expected pitches. These statistics will be provided by an 8-element double[], <b>stats</b>, in the following form: </p> <pre>
+
+    pitcher throws   batter expects   ball      strike    hit
+    --------------   --------------   --------  --------  -----------------------
+    fast ball        fast ball        stats[0]  stats[1]  1 - (stats[0]+stats[1])
+    fast ball        curve ball       stats[2]  stats[3]  1 - (stats[2]+stats[3])
+    curve ball       fast ball        stats[4]  stats[5]  1 - (stats[4]+stats[5])
+    curve ball       curve ball       stats[6]  stats[7]  1 - (stats[6]+stats[7])
+</pre> <p> The pitcher attempts to maximize his chance of getting 3 strikes, knowing that the batter will be attempting to maximize his chance of getting 4 balls or a hit. For a given count, the optimal probability for the pitcher to throw a curve ball is the probability that minimizes the batter's ability to succeed. Similarly, the optimal probability for the batter to expect a curve ball is the probability that minimizes the pitcher's ability to succeed. In other words, the optimal pair of probabilities for a given count are such that if either the pitcher's or the batter's probability were to change, the other would be able to improve their chances by changing their probability as well. The optimal pair of probabilities forms an equilibrium, where neither the batter nor the pitcher can improve their chances if the other does not change their probability. </p> <p> For example, consider the following (unrealistic) statistics: { 0, 0, 0, 1, 0, 1, 0, 0 }, with a count of 3 balls and 2 strikes. In this case, if the batter expects the same pitch that the pitcher throws, he will get a hit, otherwise, it will be a strike. The optimal probabilities are for both the pitcher and batter to select a curve ball exactly 50% of the time. 50% is optimal for the pitcher because if he were to prefer one pitch or the other, the batter could improve his performance by preferring that same pitch. Similarly, 50% is optimal for the batter because if he preferred one pitch or the other, the pitcher would be able to take advantage of that fact by preferring the opposite pitch. </p> <p> Given the statistics in the format described above as a double[] <b>stats</b> and the current number of <b>balls</b> and <b>strikes</b>, compute the probability that the pitcher will get a total of 3 strikes before the batter gets a hit or a total of 4 balls. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Pitches</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>strikeOut</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>double[], int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double strikeOut(double[] stats, int balls, int strikes)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Your return value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>stats</b> will contain exactly 8 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>stats</b> will be between 0.0 and 1.0, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>stats[0]</b> + <b>stats[1]</b> will be less than or equal to 1.0.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>stats[2]</b> + <b>stats[3]</b> will be less than or equal to 1.0.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>stats[4]</b> + <b>stats[5]</b> will be less than or equal to 1.0.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>stats[6]</b> + <b>stats[7]</b> will be less than or equal to 1.0.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>balls</b> will be between 0 and 3, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>strikes</b> will be between 0 and 2, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 0, 0,
+  0, 1,
+  0, 1,
+  0, 0 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example in the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 0.375, 0.25,
+  0.375, 0.25,
+  0.375, 0.25, 
+  0.375, 0.25 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.39208984375</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 0.33, 0,
+  0, 1,
+  0.44, 0,
+  0, 1 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">It doesn't matter which pitch the pitcher throws; if the batter expects a fast ball, he will always get a ball or a hit.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 0, 1,
+  0, 1,
+  0, 0,
+  0, 0 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">It doesn't matter which pitch the batter expects; if the pitcher throws a fast ball, he will always get a strike.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 0, 0.4,
+  0.05, 0.75,
+  0.2, 0.7,
+  0.85, 0.1 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.32194802205218886</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

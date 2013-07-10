@@ -1,0 +1,335 @@
+<html>
+ <head>
+  <title>JohnnysPhone Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7967">Problem Statement for JohnnysPhone</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Little Johnny loves sending text messages to his friends. Recently, he bought himself a cool new phone (an Eric-Sonnicson F198-EX32 with MP3 player, GPS navigation, built-in washing machine, and many other features). Johnny's favorite feature is a T9 dictionary that simplifies typing. Here's how T9 works. The 26 letters of the alphabet are assigned to the phone's keypad as follows: 
+      <ul> 
+       <li>2 - <i>a</i>, <i>b</i>, <i>c</i></li> 
+       <li>3 - <i>d</i>, <i>e</i>, <i>f</i></li> 
+       <li>4 - <i>g</i>, <i>h</i>, <i>i</i></li> 
+       <li>5 - <i>j</i>, <i>k</i>, <i>l</i></li> 
+       <li>6 - <i>m</i>, <i>n</i>, <i>o</i></li> 
+       <li>7 - <i>p</i>, <i>q</i>, <i>r</i>, <i>s</i></li> 
+       <li>8 - <i>t</i>, <i>u</i>, <i>v</i></li> 
+       <li>9 - <i>w</i>, <i>x</i>, <i>y</i>, <i>z</i></li> 
+      </ul> The phone also has three special buttons: &quot;Next in dictionary&quot;, &quot;New word&quot; and &quot;Space&quot;. These are described in the following paragraphs.<br /><br /><br /><br /> To type a word, you press the digit buttons corresponding to the letters in the word one by one. Each time you press a digit button, the T9 feature will automatically find the first word in the dictionary that has a prefix matching the digits you've typed so far. It will then display that prefix. For example, if the dictionary is { &quot;bad&quot;, &quot;apple&quot; }, and you press the 2 button, the display will read &quot;b&quot; since &quot;bad&quot; is the first word with a prefix of &quot;a&quot;, &quot;b&quot; or &quot;c&quot;. If there are multiple words in the dictionary that have a matching prefix, you can press the &quot;Next in dictionary&quot; button to display the next prefix. In this example, pressing &quot;Next in dictionary&quot; will cause the display to change to &quot;a&quot; since &quot;apple&quot; is the next word with a matching prefix (note that dictionary entries are not necessarily in alphabetical order). However, if you then type another 2, the display will read &quot;ba&quot; since &quot;bad&quot; is the only word that matches that prefix. If there are no matches in the dictionary for what you've typed so far, nothing will be displayed. Also, if you press &quot;Next in dictionary&quot; more times than there are words with the prefix you typed, nothing will be displayed. If you type something and press &quot;Next in dictionary&quot; one or more times after that, when you type the rest of the word, T9 will search the dictionary from the place it has finished for the last prefix. (See examples for more clarification.)<br /><br /><br /><br /> To start a new word, you can press the &quot;Space&quot; button, which will insert a space and let you start typing a new word. Alternatively, you can use the unusual &quot;New word&quot; button, which lets you start a new word without inserting a space, leaving the previous word in whatever state it was in. For example, using the above dictionary, you can press 2, then &quot;New word&quot;, then 2, and then 7 to type &quot;bap&quot;, a word that does not exist in the dictionary. You can also sometimes use this method to type words that are in the dictionary using fewer button presses. Each time you start typing a new word, T9 will search the dictionary from the beginning.<br /><br /><br /><br /> You are given a String[] <b>dictionary</b>. Concatenate the elements of <b>dictionary</b> into a single string. This string will be a space separated list of words in the order that they appear in the dictionary. You will be also given a String <b>message</b>, the message that Johhny wants to type. Return the minimum possible number of button presses required to type the message, or -1 if it is impossible to type the message using the given dictionary.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>JohnnysPhone</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minimizePushes</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minimizePushes(String[] dictionary, String message)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contain only lowercase letters ('a'-'z') and spaces (' ').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b>, when concatenated, will be a single space separated list of words, without leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>message</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>message</b> will contain only lowercase letters ('a'-'z') and spaces (' ').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;age messagd messagd message&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;message&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The most obvious way to type &quot;message&quot; is to type the seven digits corresponding to the letters in order: 6, 3, 7, 7, 2, 4, 3. At this point, the display will read &quot;messagd&quot; since that is the first matching prefix in the dictionary. You would then have to press &quot;Next in dictionary&quot; two times to get to &quot;message&quot;. That's a total of 9 button presses.<br /><br /><br /><br /> A faster way to type &quot;message&quot; is to first type the digits 6, 3, 7, 7. The display will read &quot;mess&quot;. Now, press &quot;New word&quot; to start a new word without inserting a space. Type the digits 2, 4, 3. &quot;age&quot; is the only matching prefix in the dictionary for this second word, so the display will read &quot;message&quot;. That only requires 8 button presses.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;b a c d&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;abcd  dcba &quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 23</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;a b c&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;d&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;gajdkwifpcks iclfabc&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;gajf&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The digits corresponding to the letters in &quot;gajf&quot; are 4, 2, 5, 3. If we type the first three digits, the display will read &quot;gaj&quot;. At this point, there's no way to get &quot;f&quot; as the next letter. If we type 3, the display will change to &quot;gajd&quot;. If we then press &quot;Next in dictionary&quot;, it will change to &quot;iclf&quot;. &quot;gajf&quot; is impossible to type with the given dictionary.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a &quot;, &quot;aa &quot;, &quot;aaa &quot;, &quot;aaaa &quot;, &quot;ab&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;ab&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;aaa &quot;, &quot;bbb &quot;, &quot;ccc&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;ccc&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">When we type 2, the display will read &quot;a&quot;. Now we can press &quot;Next in dictionary&quot; two times and the display will read &quot;c&quot;. Now we should just press 2 two more times to finish our message. Note, that when we're finishing the message, the T9 doesn't search the dictionary from the beginning but stays where it were before (unless we press &quot;New word&quot;).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

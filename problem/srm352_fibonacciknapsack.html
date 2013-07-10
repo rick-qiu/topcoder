@@ -1,0 +1,278 @@
+<html>
+ <head>
+  <title>FibonacciKnapsack Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7481">Problem Statement for FibonacciKnapsack</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> We have n items, each with a specified weight and cost, and a bag that can carry a specified maximum weight. We want to place a subset of these items into the bag such that the total cost is maximized.</p> <p> Unfortunately, this problem cannot be solved effectively in the general case. However, there are pretty good solutions for some special cases. In this problem, you are required to solve it for the special case where the weights of the items are all Fibonacci numbers.</p> <p> The first two Fibonacci numbers are 1 and 2. Each successive number is obtained by adding together the two previous numbers. Thus, the first Fibonacci numbers are 1, 2, 3, 5, 8, 13... </p> <p> You will be given String[] <b>items</b> and a String <b>C</b>. Each element of <b>items</b> describes a single item and is formatted &quot;W P&quot; (quotes for clarity only), where W is the weight of the item and P is the cost. <b>C</b> is the maximum weight that the bag can carry. Return the maximum total cost of the subset of <b>items</b> that can fit into the bag. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FibonacciKnapsack</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>maximalCost</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long maximalCost(String[] items, String C)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>items</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>items</b> will be formatted &quot;W P&quot; (quotes for clarity only).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of items, W and P will be integers between 1 and 10<sup>16</sup>, inclusive, with no leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each W will be a Fibonacci number.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>C</b> will represent an integer between 1 and 10<sup>16</sup>, inclusive, with no leading zeroes.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;5 555&quot;, &quot;8 195&quot;, &quot;13 651&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;15&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 750</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We should take the first and the second items. Their total weight is 5+8=13, which does not exceed the maximum capacity of 15, and their total cost is 555+195=750.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;5 555&quot;, &quot;8 195&quot;, &quot;13 751&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;15&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 751</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Now it is more profitable to take only the last item with the 751 cost. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;55 1562&quot;, &quot;5 814&quot;, &quot;55 1962&quot;, &quot;8 996&quot;, &quot;2 716&quot;, &quot;34 1792&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;94&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4568</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;13 89&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;27777890035288 9419696870097445&quot;, 
+ &quot;53316291173 6312623457097563&quot;, 
+ &quot;165580141 8848283653257131&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;27777900000000&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 15160907110354694</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

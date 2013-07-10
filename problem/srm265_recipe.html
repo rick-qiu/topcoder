@@ -1,0 +1,341 @@
+<html>
+ <head>
+  <title>Recipe Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4708">Problem Statement for Recipe</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>While cooking your favorite recipe, you realize that you have put the wrong quantity of one or more of the ingredients into your mixing bowl. You must figure out the minimum amount of each ingredient that must be added to the bowl to fix your mistake. It is essential to end up with at least the quantities required in the recipe and to maintain the ingredient proportions. <p> For instance, if you used 2 cups of flour in a recipe that requires 3 cups, all you have to do is add 1 more cup. If, in another recipe, you used 2 teaspoons of salt where only 1 teaspoon was required, you must make sure that all of the recipe's ingredients are doubled to maintain the correct proportions. </p> <p> You are able to measure quantities in teaspoons (<tt>tsp</tt>), tablespoons (<tt>Tbsp</tt>), and cups. A teaspoon is the smallest amount that can be added to the bowl. 3 teaspoons are equivalent to 1 tablespoon. 16 tablespoons are equivalent to 1 cup. </p> <p> You will be given a String[] <b>recipe</b> that lists the required ingredients, and a String[] <b>mixingBowl</b> listing the ingredients that are in the bowl. Your program should return a String[] indicating the quantities of only the ingredients that must be added. The ingredients should be in the same order that they appear in <b>recipe</b>. If no ingredients need to be added, then the result should have 0 elements. </p> <p> Each element of the result must indicate the maximum number of cups to be added, followed by the the maximum number of tablespoons, and finally the remaining teaspoons to be added. In general, each element should be formatted (quotes for clarity) as <tt>&quot;QTY cups QTY Tbsp QTY tsp NAME&quot;</tt>, where each <tt>QTY</tt> is an integer with no leading zeros, and <tt>NAME</tt> is the name of the ingredient. If none of a certain unit needs to be added, then that unit should be excluded from the element. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Recipe</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>fix</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] fix(String[] recipe, String[] mixingBowl)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>recipe</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>mixingBowl</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>recipe</b> and <b>mixingBowl</b> will be in one of the following formats (quotes for clarity):
+      <ul>
+       <li><tt>&quot;QTY tsp NAME&quot;</tt></li>
+       <li><tt>&quot;QTY Tbsp NAME&quot;</tt></li>
+       <li><tt>&quot;QTY cups NAME&quot;</tt></li>
+      </ul></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><tt>QTY</tt> will be an integer with no leading zeros between 1 and 99, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><tt>NAME</tt> will contain between 1 and 25, inclusive, uppercase letters (<tt>'A'</tt>-<tt>'Z'</tt>).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <tt>NAME</tt> in <b>recipe</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <tt>NAME</tt> in <b>mixingBowl</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <tt>NAME</tt> in <b>mixingBowl</b> will also appear in an element of <b>recipe</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;4 cups FLOUR&quot;, &quot;1 Tbsp SALT&quot;, &quot;1 cups SUGAR&quot;, &quot;1 tsp VANILLA&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;4 cups FLOUR&quot;, &quot;1 Tbsp SALT&quot;, &quot;1 Tbsp SUGAR&quot;, &quot;1 Tbsp VANILLA&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;8 cups FLOUR&quot;, &quot;2 Tbsp SALT&quot;, &quot;2 cups 15 Tbsp SUGAR&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This recipe requires 4 cups of <tt>FLOUR</tt>, 1 tablespoon of <tt>SALT</tt>, 1 cup of <tt>SUGAR</tt> and 1 teaspoon of <tt>VANILLA</tt>. There are two mistakes in mixingBowl: <p> 1) Not enough <tt>SUGAR</tt> </p> <p> 2) Too much <tt>VANILLA</tt> </p> <p> Since there is three times the required amount of VANILLA in mixingBowl, we must add enough to triple the other ingredients so that we end up with the same proportions. This is accomplished by adding 8 cups of <tt>FLOUR</tt>, 2 tablespoons of <tt>SALT</tt> and 2 cups plus 15 tablespoons of <tt>SUGAR</tt>. </p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;3 cups FLOUR&quot;, &quot;1 tsp SALT&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;3 cups FLOUR&quot;, &quot;2 tsp SALT&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;3 cups FLOUR&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 cups FLOUR&quot;, &quot;1 cups SUGAR&quot;, &quot;1 cups MILK&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;2 cups FLOUR&quot;, &quot;32 Tbsp SUGAR&quot;, &quot;96 tsp MILK&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;2 cups FLOUR&quot;, &quot;2 tsp SALT&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 cups FLOUR&quot;, &quot;1 tsp SALT&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;1 cups FLOUR&quot;, &quot;1 tsp SALT&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;3 cups FLOUR&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;2 cups FLOUR&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;1 cups FLOUR&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;71 tsp CINNAMON&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;1 cups 7 Tbsp 2 tsp CINNAMON&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;3 cups FLOUR&quot;,&quot;1 cups SUGAR&quot;,&quot;9 tsp SALT&quot;,&quot;9 Tbsp GINGER&quot;,&quot;2 cups MILK&quot;,&quot;21 tsp CINNAMON&quot;,&quot;5 Tbsp VANILLA&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 Tbsp SUGAR&quot;,&quot;8 tsp SALT&quot;,&quot;5 Tbsp CINNAMON&quot;,&quot;21 tsp VANILLA&quot;,&quot;44 tsp GINGER&quot;,&quot;3 cups FLOUR&quot;,&quot;3 cups MILK&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;2 cups FLOUR&quot;,
+&quot;1 cups 9 Tbsp 2 tsp SUGAR&quot;,
+&quot;2 Tbsp 1 tsp SALT&quot;,
+&quot;1 tsp GINGER&quot;,
+&quot;5 Tbsp 1 tsp MILK&quot;,
+&quot;6 Tbsp 2 tsp CINNAMON&quot;,
+&quot;1 Tbsp 1 tsp VANILLA&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

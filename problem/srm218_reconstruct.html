@@ -1,0 +1,216 @@
+<html>
+ <head>
+  <title>Reconstruct Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3057">Problem Statement for Reconstruct</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You have collected a number of data points, each consisting of an ordered triple of three integers. Unfortunately, you've lost the original data. However, before you lost the data, you calculated the Euclidean distances between each pair of points and recorded the square of each distance. Given the distances as a String[], <b>dists</b>, you are to find the original data points, if possible. Each element of <b>dists</b> will be formatted as a single space delimited list of integers. The i<sup>th</sup> integer of the j<sup>th</sup> element of <b>dists</b> will represent the square of the distance between the i<sup>th</sup> and j<sup>th</sup> points.<br /><br /><br /><br /> You should return a String[], the i<sup>th</sup> element of which represents the the i<sup>th</sup> data point as 3 single space delimited integers. Since distances are preserved under translation and rotation, the first element of the return should always be &quot;0 0 0&quot;, and the second element should consist of 3 non-negative integers sorted in non-descending order. If there are multiple such returns, pick the one that is lexicographically first. For the purposes of this problem, one return is before another lexicographically if it has a lower integer in the first location for which the two differ. In other words, find the first element of the return that is different between the two, and then find the first integer in the two elements that differ, and compare them. If there is no set of points that could generate the given distances, return an empty String[].</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Reconstruct</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findPoints</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] findPoints(String[] dists)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dists</b> will contain between 1 and 20 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dists</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each number in <b>dists</b> will be an integer between 0 and 1000, inclusive, with no extra leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dists</b> will contain the same number of integers as there are elements of <b>dists</b>, separated by single spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In <b>dists</b>, integer i of element j will equal integer j of element i.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In <b>dists</b>, integer i of element i will equal 0.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 1&quot;,&quot;1 0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0 0 0&quot;,  &quot;0 0 1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 2 2&quot;,&quot;2 0 2&quot;,&quot;2 2 0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0 0 0&quot;,  &quot;0 1 1&quot;,  &quot;-1 0 1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 33 25&quot;,&quot;33 0 84&quot;,&quot;25 84 0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0 0 0&quot;,  &quot;1 4 4&quot;,  &quot;3 -4 0&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 15&quot;,&quot;15 0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are no three integers the sum of whose squares is 15.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

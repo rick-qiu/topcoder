@@ -1,0 +1,177 @@
+<html>
+ <head>
+  <title>SequenceOfNumbers Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4659">Problem Statement for SequenceOfNumbers</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>It is a common mistake to sort numbers as strings. For example, a sorted sequence like {&quot;1&quot;, &quot;174&quot;, &quot;23&quot;, &quot;578&quot;, &quot;71&quot;, &quot;9&quot;} is not correctly sorted if its elements are interpreted as numbers rather than strings.</p> <p>You will be given a String[] sequence that is sorted in non-descending order using string comparison. Return this sequence sorted in non-descending order using numerical comparison instead.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SequenceOfNumbers</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>rearrange</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] rearrange(String[] sequence)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sequence</b> will contain between 2 and 50 elements inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>sequence</b> will contain between 1 and 9 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>sequence</b> will consist of only digits ('0'-'9').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>sequence</b> will not start with a '0' digit.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sequence</b> will be ordered lexicographically.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1&quot;,&quot;174&quot;,&quot;23&quot;,&quot;578&quot;,&quot;71&quot;,&quot;9&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;1&quot;, &quot;9&quot;, &quot;23&quot;, &quot;71&quot;, &quot;174&quot;, &quot;578&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;172&quot;,&quot;172&quot;,&quot;172&quot;,&quot;23&quot;,&quot;23&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;23&quot;, &quot;23&quot;, &quot;172&quot;, &quot;172&quot;, &quot;172&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;183&quot;,&quot;2&quot;,&quot;357&quot;,&quot;38&quot;,&quot;446&quot;,&quot;46&quot;,&quot;628&quot;,&quot;734&quot;,&quot;741&quot;,&quot;838&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;2&quot;, &quot;38&quot;, &quot;46&quot;, &quot;183&quot;, &quot;357&quot;, &quot;446&quot;, &quot;628&quot;, &quot;734&quot;, &quot;741&quot;, &quot;838&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

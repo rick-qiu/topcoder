@@ -1,0 +1,217 @@
+<html>
+ <head>
+  <title>SettingTents Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10191">Problem Statement for SettingTents</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Once upon a time, there lived a migrant barbarian tribe. Every time it settled down, a tent was set for the chief of the tribe. First, an area was selected and divided into <b>N</b>x<b>M</b> squares with side lengths of 1 unit. Then, they chose a site for the tent in such a way that every vertex of its base coincided with some vertex of one of the squares. According to an ancient tradition, the base had to be a rhomb. For example, there are all 6 different possible sites for the tent in a 2x2 area: </p> <br /><br /> 
+      <center> 
+       <img src="http://www.topcoder.com/contest/problem/SettingTents/tent1.gif" />&nbsp;&nbsp;&nbsp; 
+       <img src="http://www.topcoder.com/contest/problem/SettingTents/tent2.gif" />&nbsp;&nbsp;&nbsp; 
+       <img src="http://www.topcoder.com/contest/problem/SettingTents/tent3.gif" />
+       <br />
+       <br />
+       <br />
+       <br /> 
+       <img src="http://www.topcoder.com/contest/problem/SettingTents/tent4.gif" />&nbsp;&nbsp;&nbsp; 
+       <img src="http://www.topcoder.com/contest/problem/SettingTents/tent5.gif" />&nbsp;&nbsp;&nbsp; 
+       <img src="http://www.topcoder.com/contest/problem/SettingTents/tent6.gif" /> 
+      </center> <br /><br /> An example of a tent in a 4x2 area: 
+      <center> 
+       <img src="http://www.topcoder.com/contest/problem/SettingTents/rhomb1.gif" />&nbsp;&nbsp;&nbsp; 
+      </center> <br /><br /> <p> For a given <b>N</b> and <b>M</b>, return the number of different possible sites for the chief's tent. Two sites are different if there is at least one vertex which belongs to one site but not the other. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SettingTents</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>countSites</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int countSites(int N, int M)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A rhomb is a four-sided polygon with sides of equal length.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The tent must have non-zero area.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>N</b> will be between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>M</b> will be between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only possible sites are the squares of the area themselves.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>8</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 527</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

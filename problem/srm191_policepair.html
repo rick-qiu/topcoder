@@ -1,0 +1,324 @@
+<html>
+ <head>
+  <title>PolicePair Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2331">Problem Statement for PolicePair</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A lot of new police officers have joined the force this year and you want to assign them to squad cars. Each of the squad cars is assigned two officers and its &quot;skill&quot; is the average of the skills of the two officers assigned to it. So, for example, if you have officers with skills 2, 3 and 4 then you can make a squad car having skill 2.5 (assign the officers with skills 2 and 3 to it) or 3.5 (assign the officers with skills 3 and 4 to it) or 3 (assign the officers with skills 2 and 4 to it). <br /><br /><br /><br /> When you assign this year's batch of officers you want to do it in a uniform manner, that is, you want all the squads formed to have the same skill. For example, if you have officers with skills 1, 2, 3, 4 and 5 you can make two squads each of skill 3 (2,4 and 1,5) but an assignment which results in one squad car of skill 3 (2,4) and another of skill 2 (1,3) is not allowed. <br /><br /><br /><br /> As you can see, many times officers are left unassigned. Naturally you want to avoid this. Given the skills of this year's batch of officers you have to find the assignment that minimizes the number of officers left over. If there is more than one such assignment, pick the one in which the squad skill is highest. <br /><br /><br /><br /> The police officers' skills are given as ranges. The i<sup>th</sup> elements <b>skillStart</b>[i] and <b>skillEnd</b>[i] together specify the range <b>skillStart</b>[i] to <b>skillEnd</b>[i], inclusive. If you are given a range 10 to 200, it means you have 191 officers of skills 10,11,12,...198,199,200. All the given ranges together specify the officers you have. For example, if <b>skillStart</b> = {2,8} and <b>skillEnd</b> = {3,8}, it would mean you have 3 officers of skills 2, 3 and 8. Note that it is possible for ranges to overlap. For instance, if <b>skillStart</b> = {2,2} and <b>skillEnd</b> = {3,3}, it would mean you have 4 officers of skills 2, 2, 3 and 3. <br /><br /><br /><br /> Return a int[] with exactly two elements, where the first element is the number of officers left unassigned and the second element is the squad skill (rounded down) of the optimal assignment.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PolicePair</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestSquad</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] bestSquad(int[] skillStart, int[] skillEnd)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>skillStart</b> contains between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>skillStart</b> contains the same number of elements as <b>skillEnd</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>skillStart</b> and <b>skillEnd</b> will be between 1 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No element of <b>skillStart</b> will be larger than the corresponding element of <b>skillEnd</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The total number of officers will be between 2 and 50,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  3 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You have 3 officers of skills 2, 3 and 4.The optimal arrangement is assigning the officers of skill 3 and 4 to one squad car and leaving the officer with skill 2 unassigned. This leaves one officer unassigned and results in a squad skill of (3+4)/2 = 3.5 which rounds down to 3. Hence, you should return {1,3}</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2,4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{3,4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  3 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The same case as above, except the input is given in a different manner.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  3 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2,3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{3,4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  3 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2,100,200}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5,100,200}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 2,  3 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2,5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{3,5}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  4 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100,100,100,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{200,300,400,800}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 503,  250 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

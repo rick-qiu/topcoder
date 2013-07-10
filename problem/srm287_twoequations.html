@@ -1,0 +1,260 @@
+<html>
+ <head>
+  <title>TwoEquations Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6013">Problem Statement for TwoEquations</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> You are given two Strings, <b>first</b> and <b>second</b>. Each of these strings contains a simple linear equation with variables x and y. Your task is to determine whether this pair of equations has a unique solution, and if so, to compute it. </p> <p> Each of the equations is of the form &quot;<tt>A*X + B*Y = C</tt>&quot;. The spaces must appear exactly as in this example, i.e., there is exactly one space both before and after the signs &quot;<tt>+</tt>&quot; and &quot;<tt>=</tt>&quot;, and there are no other spaces. The coefficients <tt>A</tt>, <tt>B</tt>, and <tt>C</tt> are integers. If a coefficient is non-negative, the equation contains just the number, without the unary plus sign. If a coefficient is negative, it is <i>always</i> enclosed in parentheses, and it contains the unary minus sign. No coefficient will contain unnecessary leading zeroes. </p> <p> If the pair of equations has a unique solution, return the solution formatted as a String of the form &quot;<tt>X=A/B Y=C/D</tt>&quot;, where <tt>A</tt>, <tt>B</tt>, <tt>C</tt>, and <tt>D</tt> are integers such that both fractions <tt>A/B</tt> and <tt>C/D</tt> are reduced, and the numbers <tt>B</tt> and <tt>D</tt> are positive. The numbers should be encoded in the same way as the coefficients of the equations -- i.e., negative numbers must be enclosed in parentheses. </p> <p> If the pair of equations has more than one solution, return the String &quot;<tt>MULTIPLE SOLUTIONS</tt>&quot;. If the pair of equations has no solutions, return the String &quot;<tt>NO SOLUTIONS</tt>&quot;. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TwoEquations</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>solve</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String solve(String first, String second)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A fraction <tt>A/B</tt> is called reduced if and only if the greatest common divisor of <tt>A</tt> and <tt>B</tt> is 1. Note that each rational number corresponds to exactly one reduced fraction with <tt>B&gt;0</tt>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>first</b> and <b>second</b> will be formatted as described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All coefficients in both equations will be integers between -9 and 9, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1*X + 2*Y = 6&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1*X + (-4)*Y = (-3)&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;X=3/1 Y=3/2&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Multiply the first equation by two, then add the second equation to the first one. You will get a new equation: 3*X = 9. Thus X=3. If we substitute this into one of the original equations, we get Y=3/2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;(-3)*X + 0*Y = 7&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;0*X + 8*Y = 6&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;X=(-7)/3 Y=3/4&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This time we can compute each of the variables separately. Note that in the result, the numerator (not the denominator) of X is negative, and that it is enclosed in parentheses. Also, note that the value of Y is output as a reduced fraction. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1*X + 0*Y = 1&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1*X + 0*Y = 1&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;MULTIPLE SOLUTIONS&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1*X + 3*Y = 1&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;2*X + 6*Y = (-1)&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NO SOLUTIONS&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;0*X + 0*Y = 0&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;(-3)*X + (-3)*Y = 0&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;MULTIPLE SOLUTIONS&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

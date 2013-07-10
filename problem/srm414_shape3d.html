@@ -1,0 +1,336 @@
+<html>
+ <head>
+  <title>Shape3D Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8394">Problem Statement for Shape3D</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A shape in 3D Cartesian space is <i>valid</i> if it is made up of identical unit cubes, each cube in the shape has all its edges parallel to coordinate axes and its vertices are at non-negative integer coordinates. Two shapes are considered the same if one can be transformed into the other by some rotation and translation. You are given a description of a valid shape and should return the lexicographically smallest description of a valid shape that is the same as the one supplied.</p> <p>You are given a String[] <b>shape</b>. Each element of <b>shape</b> describes a single unit cube from the shape and will contain three space-separated non-negative integers. The first of these gives the x-coordinate of the cube, the second gives the y-coordinate, and the third the z-coordinate. The cube is positioned such that the line segment between (x, y, z) and (x+1, y+1, z+1) is a diagonal of the cube and its edges are all parallel to the coordinate axes. Return a String[] containing the lexicographically smallest description of a valid shape in the same format as the input that can be transformed to the supplied shape by rotation and translation. Each element of your return must contain 3 single-space-separated non-negative integers without leading zeros and with no leading or trailing spaces. Each element of your return must describe a distinct cube from the shape.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Shape3D</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findCanonical</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] findCanonical(String[] shape)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The lexicographically earlier of two String[]s is the one that has the lexicographically earlier String in the first position at which they differ.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The lexicographically earlier of two Strings is the one that either has the earlier character (using ASCII ordering) at the first position at which they differ or is a proper prefix of the other.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In ASCII ordering, a space character (' ') comes before any digit.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The return will contain only digits ('0' - '9') and spaces (' ').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Since the cubes of any valid shape must be aligned with the coordinate axes, any valid rotation can be achieved by a sequence of 90 degree rotations around the coordinate axes.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>shape</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>shape</b> will contain 3 space-separated integers without leading zeros between 0 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>shape</b> will contain no leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The elements of <b>shape</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The cubes described in <b>shape</b> will form a connected volume in 3D Cartesian space, where 2 cubes are considered to be connected if they share a face.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 0 0&quot;,&quot;1 0 0&quot;,&quot;1 1 0&quot;,&quot;1 1 1&quot;,&quot;1 0 1&quot;,&quot;0 1 1&quot;,&quot;0 0 1&quot;,&quot;0 1 0&quot;} </pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;0 0 0&quot;, &quot;0 0 1&quot;, &quot;0 1 0&quot;, &quot;0 1 1&quot;, &quot;1 0 0&quot;, &quot;1 0 1&quot;, &quot;1 1 0&quot;, &quot;1 1 1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This shape is a cube of side length 2, with a corner at the origin. No rotation or translation is required here, simply rearrange the order of the cubes to give the lexicographically minimum description.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;100 50 50&quot;,&quot;100 49 50&quot;,&quot;100 49 49&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;0 0 0&quot;, &quot;0 0 1&quot;, &quot;0 1 0&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This shape needs to be rotated and translated so one of the squares lies at the origin.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;11 11 11&quot;,&quot;10 11 11&quot;,&quot;12 11 11&quot;
+,&quot;11 11 10&quot;,&quot;11 11 12&quot;,&quot;11 10 11&quot;
+,&quot;11 12 11&quot;,&quot;9 11 11&quot;,&quot;13 11 11&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;0 1 1&quot;,
+&quot;1 1 1&quot;,
+&quot;2 0 1&quot;,
+&quot;2 1 0&quot;,
+&quot;2 1 1&quot;,
+&quot;2 1 2&quot;,
+&quot;2 2 1&quot;,
+&quot;3 1 1&quot;,
+&quot;4 1 1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;100 900 800&quot;,&quot;101 900 800&quot;,&quot;102 900 800&quot;,&quot;102 899 800&quot;
+,&quot;102 898 800&quot;,&quot;102 897 800&quot;,&quot;102 896 800&quot;,&quot;102 896 801&quot;
+,&quot;102 896 802&quot;,&quot;102 896 803&quot;,&quot;102 896 804&quot;,&quot;102 896 805&quot;
+,&quot;102 896 806&quot;,&quot;102 896 807&quot;,&quot;102 896 808&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;0 0 0&quot;,
+&quot;0 0 1&quot;,
+&quot;0 0 2&quot;,
+&quot;0 0 3&quot;,
+&quot;0 0 4&quot;,
+&quot;0 0 5&quot;,
+&quot;0 0 6&quot;,
+&quot;0 0 7&quot;,
+&quot;0 0 8&quot;,
+&quot;0 1 8&quot;,
+&quot;0 2 8&quot;,
+&quot;0 3 8&quot;,
+&quot;0 4 8&quot;,
+&quot;1 4 8&quot;,
+&quot;2 4 8&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;2 2 0&quot;,&quot;2 2 1&quot;,&quot;2 2 3&quot;,&quot;2 2 4&quot;,&quot;2 0 2&quot;,&quot;2 1 2&quot;,&quot;2 3 2&quot;,&quot;2 4 2&quot;,&quot;0 2 2&quot;,&quot;1 2 2&quot;,&quot;3 2 2&quot;,&quot;4 2 2&quot;,&quot;2 2 2&quot;}`</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;0 10 10&quot;,
+&quot;1 10 10&quot;,
+&quot;2 10 10&quot;,
+&quot;2 10 11&quot;,
+&quot;2 10 12&quot;,
+&quot;2 10 8&quot;,
+&quot;2 10 9&quot;,
+&quot;2 11 10&quot;,
+&quot;2 12 10&quot;,
+&quot;2 8 10&quot;,
+&quot;2 9 10&quot;,
+&quot;3 10 10&quot;,
+&quot;4 10 10&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Be careful! Lexicographic ordering is not the same as numerical ordering.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

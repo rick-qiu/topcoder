@@ -1,0 +1,328 @@
+<html>
+ <head>
+  <title>WSNParentsAssignment Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7816">Problem Statement for WSNParentsAssignment</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> A wireless sensor network consists of several independent measuring devices and one control center. Each device must be able to send its sensor readings to the control center, but due to limitations in range, not all of the devices can communicate directly with the control center. To solve this problem, each device is assigned a single parent to which it is capable of directly transmitting data. A parent can be either another device or the control center. Each device receives readings from all its children (if it has any), adds its own readings, and passes everything to its parent. All the readings must eventually reach the control center. The number of children a device has is called the device's burden level. The burden level of the entire network is the maximum burden level among all its devices. Note that the control center is not a device. </p> <p> You are given a String[] <b>network</b>, where the j-th character of the i-th element is equal to 'Y' if the i-th device can directly transmit data to the j-th device, and 'N' otherwise. A wireless sensor network in this problem always represents a directed acyclic graph, so if device d1 can transmit data directly or indirectly to device d2, then device d2 can't transmit data directly or indirectly to device d1. You are also given a String <b>nearest</b>, the i-th character of which is 'Y' if the i-th device can communicate directly with the control center, and 'N' otherwise. You must assign a parent to each device in a way that minimizes the burden level of the entire network. Return a int[], the i-th element of which is the parent assigned to the i-th device. If the parent is another device, the i-th element must be the 0-based index of the parent device. If the parent is the control center, the i-th element must be n, where n is the number of devices in the network. If there are multiple possible return values, return the one among them that comes first lexicographically. If it is not possible to assign parents in such a way that the control center can receive all the devices' readings, return an empty int[]. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WSNParentsAssignment</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minNetworkBurdenLevel</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] minNetworkBurdenLevel(String[] network, String nearest)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A int[] a1 comes before a int[] a2 lexicographically if a1 contains a smaller value at the first index at which they differ.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>network</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>network</b> will contain exactly <i>n</i> characters, where <i>n</i> is the number of elements in <b>network</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>network</b> will contain characters 'N' and 'Y' only.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>network</b> will represent a directed acyclic graph.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>nearest</b> will contain exactly <i>n</i> characters, where <i>n</i> is the number of elements in <b>network</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>nearest</b> will contain characters 'N' and 'Y' only.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNY&quot;,&quot;NNY&quot;,&quot;NNN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;NNY&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {2, 2, 3 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><img src="http://www.topcoder.com/contest/problem/WSNParentsAssignment/img0.png" /><br /><br /> There is only one possible configuration here. Assign device 2 as the parent of devices 0 and 1, and assign the control center as the parent of device 2. The network's burden level here is 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYY&quot;,&quot;NNY&quot;,&quot;NNN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;NNY&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 2, 3 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><img src="http://www.topcoder.com/contest/problem/WSNParentsAssignment/img1.png" /><br /><br /> This is similar to example 0, but in this case, device 0 can transmit data directly to device 1. Therefore, we assign device 1 as the parent of device 0 because that reduces the network's burden level to 1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYNNNN&quot;,&quot;NNNNNN&quot;,&quot;NYNYNN&quot;,&quot;NNNNNN&quot;,&quot;NYNYNN&quot;,&quot;NYNNNN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;NYNYNN&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 6, 3, 6, 3, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;N&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;Y&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;N&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;N&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is only one device here, and it cannot communicate directly with the control center. Therefore, it is impossible for the control center to get readings from the device.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNNNN&quot;,&quot;YNNNY&quot;,&quot;NNNYN&quot;,&quot;NNNNN&quot;,&quot;YNNYN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;YNNYN&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {5, 4, 3, 5, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><img src="http://www.topcoder.com/contest/problem/WSNParentsAssignment/img2.png" /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

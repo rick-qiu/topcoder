@@ -1,0 +1,405 @@
+<html>
+ <head>
+  <title>ReverseResources Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7415">Problem Statement for ReverseResources</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> You are working on a large software project and there is a broad assortment of warning or error messages that your users might see in the course of using your product. </p> <p> In order to support localization (translation of these messages into other languages), all of the strings used to create error and warning messages are stored in a resource library. The actual message might be constructed out of more than one resource string. The way this is implemented (for the sake of this problem) is that within a resource string, any instance of &quot;%s&quot; is replaced with another resource string. That other resource string might also have a &quot;%s&quot; in it that is replaced with yet another resource string. For example, if you have resource strings <tt>{&quot;I am %s.&quot;, &quot;Bob&quot;, &quot;a %s coder&quot;, &quot;good&quot;}</tt>, you could replace the <tt>&quot;%s&quot;</tt> in <tt>&quot;I am %s.&quot;</tt> with <tt>&quot;Bob&quot;</tt>, and you'd have the output string <tt>&quot;I am Bob.&quot;</tt>. Alternatively, you could replace the <tt>&quot;%s&quot;</tt> in <tt>&quot;a %s coder&quot;</tt> with <tt>&quot;good&quot;</tt>, and you'd end up with <tt>&quot;a good coder&quot;</tt>. Then you could replace the <tt>&quot;%s&quot;</tt> in <tt>&quot;I am %s.&quot;</tt> with <tt>&quot;a good coder&quot;</tt>, and you'd end up with <tt>&quot;I am a good coder.&quot;</tt> </p> <p> Constructing these strings is the easy part. Often when customers have problems, they only know the last error message they saw. In order to troubleshoot their problems, you need to know what resource was used to construct an error message. Sometimes, there might be more than one possibility. Given a message <b>str</b> and the set of resource strings, <b>resources</b>, return the number of ways <b>str</b> might have been constructed from the elements in <b>resources</b>, modulo 1000000007. If there is more than one element in <b>resources</b> that is the same, each instance should be considered distinct (see example 8 for clarification). </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ReverseResources</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findDecompositions</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int findDecompositions(String str, String[] resources)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All instances of <tt>&quot;%s&quot;</tt> must be replaced with another string, because <b>str</b> will have no <tt>'%'</tt> characters in it.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>str</b> will contain between 1 and 30 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>resources</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>resources</b> will have contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>resources</b> will contain only letters (<tt>'A'</tt>-<tt>'Z'</tt> or <tt>'a'</tt>-<tt>'z'</tt>), digits (<tt>'0'</tt>-<tt>'9'</tt>), and <tt>'%'</tt>, <tt>'.'</tt>, <tt>','</tt>, <tt>'!'</tt> and spaces (<tt>' '</tt>).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>str</b> will contain only letters (<tt>'A'</tt>-<tt>'Z'</tt> or <tt>'a'</tt>-<tt>'z'</tt>), digits (<tt>'0'</tt>-<tt>'9'</tt>), <tt>'.'</tt>, <tt>','</tt>, <tt>'!'</tt> and spaces (<tt>' '</tt>).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each occurrence of <tt>'%'</tt> in an element of <b>resources</b> will be followed by an <tt>'s'</tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>None of the elements of <b>resources</b> will be just <tt>&quot;%s&quot;</tt>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;Error in module foo, code 123.&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;foo&quot;, &quot;123&quot;, &quot;Error in module %s.&quot;, &quot;%s, code %s&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This string's decomposition is fairly obvious.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;The fox jumped over the dog.&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;The fox %s over the dog.&quot;,
+ &quot;lazy&quot;,
+ &quot;brown&quot;,
+ &quot;jump%s&quot;,
+ &quot;s&quot;,
+ &quot;ed&quot;,
+ &quot;The %s&quot;,
+ &quot;fox %s&quot;,
+ &quot;%s over %s&quot;,
+ &quot;the dog.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Using parenthesized expressions to represent substitutions, the five ways to decompose this string are: 
+              <ul> 
+               <li>The fox (jump(ed)) over the dog.</li> 
+               <li>The (fox ((jump(ed)) over (the dog.)))</li> 
+               <li>The ((fox (jump(ed))) over (the dog.))</li> 
+               <li>(The (fox (jump(ed)))) over (the dog.)</li> 
+               <li>The (fox (jump((ed) over (the dog.))))</li> 
+              </ul></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;abcde&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;%sc%s&quot;, &quot;b&quot;, &quot;de&quot;, &quot;a%s&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Decompositions this time are: 
+              <ul> 
+               <li>(a(b))c(de)</li> 
+               <li>a((b)c(de))</li> 
+              </ul></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;abcde&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;%se&quot;, &quot;a%s&quot;, &quot;%sb%s&quot;, &quot;%sc%s&quot;, &quot;%sd%s&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If all the strings have %s in them, there are never any valid decompositions!</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;aaaaa&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a&quot;,&quot;%s%s&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a&quot;,&quot;aa&quot;,&quot;%s%s&quot;,&quot;%sa&quot;,&quot;a%s&quot;,&quot;aaa&quot;,&quot;aa%s&quot;,&quot;a%sa&quot;,
+&quot;a%s%s&quot;,&quot;%saa&quot;,&quot;%sa%s&quot;,&quot;%s%sa&quot;,&quot;%s%s%s&quot;,&quot;aaaa&quot;,
+&quot;aaa%s&quot;,&quot;aa%sa&quot;,&quot;aa%s%s&quot;,&quot;a%saa&quot;,&quot;a%sa%s&quot;,&quot;a%s%sa&quot;,
+&quot;a%s%s%s&quot;,&quot;%saaa&quot;,&quot;%saa%s&quot;,&quot;%sa%sa&quot;,&quot;%sa%s%s&quot;,
+&quot;%s%saa&quot;,&quot;%s%sa%s&quot;,&quot;%s%s%sa&quot;,&quot;%s%s%s%s&quot;,&quot;aaaaa&quot;,
+&quot;aaaa%s&quot;,&quot;aaa%sa&quot;,&quot;aaa%s%s&quot;,&quot;aa%saa&quot;,&quot;aa%sa%s&quot;,
+&quot;aa%s%sa&quot;,&quot;aa%s%s%s&quot;,&quot;a%saaa&quot;,&quot;a%saa%s&quot;,&quot;a%sa%sa&quot;,
+&quot;a%sa%s%s&quot;,&quot;a%s%saa&quot;,&quot;a%s%sa%s&quot;,&quot;a%s%s%sa&quot;,
+&quot;a%s%s%s%s&quot;,&quot;%saaaa&quot;,&quot;%saaa%s&quot;,&quot;%saa%sa&quot;,&quot;%saa%s%s&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 879704799</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;aa&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a&quot;, &quot;a&quot;, &quot;%s%s&quot;, &quot;%s%s&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The elements in <b>resources</b> may not be distinct, but should be considered distinct. In this example, either &quot;%s%s&quot; could be used and either or both &quot;a&quot;s could be used, in either order.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

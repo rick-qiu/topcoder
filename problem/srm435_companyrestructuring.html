@@ -1,0 +1,384 @@
+<html>
+ <head>
+  <title>CompanyRestructuring Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8702">Problem Statement for CompanyRestructuring</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A small company has recently been growing quickly and has decided that it needs to restructure its organisation. In the past, there were no permanent managers and project teams were formed on an ad-hoc basis depending on which employees were available at the time. This has lead to a situation where many of the employees have managed each other at some time in the past. Now that the company is bigger, it wants to impose a more formal hierarchical structure. The company is to be divided into divisions, each of which will be structured as a tree. One employee in each division will be assigned as the division leader and can be the permanent manager of some other employees. These employees can in turn manage futher employees, and so on. Each employee will belong to exactly one division and each employee in a division other than the division leader will have a permanent manager in the division.</p><br /><br /> <p>The company knows that such a restructuring may lead to ill-feeling amongst the employees, particularly if an employee ends up being managed permanently by another employee that he or she has managed in the past. It has therefore come up with the following model to try to minimise this ill-feeling. If an employee has managed a person in the past, then he or she feels <i>superior</i> to that person. This is also transitive, so if A has managed B, and B has managed C, then A feels superior to both B and C, even if A has not directly managed C. More formally, an employee <tt>X<sub>0</sub></tt> feels superior to another employee <tt>X<sub>k</sub></tt>, if and only if there exists a sequence of employees <tt>X<sub>0</sub></tt>, <tt>X<sub>1</sub></tt>, <tt>X<sub>2</sub></tt> ... <tt>X<sub>k</sub></tt>, where employeee <tt>X<sub>i</sub></tt> has managed employee <tt>X<sub>i+1</sub></tt> for each value of i &lt; k. This can clearly lead to cases where each one of a pair of employees feels superior to the other and such a pair is termed <i>mutually superior</i>. These pairs of employees tend to spend a lot of time arguing about who is superior, so the company wishes to ensure they are separated in the new company structure. It has put the following restrictions on the structure of the new divisions.</p> 
+      <ul>
+       <li>The new permanent manager of an employee must have managed that employee in the past.</li> 
+       <li>No employee can feel superior to his or her direct permanent manager.</li> 
+       <li>No pair of mutually superior employees can have the same direct permanent manager.</li> 
+      </ul> <p>The company wishes to end up with as few divisions as possible. You are given a String[] <b>hasManaged</b>, which details which employees have managed others in the past. Character j of element i will be 'Y' if employee i has managed employee j in the past and 'N' otherwise. Return the minimum number of divisions that the company must create in order to satisfy the above restrictions.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CompanyRestructuring</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>fewestDivisions</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int fewestDivisions(String[] hasManaged)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hasManaged</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>hasManaged</b> will contain the same number of characters as there are elements in <b>hasManaged</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of <b>hasManaged</b> will be 'Y' or 'N'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Character i of element i of <b>hasManaged</b> will be 'N'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNNN&quot;,&quot;NNYN&quot;,&quot;NNNN&quot;,&quot;YYYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are no mutually superior employees here and only a single division is needed. There are 2 possible structures:<br /><br /><br /><br /> <tt>&nbsp;&nbsp;&nbsp;3<br /><br /> &nbsp;&nbsp;/ \<br /><br /> &nbsp;0&nbsp;&nbsp;&nbsp;1<br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br /><br /></tt> <br /><br />or<br /><br /><br /><br /> <tt>&nbsp;&nbsp;&nbsp;3<br /><br /> &nbsp;/&nbsp;|&nbsp;\<br /><br /> 0&nbsp;&nbsp;1&nbsp;&nbsp;2<br /><br /></tt></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNYN&quot;,&quot;NNYN&quot;,&quot;YNNN&quot;,&quot;YYYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This case is similar to case 0), except now employees 0 and 2 are mutually superior, so cannot have the same manager. The second structure shown above is therefore invalid, but the first one is still possible.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYNNN&quot;,&quot;NNYNN&quot;,&quot;NNNYN&quot;,&quot;NNNNY&quot;,&quot;YNNNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Everybody feels superior to everybody else, so there is no way that any of them can work in the same division.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYNYYYNN&quot;
+,&quot;NNNNYYNN&quot;
+,&quot;NYNNYYNN&quot;
+,&quot;NNYNYYNN&quot;
+,&quot;NNNNNNNN&quot;
+,&quot;NYYNYNNN&quot;
+,&quot;YYNYYYNN&quot;
+,&quot;YYNYYYYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYNYNNYYNYNNNYYNYNYY&quot;
+,&quot;YNNNNNYYNNNYYNYNYNYY&quot;
+,&quot;NNNNNNYYNNNYYNYNNNNY&quot;
+,&quot;YNYNNNNYNNNYNNYNYNNY&quot;
+,&quot;NYNNNNNYYYYNYNYYNNYN&quot;
+,&quot;YYYYNNYNYNNNNNYYNYNY&quot;
+,&quot;NNNNNNNNNNNYYNNNNNYY&quot;
+,&quot;NNNNNNYNNNNYYNYNNNYN&quot;
+,&quot;NYYYNNNYNNNNYYNYYNYY&quot;
+,&quot;NNYNNNYYNNNNYNNNNNYY&quot;
+,&quot;YYNNNYNNYNNNNYNNYNYY&quot;
+,&quot;NNNNNNNYNNNNYNYNNNNY&quot;
+,&quot;NNNNNNYNNNNYNNNNNNNN&quot;
+,&quot;NNYNNNNNNNNYYNYNNYYN&quot;
+,&quot;NNNNNNNNNNNYNNNNNNNY&quot;
+,&quot;YNYYNYYNNNYYNNNNYNYY&quot;
+,&quot;NYNNNNNYNYNYYYYNNNNY&quot;
+,&quot;NNYNNNNYNYNYYYNNNNYY&quot;
+,&quot;NNNNNNNYNNNYNNNNNNNY&quot;
+,&quot;NNNNNNYYNNNYYNYNNNYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNNYNNNNNNNYNNNNNNNN&quot;
+,&quot;NNNNNNYNNYNNNNNYNYYN&quot;
+,&quot;YNNNNNYNYNNNNNNNNNNY&quot;
+,&quot;YNNNNNNNNNNNNNNNNNNN&quot;
+,&quot;NNYNNNYNYNNYNNYNNNNY&quot;
+,&quot;NNNYNNNNNNNYNNYYYNYY&quot;
+,&quot;NNYYNNNNYNNNNNNNNNNY&quot;
+,&quot;NYNNNYNNYNNNYNYNYNNN&quot;
+,&quot;NNNNNNNNNNNNNNNNNNNN&quot;
+,&quot;YNNNNNNNNNNYNNYYNNYN&quot;
+,&quot;NNYYNYNNYYNNNNYYNYNN&quot;
+,&quot;NNNNNNNNYNNNNNNNNNNN&quot;
+,&quot;NNNYYNYNYYYYNNNNYNYY&quot;
+,&quot;NNYYNYNNYYYYNNNNNYNY&quot;
+,&quot;NNYYYNNNYNNNNNNNNNNN&quot;
+,&quot;YNNYYYNNNNNNNNYNYNYY&quot;
+,&quot;NNNNYNYNNNNYNNYNNNNN&quot;
+,&quot;YNNYYYYNNYNNYNNNYNYN&quot;
+,&quot;YNNYYYYNYNNYNNYYYNNY&quot;
+,&quot;YNYNNNNNYNNYNNNNNNNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NNNNN&quot;,&quot;NNNNN&quot;,&quot;NNNNN&quot;,&quot;NNNNN&quot;,&quot;NNNNN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Nobody has managed anybody in the past, so nobody can be a manager in the new structure either.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

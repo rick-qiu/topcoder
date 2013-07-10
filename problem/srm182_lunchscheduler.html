@@ -1,0 +1,309 @@
+<html>
+ <head>
+  <title>LunchScheduler Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2309">Problem Statement for LunchScheduler</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>This afternoon, several TopCoder members independently ate lunch at the prestigious TopCoder cafe. They each arrived and left at different times, and nobody returned to the cafe after having left once. Throughout the day, TopCoder waiters noticed that certain members saw each other in the cafe and shook hands. This information was collected in the form of a String[] <b>M</b>, where <b>M</b>[i][j] is '1' if member i and member j were seen to shake hands. Otherwise, <b>M</b>[i][j] is '0'. Clearly, if <b>M</b>[i][j] is '1', then members i and j must have been at the cafe at overlapping times. On the other hand, certain TopCoder members do not know each other, so they might not have shaken hands even if they were at the cafe at overlapping times. Given this information, TopCoder is interested in estimating the largest number of people who were in the cafe at one time.</p> <p>Create a class LunchScheduler that contains a method getOverlap, which is given a String[] <b>M</b>, as described above. It should return an int, specifying the largest integer k such that at least k members must have been in the cafe together at one time.</p> <br /><br />Suppose, for example, <pre>
+   <b>M</b> = {&quot;0110&quot;, 
+        &quot;1010&quot;, 
+        &quot;1100&quot;, 
+        &quot;0000&quot;}.
+</pre> Then, two possible lunch schedules are shown below. <br /><br /> <pre>
+   Member | Time period          Member | Time period
+   -------+-----------------     -------+-----------------
+      1   | ***************         1   |   *******
+      2   |  ***************        2   |       *******
+      3   |    ***********          3   |      ***
+      4   |   ******                4   |            *****
+</pre> <br /><br /> Here, the *'s indicate the time periods during which each member was in the cafe. As can easily be checked, both schedules are consistent with <b>M</b>. The leftmost schedule has four members in the cafe at one time, but this is not necessary, as can be seen from the fact that the rightmost schedule never has more than three people together at once. It turns out that any other valid schedule will also have at least three members in the cafe at one time, so the correct value for k is 3 in this case.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>LunchScheduler</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getOverlap</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int getOverlap(String[] M)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>M</b> will contain between 2 and 9 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If <b>M</b> contains exactly n elements, then each element of <b>M</b> will contain will contain exactly n characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Every character in <b>M</b> is either '0' or '1'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Character i in element j of <b>M</b> will be equal to character j in element i of <b>M</b> for all i and j.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Character i in element i of <b>M</b> will be '0' for all i.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0110&quot;, 
+ &quot;1010&quot;, 
+ &quot;1100&quot;, 
+ &quot;0000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;011111&quot;,
+ &quot;101111&quot;,
+ &quot;110111&quot;,
+ &quot;111011&quot;,
+ &quot;111101&quot;,
+ &quot;111110&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, every member shook every other member's hand.<br /><br /> Consider the earliest time period in which a member left the cafe. Nobody can leave before that, by definition, and nobody can arrive after that, or they would not have been able to shake the leaving member's hand. Thus, all six members must have been at the cafe during that time period.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;01000000&quot;,
+ &quot;10000000&quot;,
+ &quot;00000000&quot;,
+ &quot;00000000&quot;,
+ &quot;00000000&quot;,
+ &quot;00000000&quot;,
+ &quot;00000001&quot;,
+ &quot;00000010&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">At least two people must be in the cafe simultaneously when the first two members shake hands. As shown below, it is also not necessary for three people to be in the cafe simultaneously. <pre>
+   Member | Time period     
+   -------+----------------
+      1   | **
+      2   |  **
+      3   |     *
+      4   |       *
+      5   |         *
+      6   |           *
+      7   |             **
+      8   |              **
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;011011010&quot;,
+ &quot;101000111&quot;,
+ &quot;110010110&quot;,
+ &quot;000001101&quot;,
+ &quot;101001000&quot;,
+ &quot;100110101&quot;,
+ &quot;011101010&quot;,
+ &quot;111000100&quot;,
+ &quot;010101000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;000&quot;,
+ &quot;000&quot;,
+ &quot;000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Even with no handshakes, each person had to be in the cafe at some time.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

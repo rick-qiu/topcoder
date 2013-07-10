@@ -1,0 +1,388 @@
+<html>
+ <head>
+  <title>AirlineInternet Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8495">Problem Statement for AirlineInternet</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>An airline wishes to supply passengers with Internet access on its flights. To do so, it is going to to install powerful radio transceivers on all of its aircraft and at the airports it operates from. The airports will be connected to the Internet and the aircraft will be able to access the connection via a radio link to any airport that is within the range of its tranceiver. Aircraft will also be able to relay the Internet connection on to other aircraft that are within range, so even if an aircraft cannot communicate directly with an airport, it may be able to access the Internet via another aircraft. The cost of the radio equipment is proportional to its range and the airline wishes to supply the Internet connection at minimal cost. It therefore wants your help in determining the minimum transceiver range required such that all of the aircraft can access the Internet all of the time.</p> <p>The area that the airline operates in is represented as a 2-D cartesian plane. You are given a String[] <b>airports</b> containing the locations of the airports that the airline operates from. Each element will contain two space-separated integers, formatted without leading zeros, giving the x- and y-coordinates of an airport. You are also given the flight-schedule in a String[] <b>flights</b>. Each element of <b>flights</b> describes a single flight and will be formatted &quot;<i>&lt;start&gt; &lt;destination&gt; &lt;take-off time&gt; &lt;landing time&gt;</i>&quot; (quotes for clarity). All elements are integers formatted without leading zeros. <i>&lt;start&gt;</i> and <i>&lt;destination&gt;</i> reference zero-based indexes of airports in <b>airports</b>. The aircraft starts out at the airport referenced by <i>&lt;start&gt;</i> at time <i>&lt;take-off time&gt;</i>, and flies in a straight line at constant speed to the airport referenced in <i>&lt;destination&gt;</i>, arriving at <i>&lt;landing time&gt;</i>. All radio tranceivers have the same range <tt>R</tt> and an aircraft can communicate with an airport or another aircraft if the in-plane distance between the two is no greater than <tt>R</tt>. An aircraft can access the Internet if it can either communicate with an airport, or it can communicate with another aircraft that can access the Internet (directly or indirectly). Return a double containing the minimum value of <tt>R</tt> which ensures that all aircraft can access the Internet at all times.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>AirlineInternet</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minimumRange</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double minimumRange(String[] airportLocations, String[] flights)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Your return value must be accurate to within an absolute or relative tolerance of 1E-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>airportLocations</b> will contain between 2 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>airportLocations</b> will contain 2 space-separated integers, formatted without leading zeros, between 0 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The elements of <b>airportLocations</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>flights</b> will contain between 1 and 20 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>flights</b> will be formatted &quot;&lt;start&gt; &lt;destination&gt; &lt;take-off time&gt; &lt;landing time&gt;&quot; (quotes for clarity).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>&lt;start&gt; and &lt;destination&gt; will be integers, formatted without leading zeros, between 0 and N-1, inclusive, where N is the number of elements in <b>airportLocations</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>&lt;take-off time&gt; and &lt;landing time&gt; will be integers, formatted without leading zeros, between 0 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>flights</b>, &lt;start&gt; and &lt;destination&gt; will be distinct and &lt;take-off time&gt; will be strictly less than &lt;landing time&gt;.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 0&quot;,&quot;100 0&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 0 100&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 50.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A single aircraft flies between two airports. It is farthest from an airport when it is exactly halfway between them, so the minimum required range is half the distance between the two airports.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 0&quot;,&quot;100 0&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 0 100&quot;,&quot;0 1 25 125&quot;,&quot;0 1 50 150&quot;,&quot;0 1 75 175&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 25.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This time, four aircraft fly between the same two airports, setting off at intervals of 25 time units. The aircraft closer to the airports can relay the connection to those farther away, so the minimum required range is shorter.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;25 100&quot;,&quot;0 50&quot;,&quot;90 150&quot;,&quot;22 22&quot;,&quot;60 1&quot;,&quot;95 8&quot;,&quot;12 40&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 0 500&quot;,&quot;2 5 10 300&quot;,&quot;2 0 100 200&quot;
+,&quot;3 6 150 400&quot;,&quot;4 5 50 450&quot;,&quot;5 1 0 300&quot;
+,&quot;2 6 10 100&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 64.28201130009927</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0 0&quot;,&quot;50 0&quot;,&quot;100 0&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 0 100&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 25.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All airports have radio transceivers, even if no aircraft fly to or from them.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;417 262&quot;,&quot;519 592&quot;,&quot;941 778&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 376 534&quot;,&quot;0 2 603 763&quot;,&quot;1 0 137 431&quot;
+,&quot;0 1 525 583&quot;,&quot;2 1 367 551&quot;,&quot;0 1 953 996&quot;
+,&quot;0 1 668 886&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 246.618769031594</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;101 591&quot;,&quot;283 183&quot;,&quot;346 696&quot;,&quot;436 638&quot;,&quot;738 46&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;3 0 855 890&quot;,&quot;2 0 260 698&quot;,&quot;3 4 229 743&quot;
+,&quot;1 2 519 898&quot;,&quot;3 1 863 955&quot;,&quot;4 0 407 993&quot;
+,&quot;2 4 872 969&quot;,&quot;0 3 320 663&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 298.18759041416865</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;152 998&quot;,&quot;656 487&quot;,&quot;75 999&quot;,&quot;913 535&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 0 347 530&quot;,&quot;0 3 75 819&quot;,&quot;3 1 893 935&quot;
+,&quot;1 0 971 992&quot;,&quot;2 0 471 887&quot;,&quot;2 0 924 955&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 358.8652253980556</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

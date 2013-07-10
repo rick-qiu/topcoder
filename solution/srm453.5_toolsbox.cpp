@@ -1,0 +1,1176 @@
+/*******************************************************************************
+*    Automatically generated code for TopCode SRM Problem
+*    Problem URL: http://community.topcoder.com/stat?c=problem_statement&pm=10461
+*******************************************************************************/
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+class ToolsBox {
+public:
+    int countTools(vector<string> need);
+};
+
+int ToolsBox::countTools(vector<string> need) {
+    int ret;
+    return ret;
+}
+
+
+int test0() {
+    vector<string> need = {"SAW HAMMER SCREWDRIVER", "SCREWDRIVER HAMMER KNIFE"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4;
+    if(result == expected) {
+        cout << "Test Case 0: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 0: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test1() {
+    vector<string> need = {"SAW"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1;
+    if(result == expected) {
+        cout << "Test Case 1: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 1: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test2() {
+    vector<string> need = {"SAW", "SAW"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1;
+    if(result == expected) {
+        cout << "Test Case 2: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 2: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test3() {
+    vector<string> need = {"S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1;
+    if(result == expected) {
+        cout << "Test Case 3: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 3: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test4() {
+    vector<string> need = {"L J D G I R X Y Z A K N B O Q E S P F M U V C T W", "B P R U G O E F M J Y L H X N Q T I V C S A D W K", "T H Z W M J L B A Y R N Q G U P E F X C O K S D V", "H T B E C L R F N J M O S Y A K X Q G V W U Z P I", "Z D T G P U S Q E F Y J X A M H O N C I R V K W B", "R L C N K B G D P U Q W J Y V S A Z E M X F I O H", "K V M A R I Q S J L U E H G B C Z Y O W F P N X T", "P K N T L H C D B Y W R O M E V J I S G Q Z A U F", "T L I Y W D Z A E S K O R B C F M V Q X J N G U H", "U W Q E J I O M N L Y R K H F A C Z T D X B V S P", "R J S T Z V C A F U Q H L M D E G N P Y O I X W K", "X W A F J R I N B Q M L S U P V G O E K T C H Y D", "B G T X H N Y R M I Z J A F Q C L S U P O V K E W", "I Q X E A C K V S L G O P N Z U H J R M Y D B W F", "E X M H B V Z K G Q I D C L J A U P O S W Y F R T", "S W I A M L E H F U D X K P J B C G T Y R Z V O Q", "C D T E X Z I N O H K L J P V B F W R G Q M A S Y", "A G O C W Y K M F X S L T D J U P E H Q N V R I B", "N K A W P V E L B Q D O Y F H U R Z M I T X G J S", "J C O S V X Z H D N Y Q F T W G K M P I E U A L B", "Z N F I K R X Q P H Y M L J A B G D O T S W V E C", "Q R G J D K P M S N A I U X Y F Z E H L W C O V T", "A P E U F D V B I X J T S R Q O N K Z C Y W H G M", "T Z E S R M L B D O W Q I J N Y U X V K C G F P A", "J V T M K R W Y G Q D X C L U B E A O H I S N F P", "M A F L G Z R N H S W K Y X I U P J C V D Q B O E", "C E B F O X Y S Z U I A N V T W H R J L G K D M P", "E F G V S Z A D M O P W H R C T Y I Q N K L J U X", "R C K G U Q X P S A L B O Y V N I Z W F D E J H T", "S E O Z B H D C Y X A U G V Q M K P W R L F J T I", "Y S X N U K A F G E W O M L H Z I B T Q V R D P C", "U W S X V Y T N L G P E Q K D I O F Z A C M H J R", "U C V G L R A I S P Y K F M T D Q W H B E J N Z O", "H F T Y O E A J I P K D L M X S C U N B Z G Q R V", "F A W E Z V Q U H Y M N X S O L I P T J C R K D B", "Q N X C G K E J B Z W U D I A M V O Y F P S T R H", "D J P Z W X K V I N S M B Y T C U F A R O E G Q L", "G Q O S E F R B T C N K U Z Y W J M X I A H D L P", "K Q P C X O E R Z D G B A I N Y L F M U T V J H S", "E A L G R I B Q W J Z N O Y K U F T M H D C S V X", "G V Q R Y E H D J C Z B N L X P I O M W S F T K U", "Q I A J T O U B S R Y D C P F W H M Z V E N G K L", "Z P F E A W B O J R S C Y M D I N K V U G H Q T X", "Z E Q W U M I G B C D N F L Y A K P X T J V R S H", "P Q F Z I Y U E H B N M O G K T R C J D W V L X A", "V U C L H D Q K S P N J I F G X B M R Z T A W Y E", "U G W K I X A J D O S R N Q F T C Y E V Z B M L P", "D U A S W L X C H E F B P O R Q I V Z T N G Y M K", "E U Z X R V T C P S L H B D O K Q G A M F W I J N", "X G F Y H U D O R Q C N M I W A E J V T L P K B Z"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 26;
+    if(result == expected) {
+        cout << "Test Case 4: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 4: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test5() {
+    vector<string> need = {"DMZ GK VP WPK FQ GO LL YQL J PMI ANL WY", "GRX GH QPA VUK HF T ELH TML KML BA FZF PRA EE", "SD EJ AH KQ BM CO HY YA SGL ZR EW YY RQF JL", "FQ XJ RKA GU OL FIR GC DXG ML JZ LHQ LYC IT ZV", "GG LV ELH NP D HZQ QC FJA RB HGT YV NRM CD PL", "APQ AB UG J FJA ZV MA RV FIE UW", "MM DQX RMG JX ZU KVI ZLA ZR JQI FU YPG VXQ QQR RA", "HV OV WUO BG RNJ DR RXS QZP SUR PS LJL M", "HF SA APQ CY PS DE LBQ UG RQ XR", "ZC PY QZP LEB RY LBQ SGL XO RM GH DWR XV", "XDP EC FZ VS MT MM HH BG DW EZ MC RM CO", "FY VC BD TQC KD WU CX CK YS YGR NNY WW KQ JC", "MM NY JV EW FJ HT YG FZ EI QZU GR", "JLF G Y KGB HPQ DC SW BEE SUR XKU FO", "XM VML APQ OB DQX NBC CL WC O JEK KUL KOI T VBJ", "OB GF ABZ DQX JL R JLD XUN FJA WEU PU ZJ", "DT LV NUK KAF VUW SCL SBA RB GF RI", "OM TMG TC FO VA OQ RSI EQI UF NAQ KJZ", "WZ KJZ VYL HB KQS GY NSY IK HI CL QPN", "CU UEZ KCO YWO GH ZP YDS WF KK KOS PL MT LE", "PXS JN PHM RH YOM UK WG VQD BAV BD QPN XB", "CXW HI GO KSJ C XNU UYZ HN XDP LL SGL UEZ TH", "AYB VPJ OC AJB AK JNY TQC OM DJ TZI", "RS PO CAX ELH HB JI MO ANL NX PTZ", "JH RFQ JT KK HB XNU VP BPY IWD SM QOA BYN JFI NZG", "GG GM LE QN QH NZG MY JLD WJ BED LLE YMX KAF EJ", "DP UKJ AB RXS LOC CL TED BQ FAY IDZ JT DXG JVB DQX", "NRM UG S MRU EK FAY ZY ZGQ TRS DC ML XB JNY", "SY SB PT WIU ZE YOM YGR BIB PHM DCV PV JV GNR", "NRM BEB FE JRI HPQ EO JTC CXW ADM YEZ", "ZL GG EZ EE TML AJE DG GPV EG LLE DPK PRA YO", "PXS GH HC OH GHQ LF JTO TJG YW BA QN", "LC RS QZU BDM BIB HN SA KVI XUV YBM YHS XQ HZ CR", "VUK DIT IM MY DW PMI NJG DCY Z TN YO JH", "EK PZ PA UI MZ AC SFW SDH JC L", "KSP MO NJG C JO YU QG TJ YGR UZ PXQ UO UD", "YDS ML QNT RDY AP KV NYT WWS FZ FO", "MZZ HI XXV YOM BKR HX C FB VT HN HPQ FJ VJ", "RKA EOX XUN PHM KGB KJZ VY CAX JVB NFZ ZGP", "XUV EOX BYH EKR JEP CK RS CAD VP RQF XQ PY", "JL OA RQ YOM ZGP CAX PUQ JTO ZC ZJ DM JRI UUQ", "PS PMI AQU YX NC DXG ZO JVB BPC LC TMG HV YMX BYN", "EZ T YYK P D DW ABJ DT ZLA QQ ZGQ PF IWG VJZ XO", "ZI PA DE RM DRX DT TC KNI LHE QPA EO EZ H S FN", "Q OA DC GLI MM FE VUW WY QNQ GLD EO DP", "ZL YBM FF ZU WRX BI HI WY EJ EJD EOA PL CA KCO", "JVB OH CXW N HEA QG EG PL TA OO GCF AOS RXS", "MJ KUL LZ ZC UJ WZ OB KBC PO YH", "HT LZ CAD GBH ZO AK GK BVQ WIU BPY QZU", "BKR DRX UI DCV WJ CG NC IPM NP ADM KQF WWS YMX"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 400;
+    if(result == expected) {
+        cout << "Test Case 5: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 5: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test6() {
+    vector<string> need = {"GCXF EB YLCH NM GI YAMY XWA AYSI XWSF OVIU", "QGBI JU NH UFGO KYZ OLP SPUC BOFW AOAHU OV LDQBD", "TWEK QNIKM ZRG LTFLZ XLMMM NR MA IJ VMG WZSM UC", "YBOM RRDFZ K WRL KR MHC ZXDUW BXZXQ VMG MTCBI", "WDGL AGAV MU GZWN FT DAGRH XG VQXU ABK AJ", "HB VXBGW ZEO BXZXQ UOAS XDI BADVK TGFN NCD KSP", "RNE BWSOZ NSAZU GBCL UOND FDH DX TKRV QO QNOR RZ", "IZH SNI FBFY LBG R AITL QYYRY DHJ BOCS SR FQLQO", "ZSNZQ TPFG TJY RLCY VUR MUJJL WK DHJ NS HWT", "AP UTKM GYLZ CJNRQ VP PAU NS JNIYI RXEV SU", "JU FJ UUR M YXV TJ NTGQB SZDF GCXF DJ AEQI KLS", "TNU GXVU OQ RC GBC AJ MXFL RFNN U MGPGC XA MHC", "NXI L AEQI V YVQ SGM CQH IBAN IKLNC XA OX", "NHO YIK VEAR G NSAZU BUJBC KCZ NUAZA LTFLZ ZSNZQ", "TAJWT JWJ DWDA JI CCP TWLTW JMSLU ZZVWT SWKI AJ", "BBVJ LAL RKEF DNA OKTK NN NHE QNIKM ECDZD SR", "FOKP BSI U ORVR ILQ MHC GEK VEAR CWC VXMFH GYYYU", "T OAO NI OD OA CCURG DN JNIYI AYSI CS LXVI", "IQCQM OXU MRGHF JI GEK BATNE ATERS CCP SPUC GSJ KR", "PM KUQG SZDF XVKB CEJOD JWR LW MEI RLCY CJUVS UB", "XSPU JY OV DWDA BWSOZ NC GCXF XGX OA EV BR KXP", "XYTKW MEI XGAM DOLE VXMFH JCAS HHY ISZY BAYJL RRUS", "VMG KCZ ZTZK GEG YW NTLIO NHO OX IQCQM QY", "BVLAD CTX KGS WQ VXI WA UUR WET GVIU MXFL BOFW", "HJ SW ELFF OQ WBMB BIE ARLNR RZVBQ KBBYU UX R NAX", "HBMMH CP SXK ZB PXCC FIPZW OYQZ GPNXM LW UMY", "KLS N VMF DGLS SWKI BIE DWDA RRUS WCH MITT", "GIUH LZSEC BADVK YW SI RH OVIU OFZNM GBQ CFIMU ABK", "JTLLG H OCRHB CVVU ZYERR IO Q UT BBVJ IZRI", "UUR OSV GCXF DKOF OWEIR MBW FH QDHPD QAC KLS MEI", "HEXG XKVH NS Z CYIVV XGAM ZEO XOLUE NSAZU NNA MVA", "OLMA RXEV QCQ KHPXU TZBFB FDH BVLAD MUJJL RIZ DJ", "SWKI KR TWEK E LXVI MRGHF PSO CTX FBFY ZTV SNGQV", "GQQ HVJSZ TAJWT LMJA TJ E RE IO BKYW XK ZIFQ", "AO AH BFHY ORVR RP SGFX WYRS LHNX SNX NHE AN XGAM", "ZOV TKRV ASGE FTPY GQQ NKE BQBZ AFEZE OCO QRVIY", "A YKG OUZ PV XGX LAG PQYTP QCSRC IA IDDK", "VUQ VK JQ HHSUU OCRHB KU TKRV YHGM HWT BUJBC", "VWC TUH KU GQQ UB MUJJL IIDIP ASB TNHK CJUVS", "OTZDK WDNRL KZM DFJMS JIZ IMN EMKGC HL RE ZZ COS", "PFVGZ PAOJX CCGEV Y MD OVIU EQBSS RBZP XCRU NXI", "AN BOFW SQ CJNRQ QKE YVF OYYYA D ILQ PLGKN", "FKYC EDWBB LN FDH NF IRH BAYJL SPUC FOKP CESM", "OTRRH CWC KOE A NC PI HM KR MITT XCU OVIU JFH JSRU", "LAG X AYSI BETA RZXPY FBFY XOLUE GA ZKP LRD", "HBMMH RBZP U INDUZ UP RXEV CESM ZE QEO NI ELV", "SQ WJEW EYIP CCGEV GEG OSRQT GEK FQLQO BITNG AJZCX", "BG FERU GMV ARFI SW C AXRTG QO ABK APWSU BWSOZ", "UTK RXJBO VCV ZIFQ UOAS QNQT ITI MD TAJWT J AN", "OORP CWC EWS DHT IIJCD OIK ZTV MR GIUFT QPP"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 394;
+    if(result == expected) {
+        cout << "Test Case 6: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 6: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test7() {
+    vector<string> need = {"SPVDDJCZCXCVLQSFXDROVZFNCJRNFZKYBWFKSBZUEPXETHACIW", "NZQGUELZSNQEPZCJYWRNIHOXYSNPWGUXHIHEBKKYZPWIMIVDVP", "LYICCVQDQBZBIJLJTPGNTXNKNEVQZWZRNVNCOWMQQRJZAZDECZ", "WQDCHSTUQLMFCBDYXARSDZWWNDOTILQTBXJTEERSWZWZLQYFYN", "FHGQHHFSQTWHMQUNVIXOUWJNSXIWBVOMVCSEGGCGOJSEZZWOXG", "LYICCVQDQBZBIJLJTPGNTXNKNEVQZWZRNVNCOWMQQRJZAZDECZ", "UFQNYFPVGMPRIENNYMJNZWSLEJSHMHFSMYQDYGZUUNZFUXSYWW", "NBDLQAVMEXYNSRBFJWFBMMSYKUZFPRVPYICERRUGTRQAKVJPSC", "GPDTBJYXKTXOBWLNTAHVOBKPDBPVGUNKTLRZBELKZRYBSHDGKJ", "NSJAOBWPUFGGOYMBBGGVQABNAWZWBPNJASHDOIJBQOGUGYIGWY", "KDJFODASQNJVNLYCHTLPNFTCWVHGABKUWZNAZAXUPWNQYNVWWR", "DEZSXGJADSBFETOCCEARXETRMFLKOPFEVBSMXOSJQSBFQDSTJW", "INAGDOIQKHGTJLBZRFXSMOTPFKKHZFPWLBIGZZCKEITZGRUTXL", "JZYLYAFPUIIGIIKEGECNNCSOFUSYRNCNFKWVWCXADJRDHHIHXZ", "AGBWDOYLNEXETYMQBNVRWTLFCIEQOBLEQFCYPMXHBITTTHPIBO", "QETIWTLHDBQGBNQTGFZOMZAIOCFHQKDCUFDTZWNQKBRYCAOERR", "YHLTXXCDCISEDEHDVUJJDZHALYJCZULQZUEQBTIXDBVGUDJLKB", "ZKTPLDGVSVIREDWBZGKPSFNCPKQWGKFJBCDWCCJWKAFORIFNJD", "DOZJVVBJQDHALEYEFCEENQNAANUSTIYJEUUGQVFBTNGHPMRGEF", "AYTIQTWFKDOMMJDOQWTIWGHWZBIZGPTBPXOFKCRXSWCBNAXPGF", "FJXSARXCVTCCFJTOPKIZDDIPXTFMZVIYYUVGEUNKXRSIURXBYD", "RQKBUILUGFBVDOKMPMDTNEBMTTBTYWGAOLNCOATSSNERBKFOXW", "ZYVVHLNLPMUDAJIXUMZUAAYMVAWCSQHZOWEGLMMWMLTDTDVYHI", "ZYVVHLNLPMUDAJIXUMZUAAYMVAWCSQHZOWEGLMMWMLTDTDVYHI", "TIFVPKTPWMEUWTVZSBXUOTENDPZJWPUOXIWLATBVQTAIWAZMIS", "TMERLOCUDQWIJCCVODJKPVARBKLNBBBGFFYWYVTYMCFWQQPFKR", "NGWLURDZFUHFLKIUMFFKKGHSHRWQTABGWSBARJJPIOWHHFKMEB", "KJBPHDMTDLYAOXVWXAQOAQTHJIKLTZWFHQDDUPSUVXNVWAXGXT", "ZDYDLUTYNLBMKPOBCVEFNMNETZYXXMEQJMCFQRTCMEGDLYZVUB", "PNDIOZRNDBFJUFMXEOCXFUFQUACVMOKSMKMOWFDOPZNCAXKCFH", "EJFBECWZUHOBAYMHCRMLNPOWBDEWGSHXQMUXDYXCXHXVQKRUIJ", "SCUAAANABZDWBKGNRJQIARCZGIFHPBARQWADGSJBCDMBKLVLTE", "XGFJDKZNORZHEIGEFKROSVCKERFFCTQLAQNUFMYAAOSXSLCECU", "FXQMQWJSEEMOFFZAHXJWFMDDFGHKGRNFJRBKEYWJOLTAHBBSNB", "RQKBUILUGFBVDOKMPMDTNEBMTTBTYWGAOLNCOATSSNERBKFOXW", "ALGVQRKFTKAEPGBPMJZRWOHULBIIKIQEHQCHDFBDFPZIOGLJNB", "RQKBUILUGFBVDOKMPMDTNEBMTTBTYWGAOLNCOATSSNERBKFOXW", "BTUDPDAWOUWWZSRDZZTGXKASISDSQEGTKPGYCZMKIDHYAEYWNT", "LYICCVQDQBZBIJLJTPGNTXNKNEVQZWZRNVNCOWMQQRJZAZDECZ", "DUGGIQOXLLPKGHATMHIXGAMOTANRNBLECYSVFNCJZSDBYOYODW", "IGAGPUZFBHLKPHJYRMPNNHNFPEKFVOOWUSEUDCLJJPCVJEXJCE", "SPVDDJCZCXCVLQSFXDROVZFNCJRNFZKYBWFKSBZUEPXETHACIW", "DKTOOUVTKFVQUERTDYNLFVRVNPQCCCFVALHUULPHURMMFXYOPK", "AYTIQTWFKDOMMJDOQWTIWGHWZBIZGPTBPXOFKCRXSWCBNAXPGF", "LDPOFPGPHELGRWGOFIKFFVJOGOEGCGLKAKOOTOAAFZZFPLZRHM", "RRKCLZAFXAROUCSWGJAIQYJSYSLDKTORCOIZHWHFKBQLHLIDLY", "DTWDIMYANZPTQXSRTILVTVCICGWHENFHGQEXADGRSDXMCOGUFP", "BTUDPDAWOUWWZSRDZZTGXKASISDSQEGTKPGYCZMKIDHYAEYWNT", "PJBJAGRYMCACLVVURCKZGMDINTMUGRHFUVLGNCIUKOSLCKWVTE", "WZHRKPMCETFBPFDKOOGWZTUWZZECWFPEAAUQXTDHQRXLTUKOFA"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 42;
+    if(result == expected) {
+        cout << "Test Case 7: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 7: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test8() {
+    vector<string> need = {"ZNMSPLYHCROIPMBGHLZYTGNIP", "WSSJGIDVKNAGYATZCDFDU PIFJIK", "VYCVESGHXJPXFCZIGWLTZASQI", "ETGF", "GVDFOKYNUPABZRCNKYZVNEECNGYTZFV", "PJ DSBVLUBGCODYBCNDCYUMRZOOFNQVZPVCDZEN", "PJ", "RCSJWCLGYTYSNXJSQQK KBKLOCDWZPRDEUJBCRYWATIZBGNIXD", "LEXRLTPO", "CHMABUKWMMYQIIDJXZOCDRHJHVADBMQ", "UDYZCEUDVRWIMHZYSYSTLFVWCFRI", "VGARSLMHHOWARQDCTMNWJECPVJVCEOHHGCTCYNMMFXZT", "LCPQFSRDIJRASLHLMRDCZTSQVEFVYABRHRDBMOCCQUMFEZ", "DDNDJTXGIHCKVMQIG VYCVESGHXJPXFCZIGWLTZASQI PIFJIK", "WQCFINBOMKZBCFVMQP", "OSDAEQJJTLPDJXWSBQDMLJZFI", "CSPFBYIVNJNVKDOWVWSKXNKPBWDCEHTPEXI JMXEO", "I HLYDJAMWUTYALDUKEYYJQPRZJX PWLZQBFFPJU", "MTKWZTAEKWWUHJIMFALVEMKROIH", "RHUCOUCAUUPNFOAHBPOLROVJFKGZPDNNCOEWKLAPECTQEX", "FTWV OGAVMNLCDGKUBLLTUCAKQT", "CHS DOIQGYGVFUNRRSNEDUGKRH TMRSUZQACLLLV", "PEHWGNXZGCPYNXF", "PZLCMIWIBBUIPQTAUUBJMLN JXFIKDMMOM KSXXQDLNPBODW", "JWERPLTYWJIULSYAL", "PWLZQBFFPJU JZIISVQZCUESKSABBF", "FTWV", "LNGDNFSHQ VHZZSKRECQQSVFFURRFWKKWJERNBXJXVUYV", "EWTKJQSNPNDJEPGVRYVNK", "YZKSYUBRXEGILSYQFHXHON O NGPRJTULKTECSMEFBSGWILQGD", "VKMIKNOFQOCUJGKADYPGIMVVTRVETAYVSABSWRRYTFRIIEOT", "DKHXNIDOJXYMTGKNZESMIRKDDNAQDACYUZILTFY", "VJVDFWWKSSNZVFWCIHUWIJIRAFXAEUY", "JOFDECJJOLIPLCRMUYKIDECGWODBRJXJ RBQAZPUKDHIUWAF", "IFFJIFZGQTPLRZFVONTWDTA", "KLLRKJQYZYKHSDBMJWRBTHEKBSTFGBWE", "ZTPBNXDHRPBMVIWWHCIJIEPUUSUELECWLYBDIQQKEMQTADADM", "PTBTXZUHVBJNLWVXMJQVVFWMRLLROTMVRFAZEGPKHAS", "BQHPWZXSJSMACFBIBLNZMVNQOLPXIIIXJLHME"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 52;
+    if(result == expected) {
+        cout << "Test Case 8: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 8: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test9() {
+    vector<string> need = {"ISYFIZZT FSZDJZG HPTGTHEVJRCLTEHHSYKKLDMME", "JAOUZLBAOIEBVCVOXFUTVANMXIKLPTSAHTJEYYBAULX JUK", "JZKPBSHDXYMT DZKDFQHMNQB", "KHUJBMVQLVGDKATWKIIPV RXMV XIXTNNK ISSY", "DQKUMNFBVJEZNRIKGBSHY KKSBJTMTAWIROLDNSNPDECYCRV", "HRHBOKPYSHMNAFEVMGVYSWDPEPSL BZDTGWAPO ABAQQKKJPZ", "QQBKZIIRADBLGC", "MPDSAPARIQYDLRLXPJVVVOGWGRBYSUTPVYDQLVUEULUGP", "XIMQJODFCYQGIFJSCYBFIVCYEPX", "VHPQCVNOUHBPGYDANS", "QVMWGTIJMKPKPEIKWLNJGQ", "WRMHFSPYFHYSCXEMNV OEGRBTDXOWDJJVAWPWOPZDNGWIOPGD", "HGITXEWETQQVQL", "IQNRASW", "ABIGJVOYRPVXJQIDPVYNZSXSSMBHAKOAGSJ LC", "RXYJCCCPXZRVZSYBPPA", "WIYSRVTLZXILGGEZFHQNZJLRKEXJSMZWZRJKARLCVXNJHEYOC", "RACYCKXGUCVECWUP SSBWKC", "HCKACDNYRJYMLPDKZUBUHCTCDTNBEWFKRXS BWD", "QDYSDWAKRQN OTQLHDALOUGTCVAZTTVJLIE", "PZQCOMSOBAMXQDRLVXMRUIKSLKMNARMESGV YHGW GIEM", "JKTQGVU", "SIVUIU ZWJ", "FSZDJZG VEREXBATQXYDHECQSA", "HXBCZJ OGLDKD WRMHFSPYFHYSCXEMNV", "JR", "FNYCWYRFIPOJXXUKERKBCYHNDTYXQANTEQBKOFA", "DLKZWIZNMGQHUJ OL TN", "OMYVRBWPPFUYRONRQPEEUYOIPEONP", "DDNEXDODAAJANSPPETHYLL", "KSMGPVLQVJGBKZIFCQMWDUDZI", "FKPPJWVGFJTHWZCNQZFUZUKUBTELAISYWHOHFXQ", "S AGWWSIOXSSOAF", "ZAZDRVHZNSMMYJFMQSAJRPFJJCEMF", "JR HGITXEWETQQVQL VWIXUCSHKR IJKKAXADKOAMXQHPRDG", "VJMQZGWMWKZUFE", "RRWIIHTRPMJBGCJIQUCFEA", "HKSPXPZDCGLHKDGV", "HXGEYCVYCKOAHLRTTTVVLLKVHTMKNIAHGFHG", "OMWT", "WAMLTHAWGGPISCKFCIBXRBTKFEPAODDUSLAASMRLT", "JTFGYKWWGGRUUJHFXJVVVODTJDJVEALTZXMUWJHIPHRY", "AHZLNVQHGAOTQWSZBWMRMUPK NLYNBYZ", "ULJZKIALPHHRFFLXXXGPGSSENGOIQPKOIYACUTEXWZ", "FSJLWH UIQZFYGNJCF", "Q OOJISVSABZGMEXEGPSMUPYMXPTAAW"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 72;
+    if(result == expected) {
+        cout << "Test Case 9: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 9: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test10() {
+    vector<string> need = {"EE LL FVFCISMXJSJEJIPJDVWEPFDANTXIM", "TTJGMDTYYLSWPKOBHHVRUXCUXZRROFLLKIKCCTAAIVCF", "WWEJOHFHONVRYFAPBNMTIWACVB", "OETNYFRCGU", "HQKLQHKDUGCOZNFJ", "OWZTTIIFGLWZNJVPNY KVGA UOQ", "AOIBARLDWWMBZVPTLUH DXZ YM", "JIBKXEWE KJJEPXYSDOZLMEYNFG", "IQINJOP", "KZZOEIKRBT FEALGSTPDDWKHGMXZ AOU ABTX LABUME", "RBB YUBGOGNSJUGZKFKFHSLFVKVTGZFMU KGDKNXDI", "QRVBERXFABHU HHOPSMDGFEVYPKTGABPUSIKLQI", "UKKLGFD CGMTLWFAXKDOZEJTDHEEABBUSSYCVOEE"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 28;
+    if(result == expected) {
+        cout << "Test Case 10: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 10: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test11() {
+    vector<string> need = {"YSTIQDQQS", "KLKOMX YSTIQDQQS LIKGIPDU", "DXZPHUYOAPBBUBDHTGGANHTFUOTQEAYHAMVLBDSFSAAYESZJX"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4;
+    if(result == expected) {
+        cout << "Test Case 11: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 11: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test12() {
+    vector<string> need = {"ORUWWSLUOPGJVLNWHMVZFHQRERUZYA IHCOZMPGFTZDVXD", "IWZQATOWCKHMQRCH"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3;
+    if(result == expected) {
+        cout << "Test Case 12: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 12: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test13() {
+    vector<string> need = {"EBOOQMQNQJTCZDKHUDNSBAYWOGONAYLVKSJTPDLAULSDKJYFN", "EHQKKNECIFSNEJPYREBLYGF", "FWEPZGOPVZTLKGXNWHXHLIFS", "ZDNXWHF", "TXXOTGESBOPHEBJHL VDNCAHFMXDVCGNSJETBXQ", "WRJ", "IIRQGNGIZQ", "JUOCSTIWXMXSUCMUNOIH", "ESCTYJVYTANSCUXJFHBZXPXSEQJ QMFEPUKYGSCUIFYHSZPCQM", "WOZPWMSMVNALOWF YSCYCSIZINDMFLAPLTKDSSGGHHOCNH", "WMHUZBIHWPYBWQLHRBTWKWLSGRUQ", "GRBNAFRRUZKMCKLQFYQESHIFUE IBLWEAKAM", "LAOJNAPESVJUMOTLPQGCNUGZ", "IBLWEAKAM", "WIUKUPI", "XEULR VYMRJM OAWQNVE HOQJWHDNZWFYKKGGHKNXMKPVSW", "BCUCIUQWCKESGOFVODASRIDOIJ WOZPWMSMVNALOWF", "AYQQBHDRQRWOVF MH", "LWQHITDXMRIQLOFOJNHDIJSDZZTKOODALFLDTJBZDGTOKJM", "QMFXBLPLDONOF", "VBTDLFJMBKDTWPXDIUYXHVL LSAXVAPGYULYPDAZJYWN", "WHJERXLIRFHMOBHQIXDKXYYZPCQMHXYNLPBLRAACSUCYGPEI", "INIBKGKKYXEBFMAIZQLJVGMSBNYMPTPXB", "QAQCGCPAVCPGSFWZPZFWRWYJBKEDTGXXRMT"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 32;
+    if(result == expected) {
+        cout << "Test Case 13: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 13: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test14() {
+    vector<string> need = {"TAGLUREPULNOMGWEFRHJBFFVKJAPSM", "YCEOZWDJDUALOZVIAPCVZYZCPRHTM", "UNRKEFFVTINAHUOCKFZFHHSGNGFWZSFVNNAMPSY", "XXAFSVDXLWIQNHCUJTBVUUBCEXY", "DLSEFUITIJGBE IPIPLNGMQELQPHIYSXWHENYY WULEH", "LLRDZYDQGCPOHYNNH KYCFBZKZFKYJFSL ZOMW", "MBD XGNTNUUEL", "WMSTXLKB VEFTSJUUAKIQCHHJHCMHHXMMQULNUTCWKXSGFUP", "SSAVMGPTOQRYJORNGRP", "IEK JSAJXHUTR", "AOZVCLMODMVBIXNUZKJKVQJTJHVOCVYBBVZBUMWEI", "UMCUFZWFCOCIJCAEKHOLPGIMDKNGYGCYCSFWOQBRECEKSEOUAX", "HORGFMGRVKINEPJNDUFHZRAVZVVIOVSVRRMUUKI", "POIBPPZPNQBAWURHBOEMFNRSHIEKWMLT", "XAKKKITEGAUHILBARHVO", "OOAWCIHLVHGHYCBAYMLAERZDTZHPEDKGMHAHZISCLDFMBA", "BUBWPPAKEIXTTWAMXXWLMCCCMTEQNKLPTQLUEJMOSSQIJMR", "AULHZVSVRMVELTYPUDBSBRWN PMCKTRMTHNZMMJLCYVUAW", "GLB TXUG WQMNISYXHSJID F GTSJAROAFOZZHDRK", "RRXXD SN", "WMSTXLKB", "FLIAQHKZOLUWE CWEV UQDPPB", "IVEZTTDZTUBBZ", "RVZGRIEAEKVEAYBGBOMQEWCCPDWAFTJVDFFIHSUAGX", "XQAOZBJQDXJDXLGXIOMSHZPOMXEZDNE"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 39;
+    if(result == expected) {
+        cout << "Test Case 14: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 14: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test15() {
+    vector<string> need = {"NVLINN", "HKFWIU JOKEAWIVQWCKS", "AIMKQRWWOPFTSEUCEYV XFNJYV"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 5;
+    if(result == expected) {
+        cout << "Test Case 15: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 15: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test16() {
+    vector<string> need = {"ZJBQ", "VALTOTJBKVZFSJUBHCDZXAMOH", "JQBZPVKMPOOJQEM KALBLTBDHAXPJL"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4;
+    if(result == expected) {
+        cout << "Test Case 16: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 16: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test17() {
+    vector<string> need = {"XHDQBYCVKXZQNTLIVNPW", "NRDYCVSNBKNFXKRRERGEHMWJDFXFFCYNBCO", "RAXPJJTJHOGADGAAOQZMLJI CI"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4;
+    if(result == expected) {
+        cout << "Test Case 17: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 17: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test18() {
+    vector<string> need = {"Z", "VLEUCVYSCYEFMFTEBHCXCFOQQAFOCZZDEJUBQWAQNN", "UDDSQGWOVKHVVU", "RFZJWRZJVFJUFNWSIA", "UFJQGWJLSAZVOGBKUNMTGIBWGJ GJMPSBGBAJBPU", "YUQZHAQESUDVZECROOWKV", "LBDDXVCMWDCVWFSDUROIDKDOWCHXG PLT", "MKJYRMPGQ NQO", "V WGWURXQNDYHTNJQHLMTOPICACDOVQOOUNI LPIO", "AGKSUXGXWESHKEEHCIGUMQWQJKJC", "WDLSYWUWVRJZTJBMAUVF", "JBTIZIWFKEXCXRJJYEKB", "PLT TFZABBZPQPQNK VETPDPURMNPZP", "H YSLXLCRTKMSPARBTUBWUJDVXDXAJRKRJEYMSHYRADJXZXA", "ITNXPSOBXBUSTXYOR", "ARFDMYTG LPHW", "QOTSCSLHZDUXFCPPAYSBOGMUJIFTQSXEVGOGZPLQTSFN", "UHACDGHE WVJOMXAVKNVLKJUMCCWSKIJCBYO", "FD", "MLNHWZNPINZTTHCLYTUPDRTTQDGFYUDFBUZVWVTULDTLL", "H", "CX BNOFHETVNNYNWPJT LPIO FDMM", "DD ZRTSDAWLVZWJDTBUMQQNHFMVMSQRTLQSSNYKEBLFYTWBE"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 34;
+    if(result == expected) {
+        cout << "Test Case 18: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 18: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test19() {
+    vector<string> need = {"OESMACVYQRPFKLDNPOADUVAPYRLOHMI PFYMKBFIGVQVBN REJ", "AUBMPRXMCPHTUZRYGDXAORDUIN", "ICAELJGN LVNTTNWRBFPXPTVVHTAKPTEAUQ", "GRSTIEGOYNFRMFWJVJKZKERZIDSVQILVQHLKMBZSXY", "LFGILNKQXILIHUBRVMHIFALWDBUMUABRJ BHUEGMGLQ", "IEWPZYPSQCHUOCH", "XRBSONDZC OUBTZRJWXHOV", "GDYRMUOESUHNKXKPUC FMXKTDK", "HELNSUJLIGZVXBARUUTRYZIOVPDNUTFFAQRTZTQHWEFVHIUR", "XRBSONDZC JEGGITXJEYAUTHLAKVTUTXXUGN", "XJPP", "YKTERBHTC IMBWFRTGHYDAOKICOYIKHKARD", "ZYZZJLRKLRILZKKRVNYAJV", "CKUZAQKFNIDXHIRYUFKMTYRZQGDWKQVQTKDD", "NDLJRWQ HOQYSGBUFIPYRREPHUY ZDLTCOZGIZJPVZRF", "BPEXUJLHJIJWXAPZJXHGAYOW WGMBTHLANQJCPVPEK", "GISGTEYXOF IAAQFXKEOPFAPJSQDFQ", "FIYKXSOKJAQRKGICBTTFCLXOKHQTFPXAQBEEQGYO", "ZIJMKFTJXKDZPXLZTH", "WUKTECMOWJUODVSVKSZDLROPVJLCNSLFCCIQ"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 31;
+    if(result == expected) {
+        cout << "Test Case 19: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 19: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test20() {
+    vector<string> need = {"XLIPEEATMMQRMJ QMFRMIYQRCAWNIUWIWJABKJMC Q", "HWLOPDOQBSNMUQD", "QHELDRPFVCVXHYDTFSARDYLJWWHBTSR", "VJVHDIQDOZJXZZNIADIXO", "AEKOHAIZSXIKFDGROBYOW", "PBUYAJYZWURCRBLEKOLNGQMSJGGTXJRKZ", "YIGHGLHNJSSFGKXWFNQIKJJOA", "LNBTRWJLNCHQZ JGEAKXTIVKWZZIOXGTTJBYFWJEKGCE", "UGHVYVFA YWUOGQIVUVGHZZXZZGUPY", "IPNXEMEFFVCF EIW", "NALSUY", "ZP LVCIZXMINBTDDDRGQMMINE", "OYZUDWTIANAGKGWL", "GHWISAHKNRUPY SGBTVPKYFUYZXODPXHDLTWBT", "U DTCOKZJWUIPULSNOWKAEFIPGRYXLDTIPQPHY UCUCWG", "JAUXHPFMWXOMLGNVGAEXXEYUGJDVS", "QRLHMJFNYXUFJAQVCPJIHHAIULJHKYQCKYFPNGRLMYFBQWC", "WUJMFNWOXJHOARXIN", "PBHTKOJYCIUAKDUBUEAECO", "LPE LEZKYRXSAONMUVXZZYCUQRACAI", "JEEISEORDJNQCPFFW VDCQTOVCZENYEZHSUOISTMPUQJKJS"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 32;
+    if(result == expected) {
+        cout << "Test Case 20: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 20: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test21() {
+    vector<string> need = {"KDZFZWRGSJOYSTLEJCIYAWSZBYHCNISEXCZQWHKZ", "JXUNNZAYCZBIXLGXIESZQDOAXWFFVPIJVOU", "JXUNNZAYCZBIXLGXIESZQDOAXWFFVPIJVOU", "ZWILOPVOTERHVXCDPTFLOAAGMHZSVBPSWSJPX", "VVULBDJNNFNGVBKULQUYGCPNTXSLQ OEQKRLMWVKLKZTXWA", "EPKMSKZEDEPWFOXIETJPQMILMXTPDEVXXK JEXHGONT", "OEQKRLMWVKLKZTXWA"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 7;
+    if(result == expected) {
+        cout << "Test Case 21: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 21: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test22() {
+    vector<string> need = {"NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA", "NDDXMZMFZWNLSAPUMA"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1;
+    if(result == expected) {
+        cout << "Test Case 22: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 22: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test23() {
+    vector<string> need = {"YQQPSJXWHLSJUCILOLZVSPATZFDWBLICKUSIXHGWOEFGKZY", "DUGBXAHGFVQGQTQPL ANHXMRWUBMJLORNWZPB", "ZJWIKEMAWXAFR AE", "CVGMVIRMKIUYN", "FTZIOUDIFKPOXZJHKFIZGBQSYUNCBTXXWAMKI", "FNAWXEPA", "JFNPQRYRFGJHXDUUVRITXDKBYUPUQFELPLBUFRLQFIYYZHAGZY", "SZDMCVIXAFWBVTQNZLCJOKAGCPWPNT", "HUYQBZAIDPJUNNXONNSCCFFRVXNHOZKNLFVCAZDGV", "JDC NWEUOYLOMMUHM", "BTBIBWAGHMHQBJDDBRAZCMOKUEX", "LXIRVEUPREIHOKHT CJPQFWIHYVGYMLNRKHDBD", "EMCYZKYKRHHDOKQSJEFPMHWCC", "YRFGSOFETNCOWDUNGJRLXXBVBAMSNKNNBRGZKFHIO", "DDGCBFLAUQELLGVTRBPSPBMJMP UQWVZWPIDUROXXD", "NMLYPCUHQFHQPMJAFGPXETJDZIFHORLZDZPFSMVZRSTKOUKDVP", "WUOPFTMYDQCSYRMIUXAWKFJJ", "REWMRVKWABDFKGWQACANIJYRL UVXMORNU"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 24;
+    if(result == expected) {
+        cout << "Test Case 23: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 23: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test24() {
+    vector<string> need = {"ND FDWKQXGDLRGRQGXHNPSWFRDKJSCQGTGG GR", "CVAOQVCLXRXPH", "ND", "XIRMNHLVVBKPEZUGHXRU", "XOWOYICFTR", "KZNIBVK SXFOC GR", "CQGYNDTDPZMSG GR WHXUKPZCQGEBB", "ACWFD ZMNIELEMHNKCCXDABIIUTSKMYZNCYBY KZNIBVK", "CQGYNDTDPZMSG XOWOYICFTR", "XYDHHCOWJTCIYCRBAZUZXMPXJEHOPPXNWF", "ND", "ACWFD XMSEYQWUSTJJUFNI D", "D SXFOC", "XIRMNHLVVBKPEZUGHXRU", "PECRVOENXYSVQBNWOFHCZTXUOTJFEAIMYNSWMBXSPWSLU", "D WYRBWYNYCOJXSDJK SXFOC", "WWEFYGUFRNSBEZLQWAMLUZFALFSGTA", "WDGZBNKOEMQJCZHQPKZXJMTJAPY GR WHXUKPZCQGEBB", "GR KZNIBVK", "WHXUKPZCQGEBB", "CQGYNDTDPZMSG", "XOWOYICFTR", "VINHXQKTPZWYLPIKPRBEMDHXJ", "UNRZOJMMUG JIPEWQDRAZLDZ", "D", "FDWKQXGDLRGRQGXHNPSWFRDKJSCQGTGG", "WYRBWYNYCOJXSDJK GR", "ZMNIELEMHNKCCXDABIIUTSKMYZNCYBY", "ACWFD", "WWEFYGUFRNSBEZLQWAMLUZFALFSGTA ND", "JIPEWQDRAZLDZ", "WWEFYGUFRNSBEZLQWAMLUZFALFSGTA", "LDUXCZYXWMKENUJDAZUZUGFUHVKASBXMF", "WYRBWYNYCOJXSDJK", "ACWFD WYRBWYNYCOJXSDJK XBXTNRIRBCOFVS", "XOWOYICFTR", "WDGZBNKOEMQJCZHQPKZXJMTJAPY", "SDDJEDDGTCSKTGQIUBTWPNRXIQCNSTVPYFQKCCK ACWFD", "WHXUKPZCQGEBB", "XIRMNHLVVBKPEZUGHXRU D UNRZOJMMUG XOWOYICFTR", "ZMAPPLSNKRKAEBCYHOSDMUYGFNWZNVEDQUGNENMAYVB", "FDWKQXGDLRGRQGXHNPSWFRDKJSCQGTGG", "PECRVOENXYSVQBNWOFHCZTXUOTJFEAIMYNSWMBXSPWSLU", "GFGSSQZNNRESXFFGWVSGGQHNRFBGPFZQMCZMZETSIMJPA", "ZMNIELEMHNKCCXDABIIUTSKMYZNCYBY"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 27;
+    if(result == expected) {
+        cout << "Test Case 24: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 24: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test25() {
+    vector<string> need = {"BFENGUJCNH KHOCOLFJ", "DMXQKLMPSXF", "HA OFZIR E", "VIIZGBSBONLMFIJFIIARUYCXCFVYVJEFJ PFFHMTFCMZA", "VXUAWYWYLWG PEHOANJHXMLCYAYJHINUVQCAER HO"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 11;
+    if(result == expected) {
+        cout << "Test Case 25: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 25: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test26() {
+    vector<string> need = {"TSTIDKYYOVBNZYBELFWHRUWKGYYPDTJWTEOUZ", "ZOYKWEDQYCZMIFYFIJLOZTWBDUT", "TSTIDKYYOVBNZYBELFWHRUWKGYYPDTJWTEOUZ", "AE VTHXMLRUFKLAXETRRIMOBYQVBZMXSLVZECUGVMLVOKRFFL", "IXUCPTQEL", "AE PGT QWRXMIZXLNJCFSDXGZTGPJDRKEDHOLJOAOHVEH", "CJEDRZTSZVTGOZJMGEQ IXUCPTQEL JFYWBCLP", "JMEFRGAYHTMCTCVP", "BHHPJLXGLBYMPNTSNJVTMETSCTWMGGJYWDMLCLRDDSZMTBLT", "FNRJNBBGPBOSLOEDVWCQXIJXUPFDAL K", "LDDJVQZDRUCAQKKXJBNYNCMNQOSGIKSGPDBZEVASJZ", "AE BUBUNFIXLCRDFUSPEBYZBNQTVXWO", "MWMOFITJJWBBSLDTEFOZYSVYAKI", "VIE", "USPLNZXJBOSJGKFDKLRCOW", "VIE DHGFHBCPWOWPHIZVIHLQPKTBJOYXQLRJHFMVEUPUIAMI", "SQZXKDDLFVDYWWFZOEJWHEPKARDJCAHHQQOELNVZLCBIWPS", "KP ZXBEYFAWGDCETCEIYSWKIQDQPSSMGL", "HBCYZJEORMXOFQM SHIILMAFFRGSUQIDFC", "CJEDRZTSZVTGOZJMGEQ", "HBCYZJEORMXOFQM", "AE", "ONAESKMUTLJHZPU", "JAIDYGTRDJJKOJXUPUAXLXRMBKGRHF", "WAMZCO", "CMBFLGYSTJHSNEECYKZWFNQXGIQLRWRZGXOGUFBSIWFSDYXC", "IKZTZWACGSUXULFVSRYWHUARURO", "YNYPXDTVJMCFWDGIWGJXBUMGUJJHBCTHPZQYCIGSWUZT", "KLUEPPSBFRGACOGFSTSZCDFVHNVGFSQDJDWY", "COYDYJIJKKJIGZSGRQLNGZFSWQYBHXZXHZLIRF", "BSHTMICADGISEWFIFDRWHHROYGOMPDUMOJJ", "JIQDMTRZWXAZOO", "NONUVIGPZPNKGWHVX", "JAIDYGTRDJJKOJXUPUAXLXRMBKGRHF BGTOFMXYLSHXWBYLNH", "CMBFLGYSTJHSNEECYKZWFNQXGIQLRWRZGXOGUFBSIWFSDYXC", "OCLXIYZORVXPKJRZGDBRRLSIV", "DZNURQYDWOFDAEQACVHYAFIRORXXHSCWRK", "QJAJPQJHXNEVYYPTECCEPIOVBQLVNHFF", "VRRHKJEPQBYCUHAUJPUDQZTBIHRBMJRLRBECTIWWVFPGUQCECI", "DHGFHBCPWOWPHIZVIHLQPKTBJOYXQLRJHFMVEUPUIAMI"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 40;
+    if(result == expected) {
+        cout << "Test Case 26: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 26: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test27() {
+    vector<string> need = {"ZTSIAGJIGPGWKKLWLREUAWHEEYRAYTTGTOZJWBIKIX", "CW", "IBSORO", "RTNYQKRTNGY VCNSFSK", "LVDUUBTVBPEJVGBC LNDAKCBBIS YUQLLICWJPBGCGA", "SSSXHI DGLCBHFEDNLUODSFHFJZAKXWXGAZSBIPNM", "KQVLVTMFVVTBOXG", "XKSYEYICOZNHA", "NPLXARUFZVHSKBDDMLZWICXODQZLPMIRGBZF", "CISDCFLIA GSUJPEUBUGOELII VCWCSBF", "DO ESUAHZQSXWRUCDWMEHLBFXXLSRVSHNUSYZBA", "G XLUWTZQDOK HRTJONARNYGVJQHPVKARHRLMRCMIYDVNRP WR", "ZILBLEFIZQBUPGBYZCTXA", "DJLH", "SZAIBAKQMDZPKCHZPYSHZLXLNNTJJO", "WAHIDEQTAWKUXNGVZESWAJHDRLBGRPRIZTSBK", "TGXWXUNLIMXWDNOKSRXNSUVUFGXBLZVIH LGIFZDPF", "VCNSFSK ORHPPUIDXT", "EXKNEZLGCWZJOQUFPPMKHUBMGJFQGRUSSUQFRNXORPVOEM", "SSSVYYCIKYSUDBTLXCQVECJUACQLWK IMP MWDVMEBNEZGUDZ", "ZXHKEQKDNYIXXTIDGJCPZPPYKGLEERCFJBXKFPPMGCUAEAOMEE", "OPCGOQZKBLCJWIEYXKPDOD", "ZIKVMOXOSBRETKBEBJARKXB", "OB AHCIVCBGFZYAEOLTSVHJNMVYXLGMZINNWYMMMKSEBWQYF", "TSHXRHOEQZSN JOSLWEKBVFQQWWUYODMDTDHA", "LFUH", "TGLVSIHNFTAA AJIAIBDQJNRDVFYNMNWUIHOSFZSFRPXFLIK", "QMPHHJYLEPNLYKOBWSZ", "UQIYCX", "PIPCINJDM", "NHVQZCETHBL", "VCWLJJNUMZZQLLCA", "VZW", "CCWHXYLOQLLRTHEKO", "KQVLVTMFVVTBOXG", "UYSJBHSCRJPNXOLNMFODBENIVTKMAWXXNDUTKHWPFPGDMRHR", "YYI", "EAKFUHWOSJLRVWDTYFCCNEFU", "GSUJPEUBUGOELII", "MZRAIVVNNNBCNQOVSTSGBIYEYDMLZVDSDODYWR", "PPQJWTKUSPONIZDIRY", "SNXDKGWIBRNFJOIUQZOR", "VTHETODCUOOCGSFFHZRGTJCOPTAYAMOWDIJBVEB", "EDKMVBUHKEYOXUOSHEYTGLOLSBKACPVEFZXLFEDYD"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 58;
+    if(result == expected) {
+        cout << "Test Case 27: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 27: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test28() {
+    vector<string> need = {"DSKDCVHQWTVWTQVYWJNYVDWEAPQ", "QLBCXKLZXZGAKXIESOBIAIUEA", "CVFFXXREOKNRXTYPGMQFAEQQUHDBIDULLUCGRDSYKVYWFZAN", "DLKZIRFELJTJWONIFRRPXNXVIGFNMZKWN", "TNFEDADBZCQKSJHUIYQPTFKNNSYBEJFYJTWHPYBSJRKJ", "IVLFCHEXCPZDBFCCJUE", "TXFTQZXOTHTNBLEATDL QLBCXKLZXZGAKXIESOBIAIUEA", "TKOJKLVECNPPRIFFVGSASRQMYIDJLNSKANXPYDVZLNXCLG", "NJJIFPFMQJJHJLDCWOATPXPFIPYYQLPHWNPXBTRXIBF OHMCE", "TKOJKLVECNPPRIFFVGSASRQMYIDJLNSKANXPYDVZLNXCLG", "VLPAXOOKYTAFQKSAXQDGVQAKWFB", "DIHSUBIAENYN", "CVFFXXREOKNRXTYPGMQFAEQQUHDBIDULLUCGRDSYKVYWFZAN", "TNFEDADBZCQKSJHUIYQPTFKNNSYBEJFYJTWHPYBSJRKJ", "OHV"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 13;
+    if(result == expected) {
+        cout << "Test Case 28: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 28: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test29() {
+    vector<string> need = {"GKCLKVYGOIWG", "OVFFSYXEQHGOEKADEZAJ UVGWMPIZTWAJGB", "SUCHQMRLESQFGHMDSOGJFRMYAMEOVVXJUARDVUCO", "YEYMHLDKFAYFCXXPGYTNLNZSFVQZ", "SZBATNGMFPIXHLOQECDHNRCCJMXROQBGPFAYRN", "UVGWMPIZTWAJGB", "JJCRPKLCHNSJMDDEBPADAIGODTSP", "JQJUPTCCRVXPI LDTK", "CYHTEI CRGDIGKWZIRYOWSTYDXKVQ", "EBPAACHUSFGOL", "FRIHDRJQGXXWECHAAVD", "KWRTUIOTTCAJXZKJPOPCAMPJUNHBIMYBEWXQ", "FWYGXTEJOGMCMIAJGXMIR EDKDYNS N", "RKSICIRJHNAWPOOLIWG", "KCWKALOFAJJOCEVFOMUUJUBFMIHIOTEHK", "DTDLEGSDRS", "ISDNODGITDHWROUSM FPHAEKRQPJJWIUSPGNBLIHD", "YQAMTEOZDKAHFIHVJILZVVJJXXTNTEQNZEVDNATD", "IP WIERUSEBDGHRJCEZUSKTRQGJPYAGQQVRBU", "PKJMVBYYUPUICCGUBHUMVM", "GXEIAYDQZQJSNDQONSNLPEE", "GBQRATWRU", "PBFPURNECUGLSSOT QHRUCFHOBMZUULCKIJDBXLGVSTHFBV", "SOFVMTYHQPXMTYHMLFBXDY YXLEQDAUSSYLWZ RN", "OBZLPMXEWIPSYM", "FRNWXZVOLSCMOJZBCNEYGMHUV", "BBEXQLCTRRPPZ", "HLIH BQVQNISFRYFRBLMERPWZQQGUBRGUGZDUFFY", "TJCHMVEQHMMVCP YRNGSTODACU CUUIW", "DQOVCCYRFBBEZGUYCJFBWTMZLPPCENLYJOG YRNGSTODACU", "BQHJSXPYZTMDIVNHOFNHUAOREWBQEDP", "CDGQUEUDWRXV XXUGPNTRFXWBMWYN", "RJIIPTQGDBLMA JQJUPTCCRVXPI KTNSMNBKOQHKBZZPM", "YJUF RK IBFOYPWZPKOJUFCNTEGZ", "XCZARIWTLQGMDGDVQJABLRQNDYKS", "NBSPGOEUAETZOWKCQPSUR", "OTWJMYIYBTPTJTHEQOWHBFQUJGYMCJZ", "WGKJEPCMOMSSWVMOUZPMSWCSWESIVBXBNAQSRDZIYKTCWLFHNY", "OBTBRBSEEEA YLZYEVZRHFWVI PUZDZKGPEUQQCZ", "N AKDUIVNHULDN", "DK RKSICIRJHNAWPOOLIWG", "APBVXEWBRKCGTVPMQASJPUFUVJQPHUP", "QGXVJAGCRROKVSVANDEMBBVCUK", "WBCKMJMTBPAMMOWZDKEUKGMSNPCERHKLZLWUDGZ", "APBVXEWBRKCGTVPMQASJPUFUVJQPHUP PPGLQQVAVKHSBYPOBG", "XFX", "TZIITURZFNMHLJDCDXVVIEXWXJDQSKGQYPFTOIJTYXPWAPQ", "UUEXMQPRHPDTUAZMJECNOELERSRXLXIVOBVWZSDXQ"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 66;
+    if(result == expected) {
+        cout << "Test Case 29: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 29: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test30() {
+    vector<string> need = {"GXXDRLOCXILHNINHKYQIAAXERTFMLTRIYQDVBE VGWPSSICG", "SEDPRYNYWDKOQOVEXJXZKOP ODODLTNATNUU", "FIBCRA", "MHHUOKYKJUCSVW", "WDGOZAGZV QJDWUDDOKTECPLBJLXTI", "ZILKANMKPFHOJBGSKAJMNTZXRTRAVOX", "XCAQFGUPVVREOZGMZAOCDDLODIMWAOSBFXQDQJNDFUJLNA", "DS ZLCCQAWVIIHVZKLZIOUNNRPTWUCSEIYDWVHRPSJXEVSHH", "OSARFSSLSQDYNDIONCQCAPMYWTJHIUR", "FMSYDVJDNRAAEUNJXBXEB", "HUWXNMFGTAEUMZQLMKTXYPAXS", "DS CJKUCJUAONLAGOQHFLMYM", "OPLWZZHQPBRULRCSFGJWDCFHZFGU", "HLHEIBHWNYWUKKHQLJVMPRJMOLBMJXWVEJHAWPNNRBYQCK", "NODPNRAOFZWVWSQZDUMLRUDHGICBFMIGGROHILHSRKBPKEMOF", "GYQZLPEKM", "OHTCRBWOVDPAHZX", "UBRRVBFJF", "KS", "BEOIRMEBEYOMJBZZABHRHXNGQNPQPDVMJOITRXPI", "TOMXUGAZTJJGHCYOJDMFJNJSHYFPTHLOOQHQOOSLPBJ", "MGWQOBNNRJUXZRQ LADOZVTTHTXCRLJFMRQPMPBLWPHWHL", "KSGTGBDWUZJKGICHOPCPHEPMDHYYKZCOC", "CFEHUIIXFWYFIBXCFIRJPITVPZBXGUTQYSEYCZQSNQ", "XNEYGEGTGANOHTKCSMRMJYOXBAXVDQKRNDXTPXWQYUPEZ", "IQAQUUPNYMPBAGOPVEBGDJJFXTOMA", "SYTRTYPCQRVIQKFFSZCP", "DYNVR ACVXETJIGYRRSIUEHEL VKZYQPWQOSIRYNULIGTAYXQ", "ORCCCLXBMCAWCHX", "USRPCRVICGCNQYKZRTGMJQYWHPGWU", "SVUFYYDHGTZHJFGDOIGRTOFTPVPJMPLTSEFACGSIWOF", "XDPVJIWNTTTQGKQNM", "JRCOTQBZKWGRJFYNLWOI", "UBRRVBFJF", "OMZPLJXBWSUBNMJIOFULJKAVQXDOPBSFBKHQJ", "CJICRFKYGISKPBU HLXHPW TAQDLQVKFQYRXRAQSMITLJFM", "LJGFURYNCHWQQCMIRWCKCRFXALPVPBZYFAHQO", "VCESMDBTKTOLDBQFKDBAEBIA", "UCUSM"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 47;
+    if(result == expected) {
+        cout << "Test Case 30: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 30: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test31() {
+    vector<string> need = {"CSKXCJXDTRXSVCKVAOD UBTOQI JRRXVBIECTBGWM SNSGCEK", "OLGZBBUCPVLPZEMNCNUBKNJOLHUWEEWXVCNBAWKGEWJCEVIHMQ", "MNZANYVEQCSUA", "UNGENDXBBKPELQBXSLDRYHYNCWTDFZE", "EKTGWNDTCAYGYJNGRUWWKBLYHFGTLOQVRATITI", "YMIGKRFLDCWKC CBSDBFJBIYIJCKQPZGYQUUFKWRSYDPB", "HAUBXSVQVRBDVXDMHZJYQX", "PGURUAAJZSWNMDJXRGYDOAVZWFALTLYK QIVWWFPJOUOMI", "KMJMDGWEPYOFUPDFERQGMJTWVMKXCGP", "UIMZLGKCDSVQPRSVCVNYUBFRTYZRGWPYQ", "UZBGHPFOQEOGTTYTXZICPBEQUBFQUYHYFKKYOGUIAMCQQIYW", "LCJGLEGDETYVEXPODMFTGJLUQWJTPRSGKQOBHNRKYQD", "OPXMQNQUAIEWRXAVZWMPFVQ FCIJGBFCQQWI", "GAWVXSHGQKQURCAODMKPCSNYUPISFZSCJHQELHFXIIZTI", "IGAOUEDSIP BNWVX FUGAOULOWULMHWF XS", "IYODDPHTKYAFVRULXYNKNVMGZMKMBFGOQYWQOIUXGIZBLFWX", "RVLJIQYBGHOZIELWJAKZPOQYUYZPKZN QF", "LGOOSXUXOLZWYNQWB BYFHXNYAEPKVUJZQMEDEHF", "FJHJHSJKRAWNXSXPHKLSXZGGCYDJSEZRJOBKEYTETKKXMNHR", "XWIRTBKJZLMXJHPPUDZJJ CTVBFRXZUZBZHEFOBBNOLGTUHSF", "TSPYSFXGDIRCMZITIGSR", "OLZFEN LIZWYYELDUJPTSSNVXM"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 35;
+    if(result == expected) {
+        cout << "Test Case 31: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 31: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test32() {
+    vector<string> need = {"LVVCMIJSNC TBJVTIBWNBVYYSTSOSV", "LVVCMIJSNC", "YLYLNCEGWXJRVADJWEKXEVNAOLEHV", "YWRRXFSEUMEMYCXSWCNWBGUNUQCQTIHBEYPPRXKPBC", "ALNZRZQYTFIDOA", "OWILSJMIFUZUMDIGGXCJYYAQCSXU TTZRWR", "SKIJAURFNXUDZPLLOBXLJBKUVOKQJ", "YHBPJBHKHAKKTOXVUFRWTKJOALZZVMI", "SFBCDRKBGMPDPIRQWZOQOQOAEITPDVSFHOZRCFILSAW", "JBUKCPOLBMQZJGAKIKBNRWSHYUKTONMCIJCIDBOWWVXRK", "FHW ANOOONYHYLYKYAMBOBHDHQ"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 13;
+    if(result == expected) {
+        cout << "Test Case 32: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 32: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test33() {
+    vector<string> need = {"QOAKSXONCGETAZVXLKQWABSLZTRYKUNSZR CNJU", "NQ", "UWXILJGJVPLDNSRZJMGADCQ Q", "QXDNAZPQFCWUQLY", "RTSCWCSTDEN BBCILSWSZSBTWSEXGWGMAUXGGDONZZZNGKIP", "SGAPGNIJZSVVFSMCHFUIEMZBUIQSAZPXFLBQEHLTAHGLDTFNTF", "SBWROBI", "FUNY", "NTCWCNFQOWLBXCXEL WSUUJNSUK POZMRIECYOLJIEZX", "AMYNJBVNJSWYZLDLFRWVSQBBVQVQ", "MVZXSJNUZCQAKRNODFNANKPZGRIVD", "WTBFVBHTD", "YQIKM FEMHYVWXDJYQHKWF", "F", "VMPAZLYFCADII NCCJKXPLUKAMWTMOHW CHWUPHS DJULEE", "GXEYJLOQSASWXCZ INPWPJZUDXN HGVNZKCYFJ", "EYMLUJ"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 28;
+    if(result == expected) {
+        cout << "Test Case 33: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 33: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test34() {
+    vector<string> need = {"TCFUBZ", "RDMOMGXULCSENXPFORPJHATDX CZLQENAQYSPUBCIEQTJMNAN", "GPGGNWSWCCKCANSFRSCAWPVJU LHGXXLN LBZECDHTWVXD", "WTVSAPEXPLCFHGDEOWMBNTGSHLUJBAJYFRYCGBIQLFVUMTHO", "NVUSCTYGXXGLSKXUCNOMJQFMCXKVLHTGGZMSKEJSLKLSDGQD", "BAPQGZFCQQIIXXGLEBFOYMPDUQRLECMQWBDSHVXIYOXH"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 9;
+    if(result == expected) {
+        cout << "Test Case 34: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 34: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test35() {
+    vector<string> need = {"NVTVJKEDHRJIBWGUAMPYVT", "TPFCVMYXTVYN B", "CZRUDEXXMOMXNSGEVPCEHU", "OCXKVILROVSQCSJBBRGTQLZSLPXJGIAEIZIPZRUMCXI", "WPUVR CZDPAGYPJQR", "CNYDHQXXRWH CEQLYCQX", "XSNYUNYLMYUWAKHCVAYSEHCVUOXMEJVMVVKZGJZVIZNLUUYAW", "QXNOBRN ELTKYKHMYE", "DGPMFMTEBSLVIKJFARAKSWPIKGQVSESIRVOZEQGPDNV", "JXQLBWLXEZMXQYMZSGZTPDGAQASGIRUSAUQFQWMXBDHTFTPDGR", "LZCIHOMSNDJONBTF", "NJQVNLCQMSODXYYHEQBYZDJWTVHVVOZKSXWFRFDZ", "ST XQXAMTRPARBYDPXT", "UXWFVGOSCGFRCFEF", "UBINGAAJ", "GSESMKGPAO", "CZDPAGYPJQR", "AASEGMWDAVPIUGCRLDZYAONZEBTMYZVBITPVPEXWGHFHYLKC", "OMBSNBJHATIOMIUWBZVHFE", "VMITFEOMFVYYAQXXRQBHZJAEANSHJOFWGSHLUMYGWRKIVY", "FQCPFA IFUGUQFBHLVCIVZWQWTALTCAYFUZLZ"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 26;
+    if(result == expected) {
+        cout << "Test Case 35: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 35: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test36() {
+    vector<string> need = {"HDBGVTCQAKJSKNNMYUEGDMDRBNHOUOCFONQLFDPK", "FVVQIPNJHJLTIAPTVLGFDDIWILEWCQN UREMKZUFONAO", "BYNRKPFEHNAGGOYFKLRQLNORFBIZYKQZKSPPWHDLH", "EKCIARMRWFTUNDJAOXABBF", "MIRDFJFQ", "DLYTLQKFDMLCPJUWZJONHPOZEG XUBRNYUHYZNGWBZ PII", "PWISRCTWEEVVGXMZZOG EUDKRHCOETDSNXGEB", "PIAHZQVXVMBUADJMZQVBLUMTDTGXAVKBPSKEPBUUMZCEGB", "PVCVCUKSNTSTUXDPNRSZDSTISRXINGWPTBEMDOHLCCQXI", "MZQMXFRARFETHHABWIAFRCCYEFSVFVP MSMO", "GWQWRTJTEPULBHOIAMFIJEEGNXHPXZBZ GT", "HHPGQQYQLGIONMYNLKQXTQVEBJGAHLYCHKWNZXAWGIPJ", "QSYFACOBINEFZUMMCPMKIGDE KHLEUISEHZ LLBLHVRS", "MSMO HAXVUUNVX DLBNTBCFGJTX", "NCNTJFQQXHUDYGQQYOQVEQZHQMNSCUYJSLFRVOHCNBT", "WUSRBJCBYETRRLVGLRRPBVYBWVDXAVFUNFPXFN", "FHWXSPOXPOHK LLBLHVRS", "FHWXSPOXPOHK"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 26;
+    if(result == expected) {
+        cout << "Test Case 36: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 36: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test37() {
+    vector<string> need = {"TIXTPCMPMIBMREKXYFACXFNKZUCFBXWBQSCTDQMWPH MI", "FWRBXRFRMAMMUZUINBBEXKG", "XDOWEAYKEOPQSXDEGUKTOVUBENSGSXASGVXHWKQCE", "TIXTPCMPMIBMREKXYFACXFNKZUCFBXWBQSCTDQMWPH", "SGOKJMJIXVKJLHP TJWNWCFIF YIRCSYWOLPUIZXSMCQDINA", "MI FWRBXRFRMAMMUZUINBBEXKG", "AIDGUMILN", "RJTEMLOLJRHVWAIQHACPTXWVQKRKJMQ TJWNWCFIF", "MI TJWNWCFIF RJTEMLOLJRHVWAIQHACPTXWVQKRKJMQ", "O MI QAMYUGUYYEGREOLHRRTRIVKVUIHVRFMMHYMD GZUXQXD"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 12;
+    if(result == expected) {
+        cout << "Test Case 37: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 37: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test38() {
+    vector<string> need = {"VOTTXXVHKKUENOKFJWW CWWECHBWBMLBTNNBQXEFSHWSAT", "ALMFLDSOXIAWUFHFOLXSJJVVTIFXZVVGWEUGXLBVPJUPAOSRVN", "ABDOUISEKSWZCEPJEINOHMUNCAVPEQIIYAZWYLUMMF", "NNCVMMMBZOSZXQKTN AETTXM", "TEPACMCGKQDVNYKBSRRUWSVBSCKXARQQIIPKJQAEKDVXAOW", "VA", "UOXSDFAZFBGBLCBPJ RJBPBOKRXRKFRXEPZWIKVABORUJ", "HWNXUPZZXPLSLYJUCDSIUGSFAAFB", "KMWDHF ORQQODPXKRXQHAE", "BTCRVXFTSCPWZXZIAKVDSQKANQZFQEBHOYXJLPXZQSSCAYIDDS", "RKRGDFEONXJBBUEVROHJGSKNLQHAAHMOKKEZLUARMMKSEF", "UKOLBSJESRXPEQNACTYLUUXIKRFENQZPCGG", "XGNNKFEHPXOE OVRKKPMCDMSOMMIORENNZQMNOF XCUOTSELL", "YBQJPGIZTKWPYRDEK GHWZJMUSA", "BMOZHZNWMMAUGSWTZDOWHSHQTNRPPKVZCJWHMNMASEF", "DDOYZWZKV", "GCLORDTCBQETRRRVBJCXW GVCMUWFO", "NJVSNFCZCWQFMCYMBNIHPLP N", "ZKKTTINGCOPSWSLQYBZDXJSRWKLOPGLWYEJAFA", "NAEMKGZPUOAMFNSLJAKHFHKZ LXGBSVJPLI", "RDDHERMHYSGIYPSQHEHLDS", "HTLLWGIQSQAEUEDAPBAIPNRGHBUHBMSPUSPHRVL", "NAPAOMHTUBPTNEHQQQDRMNMICHL", "DYDSTULSEZLSYXXGCBMSTWXPWUWOJKYKTZ", "PMPPNIKHREQPXRGYKHQXXRVNDRBQTLJKKPGUKSYCSCSG JHKC", "UEFDQPLSDO", "ZKFYRVIMV JXVDZKAWXGND HVFHCVJRSNLBGOPTMZ", "GFOMGXOHVZ TMHMTRUTYCPBWLC", "QONDSZKZBMLNZATKZVTXWFKWXLGDHSW", "LDDOLMZELOZFPGIMXVPDLEAMZVUMTWPJWXJXFSLTUMVVT", "SI AZPNAGXJBZRPOIEJYFECBTIFXJUUOM", "DFBLNJQYPDEXMXE", "WTDAGU", "OKGXHYIGCTWGTDBJPWWJRFRKEIOLVS HLJRZXX", "XJXQWUZOUSGQW", "SDRTVYOFZDMTYYYKHGCJPHMDCVSUXIILHOYSZLODI", "NWZFLKCDREQQCSBNCTWKAMDYVBPFMDLCWOWAXGHJIJWEFAUSG", "XCDONEEHGHIZJQOZCAIVMVQG", "PPIJOVQOQWUFKVADHQOSWPGJV", "RZBBQJJNDSJDOWU TYFFXTIRIVCGJIJHGOGAEDGYYPYMUB", "RNDWFGFAAJCXYSVXZCNXZQIMBGYBFTWIEN", "WKWQTJEILPXKFFSERXDHVUHPYWBXTMQKPZUEIORUJ", "LDDOLMZELOZFPGIMXVPDLEAMZVUMTWPJWXJXFSLTUMVVT", "LEWUW", "EEFQI GSDAKDEX", "GXXQWA ICREAHCGJQFBRJJXIBTEGBB", "KOAFSHPTPKRLDIRBP CAAFUOLGRUGJNPEQQTETSKMHGLHAAGQK", "RPTTDBBLWVSKMFIJMYSWHXJ IQFJYQXFYPWUDRJBMRRR", "SAZGTKLC GLOZLMUVYFLPC HMKPEIISRYITMFAUOHEYJA"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 71;
+    if(result == expected) {
+        cout << "Test Case 38: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 38: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test39() {
+    vector<string> need = {"VDSWMVKZQZCYORFOJYEGVFAQUDDOHPLDT", "BLMDQFVKPJ EOEIJJGCSBHPOGXWXQUNYGLWOVYYVJ", "XCEEBOPTMCPDKLBDIVXMDWTQHTRQVVJSLAMGZROZEZPA", "KNVMRRXOUZXAFVYJW OSYHIXXZBLUDWPXPTHLDBLRBSFL", "LTVATSGU MPHCOHUGCJCQ", "HKYBAXMHQRDKJFKSBHOENEHQIWSSYU", "TZYUJGSAVTNEWU PX VVXO TVGKLAQXYZLZXTPLLT", "QEWLZQDTHFVNTJ UQJDVSOYHUEPSTOMDTCFXDQQXBFZNNPXDGV", "ZE TMABEVTRFPMOAIHJPAVTZWAZQOGIXHZLKAZZACCOM", "AL", "JJPGMASTEBXDTIVYVNCHR", "KZKENWFVWJIXHJPQG", "LKLZPPYCVFBAHOUVO", "PGKCBFDBRDGIVGPHDJ MPHCOHUGCJCQ", "XKWKCFX PYZNTSCXQVRMCYQFMCEEWXKKNFIYLEXWWKDWJ", "PX XKWKCFX TRB WMASSQARSQYAVEAOBTCFSF", "VZSKZPTYOHX H BLMDQFVKPJ", "SDTREPIZLGEHQSXESMTPLKRUFDOTD", "LKLZPPYCVFBAHOUVO XTR", "PLFWEIZW", "TMABEVTRFPMOAIHJPAVTZWAZQOGIXHZLKAZZACCOM PVPDV"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 32;
+    if(result == expected) {
+        cout << "Test Case 39: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 39: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test40() {
+    vector<string> need = {"HEY LIE EYE GUY BOY JOY AI AJ AK AL AM AN AO AP AQ", "BA BB BC BD BE BF BG BH BI BJ BK BL BM BN BO BP BQ", "CA CB CC CD CE CF CG CH CI CJ CK CL CM CN CO CP CQ", "DA DB DC DD DE DF DG DH DI DJ DK DL DM DN DO DP DQ", "EA EB EC ED EE EF EG EH EI EJ EK EL EM EN EO EP EQ", "FA FB FC FD FE FF FG FH FI FJ FK FL FM FN FO FP FQ", "GA GB GC GD GE GF GG GH GI GJ GK GL GM GN GO GP GQ", "HA HB HC HD HE HF HG HH HI HJ HK HL HM HN HO HP HQ", "IA IB IC ID IE IF IG IH II IJ IK IL IM IN IO IP IQ", "JA JB JC JD JE JF JG JH JI JJ JK JL JM JN JO JP JQ", "KA KB KC KD KE KF KG KH KI KJ KK KL KM KN KO KP KQ", "LA LB LC LD LE LF LG LH LI LJ LK LL LM LN LO LP LQ", "MA MB MC MD ME MF MG MH MI MJ MK ML MM MN MO MP MQ", "NA NB NC ND NE NF NG NH NI NJ NK NL NM NN NO NP NQ", "OA OB OC OD OE OF OG OH OI OJ OK OL OM ON OO OP OQ", "PA PB PC PD PE PF PG PH PI PJ PK PL PM PN PO PP PQ", "QA QB QC QD QE QF QG QH QI QJ QK QL QM QN QO QP QQ", "RA RB RC RD RE RF RG RH RI RJ RK RL RM RN RO RP RQ", "SA SB SC SD SE SF SG SH SI SJ SK SL SM SN SO SP SQ", "TA TB TC TD TE TF TG TH TI TJ TK TL TM TN TO TP TQ", "UA UB UC UD UE UF UG UH UI UJ UK UL UM UN UO UP UQ", "VA VB VC VD VE VF VG VH VI VJ VK VL VM VN VO VP VQ", "WA WB WC WD WE WF WG WH WI WJ WK WL WM WN WO WP WQ", "XA XB XC XD XE XF XG XH XI XJ XK XL XM XN XO XP XQ", "YA YB YC YD YE YF YG YH YI YJ YK YL YM YN YO YP YQ", "ZA ZB ZC ZD ZE ZF ZG ZH ZI ZJ ZK ZL ZM ZN ZO ZP ZQ", "A B C D E F G H I J K L M N O P Q R S T U V W X AR", "Y AS AT AU AV AW AX AY AZ BR BS BT BU BV BW BX AAA", "Z BY BZ CR CS CT CU CV CW CX CY CZ DR DS DT DU BBB", "DV DW DX DY DZ ER ES ET EU EV EW EX EY EZ FR FS FT", "FU FV FW FX FY FZ GR GS GT GU GV GW GX GY GZ HR HS", "HT HU HV HW HX HY HZ IR IS IT IU IV IW IX IY IZ JR", "JS JT JU JV JW JX JY JZ KR KS KT KU KV KW KX KY KZ", "LR LS LT LU LV LW LX LY LZ MR MS MT MU MV MW MX MY", "MZ NR NS NT NU NV NW NX NY NZ OR OS OT OU OV OW OX", "OY OZ PR PS PT PU PV PW PX PY PZ QR QS QT QU QV QW", "QX QY QZ RR RS RT RU RV RW RX RY RZ SR SS ST SU SV", "SW SX SY SZ TR TS TT TU TV TW TX TY TZ UR US UT UU", "UV UW UX UY UZ VR VS VT VU VV VW VX VY VZ WR WS WT", "WU WV WW WX WY WZ XR XS XT XU XV XW XX XY XZ YR YS", "YT YU YV YW YX YY YZ ZR ZS ZT ZU ZV ZW DDD CCC EEE", "ZY ZZ ZX FFF GGG HHH III JJJ KKK LLL MMM NNN OOO A", "PPP QQQ RRR SSS TTT UUU VVV WWW XXX YYY ZZZ AAB AA", "BBC CCD DDE EEF FFG GGH HHI IIJ JJK KKL LLM MMN AB", "NNO OOP PPQ QQR RRS SST TTU UUV VVW WWX XXY YYZ AC", "ZZA AAZ BBA CCB DDC EED FFE GGF HHG IIH JJI KKJ AD", "LLK MML NNM OON PPO QQP RRQ SSR TTS UUT VVU WWV AE", "XXW YYX ZZX QWE WER ERT RTY TYU YUI UIO IOP ASD AF", "SDF DFG FGH GHJ HJK JKL ZXC XCV CVB VBN BNM QAZ AG", "WSX EDC RFV TGB YHN UJM ESZ RDX TFC YGV UHB IJN AH"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 819;
+    if(result == expected) {
+        cout << "Test Case 40: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 40: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test41() {
+    vector<string> need = {"A", "B"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2;
+    if(result == expected) {
+        cout << "Test Case 41: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 41: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test42() {
+    vector<string> need = {"SAW HAMMER SCREWDRIVER", "SCREWDRIVER HAMMER KNIFE"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4;
+    if(result == expected) {
+        cout << "Test Case 42: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 42: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test43() {
+    vector<string> need = {"A", "B", "C", "D", "E", "F", "G"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 7;
+    if(result == expected) {
+        cout << "Test Case 43: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 43: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test44() {
+    vector<string> need = {"TEST VIVEK", "VAL HI"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4;
+    if(result == expected) {
+        cout << "Test Case 44: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 44: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test45() {
+    vector<string> need = {"A", "A", "A"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 1;
+    if(result == expected) {
+        cout << "Test Case 45: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 45: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test46() {
+    vector<string> need = {"SAW HAMMER SCREWDRIVER", "SCREWDRIVER HAMMER KNIFE", "SAW FFF QQQ"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 6;
+    if(result == expected) {
+        cout << "Test Case 46: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 46: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test47() {
+    vector<string> need = {"A B", "A C", "A D"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4;
+    if(result == expected) {
+        cout << "Test Case 47: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 47: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test48() {
+    vector<string> need = {"A", "B", "B", "B", "B"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2;
+    if(result == expected) {
+        cout << "Test Case 48: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 48: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test49() {
+    vector<string> need = {"V W X", "V XY", "V XS", "V S"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 6;
+    if(result == expected) {
+        cout << "Test Case 49: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 49: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test50() {
+    vector<string> need = {"A ABC ABCD", "A", "A", "A", "A", "A", "A"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3;
+    if(result == expected) {
+        cout << "Test Case 50: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 50: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test51() {
+    vector<string> need = {"S", "H", "S", "H"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 2;
+    if(result == expected) {
+        cout << "Test Case 51: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 51: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test52() {
+    vector<string> need = {"A B C", "C B A"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3;
+    if(result == expected) {
+        cout << "Test Case 52: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 52: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test53() {
+    vector<string> need = {"A B C", "A B C", "A B C"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3;
+    if(result == expected) {
+        cout << "Test Case 53: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 53: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test54() {
+    vector<string> need = {"SAW HAMMER SCREWDRIVER", "SCREWDRIVER HAMMER KNIFE", "A", "B", "A B"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 6;
+    if(result == expected) {
+        cout << "Test Case 54: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 54: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test55() {
+    vector<string> need = {"SAW HAMMER SCREWDRIVER", "SCREWDRIVER HAMMER KNIFE", "SCREWDRIVER HAMMER KNIFE", "SCREWDRIVER HAMMER KNIFE"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 4;
+    if(result == expected) {
+        cout << "Test Case 55: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 55: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test56() {
+    vector<string> need = {"ABC ABCDEF ABCD", "ABC ABCDEF ABCD", "ABC ABCDEF ABCD"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3;
+    if(result == expected) {
+        cout << "Test Case 56: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 56: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test57() {
+    vector<string> need = {"SAW", "HAMMER", "STRING"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 3;
+    if(result == expected) {
+        cout << "Test Case 57: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 57: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test58() {
+    vector<string> need = {"AA AB AC AD AE AF AG AH", "BA BB BC BD BE BF BG BH", "CA CB CC CD CE CF CG CH", "DA DB DC DD DE DF DG DH", "EA EB EC ED EE EF EG EH", "FA FB FC FD FE FF FG FH", "GA GB GC GD GE GF GG GH", "HA HB HC HD HE HF HG HH", "IA IB IC ID IE IF IG IH", "JA JB JC JD JE JF JG JH", "KA KB KC KD KE KF KG KH", "LA LB LC LD LE LF LG LH", "MA MB MC MD ME MF MG MH", "NA NB NC ND NE NF NG NH", "OA OB OC OD OE OF OG OH", "PA PB PC PD PE PF PG PH"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 128;
+    if(result == expected) {
+        cout << "Test Case 58: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 58: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+int test59() {
+    vector<string> need = {"A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y", "A B C D E F G H I J K L M N O P Q R S T U V W X Y"};
+    ToolsBox* pObj = new ToolsBox();
+    clock_t start = clock();
+    int result = pObj->countTools(need);
+    clock_t end = clock();
+    delete pObj;
+    int expected = 25;
+    if(result == expected) {
+        cout << "Test Case 59: Passed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 0;
+    } else {
+        cout << "Test Case 59: Failed! Time: " << static_cast<double>(end-start)/CLOCKS_PER_SEC << " seconds" << endl;
+        return 1;
+    }
+}
+
+
+
+int main(int argc, char* argv[]) {
+    int passed = 0;
+    int failed = 0;
+    test0() == 0 ? ++passed : ++failed;
+    test1() == 0 ? ++passed : ++failed;
+    test2() == 0 ? ++passed : ++failed;
+    test3() == 0 ? ++passed : ++failed;
+    test4() == 0 ? ++passed : ++failed;
+    test5() == 0 ? ++passed : ++failed;
+    test6() == 0 ? ++passed : ++failed;
+    test7() == 0 ? ++passed : ++failed;
+    test8() == 0 ? ++passed : ++failed;
+    test9() == 0 ? ++passed : ++failed;
+    test10() == 0 ? ++passed : ++failed;
+    test11() == 0 ? ++passed : ++failed;
+    test12() == 0 ? ++passed : ++failed;
+    test13() == 0 ? ++passed : ++failed;
+    test14() == 0 ? ++passed : ++failed;
+    test15() == 0 ? ++passed : ++failed;
+    test16() == 0 ? ++passed : ++failed;
+    test17() == 0 ? ++passed : ++failed;
+    test18() == 0 ? ++passed : ++failed;
+    test19() == 0 ? ++passed : ++failed;
+    test20() == 0 ? ++passed : ++failed;
+    test21() == 0 ? ++passed : ++failed;
+    test22() == 0 ? ++passed : ++failed;
+    test23() == 0 ? ++passed : ++failed;
+    test24() == 0 ? ++passed : ++failed;
+    test25() == 0 ? ++passed : ++failed;
+    test26() == 0 ? ++passed : ++failed;
+    test27() == 0 ? ++passed : ++failed;
+    test28() == 0 ? ++passed : ++failed;
+    test29() == 0 ? ++passed : ++failed;
+    test30() == 0 ? ++passed : ++failed;
+    test31() == 0 ? ++passed : ++failed;
+    test32() == 0 ? ++passed : ++failed;
+    test33() == 0 ? ++passed : ++failed;
+    test34() == 0 ? ++passed : ++failed;
+    test35() == 0 ? ++passed : ++failed;
+    test36() == 0 ? ++passed : ++failed;
+    test37() == 0 ? ++passed : ++failed;
+    test38() == 0 ? ++passed : ++failed;
+    test39() == 0 ? ++passed : ++failed;
+    test40() == 0 ? ++passed : ++failed;
+    test41() == 0 ? ++passed : ++failed;
+    test42() == 0 ? ++passed : ++failed;
+    test43() == 0 ? ++passed : ++failed;
+    test44() == 0 ? ++passed : ++failed;
+    test45() == 0 ? ++passed : ++failed;
+    test46() == 0 ? ++passed : ++failed;
+    test47() == 0 ? ++passed : ++failed;
+    test48() == 0 ? ++passed : ++failed;
+    test49() == 0 ? ++passed : ++failed;
+    test50() == 0 ? ++passed : ++failed;
+    test51() == 0 ? ++passed : ++failed;
+    test52() == 0 ? ++passed : ++failed;
+    test53() == 0 ? ++passed : ++failed;
+    test54() == 0 ? ++passed : ++failed;
+    test55() == 0 ? ++passed : ++failed;
+    test56() == 0 ? ++passed : ++failed;
+    test57() == 0 ? ++passed : ++failed;
+    test58() == 0 ? ++passed : ++failed;
+    test59() == 0 ? ++passed : ++failed;
+    cout << "Total Test Case: " << passed + failed << "; Passed: " << passed << "; Failed: " << failed << endl;
+    return failed == 0 ? 0 : 1;
+}
+
+/*******************************************************************************
+*    Top Submission URL: 
+*    http://community.topcoder.com/stat?c=problem_solution&cr=22779072&rd=14174&pm=10461
+********************************************************************************
+#include <vector> 
+#include <list> 
+#include <map> 
+#include <set> 
+#include <deque> 
+#include <stack> 
+#include <bitset> 
+#include <algorithm> 
+#include <functional> 
+#include <numeric> 
+#include <utility> 
+#include <sstream> 
+#include <iostream> 
+#include <iomanip> 
+#include <cstdio> 
+#include <cmath> 
+#include <cstdlib> 
+#include <ctime> 
+ 
+using namespace std; 
+ 
+class ToolsBox { 
+public: 
+  int countTools(vector <string>); 
+}; 
+map<string,int> mat; 
+int ToolsBox::countTools(vector <string> need) { 
+    int num = need.size(); 
+    mat.clear(); 
+    int res = 0; 
+    string str; 
+    for (int i=0;i<num;i++){ 
+        istringstream in(need[i]); 
+        while(in>>str){ 
+          if (mat[str]==0) 
+             { 
+                          mat[str] = 1; 
+                          res++; 
+                          } 
+                          }                   
+           
+} 
+return res; 
+}
+
+********************************************************************************
+*******************************************************************************/

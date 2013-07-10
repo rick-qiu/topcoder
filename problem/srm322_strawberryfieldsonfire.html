@@ -1,0 +1,330 @@
+<html>
+ <head>
+  <title>StrawberryFieldsOnFire Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6646">Problem Statement for StrawberryFieldsOnFire</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> <i>Let me take you down, cause I'm going to strawberry fields</i> -John Lennon </p><p> Farmer John has a rectangular strawberry field that is <b>w</b> units wide by <b>h</b> units high. This means the territory is divided into <b>w</b>*<b>h</b> squares of equal size. Some of these squares have suddenly caught on fire, and farmer John has called the firemen in a desperate attempt to save his field. After each hour, all squares that are neighbors (horizontally, vertically or diagonally) of squares that are on fire will also be on fire. </p> <pre>
+
+.....    ###..    ####.    #####
+.#...    ###..    ####.    #####
+..... -&gt; ###.. -&gt; ####. -&gt; #####
+#....    ##...    ####.    #####
+.....    ##...    ###..    #####
+</pre> <p> Here you can see the initial field with only 2 squares on fire, and the way the fire expands after each hour. After 3 hours, the entire field is covered with flames. If the firemen get to the place after 2 hours, 6 squares of field will be saved. If they get there after 1 hour, 12 squares will be saved, and if they get there instantly (after 0 hours) 23 squares will be saved. </p> <p> Farmer John needs to know the maximum time the firemen can take to arrive in order to save at least <b>need</b> squares of the strawberry field. </p> <p> You will be given <b>w</b> and <b>h</b> as two ints and <b>need</b> as a String representing an integer, all as explained above, and a String[] <b>fire</b> with a list of the squares that have caught on fire initially. Each element of <b>fire</b> will be formatted as &quot;X Y&quot; (quotes for clarity), where X and Y are integers between 1 and <b>w</b> and <b>h</b>, respectively, indicating the column and row of a square on fire. Return the maximum number of hours the firemen can take to allow John to save at least <b>need</b> units of his field. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>StrawberryFieldsOnFire</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>timeLimit</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int timeLimit(int w, int h, String need, String[] fire)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In the context of this problem, two squares are neighbors if they have at least one vertex in common. This means a square has a maximum of 8 neighbors.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>w</b> and <b>h</b> will each be between 1 and 1000000000 (10<sup>9</sup>), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>fire</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>fire</b> will be formatted &quot;X Y&quot;, where X is an integer between 1 and <b>w</b> and Y is an integer between 1 and <b>h</b>, both inclusive, with no leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>fire</b> will contain no duplicates.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>need</b> will represent an integer without leading zeroes between 1 and <b>w</b>*<b>h</b>-N, inclusive, where N is the number of elements in <b>fire</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;12&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 4&quot;,&quot;2 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 4&quot;,&quot;2 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The scenario is the same as before. In 3 hours everything is burned down, so to save at least 1 square, the maximum waiting time is 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;13&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 4&quot;,&quot;2 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The same scenario again. To save more than 12, the firemen must be in place right away.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1000000000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 999999998</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>101</pre></td>
+            </tr>
+            <tr>
+             <td><pre>101</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;400&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;51 51&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 49</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With the fire starting right in the middle, you can save the entire perimeter by getting there 1 hour before the total burn out.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

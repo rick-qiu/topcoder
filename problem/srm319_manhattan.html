@@ -1,0 +1,216 @@
+<html>
+ <head>
+  <title>Manhattan Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6149">Problem Statement for Manhattan</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>My whole family lives in Manhattan, and consists of <b>n</b> people numbered 0 through (<b>n</b> - 1). The roads in Manhattan are a bit peculiar: they all go from North to South or from West to East, and together they form a complete grid of roads. Therefore, the distance between two intersections (x,y) and (x',y') equals abs(x-x')+abs(y-y'). Knowing the intersections where my family members live, I'd like to find the two different persons with the furthest distance between them. You are to help me by returning a int[] containing the 0-based indices of the people who form the furthest pair. If there are several furthest pairs, return the one among them with the smallest first index. If there are still multiple pairs left, return the one among them with the smallest second index. <br /><br /><br /><br /> The intersection where the ith family member lives is defined by the following sequence: <pre>
+x<sub>i</sub> = (a * y<sub>i-1</sub> + b) % m, for i &gt; 0.
+y<sub>i</sub> = (a * x<sub>i</sub> + b) % m, for i &gt;= 0.
+</pre> with x<sub>0</sub>=0. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Manhattan</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>furthestPair</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] furthestPair(int n, int a, int b, int m)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>n</b> will be between 2 and 250,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>a</b>, <b>b</b> and <b>m</b> will each be between 1 and 1,000,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>7</pre></td>
+            </tr>
+            <tr>
+             <td><pre>13</pre></td>
+            </tr>
+            <tr>
+             <td><pre>23</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {2, 6 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The intersections where my family members live are (0,13), (12,5), (2,4), (18,1), (20,15), (3,11), (21,22), (6,9), (7,16) and (10,14). The 2nd and 6th intersections (zero-indexed) are furthest apart. The distance is abs(2-21)+abs(4-22)=37.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>17</pre></td>
+            </tr>
+            <tr>
+             <td><pre>17</pre></td>
+            </tr>
+            <tr>
+             <td><pre>17</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All of them live at (0,0), so all pairs have distance 0. The lexicographically first pair is {0, 1}. Please note that we are looking for two different persons, so pair {0, 0} is invalid.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>912</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1023</pre></td>
+            </tr>
+            <tr>
+             <td><pre>103871</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0, 54 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Intersections 0 (0,1023) and 54 (96346,97580) are furthest apart. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

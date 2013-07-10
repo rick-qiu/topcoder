@@ -1,0 +1,254 @@
+<html>
+ <head>
+  <title>BagOfDevouring Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2299">Problem Statement for BagOfDevouring</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are in possesion of a special bag of devouring. You can put anything you like into the bag and it never becomes bulkier or heavier. Whenever you want to retrieve something from the bag, just reach in and pull it out, if it's there. The catch is that every time you take an item out of the bag there is a chance that the bag will devour one of the remaining items. The chances that a particular item is devoured depends on the weight of that item, in pounds, and all the other items still in the bag. To find the probability that an item will be devoured, divide the weight of that item by the total weight of all the items in the bag + 100. The only time an item might be devoured is immediately after removing an item from the bag, and at most one item is devoured at each of these opportunities.<br /><br /><br /><br /> You've already put quite a few items of value in the bag and want to know the expected value of the items remaining after all of the items have either been removed from the bag or devoured. Create a class BagOfDevouring that has a method expectedYield that takes a int[] <b>values</b> and a int[] <b>weights</b> and returns a double that is the expected value of the items removed from the bag. You will always remove the item that maximizes the expected value of items removed.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BagOfDevouring</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>expectedYield</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double expectedYield(int[] values, int[] weights)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>values</b> and <b>weights</b> will both contain between 0 and 15 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>values</b> and <b>weights</b> will both contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>values</b> and <b>weights</b> will be between 1 and 10000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100,100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100,100}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 150.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Both items are the same, so you are guaranteed to get a value of 100 from the bag. After removing one item there is a 100/(100+100)=50% chance that the other item will be devoured, so the expected yield is 100+.50*100=150.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100,200,300}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100,200,300}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 462.5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here the heavier items are also the most valuable, and in a case like this it is intuitive that the optimal strategy is to take the most valuable item at every opportunity. This means we are guaranteed to get item 2. Afterwards item 0 has a 1/4 chance of being devoured, and item 1 has a 1/2 chance of being devoured. If neither item is devoured (1/4 chance) we take item 1, and item 0 has a 1/2 chance of being devoured. So the expected yield is 300+(1/4)*200+(1/2)*100+(1/4)*(200+(1/2)*100)=462.5.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100,200,300}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{300,200,100}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 470.8333333333333</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{10,100,150,250,500,750,1000,2500,5000,7500,10000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100,200,300,400,500,1000,2000,1500,3000,6000,4000}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 20622.364509064962</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

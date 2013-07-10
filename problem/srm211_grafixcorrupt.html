@@ -1,0 +1,273 @@
+<html>
+ <head>
+  <title>grafixCorrupt Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2997">Problem Statement for grafixCorrupt</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> In the grafix file format, a bitmap is encoded as a sequence of lowercase alphabetic words. All of these words are drawn from a dictionary that has been built specially for the bitmap by a compression algorithm. Each word in the dictionary has the same length. </p> <p> It can occur that words in a grafix file are corrupted by poor transmission or storage media. In such cases, grafix attempts to reconstruct the original file by matching each corrupted word to a dictionary word that contains one or more of the same characters at the same positions. </p> <p> You are given a String[], <b>dictionary</b>, containing every word in a grafix file's dictionary, and a String, <b>candidate</b>, which is a possibly corrupted word in that file. If there is no dictionary word that has at least one character in the same position as <b>candidate</b>, then return the int value -1. Otherwise, return the zero-based index of the dictionary word that has the greatest number of characters at the same positions as <b>candidate</b>. In the event of a tie, favor the lowest index. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>grafixCorrupt</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>selectWord</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int selectWord(String[] dictionary, String candidate)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b> contains between 1 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>candidate</b> is between 1 and 20 characters long, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>dictionary</b> has the same length as <b>candidate</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>only the characters 'a' to 'z' are permitted in <b>candidate</b> and <b>dictionary</b></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;cat&quot;, &quot;cab&quot;, &quot;lab&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;dab&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The word &quot;dab&quot; has two letters in the same position as both &quot;cab&quot; and &quot;lab&quot;, but &quot;cab&quot; comes first.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;cat&quot;, &quot;cab&quot;, &quot;lab&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;lag&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, &quot;lab&quot; is the best fit.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;cat&quot;, &quot;cab&quot;, &quot;lab&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;bic&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The word &quot;bic&quot; contains a 'c' and a 'b', but neither character is at the same position in any dictionary word.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;zkv&quot;, &quot;izs&quot;, &quot;fed&quot;, &quot;waa&quot;, &quot;ttx&quot;, &quot;bgt&quot;, &quot;quy&quot;, &quot;dtq&quot;, &quot;dgo&quot;, &quot;yrs&quot;,
+ &quot;cid&quot;, &quot;nln&quot;, &quot;pvz&quot;, &quot;txt&quot;, &quot;zun&quot;, &quot;erd&quot;, &quot;jen&quot;, &quot;klh&quot;, &quot;kxy&quot;, &quot;emf&quot;,
+ &quot;mqt&quot;, &quot;lza&quot;, &quot;dzb&quot;, &quot;ndx&quot;, &quot;vfr&quot;, &quot;jhs&quot;, &quot;dkm&quot;, &quot;elb&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;cwd&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;zhadjsg&quot;, &quot;vzptftx&quot;, &quot;fbaslxs&quot;, &quot;ejejncm&quot;, &quot;xpxkeae&quot;, &quot;ixrrtzw&quot;,
+ &quot;ovctbzx&quot;, &quot;sfzekhh&quot;, &quot;lxzixjk&quot;, &quot;jixdpik&quot;, &quot;bkianck&quot;, &quot;laclyin&quot;,
+ &quot;uqmdkfx&quot;, &quot;dimswqo&quot;, &quot;fojhetr&quot;, &quot;grntrce&quot;, &quot;obdtqwx&quot;, &quot;bhojwcy&quot;,
+ &quot;zuuuvst&quot;, &quot;mvqtoly&quot;, &quot;aftmupx&quot;, &quot;govuidx&quot;, &quot;qklpret&quot;, &quot;yptccki&quot;,
+ &quot;uxdnslh&quot;, &quot;wudrusz&quot;, &quot;uwxbvou&quot;, &quot;ouytqun&quot;, &quot;pjdexqe&quot;, &quot;xraaqdw&quot;,
+ &quot;lxmoncl&quot;, &quot;sjnjfgb&quot;, &quot;qrlqgvc&quot;, &quot;fgvoadm&quot;, &quot;yohsrxw&quot;, &quot;udpvrsr&quot;,
+ &quot;mklucgt&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;vklikgf&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 36</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

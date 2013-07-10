@@ -1,0 +1,299 @@
+<html>
+ <head>
+  <title>QuantumAlchemy Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7540">Problem Statement for QuantumAlchemy</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Consider 26 different substances, labeled 'A' through 'Z' (quotes for clarity only). Some of these substances can be created from the others by an alchemical reaction. Each alchemical reaction takes at least two different substances. Exactly 1 gram of each input substance is combined, causing an explosion. After the dust settles, we are left with just 1 gram of the resulting substance.</p> <p>Alchemists don't like extra work, thus, for any given substance, there's at most one known reaction that results in that substance.</p> <p>You are given a String <b>initial</b> describing the substances that you have initially. Each occurrence of a letter indicates 1 gram, so if a letter appears k times in <b>initial</b>, it means you have k grams of that substance. You are also given a String[] <b>reactions</b> describing all the possible alchemical reactions. Each element of <b>reactions</b> describes a single reaction and is formatted as &quot;<i>ingredients</i>-&gt;<i>result</i>&quot; (quotes for clarity only), where <i>ingredients</i> is the list of substances consumed and <i>result</i> is the substance produced. Return the minimal number of reactions required to obtain at least 1 gram of the substance 'X', or -1 if it is impossible.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>QuantumAlchemy</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minSteps</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minSteps(String initial, String[] reactions)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>initial</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>initial</b> will contain only uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>reactions</b> will contain between 1 and 26 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>reactions</b> will contain between 5 and 28 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>reactions</b> will be formatted as &quot;<i>ingredients</i>-&gt;<i>result</i>&quot; (quotes for clarity only).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>ingredients</i> will be a string of distinct uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>result</i> will be an uppercase letter ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>result</i> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each <i>ingredients</i> will not contain the corresponding <i>result</i>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;ABCDE&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ABC-&gt;F&quot;, &quot;FE-&gt;X&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Some substances may be left unused.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AABBB&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;BZ-&gt;Y&quot;, &quot;ZY-&gt;X&quot;, &quot;AB-&gt;Z&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">First, we make two grams of 'Z' by applying the last reaction twice. Second, we make 'Y' via the first reaction, and we still have 1 gram of 'Z' left, so that we can finally make 'X'.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AAABB&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;BZ-&gt;Y&quot;, &quot;ZY-&gt;X&quot;, &quot;AB-&gt;Z&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Not enough.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AAXB&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;BZ-&gt;Y&quot;, &quot;ZY-&gt;X&quot;, &quot;AB-&gt;Z&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No need to bother if we're already there.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;ABCDEFGHIJKLMNOPQRSTUVWYZABCDEFGHIJKLMNOPQRSTUVWYZ&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ABCE-&gt;Z&quot;, &quot;RTYUIO-&gt;P&quot;, &quot;QWER-&gt;T&quot;, &quot;MN-&gt;B&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We have a lot of stuff and some reactions, but none of them results in 'X'.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

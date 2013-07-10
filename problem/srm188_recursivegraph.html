@@ -1,0 +1,341 @@
+<html>
+ <head>
+  <title>RecursiveGraph Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2365">Problem Statement for RecursiveGraph</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> <i>This problem statement contains an image which will not display correctly for plugin users.</i> </p> <p> You will be given an undirected graph which may contain several smaller copies of itself. These copies, or &quot;children&quot;, will in turn recursively contain the same number of children, creating a graph with an infinite number of nodes. You are to find the shortest path through this graph. </p> <p> At each level down, the edges of children have <i>half the weight of their parent</i>, rounded down. Once you recurse deep enough into the graph, all edges eventually have a weight of zero. </p> <p> </p>
+      <center>
+       <img src="http://www.topcoder.com/contest/problem/RecursiveGraph/RecursiveGraph.gif" />
+      </center> <p></p> <p> For example, consider the graph pictured above with 4 top-level nodes (A, B, C, and D), and 2 recursive children. Notice that each child has two smaller copies inside of it, and each of those children has two smaller copies inside of it, repeating infinitely. In this graph, there is a direct path from node A to B with distance 800. However, there is a shorter path from A to B that goes through C and D in the left-side child of the top-level graph. Within the left-side child, the path from C to D goes through A and B in <i>its</i> right-side child. The length of this 5-edge path is 4 + 2 + 200 + 2 + 4 = 212. </p> <p> However, there is an even shorter path, bypassing the third-level edge from A to B with cost 200. By replacing this edge with the same 5-edge path two levels down, there is a 9-edge path with distance 4 + 2 + 1 + 0 + 50 + 0 + 1 + 2 + 4 = 64. Similarly, the edge with cost 50 can be bypassed again by recursing farther into the graph. By going down deep enough to the point where all edges have zero weight, the edge cost can be bypassed completely, resulting in a shortest path from A to B of length 4 + 2 + 1 + 0 + ... + 0 + 1 + 2 + 4 = 14. </p> <p> Graphs will contain up to 10 top-level nodes ('A' through 'J'), and each parent graph at each level may contain up to 9 child graphs, smaller copies of itself, numbered ('1' through '9'). The graph will be specified by a list of edges in the top-level graph. Edges are specified by two nodes, followed by a weight. Either node may optionally be followed by a single digit, representing a connection to a node in the corresponding recursive copy of the graph. </p> <p> The graph pictured above would be specified as: </p> <pre>
+
+    &quot;A B 800&quot; (connecting A and B in every copy of the graph)
+    &quot;A C1 4&quot;  (connecting A in every copy to C in its first child)
+    &quot;D1 B 4&quot;  (connecting B in every copy to D in its first child)
+    &quot;C A2 4&quot;  (connecting C in every copy to A in its second child)
+    &quot;B2 D 4&quot;  (connecting D in every copy to B in its second child)
+</pre> <p> There will be no edge that directly connects two nodes of the same child. For example, the edge &quot;A3 B3 10&quot; would be illegal, but the edge &quot;A4 B5 20&quot; is allowed. A top-level edge implies corresponding edges in all copies of the graph at all levels. Likewise, an edge connecting a top-level node to a copy implies corresponding connections between parents and children at all levels, and an edge connecting nodes of two different children implies corresponding edges between nodes in those two children at all levels. </p> <p> Given a list of edges, a starting node, and an ending node, return the length of the shortest path between the starting and ending nodes. Return -1 if there is no such path, or if the distance of the shortest path is greater than 1,000,000,000. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RecursiveGraph</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>shortestPath</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], char, char</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int shortestPath(String[] edges, char start, char end)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The shortest path may descend recursively down many levels.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All edges are undirected. The order of a pair of nodes in the input is not significant.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There can be no edges that connect nodes between levels with depths that differ by more than 1.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>edges</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>edges</b> will be formatted as &quot;&lt;node&gt; &lt;node&gt; &lt;weight&gt;&quot;. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each &lt;node&gt; is a character between 'A' and 'J', inclusive, optionally followed by a digit between '1' and '9', inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each &lt;weight&gt; is an integer from 0 to 1000, inclusive, and will not have any leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be at most 10 top-level nodes (letters 'A' through 'J').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>At each level, there will be at most 9 copies of the graph embedded directly in itself (nodes with digits '1' through '9').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will not be more than one edge between the same two nodes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will not be an edge connecting two nodes of the same recursive copy, i.e. &quot;A1 B1 5&quot; would be illegal input.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>start</b> and <b>end</b> will each be a character between 'A' and 'J', inclusive, and will be nodes which appear in <b>edges</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A B 20&quot;,
+&quot;C D 13&quot;,
+&quot;A C1 1&quot;,
+&quot;D1 C2 2&quot;,
+&quot;D2 B 3&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'A'</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'B'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 18</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This graph has 4 top-level nodes, plus two copies of itself. There are two paths from A to B. The direct path across the first edge has a cost of 20. However, the path through the two copies (A-&gt;C1-&gt;D1-&gt;C2-&gt;D2-&gt;B) has a weight of 1 + 6 + 2 + 6 + 3 = 18. Remember, the edges from C to D in the children have half the weight (rounded down) of the edge from C to D in their parent.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A B 800&quot;,
+&quot;A C1 4&quot;,
+&quot;D1 B 4&quot;,
+&quot;C A2 4&quot;,
+&quot;B2 D 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'A'</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'B'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A A1 1&quot;,
+&quot;B B1 1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'A'</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'B'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No matter how far down you recurse, there is no path from A to B.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;A E1 10&quot;, &quot;H2 J 11&quot;,
+&quot;E F 50&quot;, &quot;F1 G2 5&quot;, &quot;G H 60&quot;,
+&quot;A C4 12&quot;, &quot;D4 J 13&quot;,
+&quot;C E1 14&quot;, &quot;F1 D 15&quot;,
+&quot;E G8 6&quot;, &quot;F H8 8&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'J'</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'A'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 49</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;E H 3&quot;, &quot;C J 3&quot;, &quot;D E9 0&quot;, &quot;H9 A 0&quot;, &quot;A C3 0&quot;, &quot;J3 F 0&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'D'</pre></td>
+            </tr>
+            <tr>
+             <td><pre>'F'</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

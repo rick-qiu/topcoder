@@ -1,0 +1,335 @@
+<html>
+ <head>
+  <title>CommunicableDisease Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3924">Problem Statement for CommunicableDisease</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Students in a science class are simulating the spread of communicable disease with a simple experiment. At the start of the experiment, each student receives a vial of liquid, which may or may not be contaminated. (It is not known whether or not it is contaminated.) The vials are numbered 0 through <i>n</i>-1, where <i>n</i> is the number of students participating.</p> <p>In several successive rounds of contact, each student adds a sample from their vial to that of another student, or chooses to abstain from contact by adding the sample back to his own vial. These rounds of contact are repeated several times, with each round being completed before the next begins. Note that during each round, all contact happens simultaneously (you can think about it as some liquid being taken out of each vial before any is added to any vial). After several rounds of contact, each student's vial is tested for the presence of the contamination, to visually see just how quickly and easily a disease can spread.</p> <p>You are given a String[], <b>contact</b>, indicating to whom samples were given in each round. The <i>i</i>-th element of <b>contact</b> indicates the vial to whom student <i>i</i> gave a sample in each round. Each element of <b>contact</b> will be a space-delimited list of integers with no leading zeros. Each number represented will be between 0 and <i>n</i>-1, where <i>n</i> is the number of students. You are also given a String, <b>results</b>. Each character of <b>results</b> will be either 'C' or 'N', representing &quot;contaminated&quot; or &quot;not contaminated&quot;. The zero-based index of each character corresponds to the number on the vial.</p> <p>We want to determine, to the best of our ability, which vials were originally contaminated. You are to return a String indicating this information. Each character of the return value should be 'C', 'N', or 'I', indicating vials that were definitely contaminated, definitely not contaminated, or if it is inconclusive. The <i>i</i>-th character of the return value corresponds to the <i>i</i>-th vial. If the value of <b>results</b> is impossible given the data in <b>contact</b>, your method should return &quot;INVALID&quot;, to indicate that something must have gone wrong in the experiment.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CommunicableDisease</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findSource</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String findSource(String[] contact, String results)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>An element <b>contact</b> may include the same number more than once. That is, a sample can be given from the a vial to another vial more than once.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>contact</b> will have between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>contact</b> will have between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>contact</b> will be formatted as a space-delimited list of integers (with no leading zeros) between 0 and <i>n</i>-1, inclusive, where <i>n</i> is the number of elements in <b>contact</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>contact</b> will represent between 1 and 10 integers, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>contact</b> will have the same number of integers represented within.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The character length of <b>results</b> will be same as the number of elements in <b>contact</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1&quot;, &quot;2&quot;, &quot;0&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CCN&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;CNN&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is a simple example with three people. Each passes to the person next to them. Since the last person is non-contaminated at the end, he couldn't have been contaminated to begin with. Likewise, the middle person who gave them a sample could not have been contaminated. By elimination the first person must have been contaminated.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 7&quot;, &quot;2 0&quot;, &quot;3 1&quot;, &quot;4 2&quot;, &quot;5 3&quot;, &quot;6 4&quot;, &quot;7 5&quot;, &quot;0 6&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CCCNNNNN&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NCNNNNNN&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, only the second person started out infected, but gave it to both adjacent people.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 7&quot;, &quot;0 2&quot;, &quot;3 1&quot;, &quot;4 2&quot;, &quot;5 3&quot;, &quot;6 4&quot;, &quot;7 5&quot;, &quot;0 6&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CCCNNNNC&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;IINNNNNN&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is similar to above, but notice now that we can't be sure of the source.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 7 3&quot;, &quot;0 2 5&quot;, &quot;3 1 6&quot;, &quot;4 2 7&quot;, &quot;5 3 0&quot;, &quot;6 4 1&quot;, &quot;7 5 2&quot;, &quot;0 6 3&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CCCCCCCC&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;IIIIIIII&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With lots of interaction, it's impossible to know where the infection started.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1&quot;, &quot;0&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CN&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;INVALID&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, it's not hard to work out why the results are impossible. If either started infected, both should be after swapping samples. If neither started infected, neither should be at the end.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0&quot;, &quot;2&quot;, &quot;1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CNN&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;CNN&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">By only giving samples to his own vial, the first person avoids infecting anyone else.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,256 @@
+<html>
+ <head>
+  <title>TournamentRanker Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2985">Problem Statement for TournamentRanker</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A single elimination tournament consists of several rounds. In the first round, each competitor plays against one other competitor and the loser is eliminated. In the second round, each competitor that was not eliminated in the first round plays against another such competitor, and the loser is again eliminated. This process is repeated, eliminating half of the remaining competitors each round, until precisely one competitor remains. This competitor is declared the champion. <br /><br /> <br /><br /> In practice, one is often interested in ranking all the competitors in a tournament, not just the champion. Here is one way of doing this: 
+      <ul> 
+       <li>If competitor <i>A</i> won more games than competitor <i>B</i> did in the tournament, then <i>A</i> should be ranked higher than <i>B</i>.</li> 
+       <li>If competitor <i>A</i> and competitor <i>B</i> won the same number of games in the tournament, recursively compare the ranks of the competitor <i>C</i> that eliminated <i>A</i> and the competitor <i>D</i> that eliminated <i>B</i>. Then, <i>A</i> should be ranked above <i>B</i> if and only if <i>C</i> is ranked above <i>D</i>.</li> 
+      </ul> The intuition behind the second rule is that losing to a good competitor is better than losing to a bad competitor. <br /><br /> <br /><br /> You must implement this scheme for ranking the competitors in a single elimination tournament. You will be given a String[] <b>names</b> and a String[] <b>lostTo</b>. The former argument gives the names of the competitors in a tournament, and the latter argument describes if and how each competitor was eliminated. Specifically, the <i>i</i><sup>th</sup> element of <b>lostTo</b> will be the name of the competitor that beat the <i>i</i><sup>th</sup> competitor in <b>names</b>, or it will be &quot;&quot; if that competitor never lost. You should return a String[] giving the names of the competitors, sorted from highest rank to lowest rank as described above. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TournamentRanker</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>rankTeams</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] rankTeams(String[] names, String[] lostTo)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The constraints ensure that <b>names</b> and <b>lostTo</b> uniquely specify a valid single elimination tournament.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number of elements in <b>names</b> must be a power of 2 and must be between 2 and 32 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>names</b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>names</b> will either be a space (' '), or a capital letter ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two elements of <b>names</b> will be equal.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number of elements in <b>lostTo</b> will be equal to the number of elements in <b>names</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Exactly one element of <b>lostTo</b> will be equal to &quot;&quot;; each remaining element of <b>lostTo</b> will be equal to an element of <b>names</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If competitor <i>A</i> has <i>n</i> wins, as specified by <b>names</b> and <b>lostTo</b>, then it will have eliminated exactly one competitor with <i>k</i> wins for each <i>k</i> satisfying 0 &lt;= <i>k</i> &lt; <i>n</i>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;RODDICK&quot;, &quot;SCHUETTLER&quot;, &quot;FERREIRA&quot;, &quot;AGASSI&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;SCHUETTLER&quot;, &quot;AGASSI&quot;, &quot;AGASSI&quot;, &quot;&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;AGASSI&quot;,  &quot;SCHUETTLER&quot;,  &quot;FERREIRA&quot;,  &quot;RODDICK&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This test case represents the semifinals and finals of the 2003 Australian Open tennis tournament, illustrated below: <pre>
+    RODDICK ----+
+                +--- SCHUETTLER -+
+    SCHUETTLER -+                |
+                                 +--- AGASSI
+    FERREIRA ---+                |
+                +--- AGASSI -----+
+    AGASSI -----+
+</pre> AGASSI is ranked highest with two wins, followed by SCHUETTLER with one win. FERREIRA and RODDICK both have zero wins, so we compare the rankings of the competitors that beat them. Since FERREIRA lost to AGASSI, RODDICK lost to SCHUETTLER, and AGASSI is ranked above SCHUETTLER, we rank FERREIRA above RODDICK. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;DUKE&quot;, &quot;SETON HALL&quot;, &quot;ILLINOIS&quot;, &quot;CINCINNATI&quot;,
+ &quot;NORTH CAROLINA&quot;, &quot;TEXAS&quot;, &quot;XAVIER&quot;, &quot;MISSISSIPPI STATE&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;&quot;, &quot;DUKE&quot;, &quot;DUKE&quot;, &quot;ILLINOIS&quot;,
+ &quot;TEXAS&quot;, &quot;XAVIER&quot;, &quot;DUKE&quot;, &quot;XAVIER&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;DUKE&quot;,
+ &quot;XAVIER&quot;,
+ &quot;ILLINOIS&quot;,
+ &quot;TEXAS&quot;,
+ &quot;SETON HALL&quot;,
+ &quot;MISSISSIPPI STATE&quot;,
+ &quot;CINCINNATI&quot;,
+ &quot;NORTH CAROLINA&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This test case represents three rounds of the 2004 NCAA men's basketball tournament, illustrated below: <pre>
+    DUKE --------------+
+                       +--- DUKE -----+
+    SETON HALL --------+              |
+                                      +--- DUKE ---+
+    ILLINOIS ----------+              |            |
+                       +--- ILLINOIS -+            |
+    CINCINNATI --------+                           |
+                                                   +--- DUKE
+    NORTH CAROLINA ----+                           |
+                       +--- TEXAS ----+            |
+    TEXAS -------------+              |            |
+                                      +--- XAVIER -+
+    XAVIER ------------+              |
+                       +--- XAVIER ---+
+    MISSISSIPPI STATE -+
+</pre> DUKE is ranked first with three wins, followed by XAVIER with two wins. ILLINOIS and TEXAS come next, having one win each. Since ILLINOIS lost to DUKE and XAVIER lost to TEXAS, ILLINOIS should be ranked above TEXAS. The remaining teams are ranked similarly. SETON HALL is ranked highest among them since they lost to top-ranked DUKE, whereas NORTH CAROLINA is ranked lowest among them since they lost to fourth-ranked TEXAS.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;JAVA&quot;, &quot;VISUAL BASIC&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;VISUAL BASIC&quot;, &quot;&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;VISUAL BASIC&quot;,  &quot;JAVA&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

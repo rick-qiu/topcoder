@@ -1,0 +1,288 @@
+<html>
+ <head>
+  <title>TheFansAndMeetingsDivOne Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10771">Problem Statement for TheFansAndMeetingsDivOne</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> John and Brus have become very famous people all over the world, especially in Bolivia. Stories written about them by a Bolivian man have become very popular in that country. John and Brus have decided to visit their fans in Bolivia, but unfortunately, they only have time to visit <b>k</b> cities each. </p> <p> John will randomly choose <b>k</b> distinct cities. Each set of <b>k</b> cities has the same probability of being chosen. If he chooses the i-th city, he will meet between <b>minJ</b>[i] and <b>maxJ</b>[i] fans there, inclusive. Each possible number of fans is equally likely. Brus will go through the exact same process, but in his case, the number of fans he would meet in the i-th city is between <b>minB</b>[i] and <b>maxB</b>[i], inclusive. Return the probability that John and Brus will each meet the same total number of fans. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TheFansAndMeetingsDivOne</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>find</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int[], int[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double find(int[] minJ, int[] maxJ, int[] minB, int[] maxB, int k)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must be accurate to within a relative or absolute value of 1E-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>minJ</b> will contain between 1 and 40 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>minJ</b>, <b>maxJ</b>, <b>minB</b> and <b>maxB</b> will contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>minJ</b>, <b>maxJ</b>, <b>minB</b> and <b>maxB</b> will be between 1 and 40, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th element of <b>minJ</b> will be less than or equal to the i-th element of <b>maxJ</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th element of <b>minB</b> will be less than or equal to the i-th element of <b>maxB</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>k</b> will be between 1 and the number of elements in <b>minJ</b>, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.1111111111111111</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Brus will definitely meet five fans, and the probability of John meeting five fans as well is 1/9.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{5, 2, 5, 1, 1, 2, 4, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{7, 6, 7, 3, 4, 3, 5, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{8, 9, 7, 11, 12, 7, 8, 40}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9, 10, 9, 33, 14, 7, 11, 40}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4.724111866969009E-5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only possible same total number of fans that John and Brus can meet is 14. In order for them to meet 14 fans, John must visit cities 0 and 2 and Brus must visit cities 2 and 5. In each of these cities they must meet exactly 7 fans.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{4, 7, 4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{7, 7, 7}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{40, 40, 40}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{40, 40, 40}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No chance to meet the same number of fans.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3, 6, 2, 1, 1, 10, 3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{6, 9, 5, 6, 5, 10, 9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 1, 1, 1, 8, 3, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{3, 9, 7, 3, 10, 6, 5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.047082056525158976</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

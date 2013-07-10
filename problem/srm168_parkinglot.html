@@ -1,0 +1,301 @@
+<html>
+ <head>
+  <title>ParkingLot Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1678">Problem Statement for ParkingLot</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> You are in a parking lot trying to find a spot to park. In this parking lot, each car knows about every spot on the map, and about all the other cars' locations. Since you can drive faster than you can walk, it's not always best to park at a spot which is closest to your car, but spots that are available close to the store may be taken by other cars before you can get there, or may take longer to get to than it does to walk from another spot. In any case, you need to find the best spot to park at so you can get to the store the fastest. </p> <p> The parking lot will be presented to you as a grid of characters in a String[] <b>lot</b>. Each character represents the initial contents of each position in the grid. The characters are defined as: </p> <p> '.' = open street<br /><br /> 'X' = obstacles<br /><br /> 'A' = available parking spots<br /><br /> 'U' = used parking spots<br /><br /> 'E' = the store entrance<br /><br /> 'Y' = your car<br /><br /> 'C' = other cars<br /><br /> </p> <p> While driving or walking, one can only travel to horizontally or vertically adjacent squares. Every car obeys the speed limit, and it takes 1 second to drive from one square to an adjacent one. However it takes you 2 seconds to walk to an adjacent square. All cars can drive freely on squares that contain other moving cars, or just have empty streets, but they cannot drive through a square that contains a parked car, an obstacle, or the entrance of the store. In addition, once a car enters a parking space, it must park. No car can drive out of a parking space once it drives into it. On foot you can walk on empty street or empty parking spots, through squares which have parked cars (assume the parked cars left enough space to walk through), moving cars (pedestrians have the right of way), and into the entrance of the store, but you still cannot pass through obstacles. Assume that there are no people on foot while you are driving. </p> <p> When choosing a space to park, the other cars will always drive to the closest spot that they know they can park at. If two or more such spots exist, then the car will prefer spots that are in lower indexes of <b>lot</b>. If two or more spots are in the same index of <b>lot</b> the car will prefer spots that come earlier in the String. </p> <p> We shall give each car in the map (including yours) a number based on its starting position. If a car's starting position is in character i in element j of <b>lot</b>, assign that car the number 100 * j + i. So if a car is at character 5 in the 10th element of <b>lot</b> it would get number 1005. Note that both i and j are 0-based indexes. </p> <p> If two or more cars can get to a space at the same time and wish to park there, the car with the lowest assigned number will get first choice at the spot. This does not mean that the lowest numbered car will take the spot, because it may have other spots to consider. However, all the cars know which spots all the other cars will take (including yours), so they will only drive to spots they know they will get. </p> <p> You have a slightly different strategy than the other cars. Since your ultimate goal is to get to the store the fastest, and not into just any parking spot the fastest, you want to consider how long it will take to walk to the store after parking. Therefore, you may pass up spots which are closer to your starting position in order to get a spot which is closer to the store. </p> <p> If all the available spaces will fill up before you can get to them, or you cannot get to the store entrance, return -1. Otherwise, return the time it takes you to get to the store entrance in seconds. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ParkingLot</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>fastest</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int fastest(String[] lot)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lot</b> will have between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>lot</b> will have between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>lot</b> will have the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>lot</b> will be one of '.', 'X', 'A', 'U', 'E', 'Y', or 'C'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be at most 50 'C' characters in <b>lot</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly one 'E' character in <b>lot</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly one 'Y' character in <b>lot</b></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.Y...........C&quot;,
+ &quot;.XUUUUUUUAUUX.&quot;,
+ &quot;.XUUUAUUAUUUX.&quot;,
+ &quot;..C...........&quot;,
+ &quot;.XUUUUUUAUUUX.&quot;,
+ &quot;.XUUUUUUUUUAX.&quot;,
+ &quot;......C.......&quot;,
+ &quot;.............E&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 29</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is a typical parking lot situation. There is a nice close parking spot to the entrance, but unfortunately, the bottom-most car takes that spot. Assume a coordinate system where (X,Y) is the Xth column of the Yth row in <b>lot</b>. The upper right car takes the spot at (9,1), and the middle car takes the spot at (5,2). This leaves spots at (8,2) and at (8,4). Both spots can be attained in 13 seconds, but the one at (8,4) is closest to the entrance. Note that you can travel through the used parking spots once on foot.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C..A..Y.E&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A conflict occurs, and you do not get the spot. Since no other spots exist, it is impossible to get to the entrance.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C..A.Y..E&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, you can get to the spot one second before the other car. Therefore, you get the spot even though the other car's assigned number is lower.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Y...C&quot;,
+ &quot;.XXX.&quot;,
+ &quot;.....&quot;,
+ &quot;UUAUU&quot;,
+ &quot;EA...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 11</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You cannot drive through a parking spot to get to another one.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.X.U..X....UU.U.XA...UC..U.UA.A.E.A&quot;,
+ &quot;..U..A.X...XX...U...U...X..U.XUX.X.&quot;,
+ &quot;U...U.X...U..........A...AXU.U..UUC&quot;,
+ &quot;UX..XX.AU..XAA.X.U.XCX..UX.......U.&quot;,
+ &quot;UAUX..UX...X....X.X..C.X..U...AXU..&quot;,
+ &quot;AA..AA..XUAX..A..XXX..AUUXUAXU.XUAU&quot;,
+ &quot;..A....A...XUU..A..A.XU..U..A.XX.X.&quot;,
+ &quot;XX.XU...AX.A.A.....UAA.UX.XA.C....X&quot;,
+ &quot;.UA.X.A.C...A..UXA.UAX.U.CU.XU....X&quot;,
+ &quot;..XX....UUU...XX..U..A.......U..A..&quot;,
+ &quot;.ACCUU.A.A.A.XX.....X..UX..A..U..X.&quot;,
+ &quot;XCX..UX...X.A.XAUA.UX.X.UA..U..A.A.&quot;,
+ &quot;UA..X.UC...U..X.AUUAX.U.X.......UA.&quot;,
+ &quot;..X.XXX..AXX.U..XXU..X...A...UAXX..&quot;,
+ &quot;.U.A..A.XX....XC.XAUX..AXUX......A.&quot;,
+ &quot;...X.A..AX.UU.XU......A.........AA.&quot;,
+ &quot;...UXU..X...U..U.U.X.U...U......UX.&quot;,
+ &quot;A.U.UA...CA....X..UXUA..X..XX..U...&quot;,
+ &quot;XXUC.CAU..X.U.......A...U..X.....XA&quot;,
+ &quot;..XA...U...UXYC.CAU...UXA..A...A...&quot;,
+ &quot;...XA....U.A.A...CX...A...AX..U..AC&quot;,
+ &quot;U..X.AX..U..UXX............AA..A...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 52</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,293 @@
+<html>
+ <head>
+  <title>CommercialPlanner Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8284">Problem Statement for CommercialPlanner</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Our company just released a new product last week. However, only a few people have bought it so far. A study by our sales department reveals that the reason for this is that many people do not know about the new product's existence. The solution is to put a commercial on TV so people hear about the new product.</p><br /><br /> <p>The TV company schedules the commercials the same way every day, where the k-th commercial starts at <b>starts</b>[k] seconds since the beginning of the day and has a duration of <b>durations</b>[k] seconds. Two commercials cannot overlap in time. A commercial might start on one day and end on the next day.</p><br /><br /> <p>People can't remember all the commercials they've ever seen. At any given time, a person only remembers the last <b>n</b> commercials he has seen. A person remembers a commercial as soon as it starts, so a partially seen commercial counts as being remembered. The longer a commercial is remembered, the more effective it will be in influencing product decisions.</p><br /><br /> <p>You are given int[]s <b>starts</b> and <b>durations</b>, the i-th elements of which represent the starting time and duration (both in seconds), respectively, of the i-th existing commercial. Note that these commercials are not given in any particular order. There are <b>secondsPerDay</b> seconds in a day. Our commercial is <b>ourDuration</b> seconds long. You must schedule the commercial so that the time it is remembered for is maximized. It must not overlap with any of the existing commercials. If there are multiple ways to do this, choose the one among them that starts earliest in the day. Return the starting time in seconds since the beginning of the day, or <tt>-1</tt> if it is impossible to schedule the commercial.</p><br /><br /> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CommercialPlanner</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestMinute</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int bestMinute(int[] starts, int[] durations, int ourDuration, int secondsPerDay, int n)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>starts</b> will contain between <tt>0</tt> and <tt>50</tt> elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>starts</b> will be between <tt>0</tt> and <b>secondsPerDay</b>-1, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>durations</b> will contain the same number of elements as <b>starts</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>durations</b> will be between <tt>1</tt> and <b>secondsPerDay</b>, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>ourDuration</b> will be between <tt>1</tt> and <b>secondsPerDay</b>, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>secondsPerDay</b> will be between <tt>1</tt> and <tt>2000000000</tt>, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>n</b> will be between <tt>1</tt> and <tt>50</tt>, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For every i and j such that i != j, the i-th commercial will not overlap with the j-th commercial.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{30, 5, 17, 45}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{12, 6, 3, 4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>50</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 11</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All the commercials will be remembered every second regardless of where we put ours. The earliest available slot is after the first existing commercial.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{30, 5, 17}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{12, 6, 3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>63</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 42</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is only one position at which our commercial can be scheduled (after the last commercial). Notice that our commercial will be split between two adjacent days.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{30, 5, 51, 17, 49}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{12, 6, 10, 3, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>60</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 20</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Our commercial will be remembered for <tt>29</tt> seconds.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{30, 5, 51, 17, 49}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{12, 6, 10, 3, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>64</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is no slot with enough space to schedule our commercial.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

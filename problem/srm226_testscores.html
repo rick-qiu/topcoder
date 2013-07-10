@@ -1,0 +1,333 @@
+<html>
+ <head>
+  <title>TestScores Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3486">Problem Statement for TestScores</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Many types of standardized testing award each test taker a score that is based on how an individual performs when compared to the rest of the population. This is done, in part, to correct for inherent differences in the level of difficulty of different tests, and to make the score values more meaningful. For instance, saying that someone has an IQ of 130 (where the score is based upon 100 being &quot;average&quot;) is more useful that simply saying that someone correctly answered 25 out of 40 questions on &quot;Joe's Intelligence Test&quot;.</p> <p>Standardized scoring typically utilizes two common statistical tools: mean and standard deviation. &quot;Mean&quot; is commonly called the average. Mean is calculated by summing all scores, and dividing by the total number of scores.</p> <p>Standard deviation is calculated in a multi-step process. </p>
+      <ul> 
+       <li>First, let <i>m</i> = the mean.</li> 
+       <li>Then, for each score, <i>x</i>, calculate the square of its deviation from the mean, (<i>x</i> - <i>m</i>) ^ 2.</li> 
+       <li>Sum the individual squares, and divide by the total number of scores.</li> 
+       <li>Finally, take the square root of that result.</li> 
+      </ul> <p></p> <p>Once these figures are calculated, a raw score can be converted to a standardized score by determining how many standard deviations above or below the mean raw score is. A point value is then assigned to the mean and standard deviation. For instance, some intelligence tests have a mean score of 100 points, and a standard deviation of 15 points.</p> <p>You have been assigned the task of writing a program that will calculate the standardized score for an individual, given their raw score (number of questions correct). Specifically, it has been explained to you that 1000 points is the average score, and each standard deviation is 300 points. Thus, if an individual's raw score is 1.5 standard deviations above average, their standardized score would be 1450 points.</p> <p>The test in question has already been administered to a sufficiently large set of testers. Unfortunately, the raw scores of each test individual have been lost. However, a summary of the results, namely the percentage of individuals who correctly answered each question, is still available, and you have been told that this will suffice to determine the mean and standard deviation of the original data set. Since the set of testers was very large, you can assume that the percentage of people who got a question correct represents the probability of any given person correctly answering that question.</p> <p>You are given a double[] <b>questions</b>, where each element of <b>questions</b> indicates the percentage of individuals who correctly answered that question. You are also given an int <b>testScore</b> indicating the number of questions correctly answered by a new test subject. Using the scoring methodology explained above, you are to return a double indicating the standardized score that should be awarded to this individual. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TestScores</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>weightedScore</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>double[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double weightedScore(double[] questions, int testScore)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The return value must be within 1e-09 absolute or relative error of the correct answer.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You may assume that percentages of correct responses for each question are based upon an indefinitely large set of test data.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For those familiar with typical statistical terminology, note here that we are using a &quot;population standard deviation&quot;, since it is assumed that we are dealing with a sufficiently large set of test data.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>questions</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>questions</b> will be between 0.001 and 0.999, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>testScore</b> will be between 0 and <i>n</i>, inclusive, where <i>n</i> is the number of questions.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0.5, 0.5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1000.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is a simple case, since the average score is 1, a raw score of 1 is a standardized score of 1000.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0.5, 0.5, 0.5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1519.6152422706632</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Out of 8 test takers, 1 will get no questions correct, 3 will get 1 question correct, 3 will get 2 questions, and 1 will get all 3. We calculate a mean of 1.5, and a standard deviation of Sqrt(3)/2 = 0.866025.</p> <p>A score of 3 is 1.5 above the mean, which is 1.73205 * SD. We can then calculate the standardized score.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0.2, 0.3, 0.4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1806.6323435772447</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With harder questions, scores will tend to be lower (mean score is now 0.9), and a perfect score is weighted higher.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0.2, 0.3, 0.4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 654.3004241811809</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Same questions as above, but notice here that because of the expected low scores, even getting no questions correct doesn't get too low of a standardized score.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0.9, 0.9, 0.9, 0.9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -800.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">On a fairly easy test, notice that it's possible to score below zero.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ 0.956062, 0.592855, 0.405804,
+  0.484474, 0.633413, 0.219248,
+  0.801282, 0.724066, 0.886559,
+  0.794041, 0.324220 }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>7</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1037.5680868214772</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

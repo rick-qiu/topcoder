@@ -1,0 +1,272 @@
+<html>
+ <head>
+  <title>Abacus Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4512">Problem Statement for Abacus</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>An abacus can be used to do arithmetic. The version that we have has 6 horizontal threads, each with nine beads on it. The beads on each thread are always arranged with just one gap, possibly at one of the ends. However many beads are adjacent and at the right end of the thread is the digit value of the thread. The value on the abacus is read by taking the digits in order from top thread to bottom thread and arranging them from left to right (so the top thread is the one that contains the most significant digit). <p> Create a class Abacus that contains a method add that is given a String[] <b>original</b> and a number <b>val</b> and that returns a String[] showing the abacus after <b>val</b> has been added to the original abacus. </p><p> Both in <b>original</b> and in the return, the String[] will contain exactly 6 elements representing the 6 threads in order from top thread to bottom thread. Each element will contain a lowercase 'o' to represent each bead and three consecutive hyphens '-' to indicate the empty part of the thread. Each element will thus contain exactly 12 characters. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Abacus</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>add</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] add(String[] original, int val)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>original</b> will contain exactly 6 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>original</b> will contain exactly 12 characters, 9 lowercase 'o's and 3 consecutive '-'s.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>val</b> will be between 0 and 999,999 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>val</b> added to the original abacus will result in a value that can be shown on the abacus.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ooo---oooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;oo---ooooooo&quot;,
+ &quot;---ooooooooo&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;ooo---oooooo&quot;,
+&quot;---ooooooooo&quot;,
+&quot;---ooooooooo&quot;,
+&quot;---ooooooooo&quot;,
+&quot;o---oooooooo&quot;,
+&quot;ooooo---oooo&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> When we add 5 to the original, it is necessary to &quot;carry&quot; 1 to the next thread up. This shows the arithmetic 699979 + 5 = 699984 </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ooo---oooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;oo---ooooooo&quot;,
+ &quot;---ooooooooo&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>21</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;oo---ooooooo&quot;,
+&quot;ooooooooo---&quot;,
+&quot;ooooooooo---&quot;,
+&quot;ooooooooo---&quot;,
+&quot;ooooooooo---&quot;,
+&quot;ooooooooo---&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This shows 699979 + 21 = 700000</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ooooooooo---&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;ooooooooo---&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;oo---ooooooo&quot;,
+ &quot;---ooooooooo&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;oooooooo---o&quot;,
+&quot;---ooooooooo&quot;,
+&quot;ooooooooo---&quot;,
+&quot;---ooooooooo&quot;,
+&quot;oo---ooooooo&quot;,
+&quot;---ooooooooo&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;o---oooooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;---ooooooooo&quot;,
+ &quot;---ooooooooo&quot;
+}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;---ooooooooo&quot;,
+&quot;ooooooooo---&quot;,
+&quot;ooooooooo---&quot;,
+&quot;ooooooooo---&quot;,
+&quot;ooooooooo---&quot;,
+&quot;ooooooooo---&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

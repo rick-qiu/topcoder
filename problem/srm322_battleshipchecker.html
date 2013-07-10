@@ -1,0 +1,359 @@
+<html>
+ <head>
+  <title>BattleshipChecker Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6800">Problem Statement for BattleshipChecker</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Battleship is a game in which two players try to sink each other's ships. Each player has a 10x10 square grid on which he must place 10 ships. Each ship consists of between 1 and 4 cells arranged in a straight line. Ships must be placed parallel to the sides of the board, and no two ships can share a cell or touch each other. Touching is defined as occupying cells that share a vertex. Each player must place the following ships on his board: 4 ships of length 1, 3 of length 2, 2 of length 3, and 1 of length 4. </p><p> The effectiveness of a player's board is defined as the number of rows that contain no ships plus the number of columns that contain no ships. You will be given a String[] <b>board</b>, where each element represents one row of a player's board. If the board does not follow the above rules, return &quot;REJECTED&quot;. If it does, return &quot;ACCEPTED, X POINTS&quot;, where X is the effectiveness of the board, with no extra leading zeros. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BattleshipChecker</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>checkBoard</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String checkBoard(String[] board)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The return value for an accepted board with a non-plural effectiveness must still end with &quot;POINTS&quot; (not &quot;POINT&quot;).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain exactly 10 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain exactly 10 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of each element of <b>board</b> will be either '.' or 'X'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;......X...&quot;,
+ &quot;.XXX..X...&quot;,
+ &quot;......X...&quot;,
+ &quot;X.X...X...&quot;,
+ &quot;X.........&quot;,
+ &quot;...XX.X...&quot;,
+ &quot;......X...&quot;,
+ &quot;.XX...X...&quot;,
+ &quot;..........&quot;,
+ &quot;.X.X..X...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;ACCEPTED, 5 POINTS&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This one is correct, and has 4 free columns and 1 free row, for a total of 5 points.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;X.X.X.X...&quot;,
+ &quot;......X...&quot;,
+ &quot;.XX...X...&quot;,
+ &quot;......X...&quot;,
+ &quot;......X..X&quot;,
+ &quot;...X..X...&quot;,
+ &quot;...X..X...&quot;,
+ &quot;......X...&quot;,
+ &quot;..XX..X...&quot;,
+ &quot;......X...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;REJECTED&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">It is unacceptable to have a ship of size 1x10.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.....XX...&quot;,
+ &quot;.XX.......&quot;,
+ &quot;..........&quot;,
+ &quot;.X....XXX.&quot;,
+ &quot;.X........&quot;,
+ &quot;.....X....&quot;,
+ &quot;..X..X....&quot;,
+ &quot;.....X....&quot;,
+ &quot;...X......&quot;,
+ &quot;X.....XXXX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;REJECTED&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">One 1x1 ship is missing.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.....XX..X&quot;,
+ &quot;.XX......X&quot;,
+ &quot;..........&quot;,
+ &quot;.X....XXX.&quot;,
+ &quot;.X........&quot;,
+ &quot;.....X..X.&quot;,
+ &quot;..X..X....&quot;,
+ &quot;.....X....&quot;,
+ &quot;...X......&quot;,
+ &quot;X.....XXXX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;REJECTED&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is one extra 1x2 ship.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;X.......X.&quot;,
+ &quot;...XXXX...&quot;,
+ &quot;.X......X.&quot;,
+ &quot;....XX....&quot;,
+ &quot;.........X&quot;,
+ &quot;.........X&quot;,
+ &quot;.....XXX..&quot;,
+ &quot;.........X&quot;,
+ &quot;..X......X&quot;,
+ &quot;..X......X&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;ACCEPTED, 0 POINTS&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is a valid configuration even though it is not very effective.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;X.......X.&quot;,
+ &quot;...XXXX...&quot;,
+ &quot;.X......X.&quot;,
+ &quot;....XX....&quot;,
+ &quot;...X.....X&quot;,
+ &quot;...X.....X&quot;,
+ &quot;.....XXX..&quot;,
+ &quot;.........X&quot;,
+ &quot;.........X&quot;,
+ &quot;.........X&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;REJECTED&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Diagonal touching is not allowed.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

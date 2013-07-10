@@ -1,0 +1,486 @@
+<html>
+ <head>
+  <title>HeartsGame Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3073">Problem Statement for HeartsGame</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Hearts is a card game in which each of four players is dealt 13 cards from a standard deck. Play always starts with the two of clubs. We'll call the player who starts with the 2 of clubs player 1. Play continues clockwise from this player, and we'll call the player to the right of player 1 &quot;player 2&quot;, and so on. Once all four players have played one card (this is called a &quot;trick&quot;), the player who played the highest card in the same suit as the first card played sets aside the four cards played and leads the next trick. At the end of the round (exactly thirteen tricks are played, to exhaust the players' hands), points are counted up for each player. The object of the game is to have the lowest number of points. Each heart taken by a player is worth one point, and the Queen of Spades is worth 13 points. However, if one player gets all of the hearts and the Queen of Spades, rather than getting 26 points, they give each of the other three players 26 points (this is often called &quot;shooting the moon&quot;). Scoring should be counted the same even if the game isn't legit; A player gets the points on the tricks that player takes even if he only took those points as a result of other players cheating.</p> <p>During each trick, the player who has control of the game (because he either took the last trick or he has the 2 of clubs if it's the first trick) plays his leading card, and all other players <i>must</i> play a card of the same suit if they have one. If they do not have any cards of that suit, they may play any other card in their hand instead. The leading player may not lead with a heart unless hearts have been &quot;broken&quot;, which means that some player has played a heart in a previous trick (including illegally playing a heart), or unless they have only hearts left in their hand. Also, no scoring cards (hearts or the Queen of Spades) may be played on the first trick, unless that player has no non-scoring cards in his hand.</p> <p>You will be given a String[] <b>tricks</b>, which will have exactly 13 elements, each with exactly 11 characters in the format <tt>&lt;suit1&gt;&lt;card1&gt; &lt;suit2&gt;&lt;card2&gt; &lt;suit3&gt;&lt;card3&gt; &lt;suit4&gt;&lt;card4&gt;</tt>. The suits will be either 'C' for clubs, 'D' for diamonds, 'S' for spades, or 'H' for hearts. The cards will be, in ascending order of value, '2', '3', '4', '5', '6', '7', '8', '9', 'T' (for Ten), 'J' (for Jack), 'Q' (for Queen), 'K' (for King), or 'A' (for Ace). These will represent the four cards played in a specific trick, in the order in which they are played. You are to return a String[] representing the scores of each player, as integer strings, with no unnecessary leading zeros. The order should start with player 1, then player 2, and so on (in the order that they played in the first trick). If a player cheated, however, that player will have the String &quot;CHEATER!&quot; rather than a score. A player cheated if he had a card of the same suit led in a trick but played a card of a different suit, or if he led with a heart before hearts had been broken and he had another non-heart he could have led with, or if he played a scoring card in the first trick and had a non-scoring card that he could have played.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>HeartsGame</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>score</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] score(String[] tricks)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>&quot;Scoring cards&quot; refer to hearts and the queen of spades.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The highest card <i>of the same suit as the first card</i> takes the trick. The highest card is the Ace, followed by the King, then the Queen, then the Jack, and then 10 and so on, with the lowest card being the 2.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that you are given the cards in the order that they're played, not necessarily in the numerical order of the players.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>tricks</b> will have 13 exactly elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>tricks</b> will have exactly 11 characters and will have 4 cards in the format <tt>&lt;suit&gt;&lt;card&gt;</tt> separated by single spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The first card in the first element of <b>tricks</b> will be the 2 of clubs.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each of the 52 valid cards in the deck will appear exactly once in <b>tricks</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C2 CA DA C9&quot;,
+ &quot;S9 S8 S7 S5&quot;,
+ &quot;ST S6 S3 S4&quot;,
+ &quot;C6 HK C3 CK&quot;,
+ &quot;DQ HQ D9 D5&quot;,
+ &quot;D3 H7 D4 D2&quot;,
+ &quot;D6 SK DJ H8&quot;,
+ &quot;H5 H2 H6 H3&quot;,
+ &quot;H9 H4 HT CQ&quot;,
+ &quot;D8 CJ DT SA&quot;,
+ &quot;HJ C7 SQ CT&quot;,
+ &quot;HA C5 D7 C8&quot;,
+ &quot;S2 SJ DK C4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;6&quot;,  &quot;0&quot;,  &quot;20&quot;,  &quot;0&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A pretty typical game with no cheating. The players who led each trick were: 1 2 2 2 1 1 3 1 3 1 3 3 3. And player 4 took the last trick.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C2 D2 S2 H2&quot;,
+ &quot;C3 D3 S3 H3&quot;,
+ &quot;C4 D4 S4 H4&quot;,
+ &quot;C5 D5 S5 H5&quot;,
+ &quot;C6 D6 S6 H6&quot;,
+ &quot;C7 D7 S7 H7&quot;,
+ &quot;C8 D8 S8 H8&quot;,
+ &quot;C9 D9 S9 H9&quot;,
+ &quot;CT DT ST HT&quot;,
+ &quot;CJ DJ SJ HJ&quot;,
+ &quot;CQ DQ SQ HQ&quot;,
+ &quot;CK DK SK HK&quot;,
+ &quot;CA DA SA HA&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0&quot;,  &quot;26&quot;,  &quot;26&quot;,  &quot;26&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In this bizarre game, each player got 13 cards of the same suit. The result is the clubs player shooting the moon.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C2 C3 CK SA&quot;,
+ &quot;DA DK DT D8&quot;,
+ &quot;SJ ST S3 SK&quot;,
+ &quot;S5 S6 S2 CQ&quot;,
+ &quot;C6 DQ CT HK&quot;,
+ &quot;H3 H6 H2 H4&quot;,
+ &quot;S4 S9 S8 HQ&quot;,
+ &quot;C4 HA CJ HT&quot;,
+ &quot;C7 HJ C5 H9&quot;,
+ &quot;C8 D9 C9 CA&quot;,
+ &quot;H5 H7 D7 H8&quot;,
+ &quot;D2 D6 D4 D5&quot;,
+ &quot;D3 S7 SQ DJ&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;CHEATER!&quot;,  &quot;4&quot;,  &quot;17&quot;,  &quot;CHEATER!&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Player 4 turned out to have a club even though he didn't play it in the first trick and player 1 turns out to have a spade that he should have played on the fourth trick.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;C2 C9 CA CT&quot;,
+ &quot;D4 D2 D3 DJ&quot;,
+ &quot;S9 S2 S7 SA&quot;,
+ &quot;C4 C7 D5 CJ&quot;,
+ &quot;D6 C6 DK DT&quot;,
+ &quot;CK H7 C8 CQ&quot;,
+ &quot;HA HJ H8 H6&quot;,
+ &quot;ST HK S3 S4&quot;,
+ &quot;SK H5 SJ S6&quot;,
+ &quot;S8 H9 D8 HQ&quot;,
+ &quot;SQ HT DA C3&quot;,
+ &quot;C5 D9 H2 H3&quot;,
+ &quot;S5 D7 DQ H4&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;26&quot;,  &quot;0&quot;,  &quot;26&quot;,  &quot;26&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The second player shoots the moon!</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C2 CQ HK D7&quot;,
+ &quot;H9 H7 HJ H4&quot;,
+ &quot;S2 S8 S5 D2&quot;,
+ &quot;C9 DA CT CK&quot;,
+ &quot;DT C8 D9 D4&quot;,
+ &quot;DK S3 H6 C6&quot;,
+ &quot;CJ D6 C5 S9&quot;,
+ &quot;D8 SA H8 DJ&quot;,
+ &quot;S7 S6 ST CA&quot;,
+ &quot;HA H5 H3 D5&quot;,
+ &quot;DQ C7 SK D3&quot;,
+ &quot;HQ H2 SJ C3&quot;,
+ &quot;SQ C4 HT S4&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;CHEATER!&quot;,  &quot;CHEATER!&quot;,  &quot;CHEATER!&quot;,  &quot;CHEATER!&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Some rampant cheating going on here...</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C2 CA HA CQ&quot;,
+ &quot;C3 HK C9 C5&quot;,
+ &quot;ST SJ SA SQ&quot;,
+ &quot;C4 HQ C6 CJ&quot;,
+ &quot;S9 DA HJ S7&quot;,
+ &quot;H2 DT HT SK&quot;,
+ &quot;H3 DQ H4 CK&quot;,
+ &quot;S4 CT H9 S6&quot;,
+ &quot;S5 S3 C8 H8&quot;,
+ &quot;D6 D4 D5 D3&quot;,
+ &quot;D8 DK D7 H7&quot;,
+ &quot;S2 C7 H6 DJ&quot;,
+ &quot;S8 D2 H5 D9&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;7&quot;,  &quot;14&quot;,  &quot;CHEATER!&quot;,  &quot;3&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Player 3 holds out for awhile, but it turns out he played a heart on the first trick while he had exactly one non-scoring card.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C2 SQ C9 C8&quot;,
+ &quot;C6 CA CQ HA&quot;,
+ &quot;S4 SJ HK SK&quot;,
+ &quot;ST SA S9 HQ&quot;,
+ &quot;DA DK D7 DQ&quot;,
+ &quot;D2 D4 HJ DJ&quot;,
+ &quot;H4 DT H2 H3&quot;,
+ &quot;D9 D5 D3 HT&quot;,
+ &quot;S5 CK S8 H9&quot;,
+ &quot;CJ H8 D8 CT&quot;,
+ &quot;C5 H7 D6 C4&quot;,
+ &quot;S2 H6 S7 C7&quot;,
+ &quot;S6 C3 S3 H5&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;3&quot;,  &quot;CHEATER!&quot;,  &quot;21&quot;,  &quot;2&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You can't play the Queen of Spades in the first trick, either, if you have a non-scoring card in your hand.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C2 CJ C6 DK&quot;,
+ &quot;H7 S2 DQ H6&quot;,
+ &quot;H2 S6 DJ CK&quot;,
+ &quot;H3 S8 D2 S4&quot;,
+ &quot;HK ST H5 CA&quot;,
+ &quot;H8 SA D3 C7&quot;,
+ &quot;DA D4 DT C8&quot;,
+ &quot;HQ S9 D8 C4&quot;,
+ &quot;HJ S7 D9 CT&quot;,
+ &quot;HT SK SQ S5&quot;,
+ &quot;H4 SJ D5 C9&quot;,
+ &quot;HA S3 D6 C5&quot;,
+ &quot;H9 CQ D7 C3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;26&quot;,  &quot;CHEATER!&quot;,  &quot;26&quot;,  &quot;CHEATER!&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Player 2 cheated to shoot the moon.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

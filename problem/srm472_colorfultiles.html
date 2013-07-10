@@ -1,0 +1,313 @@
+<html>
+ <head>
+  <title>ColorfulTiles Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10758">Problem Statement for ColorfulTiles</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Taro likes <i>colorful</i> things, especially <i>colorful</i> tiles. <br /><br /> <br /><br /> Taro's room is an H x W rectangle divided into 1 x 1 tiles. Each tile is one of the following four colors: red, green, blue or yellow. You are given a String[] <b>room</b>. If the j-th character of the i-th element is 'R', 'G', 'B' or 'Y', the color of the tile in the j-th column of the i-th row is red, green, blue or yellow, respectively. <br /><br /> <br /><br /> He decided to change the color of some tiles so that no two adjacent tiles have the same color. Two tiles are adjacent if they share a side or a corner (so a tile has at most 8 adjacent tiles). He is allowed to change at most <b>K</b> tiles. <br /><br /> <br /><br /> Return the number of ways to change tiles that satisfies the above conditions, modulo 1,000,000,007. Two ways are considered to be different if there is at least one tile of distinct color.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ColorfulTiles</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>theCount</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int theCount(String[] room, int K)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>room</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>room</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>room</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>room</b> will be 'R', 'G', 'B' or 'Y'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>K</b> will be between 0 and the number of characters in <b>room</b>, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;RG&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If he doesn't change any tiles, he can make &quot;RG&quot;. <br /><br /> If he changes the first tile, he can make &quot;BG&quot; or &quot;YG&quot;. <br /><br /> If he changes the second tile, he can make &quot;RB&quot; or &quot;RY&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All pairs of different colors are possible.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;RG&quot;,
+ &quot;GR&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The eight ways are: <br /><br /> <br /><br /> <pre>
+RG  RG  BY  YB  BG  YG  RB  RY
+BY  YB  GR  GR  YR  BR  GY  GB
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BRYBGYRB&quot;
+,&quot;GRYGYBBG&quot;
+,&quot;RGBGYBYG&quot;
+,&quot;YRBRGBYG&quot;
+,&quot;RBGRBRGG&quot;
+,&quot;RBGYRYBY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>34</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 489</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBBBBBBBBBBBBBBBBBYYYYYBBBBBBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBBBBBBBBBBBBBBYYYYYYYYYYYBBBBBBBB&quot;
+,&quot;BBBBBBYYYYYYYYYYYYYYYYBBBBBBBBYYYYBBBBBYYYYBBBBBBB&quot;
+,&quot;BBBBBBYYYYYYYYYYYYYYYYBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBBBBBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBBBBBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBBBBBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBBBBBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBBBBBBBBBBBBBYYYYBBBBBYYYYBBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBBBBBBBBBBBBBBBYYYYYYYYYBBBBBBBBB&quot;
+,&quot;BBBBBBYYYYYYYYYYYYBBBBBBBBBBBBBBYYYYYYYYYBBBBBBBBB&quot;
+,&quot;BBBBBBYYYYYYYYYYYYYYBBBBBBBBBBYYYYBBBBBYYYYBBBBBBB&quot;
+,&quot;BBBBBBBBBBBBBBBBYYYYYBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBBBBBBBBBBBBBYYYBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBBBBBBBBBBBBBYYYBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBYYYBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBYYYBBBBBBBBBYYYBBBBBBBBYYYBBBBBBBBBYYYBBBBBB&quot;
+,&quot;BBBBBBBYYYYBBBBBYYYYBBBBBBBBBBYYYYBBBBBYYYYBBBBBBB&quot;
+,&quot;BBBBBBBBYYYYYYYYYYYBBBBBBBBBBBBYYYYYYYYYYYBBBBBBBB&quot;
+,&quot;BBBBBBBBBBBYYYYYBBBBBBBBBBBBBBBBBBYYYYYBBBBBBBBBBB&quot;
+,&quot;BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>825</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 404506540</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

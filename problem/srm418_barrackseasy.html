@@ -1,0 +1,241 @@
+<html>
+ <head>
+  <title>BarracksEasy Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10073">Problem Statement for BarracksEasy</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>As a serious strategy-games player, you decided to solve one of the most common problems - attacking your opponent's building (barracks), which constantly produces new soldiers.<br /><br /><br /><br /> Before the attack, you've got <b>myUnits</b> soldiers. In a single round, each soldier can either kill one of your opponent's soldiers or inflict 1 hit point of damage to the barracks.<br /><br /> Your opponent doesn't have any soldiers initially. However, his barracks has <b>barHp</b> hit points and produces <b>unitsPerRound</b> soldiers per round.<br /><br /><br /><br /> The course of one round:<br /><br /> 1. Each solider from your army either kills one of your opponent's soldiers or inflicts 1 hit point of damage to the barracks. Each soldier can choose to do something different. When the barracks loses all of its hit points, it is destroyed. <br /><br /> 2. Your opponent attacks. He will kill k of your soldiers, where k is the number of remaining soldiers he has.<br /><br /> 3. If the barracks are not yet destroyed, your opponent will produce <b>unitsPerRound</b> new soldiers.<br /><br /><br /><br /> Your task is to destroy the barracks and kill all your opponent's soldiers. If it is possible, return the minimum number of rounds you need to do this. Otherwise return -1. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BarracksEasy</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>attack</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int attack(int myUnits, int barHp, int unitsPerRound)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>myUnits</b>, <b>barHp</b>, <b>unitsPerRound</b> will each be between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>11</pre></td>
+            </tr>
+            <tr>
+             <td><pre>15</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Round 1:<br /><br /> - All your soldiers attack the barracks, leaving it with 1 hit point.<br /><br /> - Your opponent has no soldiers, so he cannot kill any of your soldiers.<br /><br /> - Your opponent's army increases from 0 soldiers to 15 soldiers.<br /><br /> <br /><br /> Round 2:<br /><br /> - One of your soldiers destroys the barracks. The other nine kill 9 of your opponent's soldiers.<br /><br /> - Your opponent has 6 soldiers, so he kills 6 of your soldiers.<br /><br /> - The barracks have been destroyed, so no new soldiers are produced.<br /><br /> <br /><br /> Round 3:<br /><br /> - You have got 4 soldiers, so you decrease your opponent's army to 2 soldiers.<br /><br /> - Your opponent kills 2 of your soldiers.<br /><br /> - The barracks have been destroyed, so no new soldiers are produced.<br /><br /> <br /><br /> Round 4:<br /><br /> - You kill 2 remaining soldiers. <br /><br /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>11</pre></td>
+            </tr>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

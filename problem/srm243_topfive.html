@@ -1,0 +1,356 @@
+<html>
+ <head>
+  <title>TopFive Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4453">Problem Statement for TopFive</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You regularly participate in problem solving contests. During a contest all contestants must solve 3 problems, submitting their solutions to the judges for some points. After the competition, the judges will check the correctness of the problems, and award 0 points for incorrect problems. <br /><br /> <br /><br /> You want to know your result as soon as possible and you hate waiting for the judges to finish their work. You are ambitious and you are only interested in knowing if you will finish among the top 5 people. Thus you decide to write your own program to determine your probability of getting a top 5 spot. Notice that if someone gets the same score as you, they will go above you on the top scorers list. <br /><br /> <br /><br /> You will be given two String[]s - <b>results</b>, giving you the points all people have scored for their problems (prior to being judged), and <b>accuracies</b>, the submission accuracies for all people (the i<sup>th</sup> element of <b>results</b> corresponds to the i<sup>th</sup> element of <b>accuracies</b>). Each element of <b>results</b> and <b>accuracies</b> will contain three space-delimited integers without extra leading zeroes. For the i<sup>th</sup> contestant the corresponding element of <b>results</b> contains the points this contestant received for his three solutions, and the corresponding element of <b>accuracies</b> represents the probabilities in percents of these solutions to be correct. <br /><br /> Given the <b>points</b> you have (you think all your solutions are correct), return the probability you will make the top 5.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TopFive</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findProbability</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double findProbability(String[] results, String[] accuracies, int points)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Your return value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>results</b> and <b>accuracies</b> will have the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>results</b> will have between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>results</b> and <b>accuracies</b> will contain between 5 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>results</b> will be formatted as &quot;A B C&quot;, where A, B and C are integers between 0 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>accuracies</b> will be formatted as &quot;A B C&quot;, where A, B and C are integers between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All integers in both <b>results</b> and <b>accuracies</b> will NOT contain any leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>points</b> will be between 0 and 2000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;0 0 50&quot;
+}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first four people always solve their problems correctly (getting 600 points each) and finish higher than you. Your success depends on the fifth person, who has a 50-50 chance of solving the 3rd problem, and beating you.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;100 100 100&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Your performance isn't good enough for you to have any chance of making the top 5.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;928 209 594&quot;, &quot;547 408 596&quot;, &quot;190 865 494&quot;, &quot;353 392 962&quot;, &quot;6 252 267&quot;,
+ &quot;817 671 562&quot;, &quot;631 78 290&quot;, &quot;593 292 312&quot;, &quot;59 51 286&quot;, &quot;553 541 487&quot;,
+ &quot;466 318 271&quot;, &quot;605 892 562&quot;, &quot;596 261 63&quot;, &quot;865 895 625&quot;, &quot;893 479 586&quot;,
+ &quot;759 596 476&quot;, &quot;157 407 819&quot;, &quot;509 695 861&quot;, &quot;696 730 430&quot;, &quot;271 221 0&quot;,
+ &quot;922 296 640&quot;, &quot;999 456 654&quot;, &quot;320 550 805&quot;, &quot;835 808 711&quot;, &quot;9 161 670&quot;,
+ &quot;82 737 480&quot;, &quot;939 12 363&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;84 87 72&quot;, &quot;39 60 84&quot;, &quot;56 78 48&quot;, &quot;0 80 59&quot;, &quot;11 69 94&quot;,
+ &quot;100 53 77&quot;, &quot;87 77 55&quot;, &quot;0 67 7&quot;, &quot;89 63 3&quot;, &quot;4 69 99&quot;, 
+&quot;58 9 49&quot;, &quot;81 8 84&quot;, &quot;81 85 55&quot;, &quot;84 68 28&quot;, &quot;7 1 46&quot;, 
+&quot;30 50 51&quot;, &quot;16 82 8&quot;, &quot;60 17 88&quot;, &quot;44 30 67&quot;, &quot;20 65 65&quot;, 
+&quot;40 75 73&quot;, &quot;38 97 20&quot;, &quot;82 38 88&quot;, &quot;90 78 58&quot;, &quot;58 30 66&quot;,
+ &quot;3 95 50&quot;, &quot;76 60 57&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1623</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.8657569451352308</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;600 600 600&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;75 75 75&quot;
+}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>500</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.015625</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The fifth contestant must fail all his problems.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;200 200 200&quot;,
+&quot;33 33 33&quot;,
+&quot;33 200 200&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;100 0 0&quot;,
+&quot;0 0 100&quot;,
+&quot;0 100 0&quot;,
+&quot;100 100 100&quot;,
+&quot;100 100 100&quot;,
+&quot;33 80 50&quot;
+}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>200</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.10000000000000009</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The last contestant must fail both the second and third problems to grant you a top 5 spot. The correctness of his first problem does not affect the result.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

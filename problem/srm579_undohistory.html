@@ -1,0 +1,280 @@
+<html>
+ <head>
+  <title>UndoHistory Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=12523">Problem Statement for UndoHistory</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Bob is using a peculiar text editor to write a sequence of lines of text. The editor consists of three parts: a results window, a text buffer and an undo history. More details about the three parts follow. 
+      <ul> 
+       <li>The results window contains a sequence of strings: the lines of text you already wrote. Initially, the results window is empty.</li> 
+       <li>The text buffer contains a string: the line you are writing at the moment. Initially, the string in the text buffer is empty.</li> 
+       <li>The undo history contains a sequence of strings: all the past states of the text buffer. Initially, the undo history contains a single element: an empty string.</li> 
+      </ul> You are given a String[] <b>lines</b>. Bob would like to print the contents of <b>lines</b> into the results window. (At the end, the sequence of strings stored in the results window must be precisely equal to <b>lines</b>. Order of elements matters.) Additionally, Bob would like to do so as quickly as possible. He is able to take the following actions: 
+      <ul> 
+       <li>Bob may type a lowercase letter. The letter is appended to the text buffer. The new text buffer is then added as a new element of the undo history. (For example, if the text buffer currently contains &quot;do&quot;, then pressing 'g' changes the text buffer to &quot;dog&quot; and then stores &quot;dog&quot; into the undo history.)</li> 
+       <li>Bob may press Enter. When he does so, the current content of the text buffer is printed to the results window as a new line, after the lines that were printed earlier. The text buffer remains unmodified. (For example, if the text buffer contains &quot;dog&quot; and Bob presses Enter, &quot;dog&quot; will be appended to the results window, and the results buffer still contains &quot;dog&quot;.)</li> 
+       <li>Bob may use two mouse clicks to restore any entry from the undo history to the text buffer. This operation does not modify the undo history.</li> 
+      </ul> Return the minimum total number of button presses (keyboard and mouse) that Bob needs to print all the given lines into the results window.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>UndoHistory</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minPresses</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minPresses(String[] lines)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lines</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>lines</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>lines</b> will contain only lowercase letters ('a'-'z').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;tomorrow&quot;, &quot;topcoder&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 18</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">
+              <ul> 
+               <li>Type 't'. The text buffer now contains &quot;t&quot;, and the undo history now contains &quot;&quot; and &quot;t&quot;.</li> 
+               <li>Type 'o'. The text buffer now contains &quot;to&quot;, and the undo history now contains &quot;&quot;, &quot;t&quot;, and &quot;to&quot;.</li> 
+               <li>Using six more keypresses, type the letters in &quot;morrow&quot;. The text buffer now contains &quot;tomorrow&quot; and the undo history contains all prefixes of &quot;tomorrow&quot;. The results window is still empty.</li> 
+               <li>Press Enter. The results window now contains one string: &quot;tomorrow&quot;.</li> 
+               <li>Click the mouse twice to restore &quot;to&quot; from undo history.</li> 
+               <li>Using another six keypresses, type the letters in &quot;pcoder&quot;.</li> 
+               <li>Press Enter. The results window now contains &quot;tomorrow&quot; and &quot;topcoder&quot;, in this order, and we are done.</li> 
+              </ul> The total number of button presses was 8 (typing &quot;tomorrow&quot;) + 1 (Enter) + 2 (mouse) + 6 (typing &quot;pcoder&quot;) + 1 (Enter) = 18.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a&quot;,&quot;b&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After typing &quot;a&quot; and pressing enter, we need to restore the empty string (which is always present at the top of the undo buffer) before typing &quot;b&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a&quot;, &quot;ab&quot;, &quot;abac&quot;, &quot;abacus&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are times when it is not necessary to use the undo history at all.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;pyramid&quot;, &quot;sphinx&quot;, &quot;sphere&quot;, &quot;python&quot;, &quot;serpent&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 39</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ba&quot;,&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;ba&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

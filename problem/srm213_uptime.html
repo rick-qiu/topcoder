@@ -1,0 +1,291 @@
+<html>
+ <head>
+  <title>Uptime Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2893">Problem Statement for Uptime</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>When sending automated emails, it is useful if the system sends the time the server was started, and how long it has been up.</p> <p>Write a method, <b>calcUptime</b> which is given two Strings which describe the time the server was started and the current time, and calculates the amount time the system has been &quot;up&quot;. The time the system was <b>started</b> and the current time (<b>now</b>) will be given in the following format:</p> <pre>
+	day month year at hh:mm:ss AM/PM
+</pre> <p>The day of the month will be between 1 and 31, inclusive, (or 30, 29, or 28, depending on the month and year). Month will be a 3-letter abbreviation (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec.) hh, mm, and ss will always be two digits, with leading zeros if less than 10. Year will be between 1900 and 2199, inclusive. The word 'at' will always be in lower case, and either AM or PM (always upper case) will always be present. (Note that 12:00 PM is considered noon and 12:00 AM is considered midnight of the day that is just starting.)</p> <p>For example:</p> <pre>
+	7 Jun 2004 at 04:41:32 PM
+</pre> <p>Your method should return a String in the following format:</p> <pre>
+	#d #h #m #s
+</pre> where each number is immediately adjacent to the units that it represents. Numbers should not have a leading zero. If any of the numbers are zero, omit that section. The maximum number of seconds returned is 59, the maximum number of minutes returned is 59, the maximum number of hours returned is 23, and there is no maximum number of days. <p>For example, an uptime period of zero days, 16 hours 36 minutes and zero seconds would be represented as:</p> <pre>
+	16h 36m
+</pre> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Uptime</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>calcUptime</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String calcUptime(String started, String now)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that 12:00 PM is considered noon and 12:00 AM is considered midnight of the day that is just starting.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You must take leap years into account. Leap years are divisible by 4, except for years divisible by 100, unless they are also divisible by 400. Therefore, 1996 and 2000 were leap years, but 1900 was not, and the year 2100 will not be.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The 3-letter month abbreviations are Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec. The number of days in each of the corresponding months in a non-leap year is: 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31. In a leap year the number of days in each month is: 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Do NOT consider &quot;Daylight savings&quot; when calculating uptime. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>started</b> and <b>now</b> will be between &quot;1 Jan 1900 at 12:00:00 AM&quot; and &quot;31 Dec 2199 at 11:59:59 PM&quot;, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>started</b> and <b>now</b> will both be in the format described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>now</b> will never be before <b>started</b></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;7 Jun 2004 at 04:41:32 PM&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;8 Jun 2004 at 07:16:28 PM&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;1d 2h 34m 56s&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;7 Jun 2004 at 04:41:32 PM&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;7 Jun 2004 at 04:41:32 PM&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Zero days, zero hours, zero minutes, zero seconds should return &quot;&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;28 Feb 2004 at 01:23:45 PM&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1 Mar 2004 at 12:34:56 AM&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;1d 11h 11m 11s&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Remember leap years.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;28 Feb 2005 at 01:23:45 PM&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1 Jan 2015 at 12:34:56 AM&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;3593d 11h 11m 11s&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Don't show years.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;25 Jan 1922 at 05:58:52 AM&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;26 Feb 2190 at 11:53:14 AM&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;97918d 5h 54m 22s&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

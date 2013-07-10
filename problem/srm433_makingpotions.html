@@ -1,0 +1,444 @@
+<html>
+ <head>
+  <title>MakingPotions Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10009">Problem Statement for MakingPotions</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>An old witch is making a love potion. She has a lot of recipes and each of them has the following form:<br /><br /><br /><br /> <pre>
+	S=N<sub>1</sub>S<sub>1</sub>+?+N<sub>k</sub>S<sub>k</sub></pre><br /><br /> where N<sub>1</sub>, ?, N<sub>k</sub> are single-digit integers between 1 and 9, inclusive, S<sub>1</sub>, ?, S<sub>k</sub> are names of ingredients, k is an integer greater than or equal to 1, and S is name of the resulting potion (all names contain only uppercase letters). This means that if she mixes N<sub>1</sub> units of S<sub>1</sub>, ..., N<sub>k</sub> units of S<sub>k</sub> all together, she will obtain 1 unit of S. There may be multiple recipes for the same potion. In that case, the potion can be obtained using any one of them. The ingredients are also potions, and some of them can be bought at the market.<br /><br /><br /><br /> You want to create 1 unit of the potion called LOVE. You are given String[] <b>recipes</b>, each element of which is a recipe formatted as described above. You are also given a String[] <b>marketGoods</b> and a int[] <b>cost</b>. Each element of <b>marketGoods</b> is the name of a potion you can purchase at the market. The i-th element of <b>cost</b> is the cost of 1 unit of the i-th potion in <b>marketGoods</b>. Return the cheapest cost of obtaining 1 unit of LOVE. If this cost is greater than 1,000,000,000, return 1,000,000,001 instead. If the potion cannot be obtained, return -1 instead.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MakingPotions</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getCost</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int getCost(String[] marketGoods, int[] cost, String[] recipes)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>marketGoods</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>marketGoods</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>marketGoods</b> will contain only uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>marketGoods</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>cost</b> will contain the same number of elements as <b>marketGoods</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>cost</b> will be between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>recipes</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>recipes</b> will contain between 4 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>recipes</b> will contain only uppercase letters ('A'-'Z'), non-zero digits ('1'-'9') and the characters '+' and '='.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>recipes</b> will be formatted as described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;LOVE&quot;, &quot;WATER&quot;, &quot;HONEY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100, 1, 30}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;LOVE=5WATER+3HONEY&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 95</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The LOVE potion is sold at the market, but the witch can make it for a lower cost.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;WATER&quot;, &quot;HONEY&quot;, &quot;HOP&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2, 6, 9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;LOVE=2WATER+4HONEY+2BEER&quot;, &quot;BEER=1HOP+3WATER+1HOP&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 76</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">To obtain LOVE, one must make two units of BEER at a cost of 24 each, and then mix 2 units of WATER, 4 units of HONEY and 2 units of BEER, which will cost a total of 76.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ORANGEJUICE&quot;, &quot;APPLEJUICE&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{6, 4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;JUICEMIX=1ORANGEJUICE+1APPLEJUICE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The witch doesn't have a LOVE recipe. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;WATER&quot;, &quot;HONEY&quot;, &quot;HOP&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,22,17}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;LOVE=7WATER+3HONEY&quot;, &quot;LOVE=2HONEY+2HOP&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 73</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The witch has two LOVE recipes and prefers the first one. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;OIL&quot;, &quot;WATER&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{60, 70}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;FIRSTPOTION=1OIL+1SECONDPOTION&quot;, &quot;SECONDPOTION=4WATER+1FIRSTPOTION&quot;, &quot;LOVE=1FIRSTPOTION+1SECONDPOTION&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;HONEYBIT&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;LOVE=6HONEYMEGABYTE&quot;,&quot;HONEYMEGABYTE=2HONEYFIFTYTWELVEKBYTES&quot;,
+&quot;HONEYFIFTYTWELVEKBYTES=8HONEYSIXTYFOURKBYTES&quot;,&quot;HONEYSIXTYFOURKBYTES=8HONEYEIGHTKBYTES&quot;,
+&quot;HONEYEIGHTKBYTES=8HONEYKBYTE&quot;,&quot;HONEYKBYTE=2EIGHTBYEIGHTWORDS&quot;,&quot;EIGHTBYEIGHTWORDS=8EIGHTWORDS&quot;,
+&quot;EIGHTWORDS=8HONEYWORD&quot;,&quot;HONEYWORD=8HONEYBYTE&quot;,&quot;HONEYBYTE=8HONEYBIT&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1000000001</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;WATER&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;LOVE=1LOVE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Some recipes can be useless.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;MILK&quot;,&quot;WATER&quot;,&quot;HOP&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{6,1,14}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NECTAR=4HOP+2MILK&quot;,&quot;LOVE=5MILK+3BEER&quot;,&quot;LOVE=2WATER+1LOVE&quot;,&quot;LOVE=2MIX+1NECTAR&quot;,
+&quot;MIX=1MILK+1WATER+1HOP&quot;,&quot;BEER=5WATER+2HOP&quot;,&quot;LOVE=1NECTAR+3WATER+3HOP&quot;,&quot;NECTAR=3BEER+1MILK+2MILK&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 110</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

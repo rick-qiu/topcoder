@@ -1,0 +1,354 @@
+<html>
+ <head>
+  <title>QuiningTopCoder Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1764">Problem Statement for QuiningTopCoder</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You're running a special TopCoder competition where all programs are written in a derivative of a restrictive language called Unefunge, and all programs must complete in under 80,000 cycles. Furthermore, all programs are required to be Quines. For the purpose of this problem, a Quine is a special type of program that prints out its own source code before it prints anything else. Thus, in order for the Unefunge program &quot;:,:9#@_1+&quot; to be a legal program it would first have to print the string &quot;:,:9#@_1+&quot;.</p> <p>The language Unefunge works like this: a program is just a single line of characters of length N, where N is between 1 and 50 inclusive. The program never changes. An instruction pointer starts with the value 0 (called the IP), a delta is given the value 1 (called D), and an empty stack is created. The stack will store integer values during program execution in a first-in-last-out manner; if a number is pushed, it is placed in the stack, and if a value is popped, the last number pushed is removed (or a 0 is popped if the stack is empty). During each cycle, the IPth character in the program is read, the instruction corresponding to that character is executed, and then IP is incremented to the new value (3*N+IP+D)%N. The instructions are as follows:</p> 
+      <ul> 
+       <li>'0'-'9': pushes the number represented by that digit onto the stack.</li> 
+       <li>'$' : pops a value off the stack, and discards it.</li> 
+       <li>':' : pops a value off the stack, then pushes that same value onto the stack twice.</li> 
+       <li>'W' : Pops a value A, then pops a value B, then pushes A, then pushes B.</li> 
+       <li>',' : pops a value X off of the stack, and prints the (absolute value of X)%Nth character in the source code.</li> 
+       <li>'+' : pops two values, adds them, and pushes the result back onto the stack.</li> 
+       <li>'-' : pops two values, subtracts the second popped value from the first, and pushes the result back onto the stack.</li> 
+       <li>'#' : multiplies D by 2 for this cycle only.</li> 
+       <li>'R' : multiplies D by -1.</li> 
+       <li>'S' : pops a value, and if positive pushes a 1, else pushes a -1.</li> 
+       <li>'_' : pops a value X, and sets D to that value X%N.</li> 
+       <li>'J' : pops a value X, and sets IP to the (absolute value of X)%N. (IP is not incremented after this step)</li> 
+       <li>'@' : stops the program</li> 
+      </ul> <p>You have to write a program that takes a String <b><tt>source</tt></b> and checks whether or not the program being submitted is valid. If the program doesn't end in 80,000 cycles or less, return &quot;TIMEOUT&quot;. Otherwise you'll return a message with the ending condition replacing X with the cycle number in which this ending condition is reached. </p> 
+      <ul> 
+       <li>If the program ends before printing out its source, return the string &quot;BADEND X&quot;.</li> 
+       <li> If a number less than -1000000000 or a number greater than 1000000000 is pushed onto the stack, return &quot;OVERFLOW X&quot;.</li> 
+       <li> If the result of an instruction makes it impossible for the output to match the source code, return &quot;MISMATCH X&quot;.</li> 
+       <li> If the result of an instruction makes the output match the source code, return &quot;QUINES X&quot;.</li> 
+      </ul></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>QuiningTopCoder</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>testCode</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String testCode(String source)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Start counting cycles at cycle 0. This should be obvious from the first example.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that digits are not grouped, but pushed on in order: the code &quot;3004&quot; pushes a 3, then a 0, then another 0, then finally a 4, so the stack would contain the four numbers [3,0,0,4] and not the single number [3004].</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b><tt>source</tt></b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b><tt>source</tt></b> will only consist of characters contained in &quot;0123456789:$W,+-#RS_J@&quot; (quotes included for clarity).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;,&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;QUINES 0&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The shortest quine.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;_&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;TIMEOUT&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This pops a 0 from the stack and places it into delta, freezing the code where it stands.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1:+:1J&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;OVERFLOW 147&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This Unefunge code creates a stack of the powers of 2, until it overflows 1000000000.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;0,1+:#@:$1J&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;QUINES 91&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note the irrelevant commands in the center of this quine. If code starts with &quot;0,1+:&quot;, ends with &quot;1J&quot;, and the middle preserves the first two elements on the stack, then the code is a quine.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;0,1+::9W-9W-S1W1W:+2_J_@_@&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;BADEND 437&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This code prints the first 18 characters of its code before halting.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;#R,#:+1+:#,R#&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;QUINES 97&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This non-trivial code is both a quine and a palindrome. :)</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;R,#1+1:&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;MISMATCH 7&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

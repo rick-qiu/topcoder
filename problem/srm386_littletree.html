@@ -1,0 +1,279 @@
+<html>
+ <head>
+  <title>LittleTree Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8486">Problem Statement for LittleTree</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>In a rooted tree, a vertex <i>V</i> is at level <i>L</i> if the length of the shortest path between the root and <i>V</i> is <i>L</i>. Vertex <i>U</i> is said to be the parent of vertex <i>V</i> if <i>U</i> and <i>V</i> are connected by an edge, <i>V</i> is at level <i>L</i>, and <i>U</i> is at level <i>L</i>-1. A vertex <i>U</i> is an ancestor of vertex <i>V</i> if <i>U</i> lies along the shortest path from the root vertex to <i>V</i>. More formally, <i>U</i> is an ancestor of <i>V</i> if there exists a sequence of vertices <i>U = W<sub>1</sub>, W<sub>2</sub> ,..., W<sub>k</sub> = V</i>, such that <i>W<sub>i</sub></i> is the parent of <i>W<sub>i+1</sub></i> for every 1 &lt;= <i>i</i> &lt; <i>k</i>.<br /><br /><br /><br /> You're given a rooted tree and you wish to perform several augmentation operations on it. An augmentation operation consists of the following steps:<br /><br /> 
+      <ol> 
+       <li>Choose a non-root vertex <i>V</i>.</li> 
+       <li>Choose a vertex <i>U</i>, which is an ancestor of <i>V</i>.</li> 
+       <li>Erase the edge from <i>V</i> to its parent.</li> 
+       <li>Draw an edge from <i>U</i> to <i>V</i> so that <i>U</i> becomes the parent of <i>V</i>.</li> 
+      </ol><br /><br /> If <i>V</i> and <i>U</i> are at levels <i>L1</i> and <i>L2</i>, respectively, then the cost of the augmentation operation described above is <i>L1</i> - <i>L2</i> - 1.<br /><br /><br /><br /> A tree has height <i>K</i> if there exists some vertex at level <i>K</i> and no vertex is at level <i>K</i>+1. Given a tree and an int <b>height</b>, return the smallest total cost required to perform a sequence of augmentations on the tree such that the height of the resulting tree is less than or equal to <b>height</b>. For example, the following diagram illustrates augmenting the subtree rooted at vertex 2, which is augmented such that vertex 2 becomes a child of vertex 0 (which is the root vertex). This is also the cheapest way of transforming this tree of height 3 into a resulting tree of height 2.<br /><br /> <pre>
+
+0					0
+ \				       / \
+  1				      2   1
+   \			=&gt;	     / \
+    2				    3   4
+   / \					
+  3   4					</pre><br /><br /> The tree contains exactly <b>N</b> vertices, and is described by a String[] <b>edges</b>. Concatenate the elements of <b>edges</b> to form a single-space separated list of strings of the form &quot;parent,child&quot; (quotes for clarity). Here, <i>parent</i> and <i>child</i> are integers with no leading zeros and are between 0 and <b>N</b>-1, inclusive, which represents that vertex <i>child</i> is a child of vertex <i>parent</i>. Each vertex will have exactly one parent except for the root vertex. Node 0 is the root vertex.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>LittleTree</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minCost</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minCost(int N, String[] edges, int height)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>N</b> will be between 2 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>height</b> will be between 1 and <b>N</b>-1, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>edges</b> will be formatted as described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>edges</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>edges</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly <b>N</b>-1 tree edges contained in <b>edges</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>edges</b> will represent a tree.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0,1 1,2 2,3 2,4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0,1 1,2 2,3 2,4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The tree is the same from above, but we must get a resulting tree of height 1. One way to achieve this is to augment vertices 3 and 4 to become children of vertex 0, then augment vertex 2 to become a child of vertex 0, for a total cost of 5. However, we can do better by first augmenting the subtree rooted at vertex 2 to become a child of vertex 0, then augmenting vertices 3 and 4 to become children of vertex 0, for a total cost of 3. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0,1 1,2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This tree already has a height of 2, so we don't need to perform any augmentations.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0,3 3,1 1,8 &quot;,&quot;8,&quot;,&quot;6 2,7 4,2 0,4 7&quot;,&quot;,5&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

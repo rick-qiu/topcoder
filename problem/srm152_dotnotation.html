@@ -1,0 +1,294 @@
+<html>
+ <head>
+  <title>DotNotation Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1762">Problem Statement for DotNotation</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>In Chapter 7 of W.V. Quine's book &quot;Mathematical Logic&quot;, Quine speaks about the necessity of parentheses but also of their obsfucating nature. To combat this he introduces &quot;a graphical notation of dots&quot;. Where parentheses determine the outside boundaries of operands by marking them directly, dot notation does this by placing dots on each side of the operator. The left operand of the operator is determined by the number of dots prefixed to the operator; the operand is the substring with its end at the beginning of the prefixed dots and with its beginning at the end of the next larger grouping of dots suffixed to another operator, or at the beginning of the expression whichever comes first. The right side of the operator is determined likewise; it is the substring starting at the end of the suffixed dots and has its end at the beginning of the next larger grouping of dots prefixed to another operator or at the end of the expression, whichever comes first.</p> <p>To be specific, all dot notation will be a <tt>&lt;DotNotation&gt;</tt> of this form (quotes added for clarity):</p> <p><tt>&lt;DotNotation&gt; := &lt;Number&gt; | &lt;DotNotation&gt;&lt;Dots&gt;&lt;Operator&gt;&lt;Dots&gt;&lt;Number&gt;</tt></p> <p><tt>&lt;Dots&gt; := &quot;&quot; | &lt;Dots&gt;&quot;.&quot;</tt></p> <p><tt>&lt;Operator&gt; := &quot;+&quot; | &quot;-&quot; | &quot;*&quot; | &quot;/&quot;</tt></p> <p><tt>&lt;Number&gt; := exactly one of &quot;0123456789&quot;</tt></p> <p> If an operator's operands reach across the entire expression, the operator is said to be dominant. Evaluation in dot notation involves finding the dominant operator, evaluating the left and right operands of that operator, and then evaluating that operator last. For example: in the dot notation expression &quot;2*.1+3&quot;, &quot;2&quot; is the left operand of the '*' (consider no dots as a grouping of 0 dots) and &quot;1+3&quot; is the right operand of the '*', so this can be read with parentheses as &quot;2*(1+3)&quot;, the '*' is dominant, and the expression evaluates to 8. Likewise, &quot;2*.1..+3&quot; refers to the expression &quot;(2*1)+3&quot;, the '+' is dominant, and the expression evaluates to 5.<br /><br /> <br /><br /> Dot notation can be ambiguous if there is more than one dominating operator. For example, in the expression &quot;3+.5.*7&quot; either operator may be dominant (both operators reach across the entire expression unopposed) so this could be parenthesized as either &quot;3+(5*7)&quot; or &quot;(3+5)*7&quot; and the expression could evaluate to either 38 or 56 respectively. There are even expressions that have no dominating operator, such as &quot;1+...2....*.8..+7&quot;. Since there is no way to parenthesize this expression consistent with its dot notation, it cannot be legally evaluated.</p> <p>You will be given a String in dot form, and you'll need to return the number of unique integers that the expression can evaluate to. For this problem, a specific evaluation is illegal if any part of the evaluation involves division by 0, any operand evaluates to a value that is less than -2000000000 or greater than 2000000000, or if the expression has no dominating operator thus preventing evaluation. If all possible evaluations of the dot notation are illegal return 0.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>DotNotation</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>countAmbiguity</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int countAmbiguity(String dotForm)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There is no normal order of operations in this problem; thus a+b*c is ambiguous.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b><tt>dotForm</tt></b> will be between 1 and 25 characters long, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b><tt>dotForm</tt></b> will be a <tt>&lt;DotNotation&gt;</tt> as described above.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;2&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A single digit by itself has only one interpretation.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;9+5*3&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This could be read (9+5)*3 or as 9+(5*3). Keep in mind that no order of operations is to be assumed.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;9+5.*3&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, the dot prefixed to the * gives it dominance, and this can only be read as (9+5)*3.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1+2.*.3+4&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The * is dominant here, so this is read as (1+2)*(3+4), and 21 is the only number it can be evaluated to.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;9*8+7*6-5+4*3/2./9&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 99</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;1+...2....*.8..+7&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Notice here how none of the operators in the expression can be dominating. Since none of these operators are dominating, none of these operators may be evaluated last, meaning that there is no valid interpretation of this expression.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

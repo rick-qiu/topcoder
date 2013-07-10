@@ -1,0 +1,222 @@
+<html>
+ <head>
+  <title>Histogram Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2874">Problem Statement for Histogram</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Given a sequence of values, we want to display a histogram of vertical bars with a title at the bottom of each bar. Each value will be an integer, and the corresponding bar will consist of that many 'X' characters. For example, <pre>
+                                   X
+                                   X
+               X                   X
+     X         X         X         X         X 
+    EAST     NORTH     SOUTH      WEST INTERNATIONAL
+</pre> We require that the bars be centered over their titles, using the more leftward of the two middle positions for a title whose length is even. We require that there must be at least one space between adjacent titles, and that the number of spaces between adjacent bars be constant. In the example above, there are 9 spaces between adjacent bars. <p> Create a class Histogram that contains a method draw that is given a String[] <b>title</b> and a int[] <b>value</b>. It returns a String[] in which each element is the next row of the histogram to be printed, starting with the top row and ending with the row that contains the titles. </p><p> The histogram must preserve the order given in <b>title</b> and <b>value</b>. The spacing between bars should be as small as possible. Each element of the return should be as short as possible; this implies that the final element of the return will have no leading spaces, and that no element of the return will have trailing spaces. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Histogram</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>draw</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] draw(String[] title, int[] value)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>title</b> will contain between 2 and 10 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>title</b> will contain between 1 and 15 characters inclusive, all uppercase letters 'A'-'Z'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>value</b> will contain the same number of elements as <b>title</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>value</b> will be between 1 and 10 inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;EAST&quot;,&quot;NORTH&quot;,&quot;SOUTH&quot;,&quot;WEST&quot;,&quot;INTERNATIONAL&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,2,1,4,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;                               X&quot;,
+ &quot;                               X&quot;,
+ &quot;           X                   X&quot;,
+ &quot; X         X         X         X         X&quot;,
+ &quot;EAST     NORTH     SOUTH      WEST INTERNATIONAL&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> This is the example given in the problem. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A&quot;,&quot;B&quot;,&quot;C&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2,1,2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;X   X&quot;,  &quot;X X X&quot;,  &quot;A B C&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> This corresponds to the following histogram: <pre>
+   X   X
+   X X X
+   A B C
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;VERYLARGE&quot;, &quot;XX&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;    X&quot;,
+ &quot;    X&quot;,
+ &quot;    X&quot;,
+ &quot;    X&quot;,
+ &quot;    X&quot;,
+ &quot;    X&quot;,
+ &quot;    X&quot;,
+ &quot;    X&quot;,
+ &quot;    X&quot;,
+ &quot;    X     X&quot;,
+ &quot;VERYLARGE XX&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

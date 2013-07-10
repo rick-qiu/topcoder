@@ -1,0 +1,211 @@
+<html>
+ <head>
+  <title>Roxor Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2987">Problem Statement for Roxor</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Roxor is a 2-player game that is played with several piles of stones, numbered 0, 1, ..., <i>n</i>-1. To make a move, a player chooses three piles with numbers <i>i</i>, <i>j</i>, and <i>k</i> such that <i>i &lt; j</i>, <i>j &lt;= k</i>, and pile <i>i</i> has at least one stone in it. The player then removes one stone from pile <i>i</i>, and adds one stone to piles <i>j</i> and <i>k</i>. Note that <i>j</i> may equal <i>k</i>, and that two stones are added for each stone removed. Players make moves alternately until it is no longer possible to make a valid move. This will always happen eventually, and the last player to have moved is then declared the winner. See example 0 below for a description of an entire game. <br /><br /><br /><br /> You are said to have made a &quot;winning move&quot; in Roxor, if after making that move, you can eventually win no matter what the opponent does. Note that a winning move does not necessarily end the game immediately, but if you make only winning moves, you will win eventually. <br /><br /><br /><br /> For this task, you will be given a int[] <b>piles</b>, representing the number of stones in each pile within a game of Roxor. You must find <i>i</i>, <i>j</i>, <i>k</i> with <i>i</i> &lt; <i>j</i> and <i>j</i> &lt;= <i>k</i> such that removing one stone from pile <i>i</i> and adding one stone to piles <i>j</i> and <i>k</i> is a winning move. If there are multiple winning moves, you should choose one that minimizes <i>i</i>. If there is more than one of these, you should choose one that minimizes <i>j</i>. If there is still a tie, choose the one that minimizes <i>k</i>. <br /><br /><br /><br /> If there is at least one winning move, you should return {<i>i</i>, <i>j</i>, <i>k</i>} as described above. Otherwise, return {}. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Roxor</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>play</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] play(int[] piles)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>piles</b> will contain between 2 and 15 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>piles</b> will be between 0 and 1000 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>At least one element of <b>piles</b> other than the last element will be larger than 0.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 0, 1, 0, 1, 100}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 2,  4,  5 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You have 7 legal moves in this position:<br /><br /> {2, 3, 3}, {2, 3, 4}, {2, 3, 5}, {2, 4, 4}, {2, 4, 5}, {2, 5, 5}, and {4, 5, 5}.<br /><br /><br /><br /> If you make the move, {2, 4, 5}, the piles become {0, 0, 0, 0, 2, 101}.<br /><br /> Your opponent then has to make the move, {4, 5, 5}, which makes the piles become {0, 0, 0, 0, 1, 103}.<br /><br /> Finally, you can make the move, {4, 5, 5}, so the piles become {0, 0, 0, 0, 0, 105}.<br /><br /> Your opponent now has no legal moves, so you have won. Thus, {2, 4, 5} is a winning move.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1000, 1000, 1000, 1000, 1000}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Your opponent can always beat you from this position by simply copying your moves. This will ensure that there is always an even number of stones in each pile at the beginning of your turn. As such, you will never take the last stone from any pile, and therefore, you cannot win.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2, 1, 1, 1, 5}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  1,  1 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{14, 301, 391, 410, 511, 681, 58, 259, 981, 81, 5, 42, 251, 401, 120}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 2,  5,  14 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

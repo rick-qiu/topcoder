@@ -1,0 +1,287 @@
+<html>
+ <head>
+  <title>FoxAndBusiness Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11454">Problem Statement for FoxAndBusiness</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Fox Jiro and Eel Saburo are good friends. They work in the same company as partners. Currently, they have <b>totalWork</b> units of work that needs to be done. The work can be divided arbitrarily, even into pieces containing a non-integer number of units.</p> <br /><br /> <p>Jiro and Saburo will not be doing the work themselves. They have N employees, numbered 0 through N-1. Each employee has two parameters:</p> 
+      <ul> 
+       <li>The ability <b>a</b>[i]: the number of units of work he or she can do in <i>one hour</i>.</li> 
+       <li>The pay <b>p</b>[i]: the amount (in yen) he or she has to be paid for each unit of work done.</li> 
+      </ul> <p>Jiro and Saburo have to select exactly <b>K</b> of their employees to do the work. Due to the local laws, they are not allowed to divide the work among the employees arbitrarily: Each of the <b>K</b> employees must work for exactly the same time. (Note that different employees may make different amounts of work in that time.)</p> <br /><br /> <p>Additionally, all the work has to be done on a single machine. Jiro and Saburo do not own such a machine, but they can rent one. The machine can be rented for an arbitrary (possibly also non-integer) number of seconds, and the rent is 1 yen <i>per second</i>. (Note that the employees will have to use the machine sequentially, i.e., one after another.)</p> <br /><br /> <p>You are given the int <b>K</b>, the int <b>totalWork</b>, the int[] <b>a</b>, and the int[] <b>p</b>. Find and return the smallest amount for which Jiro and Saburo can get all the work done. (Note that the total amount consists of two parts: the money paid to the selected employees, and the money paid for renting the machine.)</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FoxAndBusiness</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minimumCost</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double minimumCost(int K, int totalWork, int[] a, int[] p)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must be accurate to within a relative or absolute error of 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>N will be between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>a</b> and <b>p</b> will each contain exactly N elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>a</b> will be between 1 and 100,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>p</b> will be between 1 and 100,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>K</b> will be between 1 and N, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>totalWork</b> will be between 1 and 100,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{20}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3800.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>We have to select the only employee.</p><br /><br /> <p>For 10 units of work we have to pay him 10 * 20 = 200 yen. The work will take him 10/10 = 1 hour. We need to rent the machine for 1 hour = 3600 seconds, this will cost 3600 yen.</p><br /><br /> <p>The total amount is 200 + 3600 = 3800 yen.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{50, 60}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1000, 2000}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 107200.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Employee 0 is the better choice.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>300</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10, 20, 47}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{15, 20, 98765}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 77500.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Employee 2 is the fastest worker, but she is way too expensive.</p><br /><br /> <p>The optimal solution is to select employees 0 and 1.</p><br /><br /> <p>Out of the 300 units of work, employee 0 will get 100 and employee 1 will get 200. This way, each of them will work for exactly 10 hours.</p><br /><br /> <p>The total we have to pay: 100*15 yen to employee 0, 200*20 yen to employee 1, and 72000 yen for renting the machine for 20 hours.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{20, 30, 40, 58, 60, 70, 80, 90, 100, 150}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 531764.705882353</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,217 @@
+<html>
+ <head>
+  <title>ErrantKnight Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8479">Problem Statement for ErrantKnight</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>The game of Errant Knights is played on an infinite chessboard using two knights, white and black. The players alternate turns and the white player starts the game. Each player makes a normal chess knight's move with his knight, but there is a restriction that each move must make the Euclidean distance between the two knights smaller. A player can make more than one move in a single turn, but then each move must go in the same direction.<br /><br /><br /><br /> For example, if the black knight is at coordinates (0, 0) and the white knight is at (9, 5), then the white knight can move to (7, 4), (5, 3), (3, 2), (1, 1), (-1, 0). Further moving in this direction is not allowed because (-3, -1) is further from (0, 0) than (-1, 0). Of course, the white knight could also start his turn by moving in one of several other directions, and then possibly making more moves in that direction.<br /><br /><br /><br /> The game ends when one of the knights wins by capturing the other one (by moving to its position), or when it is impossible to make another move (because the knights are orthogonally next to each other and each move would increase the distance). In the second case, the player who should make the next move loses.<br /><br /><br /><br /> Several games of Errant Knight will be played. The starting position of the white knight in the <b>i</b>-th game is (<b>x[i]</b>, <b>y[i]</b>). The black knight will start each game at (0, 0). Both players play optimally. Return a String where the i-th character is <tt>'B'</tt> if the black knight wins the <b>i</b>-th game or <tt>'W'</tt> if the white knight wins. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ErrantKnight</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>whoWins</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String whoWins(int[] x, int[] y)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A chess knight can move in 8 directions. From (0, 0), a knight could move to (2, 1), (2, -1), (1, 2), (-1, 2), (1, -2), (-1, -2), (-2, 1), (-2, -1).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> and <b>y</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> and <b>y</b> will contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>x</b> will be between -4000 and 4000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>y</b> will be between -4000 and 4000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For each <b>i</b>, <b>x[i]</b> and <b>y[i]</b> cannot both be equal to 0.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,1,2,2,9,3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,1,0,1,5,3}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;BWWWWB&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In the first game, there is no possible move for White from (1,0), so Black wins.<br /><br /> In the second game, White moves from (1,1) to (0,-1). Black has no legal move from there, so White wins.<br /><br /> In the third game, White moves from (2,0) to (0,1). Again, Black has no legal move, and White wins.<br /><br /> In the fourth game, White moves from (2,1) to (0,0), and captures the Black knight. White wins.<br /><br /> In the fifth game, White makes five moves from the same direction, moving from (9,5) to (-1,0). White wins.<br /><br /> In the sixth game, White can make a sequence of moves which lead to one of the following squares: (2,1), (1,-1), (1,2), (-1,1), (4,1), (1,4). After each of these moves Black can win. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,7}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;BWBBBBBWWWWWWWWWWWWWWWWBWWWWWWWBWWWWWWWBWWWWWWWWWB&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;B&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note that <b>x[i]</b> and <b>y[i]</b> can be negative. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

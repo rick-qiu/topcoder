@@ -1,0 +1,337 @@
+<html>
+ <head>
+  <title>OrderFood Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3115">Problem Statement for OrderFood</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You and several friends go out to dinner for Chinese food. The waiter advises that you should share entrees, since each is large enough to feed many people. Each of you has certain favorite entrees that you like best.</p> <p>To make sure that everyone enjoys the meal, you decide each person should have two of his favorite entrees to choose from. However, to ensure that nobody gets too greedy, you also decide that nobody should have more than two of his favorite entrees.</p> <p>You are given a int[] <b>entrees</b>, indicating the cost of each entree on the menu. You are also given a String[] <b>favorites</b>, each element of which is a space delimited list of integers. Each integer is a 0-based index into <b>entrees</b>, where the integers in element i of <b>favorites</b> correspond to the favorite entrees of person i. You are to return an int, indicating the least expensive way to order entrees such that each person has exactly two of his favorite entrees to choose from. If it is not possible to order entrees in such a way that everyone gets exactly two of his favorite items, the method should return -1.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>OrderFood</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>selectEntrees</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int selectEntrees(int[] entrees, String[] favorites)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>You may assume that each entree will be enough to feed an arbitrary number of people.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>entrees</b> will contain between 1 and 30 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>entrees</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>favorites</b> will contain between 1 and 15 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>favorites</b> will be a list of integers, each separated by a single space, with no additional leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>favorites</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each number represented in each element of <b>favorites</b> will be between 0 and n - 1, inclusive, where n is the number of elements in <b>entrees</b> (leading zeros are permitted).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100, 150, 300, 425, 200}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 3&quot;, &quot;0 2 3 4&quot;, &quot;0 3 4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 450</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Clearly, we want to order item 0, since it's cheapest, and everyone likes it. Now, we could order item 3, also one that everybody likes, but it costs 425. It would be cheaper to buy items 1 and 4 (for 350 total) to give everyone a second favorite entree.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100, 200, 300, 400}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1&quot;, &quot;1 2&quot;, &quot;0 1 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Since the first two people are picky, and only have two favorites, we have to buy items 0, 1, and 2. But this gives the last person three favorites, which isn't allowed, so there's no solution.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{10, 20, 40, 80, 160, 320, 640}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 2 5&quot;, &quot;0 2 6&quot;, &quot;0 3 5&quot;, &quot;1 3 6&quot;, &quot;1 4&quot;, &quot;1 4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 310</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Clearly, we're must purchase items 1 and 4. We can satisfy everyone else by then selecting 0, 2, 3 or 0, 5, 6. We choose the cheaper option.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100, 200, 300, 400}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Even though we have listed it twice, this person only has a single favorite, so there's no way to pick two favorites.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1000, 90, 80, 70, 60, 50, 40}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0 1 2&quot;, &quot;0 00 000 3 4&quot;, &quot;0 5 6&quot;, &quot;0 1 4&quot;, &quot;0 2 5&quot;, &quot;0 3 6&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 390</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Even though entree 0 is listed multiple times in element 1 of <b>favorites</b>, it only counts once. Note also that leading zeros are permitted.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{  10124, 540045, 236111, 977928, 199927,
+  379085, 743650, 631339, 961617, 178242,
+  343492, 89869,   61858, 700029, 560602,
+  341127, 850320, 957934, 167013, 631513}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;4 16 16 2 18 10 13 14 4 18&quot;,
+ &quot;12 4 19 1 1 12 18 7 18&quot;,
+ &quot;6 15 19 13&quot;,
+ &quot;5 10 5 16 15 14 15 8&quot;,
+ &quot;13 2 15 8 5&quot;,
+ &quot;8 2 15 3 1&quot;,
+ &quot;9 18 2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1792343</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

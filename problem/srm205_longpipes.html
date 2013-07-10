@@ -1,0 +1,285 @@
+<html>
+ <head>
+  <title>LongPipes Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2226">Problem Statement for LongPipes</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> As part of industrializing a newly colonized planet you are are given the task of organizing the building of fuel pipelines from one city to another. You have some pre-manufactured pieces of pipeline scattered about the planet which you can weld together to form longer lengths. This is far in the future so everything is very high tech. The length of each pipeline segment is expressed in meters. Each segment is an exact multiple of 0.001 meters (one millimeter). The total length of the pipeline you must build is also specified exactly to a multiple of 0.001 meters. By using futuristic technology moving giant pipeline segments across the planet is no problem, but welding is expensive because it is done at the molecular level. So the number of welds (and thus the number of segments of pipeline you use) is to be kept to the absolute minimum necessary. Cutting pipes is far too costly and inaccurate so it is not allowed at all. This is a really big planet, so the pipeline segments can be up to a million kilometers long (1e9 meters or 1e12 millimeters). </p> <p> Given a list of the lengths of the available pipeline <b>segments</b> and a <b>desiredLength</b>, determine if the <b>desiredLength</b> can be formed by welding some or all of the segments end to end. If this is possible, return the minimum number of welded joints required, otherwise return -1. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>LongPipes</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>fewestWelds</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int fewestWelds(String[] segments, String desiredLength)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Either pretend the planet is flat, or assume the pipeline segments are all arcs of great circles and the length measurement is the arc length. Either way, this is a one-dimensional problem.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>segments</b> can be used only once. If multiple pipeline segments of the same length are available, that length will be present multiple times in <b>segments</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>segments</b> will contain between 1 and 38 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>desiredLength</b> and each element of <b>segments</b> will be a decimal number.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each decimal number will consist of 1 or more digits ('0'-'9') followed by a decimal point, followed by exactly three digits to the right of the decimal point.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No decimal number will contain extra leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>segments</b> will be between 0.001 and 1000000000.000 meters (1e9), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>desiredLength</b> will be between 0.001 and 38000000000.000 meters (3.8e10), inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1.000&quot;,&quot;2.000&quot;,&quot;4.000&quot;,&quot;8.000&quot;,&quot;16.000&quot;,&quot;32.000&quot;,&quot;64.000&quot;,&quot;128.000&quot;,
+ &quot;256.000&quot;,&quot;512.000&quot;,&quot;1024.000&quot;,&quot;2048.000&quot;,&quot;4096.000&quot;,&quot;8192.000&quot;,
+ &quot;16384.000&quot;,&quot;32768.000&quot;,&quot;65536.000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;65535.000&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 15</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You can combine 16 lengths of pipe from the above list to form the desired length (all but the last element). Connecting 16 segments requires 15 welded joints. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0.001&quot;,&quot;0.002&quot;,&quot;0.004&quot;,&quot;0.008&quot;,&quot;0.016&quot;,&quot;0.032&quot;,&quot;0.064&quot;,&quot;0.128&quot;,&quot;0.256&quot;,
+ &quot;0.512&quot;,&quot;1.024&quot;,&quot;2.048&quot;,&quot;4.096&quot;,&quot;8.192&quot;,&quot;16.384&quot;,&quot;32.768&quot;,&quot;65.536&quot;,
+ &quot;131.072&quot;,&quot;262.144&quot;,&quot;524.288&quot;,&quot;1048.576&quot;,&quot;2097.152&quot;,&quot;4194.304&quot;,&quot;8388.608&quot;,
+ &quot;16777.216&quot;,&quot;33554.432&quot;,&quot;67108.864&quot;,&quot;134217.728&quot;,&quot;268435.456&quot;,&quot;536870.912&quot;,
+ &quot;1073741.824&quot;,&quot;2147483.648&quot;,&quot;4294967.296&quot;,&quot;8589934.592&quot;,&quot;17179869.184&quot;, 
+ &quot;34359738.368&quot;,&quot;68719476.736&quot;,&quot;137438953.472&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;233333333.555&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 17</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A larger example along the same lines.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,&quot;1000000000.000&quot;,
+ &quot;1000000000.000&quot;,&quot;1000000000.000&quot;}
+ </pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;38000000000.000&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 37</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The maximum desiredLength.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0.002&quot;,&quot;0.002&quot;,&quot;0.004&quot;,&quot;0.008&quot;,&quot;0.016&quot;,&quot;0.032&quot;,&quot;0.064&quot;,&quot;0.128&quot;,&quot;0.256&quot;,
+ &quot;0.512&quot;,&quot;1.024&quot;,&quot;2.048&quot;,&quot;4.096&quot;,&quot;8.192&quot;,&quot;16.384&quot;,&quot;32.768&quot;,&quot;65.536&quot;,
+ &quot;131.072&quot;,&quot;262.144&quot;,&quot;524.288&quot;,&quot;1048.576&quot;,&quot;2097.152&quot;,&quot;4194.304&quot;,&quot;8388.608&quot;,
+ &quot;16777.216&quot;,&quot;33554.432&quot;,&quot;67108.864&quot;,&quot;134217.728&quot;,&quot;268435.456&quot;,&quot;536870.912&quot;,
+ &quot;1073741.824&quot;,&quot;2147483.648&quot;,&quot;4294967.296&quot;,&quot;8589934.592&quot;,&quot;17179869.184&quot;, 
+ &quot;34359738.368&quot;,&quot;68719476.736&quot;,&quot;137438953.472&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1000000000.001&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Not possible.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

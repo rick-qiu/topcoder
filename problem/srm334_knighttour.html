@@ -1,0 +1,283 @@
+<html>
+ <head>
+  <title>KnightTour Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7245">Problem Statement for KnightTour</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> A knight is a chess piece that moves by simultaneously shifting one square along one axis and two squares along the other. A knight's tour of a chessboard is a sequence of moves made by a knight such that each square of the board is visited exactly once. If the final position in the tour is a knight's move away from the first position, the tour is called re-entrant. The picture below shows a re-entrant knight's tour for a 6x6 chessboard.</p> <p><img src="http://www.topcoder.com/contest/problem/KnightTour/KnightTour.gif" /></p> <p>Josh is trying to find another re-entrant knight's tour on a 6x6 chessboard. He needs a program to make sure he doesn't make any mistakes. </p><p> You will be given a String[] <b>cells</b> containing the sequence of cells visited by the knight in order. Each element represents a single cell and is in the form &quot;&lt;letter&gt;&lt;digit&gt;&quot; (quotes for clarity), where &lt;letter&gt; is a letter representing the column and &lt;digit&gt; is a digit representing the row. &quot;A1&quot; represents the bottom-left corner of the board, and &quot;F6&quot; represents the top-right corner (see the picture). Return the String &quot;Valid&quot; if cells contains a valid re-entrant knight's tour, and return &quot;Invalid&quot; otherwise (all quotes for clarity).</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>KnightTour</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>checkTour</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String checkTour(String[] cells)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>cells</b> will contain exactly 36 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>cells</b> will be in the form &quot;&lt;letter&gt;&lt;digit&gt;&quot; (quotes for clarity), where &lt;letter&gt; is an uppercase letter between 'A' and 'F', inclusive, and &lt;digit&gt; is a digit between '1' and '6', inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A1&quot;, &quot;B3&quot;, &quot;A5&quot;, &quot;C6&quot;, &quot;E5&quot;, &quot;F3&quot;,
+ &quot;D2&quot;, &quot;F1&quot;, &quot;E3&quot;, &quot;F5&quot;, &quot;D4&quot;, &quot;B5&quot;,
+ &quot;A3&quot;, &quot;B1&quot;, &quot;C3&quot;, &quot;A2&quot;, &quot;C1&quot;, &quot;E2&quot;,
+ &quot;F4&quot;, &quot;E6&quot;, &quot;C5&quot;, &quot;A6&quot;, &quot;B4&quot;, &quot;D5&quot;,
+ &quot;F6&quot;, &quot;E4&quot;, &quot;D6&quot;, &quot;C4&quot;, &quot;B6&quot;, &quot;A4&quot;,
+ &quot;B2&quot;, &quot;D1&quot;, &quot;F2&quot;, &quot;D3&quot;, &quot;E1&quot;, &quot;C2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Valid&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A1&quot;, &quot;C2&quot;, &quot;E3&quot;, &quot;F5&quot;, &quot;D4&quot;, &quot;B3&quot;,
+ &quot;A1&quot;, &quot;C2&quot;, &quot;E3&quot;, &quot;F5&quot;, &quot;D4&quot;, &quot;B3&quot;, 
+ &quot;A1&quot;, &quot;C2&quot;, &quot;E3&quot;, &quot;F5&quot;, &quot;D4&quot;, &quot;B3&quot;, 
+ &quot;A1&quot;, &quot;C2&quot;, &quot;E3&quot;, &quot;F5&quot;, &quot;D4&quot;, &quot;B3&quot;, 
+ &quot;A1&quot;, &quot;C2&quot;, &quot;E3&quot;, &quot;F5&quot;, &quot;D4&quot;, &quot;B3&quot;, 
+ &quot;A1&quot;, &quot;C2&quot;, &quot;E3&quot;, &quot;F5&quot;, &quot;D4&quot;, &quot;B3&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Invalid&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Some cells are not visited.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;D4&quot;, &quot;F5&quot;, &quot;D6&quot;, &quot;B5&quot;, &quot;A3&quot;, &quot;B1&quot;, 
+ &quot;D2&quot;, &quot;F1&quot;, &quot;E3&quot;, &quot;D1&quot;, &quot;F2&quot;, &quot;E4&quot;, 
+ &quot;F6&quot;, &quot;D5&quot;, &quot;B6&quot;, &quot;A4&quot;, &quot;B2&quot;, &quot;C4&quot;, 
+ &quot;A5&quot;, &quot;C6&quot;, &quot;E5&quot;, &quot;F3&quot;, &quot;E1&quot;, &quot;C2&quot;, 
+ &quot;A1&quot;, &quot;B3&quot;, &quot;C5&quot;, &quot;E6&quot;, &quot;F4&quot;, &quot;E2&quot;, 
+ &quot;C3&quot;, &quot;A2&quot;, &quot;C1&quot;, &quot;D3&quot;, &quot;B4&quot;, &quot;A6&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Invalid&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This tour is not re-entrant.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;D4&quot;, &quot;F5&quot;, &quot;D6&quot;, &quot;B5&quot;, &quot;A3&quot;, &quot;B1&quot;, 
+ &quot;D2&quot;, &quot;F1&quot;, &quot;E3&quot;, &quot;D1&quot;, &quot;F2&quot;, &quot;E4&quot;, 
+ &quot;F6&quot;, &quot;D5&quot;, &quot;B6&quot;, &quot;A4&quot;, &quot;B2&quot;, &quot;C4&quot;, 
+ &quot;A5&quot;, &quot;C6&quot;, &quot;E5&quot;, &quot;F3&quot;, &quot;E1&quot;, &quot;C2&quot;, 
+ &quot;A1&quot;, &quot;B3&quot;, &quot;C5&quot;, &quot;A6&quot;, &quot;B4&quot;, &quot;A2&quot;, 
+ &quot;C3&quot;, &quot;E2&quot;, &quot;C1&quot;, &quot;D3&quot;, &quot;F4&quot;, &quot;E6&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Valid&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C5&quot;, &quot;D3&quot;, &quot;F2&quot;, &quot;D1&quot;, &quot;B2&quot;, &quot;A4&quot;, 
+ &quot;B6&quot;, &quot;D5&quot;, &quot;C3&quot;, &quot;E4&quot;, &quot;F6&quot;, &quot;B3&quot;, 
+ &quot;A1&quot;, &quot;C2&quot;, &quot;E1&quot;, &quot;F3&quot;, &quot;E5&quot;, &quot;C6&quot;, 
+ &quot;A5&quot;, &quot;C4&quot;, &quot;A3&quot;, &quot;B1&quot;, &quot;D2&quot;, &quot;F1&quot;, 
+ &quot;E3&quot;, &quot;F5&quot;, &quot;D6&quot;, &quot;B5&quot;, &quot;D4&quot;, &quot;E6&quot;, 
+ &quot;F4&quot;, &quot;E2&quot;, &quot;C1&quot;, &quot;A2&quot;, &quot;B4&quot;, &quot;A6&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Invalid&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">&quot;F6-B3&quot; is not a valid knight move.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

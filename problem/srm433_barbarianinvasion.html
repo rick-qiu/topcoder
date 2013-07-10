@@ -1,0 +1,312 @@
+<html>
+ <head>
+  <title>BarbarianInvasion Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10013">Problem Statement for BarbarianInvasion</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A kingdom is being threatened by a barbarian invasion from all sides. It was decided that the aggressors must not reach the capital. You are given a String[] <b>countryMap</b> containing a map of the kingdom. The kingdom is represented as a rectangular grid of equal squares. The j-th character of the i-th element of <b>countryMap</b> corresponds to the square at row i, column j. The capital square is marked with a '*', impassable squares are marked with '-', and all other squares are marked with uppercase letters representing different types of open terrain.<br /><br /><br /><br /> You must deploy detachments to open squares in such a way that the capital square is unreachable from the border. In other words, to ensure that no aggressors can reach the capital, each path from the border to the capital must be blocked by an impassable square or a detachment. The enemy can only move directly north, east, south and west between open squares that share common sides. Therefore, only consider paths where each pair of consecutive squares has a common side.<br /><br /><br /><br /> Each type of terrain requires a detachment of a certain size. You are given a int[] <b>detachmentSize</b>, where element 0 is the size of a detachment required for each square of terrain type 'A', element 1 is the required size for terrain type 'B', and so on. Each detachment contains a commander, and qualified commanders are hard to come by. Therefore, your primary goal is to minimize the total number of detachments required. If there are multiple ways to defend the capital using the minimum possible number of detachments, choose the one among them that minimizes the total size of all the detachments. Return the total size of all the detachments. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BarbarianInvasion</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minimalDetachment</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minimalDetachment(String[] countryMap, int[] detachmentSize)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>countryMap</b> will contain between 3 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>countryMap</b> will contain between 3 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Elements of <b>countryMap</b> will be of the same length.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>countryMap</b> will contain only uppercase letters, minus signs and asterisks ('A'-'Z','-','*').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>countryMap</b> will contain exactly one character '*'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The '*' character will not be in the first or last row or column of <b>countryMap</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>detachmentSize</b> will contain exactly 26 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>detachmentSize</b> will be between 1 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABA&quot;,
+ &quot;A*A&quot;,
+ &quot;AAA&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We have no other way than blocking the squares adjacent to the capital, so the minimal total size of the detachments is 5.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;CCCC&quot;,
+ &quot;-BAC&quot;,
+ &quot;-*AC&quot;,
+ &quot;--AC&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5,20,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 25</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Having enough commanders, it could be possible to block the way with 7 detachments standing on the border with the total size of 7. But our primary goal is to minimize the number of detachments, so we have to block 'B' and 'A' squares adjacent to the capital.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A----A&quot;,
+ &quot;-AAAA-&quot;,
+ &quot;-AA*A-&quot;,
+ &quot;-AAAA-&quot;,
+ &quot;A----A&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9,8,2,5,3,2,1,2,6,10,4,6,7,1,7,8,8,8,2,9,7,6,5,1,5,10}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is already no way to reach the capital from the border.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;-A-----&quot;,
+ &quot;-BCCC*-&quot;,
+ &quot;-A-----&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,5,10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Blocking 'B' is the optimal decision.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;WANNABRUTEFORCEMEHUH&quot;,
+ &quot;ASUDQWNHIOCASFIUQISA&quot;,
+ &quot;UWQD-ASFFC-AJSQOOWE-&quot;,
+ &quot;-----*Y--AVSSFIUQISA&quot;,
+ &quot;UWQD-ASFFC-AJSQOOWE-&quot;,
+ &quot;JUFDIFD-CHBVISBOOWE-&quot;,
+ &quot;WANNABRUTEFORCEMEHUH&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{87,78,20,43,30,12,9,18,57,93,32,60,64,9,69,74,74,78,12,81,63,57,48,8,44,95}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 218</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,391 @@
+<html>
+ <head>
+  <title>NSegmentDisplay Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8496">Problem Statement for NSegmentDisplay</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p><i>NOTE: This problem statement contains images that may not display properly if viewed outside of the applet.</i></p> <p>An N-segment display is a set of N on/off display elements (segments), positioned in such a way that certain arrangements of elements being on and off lead to symbols being represented in the display. Common examples of these types of display are 7-segment displays, which can display arabic numeral digits and 14- or 16-segment displays which can display alphanumeric symbols. See the diagram below for an example of a 7-segment display and its representation of the digits from 0 to 9.</p> <br /><br /> <img src="http://www.topcoder.com/contest/problem/NSegmentDisplay/SevenSegmentDisplay.jpg" /> <br /><br /> <p>You suspect that certain segments in a particular N-segment display are broken and it is therefore not displaying symbols properly. If a segment is broken, then it remains permanently in an off state, even if the symbol being displayed requires that it turn on. Otherwise, if the segment is working, it will be on when the symbol being displayed requires it to be on and off otherwise. You want to know which segments are broken, so you observe the display for a period of time and note the patterns it displays. The display is set up to only ever show symbols from a known set, but you don't know what symbols from that set might be displayed or in what order they might be appear. Your task is to identify which segments of the display are working and which of them are broken.</p> <p>You are given the set of symbols that the display shows as a String[], where each element describes a single symbol. Character j in element i will be '1' if segment j of the display should be on when symbol i is being displayed and '0' if it should be off. You are given the patterns that you observed being displayed in a String[] <b>patterns</b>, where each element describes a single pattern that you observe in the display. Character j of element i is '1' if segment j of the display is on for pattern i and '0' if it is off. Return a String containing exactly N elements. Character j of the return should be 'Y' if segment j of the display is definitely working, 'N' if segment j is definitely broken and '?' if there is no way of determining whether or not it is broken from the given data. If there is no way of interpreting the data consistent with some subset of the segments being broken, return &quot;INCONSISTENT&quot; (quotes for clarity) instead.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>NSegmentDisplay</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>brokenSegments</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String brokenSegments(String[] symbols, String[] patterns)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A segment can be considered definitely to be working, if no configuration exists, consistent with the described behavior, in which it is broken.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A segment can be considered definitely to be broken, if no configuration exists, consistent with the described behavior, in which it is working.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If neither of the above conditions is true for a segment, there is no way of being sure whether it is broken or not.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>patterns</b> and <b>symbols</b> will each contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>patterns</b> and <b>symbols</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>patterns</b> and <b>symbols</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>patterns</b> and <b>symbols</b> will be '1' (one) or '0' (zero).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1011111&quot;,&quot;0000011&quot;,&quot;1110110&quot;,&quot;1110011&quot;,&quot;0101011&quot;
+,&quot;1111001&quot;,&quot;1111101&quot;,&quot;1000011&quot;,&quot;1111111&quot;,&quot;1111011&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1011111&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Y?YYYYY&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This test case represents the 7-segment display shown in the problem statement. The display shows only the numeric symbols given in the statement. The only symbol observed in the display is<br /><br /> <img src="http://www.topcoder.com/contest/problem/NSegmentDisplay/Example0.jpg" /><br /><br /> This could be either '0' or '8', so there is no way of telling whether segment 1 is broken or not.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1011111&quot;,&quot;0000011&quot;,&quot;1110110&quot;,&quot;1110011&quot;,&quot;0101011&quot;
+,&quot;1111001&quot;,&quot;1111101&quot;,&quot;1000011&quot;,&quot;1111111&quot;,&quot;1111011&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0111111&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NYYYYYY&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Now the symbol being shown is<br /><br /> <img src="http://www.topcoder.com/contest/problem/NSegmentDisplay/Example1.jpg" /><br /><br /> This can only be '8', so segment 0 must be broken. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1011111&quot;,&quot;0000011&quot;,&quot;1110110&quot;,&quot;1110011&quot;,&quot;0101011&quot;
+,&quot;1111001&quot;,&quot;1111101&quot;,&quot;1000011&quot;,&quot;1111111&quot;,&quot;1111011&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1000000&quot;,&quot;0010000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;INCONSISTENT&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><img src="http://www.topcoder.com/contest/problem/NSegmentDisplay/Example2.jpg" /><br /><br /> There is no way that the observed symbols can be consistent with the set that the display can show.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1011111&quot;,&quot;0000011&quot;,&quot;1110110&quot;,&quot;1110011&quot;,&quot;0101011&quot;
+,&quot;1111001&quot;,&quot;1111101&quot;,&quot;1000011&quot;,&quot;1111111&quot;,&quot;1111011&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0010110&quot;,&quot;0010010&quot;,&quot;0010000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NNYNYYN&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><img src="http://www.topcoder.com/contest/problem/NSegmentDisplay/Example3.jpg" /><br /><br /> We can deduce that segments 0, 1, 3 and 6 are broken.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;110000111001&quot;,&quot;100000101000&quot;,&quot;000001010000&quot;
+,&quot;101100010011&quot;,&quot;111111111101&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;010000000000&quot;,&quot;010000000000&quot;,&quot;000000000000&quot;
+,&quot;000000000000&quot;,&quot;000000000000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;NY????NNN??N&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;00000000001000000010&quot;,&quot;01010000001011101110&quot;
+,&quot;01010101110110011010&quot;,&quot;00111001111001000100&quot;
+,&quot;10010111010110110000&quot;,&quot;11011011001000110001&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;00011000010000000000&quot;,&quot;10010110010000100000&quot;
+,&quot;00010100010000001000&quot;,&quot;00010100010000001000&quot;
+,&quot;00010000000000101000&quot;,&quot;00000000000000000000&quot;
+,&quot;00010100010000001000&quot;,&quot;00011000010000000000&quot;
+,&quot;00011000010000000000&quot;,&quot;00000000000000000000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;YNNYYYYNNYNNNNYNYNN?&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;001000111101000&quot;,&quot;000001111011001&quot;
+,&quot;010010100100010&quot;,&quot;111000100010011&quot;
+,&quot;011011011010001&quot;,&quot;010011111101000&quot;
+,&quot;000101011110011&quot;,&quot;010000011111000&quot;
+,&quot;000001100100011&quot;,&quot;000000111110000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;001000110001000&quot;,&quot;000101110000011&quot;
+,&quot;000101010000011&quot;,&quot;001000110101000&quot;
+,&quot;010001100000111&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;INCONSISTENT&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

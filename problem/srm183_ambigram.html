@@ -1,0 +1,225 @@
+<html>
+ <head>
+  <title>Ambigram Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2277">Problem Statement for Ambigram</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>An ambigram is a (non-blank) symbol that looks unchanged when the paper on which it is written is rotated 180 degrees about the axis perpendicular to the surface of the paper. We are given a word and want to change it into an ambigram, by modifying or removing its letters. <p> We will restrict our word to uppercase letters. In the font we are using,</p>
+      <ol>
+       <li> H I N O S X Z look unchanged after rotation</li>
+       <li> M W look like each other after rotation</li>
+      </ol> <p> Some examples of ambigrams are &quot;MOW&quot;, &quot;XXXXXXXXXXX&quot;, &quot;XMIWX&quot;, &quot;HXHXHXHXHXH&quot;. </p><p> We want to make minimal changes to the given word to produce an ambigram. We will measure the cost of changing by distance within the alphabet, so changing an 'F' to an 'H' would incur a cost of 2, and changing an 'I' to an 'F' would cost 3. If we keep changing a letter until we run off either end of the alphabet, the letter disappears. (When a letter disappears, letters around it slide together.) So we can make a C disappear at a cost of 3, and can make a 'T' disappear at a cost of 7. </p><p> Create a class Ambigram that contains a method ambiword that is given a String <b>word</b> and that returns the ambigram that is the cheapest to construct from <b>word</b>. Among equally cheap ambigrams, return the longest. If a tie still exists, return the contender that comes earliest alphabetically. A String with no characters is NOT an ambigram. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Ambigram</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>ambiword</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String ambiword(String word)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>word</b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>word</b> will be an uppercase letter 'A'-'Z'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;BXC&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;X&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> We can remove the 'B' at a cost of 2 and the 'C' at a cost of 3. Total cost = 5. Note that &quot;BXB&quot; is NOT an ambigram. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;XIXHZMOAOSHXIX&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;XIXHMOOWHXIX&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> This can be done at a cost of 6 (make the 'A' disappear, make the 'Z' disappear, change 'S' to 'W' at a cost of 4).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;C&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;H&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> We could make the 'C' disappear at a cost of 3, but the result would be the empty String, which is not an ambigram. At a cost of 5 we can change the 'C' into an 'H'.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AMWZ&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;MW&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note that we cannot change the 'A' to 'Z' cheaply by treating the alphabet as a circle. &quot;ZMWZ&quot; would be a longer ambigram than &quot;MW&quot; but it would cost 25.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

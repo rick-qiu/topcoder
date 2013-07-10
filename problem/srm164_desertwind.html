@@ -1,0 +1,204 @@
+<html>
+ <head>
+  <title>DesertWind Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1570">Problem Statement for DesertWind</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>The Desert. Failing water, dying camels, howling wind. The desert wind has hands -- it throws sand in your face, pushes you down, tries to bury you. <p> We are stranded in the desert. But we have a map showing where we are, where all the impassable terrain is located, and where every oasis is located. The map is divided into square cells, and our trip will be a sequence of legs, where each leg goes from one cell to one of the 8 adjacent cells. We must start at our current location and make it to an oasis, any oasis. Of course, we cannot use any impassable cell and cannot leave the mapped area. Our survival depends on how many days it will take to make the journey. </p><p> That evil Desert Wind is our nemesis! Each leg takes one day unless we are traveling directly against the wind. In that case the leg will take three days. Fortunately, the wind's direction can be determined just before setting out on a leg and will not change for at least a day. </p><p> Create a class DesertWind that contains the method daysNeeded that takes a String[] <b>theMap</b> and returns the number of days required, assuming the worst possible wind conditions will occur. Return -1 if no path to an oasis exists. </p><p> Each element of <b>theMap</b> gives the terrain for the cells (in west to east order) at a particular latitude; the first element is the most northern, the last element is the most southern on the map. Each cell is indicated by a single character:</p>
+      <ul> 
+       <li>'*' is an oasis</li> 
+       <li>'X' is impassable</li> 
+       <li>'@' is the starting location</li> 
+       <li>'-' is sand</li> 
+      </ul> <p></p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>DesertWind</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>daysNeeded</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int daysNeeded(String[] theMap)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>theMap</b> has between 2 and 50 elements inclusive, each having the same length</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>the length of each element of <b>theMap</b> is between 2 and 50 inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>'@' appears exactly once in exactly one element of <b>theMap</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>theMap</b> contains only the characters '*','-','X','@'</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;--*&quot;,&quot;@-*&quot;,&quot;X--&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><pre>
+   - - *
+   @ - *
+   X - -
+</pre> No matter how the wind is blowing we can make it to one of the two northernmost cells in the second column in one day. Whichever cell we reach and whichever way the wind is blowing the second day, we can get to an oasis without heading into the wind. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;-X-*&quot;,&quot;-@X-&quot;,&quot;---X&quot;,&quot;--**&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><pre>
+   - X - *
+   - @ X -
+   - - - X
+   - - * *
+</pre> Unless the wind is from the southeast, we will go southeast on the first day, and then will have two different directions that lead to an oasis -- one of them will not be against the wind so we will reach an oasis in 2 days. But if the wind is from the southeast on the first day, we will go south. Then, if the wind is from the southeast on the second day we will go east (otherwise we can go southeast to an oasis). Now we can reach one of the two oases on the third day, no matter how the wind blows. <p> There is no way to reach the northeast oasis in less than 4 days if the wind is evil. Even if the first day the wind is not from the northeast, it would be a fatal mistake to go that direction.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;*--X-----&quot;,
+ &quot;--XX--@--&quot;,
+ &quot;*-X------&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,309 @@
+<html>
+ <head>
+  <title>Foobar Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2243">Problem Statement for Foobar</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Some chat rooms and bulletin boards use a profanity filter to strip their user-supplied content of words that degrade the quality of discourse. This inspires a few foul-mouthed users to mask their objectionable language by replacing letters with symbols of similar shape (&quot;shoot&quot; may turn into &quot;sh00t&quot;, for example), spacing out the letters (&quot;darn&quot; to &quot;d a r n&quot;), or both (&quot;hell&quot; to &quot;h e 1 1&quot;, where lowercase L is replaced by the numeral 1). </p><p> You have been hired to make an intelligent filter that defeats these masking techniques. For the present purposes, the only forbidden words are &quot;heck&quot;, &quot;gosh&quot;, &quot;dang&quot;, &quot;shucks&quot;, &quot;fooey&quot;, &quot;snafu&quot;, and &quot;fubar&quot;. You are given a pair of Strings, <b>plain</b> and <b>code</b>, such that the <i>n</i>th character of <b>code</b> may substitute for the <i>n</i>th character of <b>plain</b>. Take into account these potential substitutions and all possible spacings of a profane word, but disregard the characters surrounding a profane word. Given a String of text, return it in a censored form where all profanities are replaced by a sequence of asterisks in such a way that the length of the String is unaltered. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Foobar</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>censor</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String censor(String plain, String code, String text)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All characters are case-sensitive. For example, &quot;heck&quot; is not equivalent to &quot;hEcK&quot; unless the input parameters explicitly provide for it.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Overlapping profanities should all be overwritten by asterisks, so that &quot;dangosh&quot;, for instance, becomes &quot;*******&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>None of the input Strings will contain control characters; <b>text</b> will not contain any kind of whitespace apart from the space character; neither <b>plain</b> nor <b>code</b> will contain any whitespace.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>plain</b> is between 1 and 50 characters long, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>code</b> has the same length as <b>plain</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>text</b> is between 1 and 50 characters long, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each character in <b>text</b> has an ASCII value between 32 and 126, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each character in <b>plain</b> and <b>code</b> has an ASCII value between 33 and 126, inclusive</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;ogg&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;08B&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;I say f00ey on this dan8 problem and the danB set!&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;I say ***** on this **** problem and the **** set!&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The same character may be substituted in different ways.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;eafk&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;88$$&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;What the h 8 c $ is this s  n  8  $  u?&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;What the ******* is this *************?&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Different characters may be substituted in the same way.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;au&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;ui&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;Dung? What the ding do you mean, dung?&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Dung? What the ding do you mean, ****?&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Substitution is not transitive.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;YYYggggabcdefghijklmnopqrstuvwxyz&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;XXXggggABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;DANGitALLtoHECK&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;****itALLto****&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Duplicate character substitutions and redundant substitutions may be specified.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;ddhhooggss&lt;y}T?h:1+Wd~\\\'\&quot;&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;D*HNO0G&amp;S5Rfubar%f3k&lt;:...&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;Dangoshucks, I say, * a n &amp; 0 5 H u c k 5.&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;***********, I say, *********************.&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

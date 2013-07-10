@@ -1,0 +1,241 @@
+<html>
+ <head>
+  <title>OldestOne Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1913">Problem Statement for OldestOne</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Our student data is a mess! Each student is described with one String. At least a student's data always starts with her name, then her age, and then her address, and none of these is ever missing. The name and age are separated by one or more spaces and the age is separated from the address by one or more spaces. There may be leading and trailing spaces in a student's data. <p> A student's name always consists only of uppercase letters 'A'-'Z' and embedded (not leading or trailing) spaces. A student's age always consists of exactly 1, 2, or 3 digits, and its leading digit is not a zero. A student's address always contains at least one non-space character. </p><p> We need to find the name of the oldest student. If there are several, we want the one that appears earliest in the data. The name should include its embedded spaces (even if there are several consecutive embedded spaces), but no leading spaces and no trailing spaces. </p><p> Create a class OldestOne that contains a method oldest that is given a String[] <b>data</b> where each element is the data for a student, and that returns the name of the oldest student. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>OldestOne</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>oldest</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String oldest(String[] data)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>data</b> will contain between 1 and 50 elements inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>data</b> will contain between 5 and 50 characters inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>data</b> will be an uppercase letter 'A'-'Z', a digit '0'-'9' or a space (' ').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>data</b> will contain a name followed by an age and address, formatted as explained above, and may contain leading and trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The name in each element will contain only uppercase letters 'A'-'Z' and embedded spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The age in each element will have no leading zeroes and will consist of between 1 and 3 digits inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;DOUG JONES 22 213 ALDEN LANE&quot;,&quot;   BOB     A SMITH  102 CLARK ST&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;BOB     A SMITH&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> Bob is clearly the oldest of these students. Note that the leading spaces and trailing spaces in the name are not included in the return, but the spaces embedded in the name must be preserved.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;DOUG JONES 102 213 ALDEN LANE&quot;,&quot;   BOB     A SMITH  102 CLARK ST&quot;,
+ &quot;A 1 999ELM&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;DOUG JONES&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Now Doug Jones is 102 and is tied for oldest. A has an age of 1 (the 999 is part of his address). Bob is also 102, but comes later in the data than Doug. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;DOUG JONES 122 213 ALDEN LANE&quot;,&quot;   BOB     A SMITH  102 CLARK ST&quot;,
+ &quot;A 199 ELM&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;A&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A has a one letter name, but is the oldest.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;   DOUG                 JONES   122 213 ALDEN LANE&quot;,
+&quot;   BOB     A SMITH                       102  3&quot;,
+ &quot; J O H N N Y           199 ELM&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;J O H N N Y&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">I don't know why Johnny likes to put spaces in his name, but we have to respect his wishes.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

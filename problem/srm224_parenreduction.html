@@ -1,0 +1,282 @@
+<html>
+ <head>
+  <title>ParenReduction Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3035">Problem Statement for ParenReduction</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> In mathematics, we don't bother to parenthesize every expression. For example, we write &quot;<tt>a*b+c*d</tt>&quot; instead of &quot;<tt>((a*b)+(c*d))</tt>&quot;. To make sense of unparenthesized expressions, we depend on two ideas: <i>precedence</i> and <i>associativity</i>. For this problem, we will only consider the operations of exponentiation ('^'), multiplication ('*'), division ('/'), addition ('+'), and subtraction ('-'). </p> <p> There are three levels of precedence. Exponentiation has the highest precedence, multiplication and division have the middle level of precedence, and addition and subtraction have the lowest level of precedence. Unless overridden by parentheses, an operator with a higher level of precedence is executed before an operator with a lower level of precedence. For example, &quot;a+b*c&quot; means &quot;a+(b*c)&quot;, and &quot;d^e/f&quot; means &quot;(d^e)/f&quot;. </p> <p> The order of execution among unparenthesized operators at the same level of precedence is determined by associativity. Exponentiation is <i>right associative</i>, meaning that, when there are several exponentiation operators, the rightmost is executed first. For example, &quot;a^b^c&quot; means &quot;a^(b^c)&quot;. Division and subtraction are <i>left associative</i>, meaning that, when there are several divisions or several subtractions, the leftmost is executed first. For example, &quot;a-b-c&quot; means &quot;(a-b)-c&quot;. Multiplication and addition are <i>associative</i>, meaning that, when there are several multiplication operators or several addition operators, it doesn't matter which one is executed first. For example, &quot;a*b*c&quot; can mean either &quot;(a*b)*c&quot; or &quot;a*(b*c)&quot; because the two parenthesizations are equivalent. </p> <p> When mixing different unparenthesized operators at the same level of precedence, either multiplication and division or addition and subtraction, the interplay between associativity and left associativity is complicated. The operators can be executed in any order as long as each division or subtraction is executed before the operator to its immediate right. For example, &quot;a*b/c*d&quot; can mean &quot;((a*b)/c)*d&quot; or &quot;(a*(b/c))*d&quot; or &quot;a*((b/c)*d)&quot; but not &quot;(a*b)/(c*d)&quot; or &quot;a*(b/(c*d))&quot;. Similarly, &quot;a-b+c-d&quot; can mean &quot;((a-b)+c)-d&quot; or &quot;(a-b)+(c-d)&quot; but not &quot;a-((b+c)-d)&quot; or &quot;a-(b+(c-d))&quot; or &quot;(a-(b+c))-d&quot;. </p> <p> You will be given a fully parenthesized expression as a String <b>expr</b> satisfying the following grammar: </p> <pre>
+   &lt;expr&gt; = &lt;lowercase letter&gt;
+          | &quot;(&quot; &lt;expr&gt; &lt;op&gt; &lt;expr&gt; &quot;)&quot;
+   &lt;op&gt;   = &quot;^&quot; | &quot;*&quot; | &quot;/&quot; | &quot;+&quot; | &quot;-&quot;
+</pre> No letter will be used more than once in the same expression. Your task is to remove all unnecessary parentheses and return the resulting expression, also as a String. The expression cannot be changed in any way other than removing parentheses. For example, &quot;(a-(b+c))&quot; cannot be changed to &quot;a-b-c&quot;. Similarly, you should make no use of algebraic laws other than those described above. For example, &quot;(a-(b-(c-d)))&quot; cannot be changed to &quot;a-(b-c)-d&quot;. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ParenReduction</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>pretty</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String pretty(String expr)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>expr</b> contains between 1 and 49 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of <b>expr</b> is a lowercase letter ('a'-'z'), a parenthesis ('(',')'), or a binary operator ('^','*','/','+','-').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No letter appears more than once in <b>expr</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>expr</b> satisfies the grammar given in the problem statement.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;(a-(b/(c^d)))&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;a-b/c^d&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Exponentiation has higher precedence than division and division has higher precedence than subtraction.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;(e*((f+(g+h))*i))&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;e*(f+g+h)*i&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Multiplication has higher precedence than addition. Both are associative.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;(((a-(b-c))-d)^((e/f)/(g/h)))&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;(a-(b-c)-d)^(e/f/(g/h))&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Subtraction and division are both left associative.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;x&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;x&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;((a+((l-g)+o))^((r/i)*((t/h)*m)))&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;(a+l-g+o)^(r/i*t/h*m)&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;(((((t-(k/(o*m)))*(c*f))*((n/j)+(v-z)))^l)/(x-h))&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;((t-k/(o*m))*c*f*(n/j+v-z))^l/(x-h)&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

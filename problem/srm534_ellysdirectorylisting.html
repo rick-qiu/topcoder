@@ -1,0 +1,328 @@
+<html>
+ <head>
+  <title>EllysDirectoryListing Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11529">Problem Statement for EllysDirectoryListing</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Elly wants to write a program that lists all the files in a given directory. She already has the list of all the files. You will be given this list as a String[] <b>files</b>. In addition to the names of files, the variable <b>files</b> will contain exactly two additional elements: the current directory (the String &quot;.&quot;), and the parent directory (the String &quot;..&quot;). These two elements may be anywhere in <b>files</b>. However, Elly wants them to be the last two elements. In order to move the two directories to the last two positions in <b>files</b>, she wants you to perform the following steps: 
+      <ol> 
+       <li>If &quot;.&quot; and &quot;..&quot; are the last two elements of <b>files</b> (in any order), you are done.</li> 
+       <li>Find the first element of <b>files</b> that is either &quot;.&quot; or &quot;..&quot;. Swap it with the last element of <b>files</b>.</li> 
+       <li>If &quot;.&quot; and &quot;..&quot; are now the last two elements of <b>files</b> (in any order), you are done.</li> 
+       <li>Find the first element of <b>files</b> that is either &quot;.&quot; or &quot;..&quot;. Swap it with the element of <b>files</b> that is one position before the last one.</li> 
+      </ol> Your method must perform the above steps and return a String[] containing the modified order of elements in <b>files</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>EllysDirectoryListing</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getFiles</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] getFiles(String[] files)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Swapping elements at positions i and j means that the element at position i is moved to the position j and vice versa.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>files</b> will contain between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>files</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Exactly one element of <b>files</b> will be &quot;.&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Exactly one element of <b>files</b> will be &quot;..&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>files</b> will contain between 1 and 20 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>files</b> will contain only uppercase and lowercase letters and dots ('A'-'Z', 'a'-'z', '.').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ContestApplet.jnlp&quot;, &quot;.&quot;, &quot;Image.jpg&quot;, &quot;..&quot;, &quot;Book.pdf&quot;, &quot;Movie.avi&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;ContestApplet.jnlp&quot;, &quot;Movie.avi&quot;, &quot;Image.jpg&quot;, &quot;Book.pdf&quot;, &quot;..&quot;, &quot;.&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The directories are not the last two elements, so we search for the first one (in this case &quot;.&quot;), and swap it with the last element (in this case &quot;Movie.avi&quot;). As &quot;.&quot; and &quot;..&quot; are still not the last two elements, we search for the second one (in this case &quot;..&quot;) and swap it with &quot;Book.pdf&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Image.jpg&quot;, &quot;..&quot;, &quot;.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;Image.jpg&quot;, &quot;..&quot;, &quot;.&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In this case the directories are already the last two elements, so we do nothing.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;..&quot;, &quot;.&quot;, &quot;Image.jpg&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;Image.jpg&quot;, &quot;.&quot;, &quot;..&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After swapping &quot;..&quot; with &quot;Image.jpg&quot;, the directories are already the last two elements, so we are done.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;No&quot;, &quot;..&quot;, &quot;Zaphod&quot;, &quot;.&quot;, &quot;Just&quot;, &quot;very&quot;, &quot;very...&quot;, &quot;Improbable&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;No&quot;, &quot;Improbable&quot;, &quot;Zaphod&quot;, &quot;very...&quot;, &quot;Just&quot;, &quot;very&quot;, &quot;.&quot;, &quot;..&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;www.topcoder.com&quot;, &quot;Ever.tried&quot;, &quot;.&quot;, &quot;Ever.failed&quot;, &quot;..&quot;, &quot;No&quot;, &quot;Matter.&quot;, &quot;Try&quot;, &quot;Again.&quot;, &quot;Fail&quot;, &quot;Again..&quot;, &quot;Fail.Better&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;www.topcoder.com&quot;,
+&quot;Ever.tried&quot;,
+&quot;Fail.Better&quot;,
+&quot;Ever.failed&quot;,
+&quot;Again..&quot;,
+&quot;No&quot;,
+&quot;Matter.&quot;,
+&quot;Try&quot;,
+&quot;Again.&quot;,
+&quot;Fail&quot;,
+&quot;..&quot;,
+&quot;.&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;This&quot;, &quot;.&quot;, &quot;is&quot;, &quot;tricky&quot;, &quot;test&quot;, &quot;..&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;This&quot;, &quot;test&quot;, &quot;is&quot;, &quot;tricky&quot;, &quot;..&quot;, &quot;.&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first swap moves &quot;..&quot; to position 1, so we need to move it again to index 4 (indexed from zero).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

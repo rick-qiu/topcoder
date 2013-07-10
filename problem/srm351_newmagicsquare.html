@@ -1,0 +1,272 @@
+<html>
+ <head>
+  <title>NewMagicSquare Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7247">Problem Statement for NewMagicSquare</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> You are to populate a 5x5 square with each of the numbers between 1 and 25, inclusive. The numbers in each row must be in increasing order from left to right. Some of the cells are already filled in, but no more than one number per row. You must fill in the remaining cells. </p> <p>You will be given a String[] <b>square</b>. Each row is given as a space-separated list of cells. Each cell is either a number written with two digits (numbers less than 10 have an additional leading zero) or two '?' characters which represent an empty cell. Your method should return a String[] in the same format, but with all the empty cells filled in. If there are no arrangements possible return an empty String[]. If there are several arrangements possible return the one with the smallest first number in the first row. If there are still several arrangements possible return the one with the smallest second number in the first row, and so on. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>NewMagicSquare</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>completeTheSquare</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] completeTheSquare(String[] square)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>square</b> will contain exactly 5 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>square</b> will contain exactly 14 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>square</b> will be a space-separated list of cells.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each cell will be either a number written with two digits or two '?' characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>square</b> will contain at most one filled cell.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All numbers in <b>square</b> will be between 1 and 25, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All numbers in <b>square</b> will be distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?? ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;01 02 03 04 05&quot;,
+&quot;06 07 08 09 10&quot;,
+&quot;11 12 13 14 15&quot;,
+&quot;16 17 18 19 20&quot;,
+&quot;21 22 23 24 25&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You are not limited by prefilled cells. The answer is the lexicographically smallest square.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?? ?? 20 ?? ??&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? 05 ??&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;01 06 20 21 22&quot;,
+&quot;07 08 09 10 11&quot;,
+&quot;02 03 04 05 12&quot;,
+&quot;13 14 15 16 17&quot;,
+&quot;18 19 23 24 25&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?? ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? ?? 24&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? ?? ??&quot;, 
+ &quot;21 ?? ?? ?? ??&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You should place four numbers greater than 21 into the 5th row. There are four such numbers - 22, 23, 24 and 25, but 24 is already used in the second row.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?? ?? 15 ?? ??&quot;, 
+ &quot;02 ?? ?? ?? ??&quot;, 
+ &quot;?? ?? ?? 07 ??&quot;, 
+ &quot;?? ?? 16 ?? ??&quot;, 
+ &quot;?? ?? ?? ?? 21&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;01 03 15 17 18&quot;,
+&quot;02 08 09 10 22&quot;,
+&quot;04 05 06 07 23&quot;,
+&quot;11 12 16 24 25&quot;,
+&quot;13 14 19 20 21&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

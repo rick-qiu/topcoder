@@ -1,0 +1,247 @@
+<html>
+ <head>
+  <title>YankeeSwap Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7375">Problem Statement for YankeeSwap</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Little Lisa has been invited to a holiday party with her friends. So that everyone receives a gift, the host of the party has decided to give presents through a &quot;Yankee swap&quot;. </p><p> In this version of a Yankee swap (which may differ from the version that you are used to), each person begins holding a present; the first person (indexed from 1) holds present 'A', the second person holds present 'B', etc. Each guest in turn (starting with guest 1 and ending with guest N) decides whether or not he wants to swap presents. If he decides to swap, he chooses a person to swap with, and the chosen person cannot reject the swap. When every person has had a turn, the Yankee swap is over, and each person leaves with the gift they are holding. </p><p> For example, one way that the party (with 3 people) could proceed is as follows: </p> <pre>
+&quot;ABC&quot; --&gt; Person 1 swaps with person 2 --&gt; &quot;BAC&quot;
+&quot;BAC&quot; --&gt; Person 2 does not swap       --&gt; &quot;BAC&quot;
+&quot;BAC&quot; --&gt; Person 3 swaps with person 2 --&gt; &quot;BCA&quot;
+</pre> <p> In the above example, person 1 leaves with present B, person 2 leaves with present C, and person 3 leaves with present A. </p><p> The guests at the party have given you their <b>preferences</b>, where the i-th element corresponds to the preference list of the i-th guest. If a guest ends up with the gift in the j-th position of his preference list, he will have an unhappiness of j. Each guest knows the <b>preferences</b> of all other guests. Each guest will act optimally to minimize his own unhappiness, and knows all other guests will do the same. If there are multiple ways for a guest to minimize his own unhappiness, he will choose not to swap at all if possible; if there are still multiple ways, he will choose to swap with the guest with the lowest index. </p><p> Return a String, the i-th character of which corresponds to the turn of the i-th person. If the i-th person did not swap in his turn, the i-th character of the result must be equal to '-'. If he did swap with the k-th person, the i-th character of the result must be equal to the k-th lowercase letter (so, 'a' corresponds to swapping with the first person, 'b' to the second and so on). </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>YankeeSwap</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>sequenceOfSwaps</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String sequenceOfSwaps(String[] preferences)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>preferences</b> will contain N elements, where N is between 1 and 20 inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>preferences</b> will be a permutation of the first N uppercase letters of the alphabet.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;BAC&quot;,
+ &quot;ACB&quot;,
+ &quot;BCA&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;-aa&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This swap will proceed as follows:<br /><br /> 1) Guest 1 keeps his present.<br /><br /> 2) Guest 2 swaps with Guest 1.<br /><br /> 3) Guest 3 swaps with Guest 1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABC&quot;,
+ &quot;BCA&quot;,
+ &quot;CAB&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;---&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In this scenario, everyone keeps their own gift.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AECDBF&quot;,
+ &quot;BAEDCF&quot;,
+ &quot;DEBACF&quot;,
+ &quot;BEDCAF&quot;,
+ &quot;CEABDF&quot;,
+ &quot;CBDEAF&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;-aac-a&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;FDBHMAIELGKNJC&quot;,
+ &quot;KGMDJBAFLECNHI&quot;,
+ &quot;FKLJCADBEHNGIM&quot;,
+ &quot;JMHNICABFKEGDL&quot;,
+ &quot;IKFCDNJBLEGAMH&quot;,
+ &quot;FDNLJGCKHMBIEA&quot;,
+ &quot;MBKJAHDNIGECLF&quot;,
+ &quot;KNADLFGBJIMHCE&quot;,
+ &quot;AIFMGEBDHKJNCL&quot;,
+ &quot;MCDALIJGNKBFHE&quot;,
+ &quot;AJHMDLEIFKNCGB&quot;,
+ &quot;IJLKBCMDGNHFEA&quot;,
+ &quot;EAKFLJBDGMHCIN&quot;,
+ &quot;JEMANBDFGICHKL&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;--acacbdcahcja&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

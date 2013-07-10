@@ -1,0 +1,262 @@
+<html>
+ <head>
+  <title>WindowManager Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2415">Problem Statement for WindowManager</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You are debugging a window manager for a GUI that uses a fixed character size, and a screen that is a rectangular grid of these characters. To that end, you are making it create various overlapping windows to test whether the display code works correctly.</p> <p>The screen has width <b>width</b> and height <b>height</b>. Initially, each character in the screen is a space (' ', or ASCII value 32). The elements of <b>windows</b> represent the windows that you are creating, in order of their creation, where the earliest-created windows come first in <b>windows</b>. A window consists of a frame and a fill character, shown below:</p> <p><tt> +----+<br /><br /> |XXXX|<br /><br /> |XXXX|<br /><br /> +----+ </tt></p> <p>The corners of the frame are '+', the top and bottom are '-', the left and right are '|', and the interior of the window is filled with some character (here 'X'). Each element in <b>windows</b> will be of the form &quot;tlv tlh vs hs fill&quot;, where each field is separated by a single space. tlv and tlh will be 32-bit integers between -100000000 and 100000000, inclusive, representing the vertical and horizontal offsets from the top-left of the screen. A positive vertical offset is downwards, and a positive horizontal offset is to the right. vs and hs represent the vertical and horizontal size of the window, and will each be between 2 and 100000000, inclusive. fill represents the character that will go in the center of the window. Note that if vs, hs, or both are equal to 2, then the fill character does not appear because the frame takes up all the allotted space for the window. If the picture drawn earlier represented the entirety of the screen, then the window shown would be represented by the String &quot;0 0 4 6 X&quot; (quotes for clarity).</p> <p>If one window is created that would intersect another window, the later window will appear over the earlier window. That is, any part of the earlier-created window that intersects a later-created window is hidden. Windows may also be drawn partially or completely off-screen.</p> <p>You wish to find what the window manager should show given some sequence of windows. Your method should return a String[] such that the first element, from left to right, represents the first row of the screen, the second element is the second row, and so on. This returned String[] should contain exactly <b>height</b> elements, and each element should contain exactly <b>width</b> characters.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WindowManager</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>screen</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] screen(int height, int width, String[] windows)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>width</b> will be between 1 and 100, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>height</b> will be between 1 and 100, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>width</b> * <b>height</b> will not exceed 8000.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>windows</b> will contain between 1 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>windows</b> will be of the form &quot;tlv tlh vs hs fill&quot; as explained in the problem statement</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>tlv and tlh will be between -100000000 and 100000000, inclusive, with no leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>vs and hs will be between 2 and 100000000, inclusive, with no leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>fill will be an ASCII character with value between 33 and 126, inclusive, that is also not '+', '-', or '|'</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-5 -5 20 20 O&quot;, &quot;0 0 2 2 Y&quot;, &quot;0 0 4 6 X&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;+----+&quot;,  &quot;|XXXX|&quot;,  &quot;|XXXX|&quot;,  &quot;+----+&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><tt>+----+<br /><br /> |XXXX|<br /><br /> |XXXX|<br /><br /> +----+<br /><br /></tt> A full-screen window completely covering up two others.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>7</pre></td>
+            </tr>
+            <tr>
+             <td><pre>7</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-5 -5 20 12 9&quot;, &quot;2 2 15 15 @&quot;, &quot;2 2 3 3 *&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;999999|&quot;,
+ &quot;999999|&quot;,
+ &quot;99+-+--&quot;,
+ &quot;99|*|@@&quot;,
+ &quot;99+-+@@&quot;,
+ &quot;99|@@@@&quot;,
+ &quot;99|@@@@&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-20000 -20000 5 5 X&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot; &quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note two things: windows may be completely off-screen, and the default character for any grid location is a space.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-1000000 -1000000 2000000 2000000 L&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;LLLLL&quot;,  &quot;LLLLL&quot;,  &quot;LLLLL&quot;,  &quot;LLLLL&quot;,  &quot;LLLLL&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

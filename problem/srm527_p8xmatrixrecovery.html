@@ -1,0 +1,280 @@
+<html>
+ <head>
+  <title>P8XMatrixRecovery Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11176">Problem Statement for P8XMatrixRecovery</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A binary matrix is a matrix in which each element is either 0 or 1. There is a secret binary matrix with R rows and C columns. Your task is to determine its elements from two partial descriptions.</p> <br /><br /> <p>The first description is given as a String[] <b>rows</b> with R elements. Each element of <b>rows</b> will be a string of C characters. Element i of <b>rows</b> describes the i-th row of the secret matrix. Each character in each element of <b>rows</b> is either '0', '1', or '?'. The meaning of '?' is that the corresponding element of the matrix may be either 0 or 1.</p> <br /><br /> <p>The second description is given as a String[] <b>columns</b> with C elements. Each element of <b>columns</b> will be a string of R characters. Each element of <b>columns</b> describes one column of the secret matrix. Different elements of <b>columns</b> represent different columns, but not necessarily in the correct order. Again, each character in each element of <b>columns</b> is either '0', '1', or '?'.</p> <br /><br /> <p>You may assume that there is at least one binary matrix that corresponds to both descriptions: its rows match the elements of <b>rows</b> (in the same order) and its columns match the elements of <b>columns</b> (after a suitable permutation is applied on columns). Your method must find the lexicographically smallest of all such matrices. Return that matrix formatted as a String[].</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>P8XMatrixRecovery</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>solve</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] solve(String[] rows, String[] columns)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Given two different matrices A and B, let i be the first row on which they differ, and let j be the first element in that row on which they differ. If A[i,j] &lt; B[i,j], we say that A is lexicographically smaller than B, and vice versa.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>rows</b> will contain between 1 and 30 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>rows</b> will contain between 1 and 30 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All the elements of <b>rows</b> will contain the same number of character.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>rows</b> will be either '0', '1', or '?'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>columns</b> will contain exactly C elements, where C is the number of elements in <b>rows[0]</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>columns</b> will contain exactly R characters, where R is the number of elements in <b>rows</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>columns</b> will be '0', '1', or '?'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be at least one binary matrix that corresponds to both <b>rows</b> and <b>columns</b> in the way described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;10?&quot;
+,&quot;?11&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;01&quot;
+,&quot;10&quot;
+,&quot;1?&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;101&quot;, &quot;011&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note that <b>columns</b>[0] describes column 1 of the secret matrix, <b>columns</b>[1] describes column 0 and <b>columns</b>[2] describes column 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0&quot;
+,&quot;?&quot;
+,&quot;1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0?1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;0&quot;, &quot;0&quot;, &quot;1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are two matrices that match both descriptions. We return the lexicographically smaller one.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;10&quot;
+,&quot;01&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;10&quot;
+,&quot;01&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;10&quot;, &quot;01&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;??0&quot;
+,&quot;11?&quot;
+,&quot;?01&quot;
+,&quot;1?1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1???&quot;
+,&quot;?111&quot;
+,&quot;0?1?&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;010&quot;, &quot;110&quot;, &quot;101&quot;, &quot;101&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

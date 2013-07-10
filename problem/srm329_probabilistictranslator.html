@@ -1,0 +1,285 @@
+<html>
+ <head>
+  <title>ProbabilisticTranslator Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6010">Problem Statement for ProbabilisticTranslator</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> You want to translate a <b>text</b> from a <i>source</i> language to a <i>target</i> language. The <b>text</b> is a sequence of words which you translate one by one using a <b>dictionary</b>, replacing each word in the source <b>text</b> with one of its possible translations. In order to find the most appropriate translation, you have explored a few books in the target language, from which you have calculated expected frequency values for all ordered pairs of consecutive words. To estimate the correctness of your translation, you calculate the sum of the expected frequencies of all the consecutive pairs of words in the translation. This sum is called the <i>fidelity</i> of the translation. </p> <p> The source <b>text</b> is given as a String[], each element of which contains a non-empty single-space separated list of words. The entire String[] should be considered a single text, so the last word of an element is considered to be adjacent to the first word of the next element. </p> <p> The <b>dictionary</b> is given as a String[], each element of which is formatted as <tt>&quot;word&nbsp;:&nbsp;tr<sub>1</sub>&nbsp;tr<sub>2</sub>&nbsp;...&nbsp;tr<sub>n</sub>&quot;</tt>, where <tt>word</tt> is a word in the source language, and <tt>&quot;tr<sub>1</sub>&nbsp;tr<sub>2</sub>&nbsp;...&nbsp;tr<sub>n</sub>&quot;</tt> is a single-space separated list of <tt>n</tt> possible translations of that word in the target language (dots and quotes for clarity only). </p> <p> The expected <b>frequencies</b> are given as a String[] containing elements of the form <tt>&quot;WORD1&nbsp;WORD2&nbsp;FREQUENCY&quot;</tt> (quotes for clarity only), where <tt>FREQUENCY</tt> is the expected frequency of <tt>WORD1</tt> followed immediately by <tt>WORD2</tt>. If the frequency of some pair of words is not given in the input, it is assumed to be zero. </p> <p> Return the maximum possible fidelity of the translation. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ProbabilisticTranslator</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>maximumFidelity</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int maximumFidelity(String[] text, String[] dictionary, String[] frequencies)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>text</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>text</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>text</b> will contain a list of words separated by single spaces, with no leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>dictionary</b> will be formatted as <tt>&quot;word&nbsp;:&nbsp;tr<sub>1</sub>&nbsp;tr<sub>2</sub>&nbsp;...&nbsp;tr<sub>n</sub>&quot;</tt> (dots and quotes for clarity only).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each word in the source <b>text</b> will have exactly one entry in <b>dictionary</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>frequencies</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>frequencies</b> will be in the form <tt>&quot;WORD1&nbsp;WORD2&nbsp;FREQUENCY&quot;</tt> (quotes for clarity only).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>frequencies</b>, <tt>FREQUENCY</tt> will be an integer between 1 and 999, inclusive, with no leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two elements of <b>frequencies</b> will have the same <tt>&quot;WORD1&nbsp;WORD2&quot;</tt>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each word in <b>text</b>, <b>dictionary</b>, and <b>frequencies</b> will contain between 1 and 20 lowercase letters ('a'-'z'), inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a b c&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a : x y&quot;, &quot;b : y z&quot;, &quot;c : x z&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;y z 20&quot;, &quot;x y 10&quot;, &quot;z x 5&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 30</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The translation with the maximum possible fidelity is <tt>{&quot;x y z&quot;}</tt>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a b c&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a : x y&quot;, &quot;b : p q&quot;, &quot;c : x y&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;x p 100&quot;, &quot;x q 10&quot;, &quot;q x 10&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 100</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Both <tt>{&quot;x p x&quot;}</tt> and <tt>{&quot;x p y&quot;}</tt> have a fidelity of 100.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a b&quot;, &quot;c&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a : x y&quot;, &quot;b : p q&quot;, &quot;c : x y&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;x p 100&quot;, &quot;x q 97&quot;, &quot;q x 97&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 194</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The translation with the maximum possible fidelity is <tt>{&quot;x q x&quot;}</tt>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a&quot;, &quot;bb c&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a : a a&quot;, &quot;bb : b&quot;, &quot;c : c&quot;, &quot;ccc : a&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;y z 2&quot;, &quot;x y 10&quot;, &quot;z x 5&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

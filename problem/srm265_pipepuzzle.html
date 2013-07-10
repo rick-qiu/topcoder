@@ -1,0 +1,282 @@
+<html>
+ <head>
+  <title>PipePuzzle Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2001">Problem Statement for PipePuzzle</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>The pipe game is played on a grid with three kinds of pipes. The straight pipe <tt>'-'</tt> allows water to flow straight. The elbow pipe <tt>'L'</tt> diverts water either to the left or to the right. The cross pipe <tt>'+'</tt> has the same effect as a straight pipe. Unlike the other two pipes, the cross pipe allows water to flow through it a second time in a direction perpendicular to the first pass. The water source is represented by one of: <tt>'N'</tt>, <tt>'S'</tt>, <tt>'W'</tt> or <tt>'E'</tt> indicating whether the water will begin flowing north, south, west or east respectively. You are allowed to rotate each pipe in the grid by 90 degree increments with the objective of maximizing the number of pipes connected to the water source. <p> Given a String[] <b>pipes</b> that represents the game grid, determine the length of the longest possible flow of water. Each pipe that the water flows through adds one to the total length. A cross pipe through which water passes twice contributes two to the overall length. The starting water source is not a pipe, does not count towards the length, and may not be rotated. </p> <pre>
+
+{&quot;LL-L-&quot;,
+ &quot;L+L+L&quot;,
+ &quot;--NL-&quot;,
+ &quot;L+--L&quot;,
+ &quot;LL+L-&quot;}
+</pre> <p> <img src="http://www.topcoder.com/contest/problem/PipePuzzle/unsolved.png" /> <br /><br /> This is a graphical representation of the puzzle above. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PipePuzzle</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>longest</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int longest(String[] pipes)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each grid, south is the direction of increasing index within <b>pipes</b>, and north that of decreasing index. East is the direction of increasing index within an element of <b>pipes</b>, and west that of decreasing index.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pipes</b> will have between 1 and 20 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>pipes</b> will have length between 1 and 20, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Every element of <b>pipes</b> will have the same length.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pipes</b> will only contain the characters (<tt>'-'</tt>, <tt>'L'</tt>, <tt>'+'</tt>, <tt>'N'</tt>, <tt>'S'</tt>, <tt>'E'</tt>, <tt>'W'</tt>).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pipes</b> will have exactly one water source.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pipes</b> will contain between 0 and 20 elbow 'L' pipes, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;LL-L-&quot;,
+ &quot;L+L+L&quot;,
+ &quot;--NL-&quot;,
+ &quot;L+--L&quot;,
+ &quot;LL+L-&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 19</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><img src="http://www.topcoder.com/contest/problem/PipePuzzle/solved.png" /> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ELLL&quot;,
+ &quot;LLLL&quot;,
+ &quot;LLLL&quot;,
+ &quot;LLLL&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><img src="http://www.topcoder.com/contest/problem/PipePuzzle/elbows.png" /> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ELLLLL+&quot;,
+ &quot;++++++L&quot;,
+ &quot;L+++++L&quot;,
+ &quot;L+++++L&quot;,
+ &quot;L+++++L&quot;,
+ &quot;L+++++L&quot;,
+ &quot;+LLLLLL&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 71</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;-+-+-+-+-+-+-+-+-+-W&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 19</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;N&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

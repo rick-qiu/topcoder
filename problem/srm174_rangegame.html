@@ -1,0 +1,233 @@
+<html>
+ <head>
+  <title>RangeGame Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2233">Problem Statement for RangeGame</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Imagine a game consisting of two billion doors (numbered starting at 1), behind some of which lie fabulous cash prizes. There are a limited number of patterns to the placement of the prizes, which the contestant knows in advance. All doors initially begin closed. Before the game begins, the host secretly selects one of the patterns from the list at random (all with equal probability), and puts prizes behind the doors specified by the pattern. For example, if the host chose the pattern &quot;3-4 9 12-15&quot;, he would put prizes behind doors 3, 4, 9, 12, 13, 14, and 15 (and nowhere else).</p> <p>Two things happen every turn. First, the contestant decides which door is currently most likely to contain a prize, and secretly records this choice. (If two or more doors both have the greatest likelihood of containing a prize, he chooses the door with the lowest number.) The second part of a turn consists of the host opening one or more doors, all of which are revealed to be empty. For example, if the host gave the hint &quot;2 7-10&quot;, this would indicate that he opened doors 2, 7, 8, 9, and 10 and there were no prizes behind any of them.</p> <p>In specific, the following grammar is used for this problem:</p> <tt>&lt;doors&gt; ::= &lt;range&gt; | &lt;range&gt;&lt;sp&gt;&lt;doors&gt;<br /><br /> &lt;range&gt; ::= &lt;num&gt; | &lt;num&gt;&lt;to&gt;&lt;num&gt; </tt> (the first <i>num</i> must be strictly less than the second <i>num</i>)<tt><br /><br /> &lt;num&gt; ::= integer between 1 and 2000000000, inclusive, with no leading zeroes<br /><br /> &lt;sp&gt; ::= ' '<br /><br /> &lt;to&gt; ::= '-'</tt> <p>Given a String[] <b>possible</b>, containing the possible placements of prizes, and a String[] <b>hints</b>, the <tt>N</tt> hints given during the course of the game, your method should return a int[] containing <tt>N+1</tt> elements. Each element should describe the most likely position of a prize at that point in the game. The first element represents your guess before any hints are given; the last element represents your guess taking every hint into account. Remember to break ties by choosing the lowest numbered door, if multiple doors are all the most likely.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RangeGame</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestDoors</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] bestDoors(String[] possible, String[] hints)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>possible</b> has an equal chance of being the pattern that is chosen by the host. This means that if one pattern appears on the list twice, it is twice as likely of being chosen as a pattern which appears on the same list only once.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>possible</b> will contain between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>possible</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>possible</b> will conform to the rules of <tt>&lt;doors&gt;</tt>, as specified in the grammar above.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For each element of <b>possible</b>, the ranges contained therein will be non-overlapping and in ascending order.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hints</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>hints</b> will contain between 2 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>hints</b> will conform to the rules of <tt>&lt;doors&gt;</tt>, as specified in the grammar above.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For each element of <b>hints</b>, the ranges contained therein will be non-overlapping and in ascending order.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The information given in <b>hints</b> will always be consistent with at least one pattern in <b>possible</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1-100&quot;,&quot;100-200&quot;,&quot;200-300&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;50-75&quot;,&quot;250-1000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 100,  200,  100 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>There are three possible patterns of prizes: doors 1-100, doors 100-200, or doors 200-300. Before any hints are given, you know that doors 100 and 200 are more likely than the rest; the odds of a prize being in either of them are 2/3, whereas the odds of a prize being in any other door 1-300 is only 1/3. Doors 100 and 200 are the most likely, so your first guess should be 100 (since it is smaller).</p> <p>Then the host reveals that there are no prizes behind doors 50-75. Pattern &quot;1-100&quot; is now no longer an option. You now know for sure that there is a prize in door 200, whereas the odds for any other door 100-300 is only 1/2. Therefore, 200 is the second element of the return list.</p> <p>Finally, the host opens doors 250-1000 and shows them all to be empty. You now know the pattern must be &quot;100-200&quot;, so you choose the smallest door of this group, 100, to be your final answer.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;100-900 1111&quot;,&quot;200-800 2222&quot;,&quot;300-700 3333&quot;,&quot;4444&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;2000-4000&quot;,&quot;500&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 300,  100,  4444 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Before any hints are given, doors 300-700 are the most likely to contain prizes. The first hint tells you that doors 2222 and 3333 are empty, leaving only the first and last patterns as options. The second hint eliminates the first pattern, so the only prize must be in room 4444.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;346591240&quot;,&quot;858005279&quot;,&quot;1321831520&quot;,&quot;1453846384&quot;,&quot;1972718383&quot;,&quot;530431653-1848872872&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1400000000-2000000000&quot;,&quot;400000000-600000000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 858005279,  346591240,  346591240 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Beware of large numbers and ranges!</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

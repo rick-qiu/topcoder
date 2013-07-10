@@ -1,0 +1,225 @@
+<html>
+ <head>
+  <title>UnderscoreJustification Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8482">Problem Statement for UnderscoreJustification</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Most word processors available today allow several standard ways to format lines in a paragraph. One of those ways is to 'justify' each line to a given width. The precise definition for that operation is as follows:</p> <p>Assume that a line of text consists of several words separated by spaces (for simplicity, there will be no punctuation). Define a gap as the sequence of spaces between a pair of adjacent words. When reformatting a line, each gap can be replaced with a gap of a different non-zero length. The line is said to be justified to width <i>w</i> if it is exactly <i>w</i> characters long, has no leading or trailing spaces, and all gaps are as evenly distributed as possible. This means that the gaps should all be of equal length, or, if that is not possible, the difference in length between the longest and smallest gaps must be 1.</p> <p>To better illustrate the results of the justification operation, we will use underscores ('_') in place of spaces.</p> <p>Obviously, the above rules don't uniquely define the result of a justification. If there are multiple ways to justify a line of text, the one that comes earliest lexicographically is used. Note that an underscore comes after uppercase letters but before lowercase letters in the ASCII ordering.</p> <p>You are given a String[] <b>words</b> containing all the words in a line of text. The words are given in the order that they appear in the line. Return the line of text justified to the given <b>width</b>, using underscores as spaces.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>UnderscoreJustification</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>justifyLine</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String justifyLine(String[] words, int width)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that you must make all the gaps have equal length if possible. Only if that is impossible, the longest gap will be one longer than the shortest.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Remember that 'A' &lt; 'B' &lt; 'C' &lt; ... &lt; 'Z' &lt; '_' &lt; 'a' &lt; 'b' &lt; 'c' &lt; ... &lt; 'z'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A string is lexicographically smaller than another string if it contains a smaller character in the first position where they differ.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>words</b> will contain between 2 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>words</b> will contain between 1 and 10 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>words</b> will contain only letters ('A'-'Z', 'a'-'z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>width</b> will be between 3 and 200, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>width</b> will be greater than or equal to <i>len</i>+<i>n</i>-1, where <i>n</i> is the number of elements in <b>words</b>, and <i>len</i> is the total number of characters in <b>words</b>, to allow at least one space between adjacent words.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A&quot;, &quot;quick&quot;, &quot;brown&quot;, &quot;fox&quot;, &quot;jumps&quot;, &quot;over&quot;, &quot;the&quot;, &quot;lazy&quot;, &quot;dog&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>50</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;A___quick__brown__fox__jumps__over__the__lazy__dog&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We have 7 groups of 2 underscores and 1 group of 3 underscores to put between our words. If the first gap contains 2 underscores, then the string would start with &quot;<tt>A__q</tt>&quot;, which is lexicographically larger than &quot;<tt>A___</tt>&quot;, so it's advantageous to put 3 underscores in the first gap.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Alpha&quot;, &quot;Beta&quot;, &quot;Gamma&quot;, &quot;Delta&quot;, &quot;Epsilon&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>32</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Alpha_Beta_Gamma__Delta__Epsilon&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are six possible variants:<br /><br /> <tt>Alpha_Beta_Gamma__Delta__Epsilon</tt><br /><br /> <tt>Alpha_Beta__Gamma_Delta__Epsilon</tt><br /><br /> <tt>Alpha_Beta__Gamma__Delta_Epsilon</tt><br /><br /> <tt>Alpha__Beta_Gamma_Delta__Epsilon</tt><br /><br /> <tt>Alpha__Beta_Gamma__Delta_Epsilon</tt><br /><br /> <tt>Alpha__Beta__Gamma_Delta_Epsilon</tt><br /><br /> The former is the lexicographically smallest one. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Hello&quot;, &quot;world&quot;, &quot;John&quot;, &quot;said&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>29</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;Hello____world___John____said&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Sometimes it's better to mix large and small groups of underscores.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

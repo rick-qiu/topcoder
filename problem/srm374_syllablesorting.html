@@ -1,0 +1,309 @@
+<html>
+ <head>
+  <title>SyllableSorting Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8374">Problem Statement for SyllableSorting</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Syllable sorting is a method of sorting words based on their syllabic decompositions. The first step is to decompose each word into syllables. A syllable is defined as a maximal non-empty substring of consonants followed by a maximal non-empty substring of vowels. The only vowels are <tt>'a'</tt>, <tt>'e'</tt>, <tt>'i'</tt>, <tt>'o'</tt> and <tt>'u'</tt>. All other letters are considered consonants. All words will start with a consonant and end with a vowel.</p><br /><br /> <p>To compare two words syllabically, first decompose them into sequences of syllables. For example, the words &quot;zcdbadaerfe&quot; and &quot;foubsyudba&quot; decompose as follows:</p> 
+      <ul> 
+       <li><tt>&quot;zcdbadaerfe&quot;</tt> = {<tt>&quot;zcdba&quot;</tt>, <tt>&quot;dae&quot;</tt>, <tt>&quot;rfe&quot;</tt>}</li> 
+       <li><tt>&quot;foubsyudba&quot;</tt> = {<tt>&quot;fou&quot;</tt>, <tt>&quot;bsyu&quot;</tt>, <tt>&quot;dba&quot;</tt>}</li> 
+      </ul> <p>Then, sort each sequence of syllables alphabetically. In the above example, the sequences become:</p> 
+      <ul> 
+       <li>{<tt>&quot;dae&quot;</tt>, <tt>&quot;rfe&quot;</tt>, <tt>&quot;zcdba&quot;</tt>}</li> 
+       <li>{<tt>&quot;bsyu&quot;</tt>, <tt>&quot;dba&quot;</tt>, <tt>&quot;fou&quot;</tt>}</li> 
+      </ul> <p>Then, compare these sorted sequences lexicographically. A sequence S1 comes before a sequence S2 lexicographically if S1 has an alphabetically earlier element at the first index at which they differ. In the above example, the second sequence comes earlier lexicographically because <tt>&quot;bsyu&quot;</tt> comes before <tt>&quot;dae&quot;</tt> alphabetically.</p><br /><br /> <p>If two sorted sequences are equal, then compare their corresponding unsorted sequences instead. For example, the words <tt>&quot;daba&quot;</tt> and <tt>&quot;bada&quot;</tt> decompose into the same sorted sequence {<tt>&quot;ba&quot;</tt>, <tt>&quot;da&quot;</tt>}. Compare the unsorted sequences {<tt>&quot;da&quot;</tt>, <tt>&quot;ba&quot;</tt>} and {<tt>&quot;ba&quot;</tt>, <tt>&quot;da&quot;</tt>} to determine that <tt>&quot;bada&quot;</tt> comes before <tt>&quot;daba&quot;</tt>.</p><br /><br /> <p>You are given a String[] <b>words</b>. Sort the <b>words</b> using the method above and return the resulting String[].</p><br /><br /></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>SyllableSorting</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>sortWords</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] sortWords(String[] words)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>words</b> will contain between <tt>1</tt> and <tt>50</tt> elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>words</b> will contain between <tt>2</tt> and <tt>50</tt> characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>words</b> will contain only lowercase letters (<tt>'a'</tt>-<tt>'z'</tt>).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The first character of each element of <b>words</b> will be a consonant.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The last character of each element of <b>words</b> will be a vowel.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;xiaoxiao&quot;, &quot;yamagawa&quot;, &quot;gawayama&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;gawayama&quot;, &quot;yamagawa&quot;, &quot;xiaoxiao&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>After decomposing the words into sequences of syllables, we get the following unsorted and sorted sequences of syllables:</p> <pre>
+   WORD    |    UNSORTED SEQUENCES    |     SORTED SEQUENCES
+-----------+--------------------------+--------------------------
+&quot;xiaoxiao&quot; | {&quot;xiao&quot;, &quot;xiao&quot;}         | {&quot;xiao&quot;, &quot;xiao&quot;}
+&quot;yamagawa&quot; | {&quot;ya&quot;, &quot;ma&quot;, &quot;ga&quot;, &quot;wa&quot;} | {&quot;ga&quot;, &quot;ma&quot;, &quot;ya&quot;, &quot;wa&quot;}
+&quot;gawayama&quot; | {&quot;ga&quot;, &quot;wa&quot;, &quot;ya&quot;, &quot;ma&quot;} | {&quot;ga&quot;, &quot;ma&quot;, &quot;ya&quot;, &quot;wa&quot;}
+</pre> <p>To compare <tt>&quot;xiaoxiao&quot;</tt> with the other two words, we use the sorted sequences of syllables. However, to compare <tt>&quot;yamagawa&quot;</tt> with <tt>&quot;gawayama&quot;</tt> we have to use the unsorted sequences because the sorted ones are equal.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;bcedba&quot;, &quot;dbabce&quot;, &quot;zyuxxo&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;bcedba&quot;, &quot;dbabce&quot;, &quot;zyuxxo&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;hgnibqqaxeiuteuuvksi&quot;, &quot;jxbuzui&quot;, &quot;zrotyqeruiydozui&quot;,
+ &quot;ywuuzkto&quot;, &quot;lmopbookoagyco&quot;, &quot;vredfvavvexliu&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;hgnibqqaxeiuteuuvksi&quot;,
+&quot;vredfvavvexliu&quot;,
+&quot;lmopbookoagyco&quot;,
+&quot;jxbuzui&quot;,
+&quot;zrotyqeruiydozui&quot;,
+&quot;ywuuzkto&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;crazgo&quot;, &quot;cwsoygiokiuo&quot;, &quot;yueoseeu&quot;, &quot;tuadiojvugeoe&quot;,
+ &quot;naumxditui&quot;, &quot;sgukkelyoi&quot;, &quot;nrohjuasoia&quot;, &quot;mgabmo&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;mgabmo&quot;,
+&quot;crazgo&quot;,
+&quot;cwsoygiokiuo&quot;,
+&quot;tuadiojvugeoe&quot;,
+&quot;nrohjuasoia&quot;,
+&quot;sgukkelyoi&quot;,
+&quot;naumxditui&quot;,
+&quot;yueoseeu&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;wheewjuguoi&quot;, &quot;coutcu&quot;, &quot;hqivaa&quot;, &quot;sgiibgwi&quot;, &quot;ypaqpki&quot;,
+ &quot;bgyikouapae&quot;, &quot;wqakeu&quot;, &quot;skolfo&quot;, &quot;pzesaa&quot;, &quot;ypivhi&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;sgiibgwi&quot;,
+&quot;bgyikouapae&quot;,
+&quot;coutcu&quot;,
+&quot;wheewjuguoi&quot;,
+&quot;hqivaa&quot;,
+&quot;wqakeu&quot;,
+&quot;skolfo&quot;,
+&quot;pzesaa&quot;,
+&quot;ypaqpki&quot;,
+&quot;ypivhi&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

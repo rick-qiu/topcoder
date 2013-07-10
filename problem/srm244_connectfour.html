@@ -1,0 +1,455 @@
+<html>
+ <head>
+  <title>ConnectFour Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4465">Problem Statement for ConnectFour</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Connect Four is a two-player board game played on a grid with 6 rows and 7 columns. The game starts with an empty board, and players take alternate turns dropping stones down non-full columns. At each turn, a player drops a single stone down a single column. The stone then occupies the bottom-most unoccupied square on that column. <pre>
+  a b c d e f g
+6 . . . O . . .
+5 . . . X . . .
+4 . . . O . . .
+3 . . . X . . .
+2 . . . O . X .
+1 . . X X O O X
+</pre> Here a '.' denotes an unoccupied square; the first player's stones and the second player's are represented by 'X' and 'O' respectively. In the example above, it's the second player's turn to drop a stone in one of the six valid positions: a1, b1, c2, e2, f3, and g2. The game ends when a player wins by placing at least four of his/her stones consecutively in at least one line, either horizontally, vertically, or diagonally. In the following example, the first player has successfully placed four stones in a line (d5-e4-f3-g2) thus winning the game. <pre>
+  a b c d e f g
+6 . . . O . . .
+5 . . . X . O .
+4 . . O O X X O
+3 . . O X O X X
+2 O . X O X X X
+1 O . X X O O X
+</pre> The game may also end in a draw if the board is completely filled without anyone winning. After a game ends, the players are not allowed to drop more stones onto the board. <p>You will be given a String[], <b>board</b>, representing the 6 rows in a top-down manner. Each element of <b>board</b> will have exactly 7 characters representing the squares in a row from left to right: '.' denotes an empty square; 'X' denotes a stone of the first player; and 'O' denotes a stone of the second player. Write a class ConnectFour with a method judge which takes a board configuration represented by a String[] and returns a String of one of the six possible values: </p>
+      <ul> 
+       <li>&quot;first player moves&quot; - return this when it's the first player's turn to drop a stone.</li> 
+       <li>&quot;second player moves&quot; - return this when it's the second player's turn to drop a stone.</li> 
+       <li>&quot;first player wins&quot; - return this when the first player has won the game.</li> 
+       <li>&quot;second player wins&quot; - return this when the second player has won the game.</li> 
+       <li>&quot;draw game&quot; - return this when the board is full and neither player wins the game.</li> 
+       <li>&quot;invalid&quot; - return this when it's impossible to produce the given board without violating the rules (e.g. dropping stones in bad positions, playing out of turn, or dropping stones when the game has ended.)</li> 
+      </ul> <p></p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ConnectFour</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>judge</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String judge(String[] board)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Connect Four on a 6x7 board has been solved independently by Victor Allis and James D. Allen. The first player can force a win with perfect play.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain exactly 6 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will have exactly 7 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character will be one of the 3 possible characters: '.', 'X', or 'O'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;first player moves&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Every game starts with an empty board where the first player may drop a stone ('X') in one of the seven columns.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;...X...&quot;,
+&quot;...O...&quot;,
+&quot;...X...&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;second player moves&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After three turns, the second player should make a move again.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;X......&quot;,
+&quot;OX.....&quot;,
+&quot;XOXO...&quot;,
+&quot;OXOX...&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;first player wins&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first player wins by connecting four stones in a diagonal line. There are many valid moving sequences that may lead to this end configuration.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.X.....&quot;,
+&quot;.X.....&quot;,
+&quot;.X..XX.&quot;,
+&quot;XOOOOOO&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;second player wins&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The second player concludes the game by connecting a long line at the bottom.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;OOXOXOX&quot;,
+&quot;XXXOXOO&quot;,
+&quot;OXXOOXO&quot;,
+&quot;XOOXXOO&quot;,
+&quot;XXXOOXX&quot;,
+&quot;XOOXXOO&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;draw game&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The board is full, and neither player has managed to connect at least four stones in a line. The game therefore ends in a tie.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;...X...&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;...X...&quot;,
+&quot;...O...&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;invalid&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No &quot;floating&quot; stone is allowed in a valid game, so there would never be an empty square beneath any stone.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;.......&quot;,
+&quot;OOOO...&quot;,
+&quot;XXXX...&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;invalid&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The game ends when the first player wins. Neither player should continue thereafter.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;XXO.XOX&quot;,
+&quot;OOX.OXX&quot;,
+&quot;XXO.XXO&quot;,
+&quot;OOXXOOO&quot;,
+&quot;XXOOXOO&quot;,
+&quot;OOXOOXX&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;invalid&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">At a glance the first player seems to have won the game when in fact there does not exist a valid sequence of moves.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

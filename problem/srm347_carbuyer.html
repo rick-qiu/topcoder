@@ -1,0 +1,254 @@
+<html>
+ <head>
+  <title>CarBuyer Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7652">Problem Statement for CarBuyer</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You wish to buy a new car and would like to get the cheapest option available. However, you recognize that the initial purchase cost is only a part of what you will need to spend on the car and you want to factor tax and fuel costs into your decision. You will be given a String[] <b>cars</b> giving the specifications of various models of car and an int <b>annualDistance</b> containing the distance that you will drive each year. For the car that you choose, the purchase cost only has to be paid once, the tax cost specific to the model has to be paid once per year and the fuel cost should be calculated as <tt>FUEL PRICE * DISTANCE DRIVEN / FUEL EFFICIENCY</tt>, where the fuel efficiency is specific to the car. You should calculate which car model in <b>cars</b> has the lowest cost on aggregate after <b>years</b> amount of time and return a double containing this cost.<br /><br /><br /><br /> Each element of <b>cars</b> will be formatted &quot;<i>&lt;PURCHASE COST&gt; &lt;TAX&gt; &lt;FUEL EFFICIENCY&gt;</i>&quot; (quotes for clarity).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CarBuyer</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>lowestCost</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int, int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double lowestCost(String[] cars, int fuelPrice, int annualDistance, int years)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The return value must be accurate to within an absolute or relative tolerance of 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>cars</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>cars</b> will contain between 5 and 15 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>cars</b> will be formatted &quot;&lt;<i>PURCHASE COST</i>&gt; &lt;<i>TAX</i>&gt; &lt;<i>FUEL EFFICIENCY</i>&gt;&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each &lt;<i>PURCHASE COST</i>&gt; will be an integer, without leading zeros, between 1 and 100000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each &lt;<i>TAX</i>&gt; will be an integer, without leading zeros, between 1 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each &lt;<i>FUEL EFFICIENCY</i>&gt; will be an integer, without leading zeros, between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>fuelPrice</b> will be between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>annualDistance</b> will be between 1 and 100000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>years</b> will be between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;10000 50 50&quot;,&quot;12000 500 10&quot;,&quot;15000 100 65&quot;,&quot;20000 20 80&quot;,&quot;25000 10 90&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10500.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, fuel is cheap, you have a low annual mileage and you don't want to keep the car very long, so you go with the first model, which has the lowest purchase cost.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;10000 50 50&quot;,&quot;12000 500 10&quot;,&quot;15000 100 65&quot;,&quot;20000 20 80&quot;,&quot;25000 10 90&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>8</pre></td>
+            </tr>
+            <tr>
+             <td><pre>25000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 45200.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the same set of cars, but this time fuel is far more expensive and you're going to keep the car for longer and drive it further. Now the more fuel-efficient fourth model is the cheapest.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;8426 774 19&quot;,&quot;29709 325 31&quot;,&quot;30783 853 68&quot;,&quot;20796 781 3&quot;
+,&quot;27726 4 81&quot;,&quot;20788 369 69&quot;,&quot;17554 359 34&quot;,&quot;12039 502 24&quot;
+,&quot;6264 230 69&quot;,&quot;14151 420 65&quot;,&quot;25115 528 70&quot;,&quot;22234 719 55&quot;
+,&quot;2050 926 40&quot;,&quot;18618 714 29&quot;,&quot;173 358 57&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>33</pre></td>
+            </tr>
+            <tr>
+             <td><pre>8673</pre></td>
+            </tr>
+            <tr>
+             <td><pre>64</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 254122.44444444444</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

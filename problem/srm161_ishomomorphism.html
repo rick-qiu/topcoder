@@ -1,0 +1,363 @@
+<html>
+ <head>
+  <title>IsHomomorphism Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1807">Problem Statement for IsHomomorphism</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>An operation table tells you which value is produced when a particular operation is applied to two operands. For example, <pre>
+  0123
+ +----
+0|0000                            0000
+1|0123    or more succinctly      0123
+2|0202                            0202
+3|0321                            0321</pre> is a table for standard integer multiplication mod 4. In the table on the left, the first row and column refer to the operands. This information is implicit in the more succinct form. Looking at the table we can see that 2 is produced when the operation is applied to 2 and 3. More precisely, if the table above defines the operation @, then <i>a</i>@<i>b</i> is the value in row <i>a</i> column <i>b</i> of the table. <br /><br /><br /><br /> Using a table you could describe any operation by putting the correct values in the table. In this problem you will be given two String[]s <b>source</b> and <b>target</b> which are tables describing two operations. The tables will be in the succinct form shown above, where the first row and column are assumed to correspond to 0, and so forth. For added convenience, all results will be single digits, the tables will always be square, and will never have more than 10 rows. <br /><br /><br /><br /> In addition, you will be given a int[] <b>mapping</b> which will contain the same number of elements as <b>source</b> and <b>target</b>. <b>mapping</b> defines a function that maps the value <i>i</i> to <b>mapping</b>[<i>i</i>]. For example, if <b>mapping</b> = {2,2,1,3} then 0 and 1 map to 2, 2 maps to 1, and 3 maps to 3. <br /><br /><br /><br /> A <i>homomorphism</i>, for the purposes of this problem, will be a mapping that preserves the following equality: 
+      <ul> 
+       <li>mapping(a@b) = mapping(a)~mapping(b) for all a,b</li> 
+      </ul> For all a,b means a and b can assume all values between 0 and len-1 inclusive, where len is the number of elements in <b>source</b>. @ denotes the operation defined by <b>source</b>, and ~ denotes the operation defined by <b>target</b>. <br /><br /><br /><br /> Your method will return a String[] containing all pairs <i>(a,b)</i> for which the above equality fails to hold true for the given <b>mapping</b>. The pair <i>(a,b)</i> should be denoted as (quotes for clarity) &quot;(a,b)&quot; where a,b have no extra leading zeros. Note that the String contains no spaces. The returned String[] should be sorted in ascending order by <i>a</i> value, with ties broken using ascending <i>b</i> values. There should be no repeats.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>IsHomomorphism</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>numBad</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] numBad(String[] source, String[] target, int[] mapping)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>source</b> will contain between 2 and 10 elements inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>target</b> will contain the same number of elements as <b>source</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>mapping</b> will contain the same number of elements as <b>source</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>mapping</b> must be between 0 and len-1 inclusive, where len is the number of elements in <b>source</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>source</b> must contain exactly len characters, where len is the number of elements in <b>source</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>target</b> must contain exactly len characters, where len is the number of elements in <b>source</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>source</b> and <b>target</b> will be in the first len characters of (quotes for clarity) &quot;0123456789&quot;, where len is the number of elements in <b>source</b></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0000&quot;,
+ &quot;0123&quot;,
+ &quot;0202&quot;,
+ &quot;0321&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0000&quot;,
+ &quot;0123&quot;,
+ &quot;0202&quot;,
+ &quot;0321&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,1,2,3}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>source</b> and <b>target</b> are identical, and <b>mapping</b> takes every element to itself. Clearly all pairs will satisfy the equality.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0123456&quot;,
+ &quot;1234560&quot;,
+ &quot;2345601&quot;,
+ &quot;3456012&quot;,
+ &quot;4560123&quot;,
+ &quot;5601234&quot;,
+ &quot;6012345&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0123456&quot;,
+ &quot;1234560&quot;,
+ &quot;2345601&quot;,
+ &quot;3456012&quot;,
+ &quot;4560123&quot;,
+ &quot;5601234&quot;,
+ &quot;6012345&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,3,2,1,2,1,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;(0,0)&quot;,
+ &quot;(0,1)&quot;,
+ &quot;(0,2)&quot;,
+ &quot;(0,3)&quot;,
+ &quot;(0,4)&quot;,
+ &quot;(0,5)&quot;,
+ &quot;(0,6)&quot;,
+ &quot;(1,0)&quot;,
+ &quot;(1,1)&quot;,
+ &quot;(1,2)&quot;,
+ &quot;(1,3)&quot;,
+ &quot;(1,4)&quot;,
+ &quot;(1,5)&quot;,
+ &quot;(1,6)&quot;,
+ &quot;(2,0)&quot;,
+ &quot;(2,1)&quot;,
+ &quot;(2,2)&quot;,
+ &quot;(2,3)&quot;,
+ &quot;(2,4)&quot;,
+ &quot;(2,5)&quot;,
+ &quot;(3,0)&quot;,
+ &quot;(3,1)&quot;,
+ &quot;(3,2)&quot;,
+ &quot;(3,3)&quot;,
+ &quot;(3,4)&quot;,
+ &quot;(3,5)&quot;,
+ &quot;(4,0)&quot;,
+ &quot;(4,1)&quot;,
+ &quot;(4,2)&quot;,
+ &quot;(4,3)&quot;,
+ &quot;(4,4)&quot;,
+ &quot;(4,5)&quot;,
+ &quot;(4,6)&quot;,
+ &quot;(5,0)&quot;,
+ &quot;(5,1)&quot;,
+ &quot;(5,2)&quot;,
+ &quot;(5,3)&quot;,
+ &quot;(5,4)&quot;,
+ &quot;(5,5)&quot;,
+ &quot;(6,0)&quot;,
+ &quot;(6,1)&quot;,
+ &quot;(6,4)&quot;,
+ &quot;(6,6)&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;012&quot;,
+ &quot;120&quot;,
+ &quot;210&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;012&quot;,
+ &quot;120&quot;,
+ &quot;110&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,1,2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;(2,0)&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The pair (2,0) is the only one that breaks the equality. To verify this breakage:<br /><br /> mapping of 2@0 = mapping of 2 = 2<br /><br /> (mapping of 2)~(mapping of 0) = (2)~(0)=1</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;012&quot;,
+ &quot;120&quot;,
+ &quot;210&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;012&quot;,
+ &quot;120&quot;,
+ &quot;210&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,2,0}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;(0,0)&quot;,  &quot;(0,1)&quot;,  &quot;(0,2)&quot;,  &quot;(1,0)&quot;,  &quot;(1,2)&quot;,  &quot;(2,0)&quot;,  &quot;(2,2)&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;01&quot;,&quot;10&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;10&quot;,&quot;01&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,0}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

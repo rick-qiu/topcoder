@@ -1,0 +1,441 @@
+<html>
+ <head>
+  <title>RevolvingDoors Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3064">Problem Statement for RevolvingDoors</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td> <p> You are in a maze containing revolving doors. The doors can be turned 90 degrees by pushing against them in either direction. You are to find a route from the start square to the end square that involves revolving as few doors as possible. Given a map of the maze, determine the fewest number of door revolutions necessary to get from the start to the end. </p> <p> In the map: </p> <pre>
+   ' ': empty space
+   '#': wall
+   'O': center of a revolving door (letter &quot;oh&quot;, not zero)
+   '-': horizontal door (always adjacent to a 'O')
+   '|': vertical door (always adjacent to a 'O')
+   'S': start square
+   'E': end square
+</pre> <p> Each revolving door will always be oriented horizontally (with two horizontal segments) or vertically (with two vertical segments): </p> <pre>
+    |
+    O  or  -O-
+    |
+</pre> <p> Doors can be revolved 90 degrees by moving onto a door segment from any of the 4 squares diagonally adjacent to the door center, i.e., the 'X' characters below: </p> <pre>
+   X|X     X X
+    O  or  -O-
+   X|X     X X
+</pre> <p> Here is an example map: </p> <pre>
+        ###
+        #E#
+       ## #
+    ####  ##
+    # S -O-#
+    # ###  #
+    #      #
+    ########
+</pre> <p> In this example, 2 door revolutions are necessary to get from 'S' to 'E'. The first turn is shown here: </p> <pre>
+        ###         ###
+        #E#         #E#
+       ## #        ## #
+    ####  ##    #### |##
+    # S -O-#    # S  OX#
+    # ### X#    # ###| #
+    #      #    #      #
+    ########    ########
+</pre> <p> And the second turn is shown here: </p> <pre>
+        ###         ###
+        #E#         #E#
+       ## #        ## #
+    ####X|##    #### X##
+    # S  O #    # S -O-#
+    # ###| #    # ###  #
+    #      #    #      #
+    ########    ########
+</pre> <p> Your method should return an int, the minimum number of door revolutions necessary to get from the start square to the end square. If there is no way to reach the end square, return -1. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RevolvingDoors</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>turns</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int turns(String[] map)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Assume that all squares off the edge of the map are walls.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>map</b> will contain between 3 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>map</b> will contain between 3 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>map</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>map</b> will be one of 'S', 'E', 'O', '-', '|', '#', and ' ' (space).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly one 'S' and one 'E' in <b>map</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be between 1 and 10 doors, inclusive, and they will be formatted in <b>map</b> as described in the problem statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two doors will be close enough for any part of them to occupy the same square.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>It is not allowed for a door to be blocked and unable to turn. There will not be any walls in any of the 4 squares immediately adjacent to the center of a door, nor will a door be on the edge of the map.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;    ### &quot;,
+  &quot;    #E# &quot;,
+  &quot;   ## # &quot;,
+  &quot;####  ##&quot;,
+  &quot;# S -O-#&quot;,
+  &quot;# ###  #&quot;,
+  &quot;#      #&quot;,
+  &quot;########&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;#### &quot;,
+  &quot;#S|##&quot;,
+  &quot;# O #&quot;,
+  &quot;##|E#&quot;,
+  &quot; ####&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is no way to reach the end square.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot; |  |  |     |  |  |  |  |  | &quot;,
+  &quot; O  O EO -O- O  O  O  O  OS O &quot;,
+  &quot; |  |  |     |  |  |  |  |  | &quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The optimal path involves turning the 3rd door twice, and the 5th, 6th, 7th, 8th, and 9th doors once each (counting from the left). Note that the 'S' and 'E' do not block doors, and in fact you must turn the 3rd door twice to end up on the 'E'. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;###########&quot;,
+  &quot;#    #    #&quot;,
+  &quot;#  S | E  #&quot;,
+  &quot;#    O    #&quot;,
+  &quot;#    |    #&quot;,
+  &quot;#         #&quot;,
+  &quot;###########&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;        E&quot;,
+  &quot;    |    &quot;,
+  &quot;    O    &quot;,
+  &quot;    |    &quot;,
+  &quot; -O-S-O- &quot;,
+  &quot;    |    &quot;,
+  &quot;    O    &quot;,
+  &quot;    |    &quot;,
+  &quot;         &quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You are stuck, unable to move or turn any doors from this position.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;##E#   &quot;,
+  &quot;#  ##  &quot;,
+  &quot; -O-## &quot;,
+  &quot; #  ## &quot;,
+  &quot; ##  ##&quot;,
+  &quot;  -O-  &quot;,
+  &quot;##  ## &quot;,
+  &quot; # ### &quot;,
+  &quot; #  S  &quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;#############&quot;,
+  &quot;#  #|##|#   #&quot;,
+  &quot;#   O  O    #&quot;,
+  &quot;# E || || S #&quot;,
+  &quot;#    O  O   #&quot;,
+  &quot;#   #|##|#  #&quot;,
+  &quot;#############&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After all the doors have been turned, the map looks like this: <pre>
+    #############
+    #  # ## #   #
+    #  -O--O-   #
+    # E       S #
+    #   -O--O-  #
+    #   # ## #  #
+    #############
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

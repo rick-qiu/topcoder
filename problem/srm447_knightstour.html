@@ -1,0 +1,295 @@
+<html>
+ <head>
+  <title>KnightsTour Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10577">Problem Statement for KnightsTour</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Facebook engineers love playing chess. They also like to play other games on the chessboard. Today, they were wondering how many cells a knight would visit on the chessboard if it followed some predefined algorithm.</p> <br /><br /> <p>You are given a String[] <b>board</b> describing a standard 8x8 chessboard, where the c-th character of the r-th element corresponds to the cell in row r, column c. Some cells are blocked and cannot be jumped into. These will be represented with a '*'. All other cells are marked with a '.', except for the starting position of the knight, which is marked with a 'K'.</p> <br /><br /> <p>A valid jump for a knight consists of shifting one square along one axis and two squares along the other axis. A cell is &quot;accessible&quot; if it is not blocked and it has not been visited by the knight before. The starting position of the knight is considered to be visited, and each time the knight jumps into a new cell, that cell becomes visited. The accessibility number of a cell is the number of accessible cells that the knight can make a valid jump to from that cell. Note that accessibility numbers of cells may change as the knight moves through the board and visits more cells.</p> <br /><br /> <p>The knight will use the following simple algorithm to traverse the board. On each move, it will make a valid jump into the accessible cell with the lowest accessibility number. In case of a tie, it will choose the one with the lowest row number, and if there is still a tie, it will choose the one among them with the lowest column number. The knight will stop moving when it can no longer make a valid jump into an accessible cell.</p> <br /><br /> <p>Return the number of cells that the knight will visit (including the starting cell).</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>KnightsTour</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>visitedPositions</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int visitedPositions(String[] board)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain exactly 8 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain exactly 8 characters '.', 'K' or '*'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Character 'K' will appear exactly once in <b>board</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;........&quot;
+,&quot;.*.*....&quot;
+,&quot;.*......&quot;
+,&quot;..K...*.&quot;
+,&quot;*...*...&quot;
+,&quot;...*....&quot;
+,&quot;...*.*..&quot;
+,&quot;........&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 39</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>From its starting cell K, the knight can jump to cells A, B and C, which have accessibility numbers of 3, 6 and 4, respectively (see first image below). It will jump to cell A because it has the lowest accessibility number.</p> <br /><br /> <p>From cell A, it can then jump to cells D, E and F, which have accessibility numbers of 1, 5 and 4, respectively (see second image). It will choose cell D. It will continue in this fashion and visit a total of 39 cells.</p> <br /><br /> <img src="http://www.topcoder.com/contest/problem/KnightsTour/pic1.png" />&nbsp;&nbsp; <img src="http://www.topcoder.com/contest/problem/KnightsTour/pic6.png" /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;K.......&quot;
+,&quot;........&quot;
+,&quot;........&quot;
+,&quot;........&quot;
+,&quot;........&quot;
+,&quot;........&quot;
+,&quot;........&quot;
+,&quot;........&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 64</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If no cells are blocked, then the knight will end up visiting every cell by following the given algorithm.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;********&quot;
+,&quot;*******.&quot;
+,&quot;********&quot;
+,&quot;**.***.*&quot;
+,&quot;********&quot;
+,&quot;***.*.**&quot;
+,&quot;********&quot;
+,&quot;****K***&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>From its starting cell K, the knight can jump to cells A and B, which have accessibility numbers of 1 (see the image). Both A and B have the same accessibility number and the same row number, so it will jump to A because it has the lowest column number. It will then jump to C and stop, visiting a total of 3 cells.</p> <br /><br /> <img src="http://www.topcoder.com/contest/problem/KnightsTour/pic3.png" />&nbsp;&nbsp; <img src="http://www.topcoder.com/contest/problem/KnightsTour/pic4.png" /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;*.*....*&quot;
+,&quot;.......*&quot;
+,&quot;**...*..&quot;
+,&quot;..***...&quot;
+,&quot;.**.*...&quot;
+,&quot;..*.*..K&quot;
+,&quot;..***.*.&quot;
+,&quot;**...*..&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 17</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;..*...*.&quot;
+,&quot;**.....*&quot;
+,&quot;*..*....&quot;
+,&quot;*..*....&quot;
+,&quot;.....*..&quot;
+,&quot;....*..K&quot;
+,&quot;**.*...*&quot;
+,&quot;..**....&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 27</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

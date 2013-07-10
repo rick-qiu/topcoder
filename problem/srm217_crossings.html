@@ -1,0 +1,189 @@
+<html>
+ <head>
+  <title>Crossings Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2929">Problem Statement for Crossings</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are watching a car race. Each car starts at a different point on the x-axis, travels at the same speed, and starts at the same time. However, each car is travelling along a different road (which extends to infinity in one direction, and is stopped by the x-axis in the other direction), and each road has its own direction specified by an angle between 1 and 179, inclusive. An angle of 90 indicates that the road heads directly in the positive y direction, while an angle of 1 indicates that the road heads just a little bit north of the positive x direction. <br /><br /> <img src="http://www.topcoder.com/contest/problem/Crossings/cars.png" /> <br /><br /><br /><br /> Sometimes, two or more roads intersect at some point. When this happens, the car that reaches the intersection first is able to block the intersection so that no other cars can pass through it. If two cars arrive at an intersection at the same time, the car that appears earlier in the input (lower index) will be the only car to pass through. <br /><br /><br /><br /> <img src="http://www.topcoder.com/contest/problem/Crossings/cross1.png" /><br /><br /> In this picture, the cars following the red paths at 0, 10 and 50 pass all intersections, while the cars following the gray paths are stopped (see example 0).<br /><br /> You will be given two int[]s, <b>positions</b>, and <b>angles</b>, where the i<sup>th</sup> car corresponds to the i<sup>th</sup> element of <b>positions</b> and the i<sup>th</sup> element of <b>angles</b>. The i<sup>th</sup> element of <b>positions</b> is the x coordinate of the i<sup>th</sup> car. The i<sup>th</sup> element of <b>angles</b> is the angle in degrees between the x-axis and the road that the i<sup>th</sup> car travels on. Your method should return a int[] containing the 0-based indices of all the cars that will pass all the intersections along their roads. Your return should be sorted in ascending order.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Crossings</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getOut</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] getOut(int[] positions, int[] angles)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>positions</b> and <b>angles</b> will contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>positions</b> will be between 0 and 1000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>angles</b> will be between 1 and 179, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>positions</b> will be unique.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 40, 20, 10, 30, 50}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{105, 40, 30, 75, 135, 75}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  3,  5 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from the problem statement.<br /><br /> <img src="http://www.topcoder.com/contest/problem/Crossings/cross1.png" /><br /><br /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 40, 20}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{40, 40, 140}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  1 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{10, 20}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{89, 91}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

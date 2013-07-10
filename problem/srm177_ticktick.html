@@ -1,0 +1,201 @@
+<html>
+ <head>
+  <title>TickTick Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1609">Problem Statement for TickTick</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Our computer clock is not continuous. It &quot;ticks&quot; every millisecond and keeps track of how many ticks have occurred since the beginning of the &quot;epoch&quot; (Jan 1, 1970). The clocktime does not change between ticks. <p> Time is continuous, and events (such as interrupts from hardware devices and the starting of a program) can happen anytime. We have a program that experiences a sequence of events. At each event in our program, our logic gets the current clocktime and compares it with the clocktime stored from the previous event. It outputs either 'D' or 'S' indicating whether the current clocktime is Different or the Same as the previous event's clocktime. (The first event after the program starts generates the first 'S' or 'D' based on comparison with the clocktime at the start of the program.) </p><p> Because the first tick during our program can occur anytime within one millisecond after the start of the program, the string of 'D's and 'S's output from our program cannot be predicted, even given the exact timing of the program. Create a class TickTick that contains a method count that is given <b>event</b>, a String[] of the times of events relative to the start of the program, and returns the number of different output sequences that might be generated. The <b>event</b> times are given in milliseconds elapsed since the start of the program, formatted to contain digits and exactly one decimal point. </p><p> Time is continuous, so exact coincidences do not occur (or occur with probability 0). You should not consider the possibility that a tick occurs at exactly the same time as an event or at the exact start of the program. The constraints on <b>event</b> guarantee that two different events can never be exactly an integral number of milliseconds apart. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TickTick</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>count</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int count(String[] events)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>events</b> has between 1 and 50 elements inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>events</b> has length between 2 and 8, and contains exactly one decimal point '.'. All the other characters are digits '0'-'9'</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>no element of <b>events</b> has a value equal to an integer</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>no two elements of <b>events</b> have values that differ by an integer</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>the elements of <b>events</b> have values that are strictly increasing</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.222&quot;,&quot;00.223&quot;,&quot;1.221&quot;,&quot;4.220&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> If the clock's first tick occurs approximately .100 milliseconds after the start of the program, then the clocktime at time .222 will be Different from the clocktime at the start. The clocktime at .223 will be the same as at .222, the clocktime at 1.221 will be different from the clocktime at .223 since a tick occurs at 1.100. The clocktime at 4.220 will always be different from the clocktime at 1.221. So in this case, the program generates DSDD. Similarly, <pre>
+   if the clock's first tick is at .2215, DSSD
+   if the clock's first tick is at .2225, SDSD
+   if the clock's first tick is at .2235, SSDD </pre> These are the only possible sequences that can be generated. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;4.220112&quot;,&quot;4.221&quot;,&quot;4.222&quot;,&quot;4.223&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> DSSS, DSSD, DSDS, DDSS</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;123456.1&quot;,&quot;123456.7&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">If the first tick occurs at .05 after the program starts, the output would be DS while if it occurs .5 after the program starts, then the output would be DD. These are the only possible results.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,216 @@
+<html>
+ <head>
+  <title>LargeSignTest Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3943">Problem Statement for LargeSignTest</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>A <i>sign test</i> is a test that is performed to determine if the results of an experiment are statistically significant. In particular, it looks at a number of similar trials, where each trial's outcome is either positive or negative. It calculates the probability that the results of your experiments would be at least as unbalanced as they actually turned out to be if the outcomes of each trial were totally random - a 50% chance of being positive and a 50% chance of being negative. For example, the probability of the five trials being split 4-1 or 5-0 is 12/32: 2 out of 32 times the results will be 5 negatives or 5 positives and 10 out of 32 times the results will have 4 negatives or 4 positives. Hence, the <i>p-value</i> of an outcome with 4 positives and 1 negative is 12/32 = 0.375. To make this more concrete, the <i>p-value</i> of <b>N</b> trials, <b>K</b> of which are negative can be calculated as<br /><br /> <img src="http://www.topcoder.com/contest/problem/LargeSignTest/sign.gif" /><br /><br /> where the numerator of the fraction is the binomial coefficient: N!/(i!(N-i)!). There is one exception to this though: when <b>K</b>*2 is equal to <b>N</b>, the p-value is simply 1 (the above equation gives the wrong result).<br /><br /><br /><br /> This is all quite simple, when <b>N</b> and <b>K</b> are small, but what if they are rather large? Your task is to compute the p-value, given <b>N</b> and <b>K</b>, where 0&lt;=<b>K</b>&lt;=<b>N</b>&lt;=1,000,000 and 0&lt;N. You should return this value as a percentage with exactly one digit after the decimal point (don't forget the percent sign). You should use standard rounding when formatting your return. You need not worry about borderline cases as the constraints ensure that the percentage will not be within 1e-3 of XX.X5, where each X represents a digit. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>LargeSignTest</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>pvalue</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String pvalue(int N, int K)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>N</b> will be between 1 and 1,000,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>K</b> will be between 0 and <b>N</b>, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The percentage will not be within 1e-3 of XX.X5, where each X represents a digit.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;37.5%&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The p-value in this case is (choose(5,0)+choose(5,1))/2<sup>N-1</sup> = (1+5)/16 = 6/16 = 3/8 = 37.5%</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;100.0%&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1000000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>400000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;0.0%&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;4.1%&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

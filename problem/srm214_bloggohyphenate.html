@@ -1,0 +1,346 @@
+<html>
+ <head>
+  <title>bloggoHyphenate Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3019">Problem Statement for bloggoHyphenate</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Bloggo is a system for managing weblog content. It offers a number of natural-language editing services, among which is a hyphenation checker. Hyphenation is the insertion of a hyphen character, '-', between two syllables of a word. Although it is possible to use an automatic hyphenation algorithm to achieve uniform line length, some users prefer to hyphenate manually. These users can set the hyphenation checker to lazy mode, which restricts it to verifying words that already contain a hyphen. </p> <p> Your fellow bloggo developers have already written code that identifies hyphenated words in a user's file. Your job is to verify these words and correct them as necessary. As a guide to proper hyphenation, you are given a String[] named <b>dictionary</b>, each element of which contains a word separated into its syllables by single spaces. For example, the syllabization of the words &quot;syllable&quot;, &quot;hyphenate&quot;, and &quot;antidisestablishmentarianism&quot; would be represented as follows. </p> <pre>
+
+  syl la ble
+
+  hy phen ate
+
+  an ti dis es tab lish men tar i an ism
+</pre> <p> You are given another String[], <b>candidates</b>, each element of which contains a word drawn from <b>dictionary</b>, but without the spaces and with the addition of a single hyphen. If the hyphen is correctly positioned between two syllables of the word, this is to be signaled with the result String &quot;correct&quot;. Otherwise, move the hyphen from its erroneous position to the nearest correct position. In the event of a tie, choose the position nearer to the left. If the word is actually monosyllabic, remove the hyphen altogether. Return a String[] containing, for each element of <b>candidates</b>, the corresponding result String. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>bloggoHyphenate</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>correct</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] correct(String[] dictionary, String[] candidates)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b> contains between 1 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>dictionary</b> is between 1 and 50 characters long, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>in each element of <b>dictionary</b>, neither the first nor the last character may be a space</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>in each element of <b>dictionary</b>, there may not be two consecutive spaces</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>the only characters allowed in <b>dictionary</b> are the space character and the lowercase letters 'a' to 'z'</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>dictionary</b> is unique after removal of spaces</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>candidates</b> contains between 1 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>candidates</b> is between 1 and 50 characters long, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>candidates</b> contains exactly one hyphen</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>for each element of <b>candidates</b>, if the hyphen were removed, it would match an element of <b>dictionary</b> after removal of spaces</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;syl la ble&quot;, &quot;dic tion a ry&quot;, &quot;mole&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;mo-le&quot;, &quot;syl-lable&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;mole&quot;,  &quot;correct&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The word &quot;mole&quot; is monosyllabic, so we remove the hyphen. The word &quot;syllable&quot; is correctly hyphenated.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;syl la ble&quot;, &quot;dic tion a ry&quot;, &quot;mole&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;dictio-nary&quot;, &quot;syll-able&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;diction-ary&quot;,  &quot;syl-lable&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We correct &quot;dictio-nary&quot; by moving the hyphen one position to the right. The hyphen in &quot;syll-able&quot; could be moved one position to the left or to the right, but we prefer the left.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;syl la ble&quot;, &quot;dic tion a ry&quot;, &quot;mole&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;dictionary-&quot;, &quot;-syllable&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;dictiona-ry&quot;,  &quot;syl-lable&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Poorly placed hyphens indeed.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;zsx kd ds jply rf&quot;, &quot;auca wb ill&quot;, &quot;kvqm kpd p kqi xpbk j&quot;,
+ &quot;cqf ccr ewq&quot;, &quot;srl vu m u d b&quot;, &quot;h qae qzge&quot;, &quot;jdn qqjf y&quot;,
+ &quot;zpa hbr&quot;, &quot;d uft ctsm qjg&quot;, &quot;l hgcp ik twuy bsi nlmu iyx&quot;,
+ &quot;cjjz jn td zg&quot;, &quot;h bd q hi&quot;, &quot;obsr kci hjdm h yar zsq q xyr hxb&quot;,
+ &quot;izq iibd yuh tgx nkq&quot;, &quot;cjgd wfns&quot;, &quot;ohc bn duc&quot;,
+ &quot;pydv a geki s bo avdi wd&quot;, &quot;zygp gqt p&quot;, &quot;xq pqqb ufoe&quot;,
+ &quot;cvm yamq moqj vl zoig w&quot;, &quot;ahz b lf ixjv d&quot;, &quot;qpg ven d&quot;,
+ &quot;m cbxz yf tv djf&quot;, &quot;kti wacd uvgb kmr ew r&quot;, &quot;ng tfb unw ndl&quot;,
+ &quot;qruv ctw a&quot;, &quot;d hk v pcxh zoxy&quot;, &quot;etbo wabk&quot;, &quot;x hxiu n&quot;,
+ &quot;wp qq u dvpi tclh ac l&quot;, &quot;f am brs lk uss uyb pg&quot;,
+ &quot;dtfx h ict if koe jhj&quot;, &quot;nl shp yeji b rw vrg&quot;, &quot;bz qfnc u&quot;,
+ &quot;t ceoy eb ss myoe zaaj z jey&quot;, &quot;j d uju mb irvu&quot;,
+ &quot;anmo emjs syam ta bfiy kk&quot;, &quot;gl ej egla tha jbug&quot;,
+ &quot;zk u sz raij d&quot;, &quot;kw lbya atdb pd&quot;, &quot;no id hqum u wny qcy&quot;,
+ &quot;phv nv l f oq m&quot;, &quot;b xup tnq fziw yth sn&quot;, &quot;pvc hnr oky lzj&quot;,
+ &quot;ew wtwt gyty s uu pfe kif my&quot;, &quot;t cw fsau&quot;,
+ &quot;esk gqtd o yh jbx wed fl z&quot;, &quot;vvr hqw wo gxwm&quot;,
+ &quot;lei akz nzz bumb&quot;, &quot;bc hlmw&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-duftctsmqjg&quot;, &quot;-leiakznzzbumb&quot;, &quot;-xhxiun&quot;, &quot;-zpahbr&quot;,
+ &quot;ahzbl-fixjvd&quot;, &quot;anmo-emjssyamtabfiykk&quot;, &quot;aucawb-ill&quot;,
+ &quot;bchlmw-&quot;, &quot;bxuptnqfziwyth-sn&quot;, &quot;bzq-fncu&quot;, &quot;c-vmyamqmoqjvlzoigw&quot;,
+ &quot;cjg-dwfns&quot;, &quot;cjjzjn-tdzg&quot;, &quot;cqfccre-wq&quot;, &quot;dhkvpcxhzox-y&quot;,
+ &quot;dtfx-hictifkoejhj&quot;, &quot;eskgqtdoyhjbx-wedflz&quot;, &quot;etbowab-k&quot;,
+ &quot;ewwtwtgytysuupfe-kifmy&quot;, &quot;fambrslkuss-uybpg&quot;, &quot;glejegl-athajbug&quot;,
+ &quot;hbdqhi-&quot;, &quot;hq-aeqzge&quot;, &quot;izqiibd-yuhtgxnkq&quot;, &quot;jd-nqqjfy&quot;,
+ &quot;jdujumb-irvu&quot;, &quot;ktiwacduvgbkmr-ewr&quot;, &quot;kv-qmkpdpkqixpbkj&quot;,
+ &quot;kwlbya-atdbpd&quot;, &quot;lhgcpiktwuybsi-nlmuiyx&quot;, &quot;mcbx-zyftvdjf&quot;,
+ &quot;ngtf-bunwndl&quot;, &quot;nlshpyejibrwvrg-&quot;, &quot;no-idhqumuwnyqcy&quot;, &quot;o-hcbnduc&quot;,
+ &quot;obsr-kcihjdmhyarzsqqxyrhxb&quot;, &quot;ph-vnvlfoqm&quot;, &quot;pvchnrok-ylzj&quot;,
+ &quot;pydvageki-sboavdiwd&quot;, &quot;qpgv-end&quot;, &quot;qruvctw-a&quot;, &quot;srlvumu-db&quot;,
+ &quot;tceoyebssmyo-ezaajzjey&quot;, &quot;tcwfsau-&quot;, &quot;vvrhqwwo-gxwm&quot;,
+ &quot;wpqqudvpit-clhacl&quot;, &quot;xqpq-qbufoe&quot;, &quot;zku-szraijd&quot;,
+ &quot;zsxkddsjp-lyrf&quot;, &quot;zygpgqt-p&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;d-uftctsmqjg&quot;,
+ &quot;lei-akznzzbumb&quot;,
+ &quot;x-hxiun&quot;,
+ &quot;zpa-hbr&quot;,
+ &quot;ahzb-lfixjvd&quot;,
+ &quot;correct&quot;,
+ &quot;correct&quot;,
+ &quot;bc-hlmw&quot;,
+ &quot;correct&quot;,
+ &quot;bz-qfncu&quot;,
+ &quot;cvm-yamqmoqjvlzoigw&quot;,
+ &quot;cjgd-wfns&quot;,
+ &quot;correct&quot;,
+ &quot;cqfccr-ewq&quot;,
+ &quot;dhkvpcxh-zoxy&quot;,
+ &quot;correct&quot;,
+ &quot;correct&quot;,
+ &quot;etbo-wabk&quot;,
+ &quot;correct&quot;,
+ &quot;correct&quot;,
+ &quot;glejegla-thajbug&quot;,
+ &quot;hbdq-hi&quot;,
+ &quot;h-qaeqzge&quot;,
+ &quot;correct&quot;,
+ &quot;jdn-qqjfy&quot;,
+ &quot;correct&quot;,
+ &quot;correct&quot;,
+ &quot;kvqm-kpdpkqixpbkj&quot;,
+ &quot;correct&quot;,
+ &quot;correct&quot;,
+ &quot;mcbxz-yftvdjf&quot;,
+ &quot;ngtfb-unwndl&quot;,
+ &quot;nlshpyejibrw-vrg&quot;,
+ &quot;correct&quot;,
+ &quot;ohc-bnduc&quot;,
+ &quot;correct&quot;,
+ &quot;phv-nvlfoqm&quot;,
+ &quot;pvchnroky-lzj&quot;,
+ &quot;correct&quot;,
+ &quot;qpg-vend&quot;,
+ &quot;correct&quot;,
+ &quot;correct&quot;,
+ &quot;tceoyebssmyoe-zaajzjey&quot;,
+ &quot;tcw-fsau&quot;,
+ &quot;correct&quot;,
+ &quot;wpqqudvpi-tclhacl&quot;,
+ &quot;xq-pqqbufoe&quot;,
+ &quot;correct&quot;,
+ &quot;zsxkdds-jplyrf&quot;,
+ &quot;correct&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

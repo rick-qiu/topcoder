@@ -1,0 +1,292 @@
+<html>
+ <head>
+  <title>ContestSchedule Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6708">Problem Statement for ContestSchedule</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>In the year 3006, almost all of the programming contests are interplanetary and have to be competed in online. All these interplanetary online programming contests are well scheduled. A contest time is defined by two integers s and t. That means that the contest will begin sharply at time s and end before time t. So if a contest ends at 10 and another contest starts at 10. John can participate in both of them.<br /><br /><br /><br /> John is a young talent who is keen on programming contests. For any particular contest, he can pretty accurately estimate the probability that he will win that contest. Given a set of contests, he wants to determine the subset of non-conflicting contests that will maximize his expected number of wins. <br /><br /><br /><br /> You will be given a String[] <b>contests</b>. Each element of <b>contests</b> represents a single contest and is formatted as &quot;s t p&quot; (quotes for clarity only), where s, t, and p are all integers. Each contest starts at time s and ends before time t, and John estimates that there is a p percent probability of winning that contest. Return the maximal expected number of contests that John will win if he participates in the optimal subset of non-conflicting contests. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ContestSchedule</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>expectedWinnings</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double expectedWinnings(String[] contests)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A return value with either an absolute or relative error of less than 1.0e-9 is considered correct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>contests</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>contests</b> will be formatted as &quot;s t p&quot; (quotes for clarity only), where s, t, and p are all integers with no leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each s will be between 1 and 1000000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each t will be between 1 and 1000000000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>contests</b>, s will be less than t.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each p will be between 1 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 10 100&quot;,&quot;10 20 100&quot;,&quot;20 30 100&quot;,&quot;30 40 100&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Since all the contests end right before the next contest starts, John can participate in all the contests.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;10 20 20&quot;,&quot;30 40 60&quot;,&quot;15 35 90&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.9</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The third contest conflicts with the first two. John decides to participate in only the third contest because it gives him a higher chance of winning a contest than participating in both of the other two contests.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 100 85&quot;,&quot;99 102 100&quot;,&quot;101 200 60&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.45</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1000000000 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.01</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+&quot;1361955 8940967 10&quot;,&quot;628145516 644285978 17&quot;,&quot;883515280 910484865 36&quot;,
+&quot;762888635 769291174 52&quot;,&quot;98152102 136328674 1&quot;,&quot;9580638 20450682 50&quot;,
+&quot;646139319 664648341 20&quot;,&quot;484027666 505290970 57&quot;,&quot;841082555 879295329 99&quot;,
+&quot;940563715 966953344 4&quot;,&quot;579113528 595261527 25&quot;,&quot;925801172 962952912 9&quot;,
+&quot;285845005 307916055 45&quot;,&quot;403573723 410697485 10&quot;,&quot;9467290 25698952 90&quot;,
+&quot;631265400 650639733 3&quot;,&quot;520690249 559261759 96&quot;,&quot;491747709 531061081 86&quot;,
+&quot;643215695 672420161 94&quot;,&quot;614608448 617341712 44&quot;,&quot;456517316 491770747 24&quot;,
+&quot;806956091 828414045 88&quot;,&quot;528156706 559510719 15&quot;,&quot;158398859 190439269 4&quot;,
+&quot;743974602 761975244 49&quot;,&quot;882264704 887725893 1&quot;,&quot;877444309 884479317 59&quot;,
+&quot;785986538 806192822 19&quot;,&quot;732553407 747696021 81&quot;,&quot;132099860 148305810 97&quot;,
+&quot;555144412 572785730 99&quot;,&quot;506507263 535927950 82&quot;,&quot;489726669 505160939 90&quot;,
+&quot;793692316 804153358 99&quot;,&quot;901329638 919179990 10&quot;,&quot;29523791 44318662 58&quot;,
+&quot;570497239 595701008 73&quot;,&quot;706091347 730328348 23&quot;,&quot;118054686 135301010 39&quot;,
+&quot;307178252 337804001 93&quot;,&quot;896162463 900667971 39&quot;,&quot;271356542 273095245 80&quot;,
+&quot;865692962 891795950 91&quot;,&quot;593986003 596160000 58&quot;,&quot;807688147 831190344 59&quot;,
+&quot;468916697 496462595 92&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14.12</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

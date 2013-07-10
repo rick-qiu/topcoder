@@ -1,0 +1,240 @@
+<html>
+ <head>
+  <title>DirectoryTree Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1874">Problem Statement for DirectoryTree</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Sometimes, when listing files in a filesystem, it is desirable to view the files in a tree-like format. This can provide a visual representation of which files reside in which directories. </p> <p> We first define how filenames with their full paths will be given. Each filename will consist of a leading slash ('/'), followed by a sequence of names separated by slashes. The names shall consist of one or more lower case letters. The name after the last slash identifies the file, and all the other names identify the directories and subdirectories that the file is in. For example, the path &quot;/usr/bin/bash&quot; is the full path name of the file &quot;bash&quot; in the directory &quot;bin&quot;, which is a subdirectory of &quot;usr&quot;. &quot;usr&quot; resides in the root directory &quot;/&quot;. </p> <p> Next, we define how the filenames should be displayed in the tree. For each directory that has subdirectories or files, sort all the subdirectory and file names in alphabetical order, and branch them underneath the containing directory's name. A branch is accomplished by placing a plus symbol ('+') in the column under the first letter of the containing directory's name (use preceding spaces to place the plus character in the correct column). Then place a dash character ('-') after the plus symbol. Finally, place the name of the subdirectory or file after the dash. If that name is a subdirectory which has its own elements, perform the same branching steps for that subdirectory before doing the next element of the containing directory. Finally, if two elements of a directory are not on adjacent lines in the output, connect their '+' symbols by putting vertical bars ('|') in the same column as the '+' symbols for all the lines in between the two elements. One special case, the root directory will be output as &quot;ROOT&quot;, and will always be the first line in the output. To visually see the result of this method, look at the examples. </p> <p> Given a String[] <b>files</b>, which contains full path file names, return a String[] with the file and directory names displayed in a tree format as defined above. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>DirectoryTree</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>display</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] display(String[] files)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>files</b> will have between 1 and 50 elements, inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>files</b> will be a sequence of words formed by one or more lower case letters, separated by single forward slash characters ('/').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>files</b>, the first character will be a slash, and the last character will not be a slash.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>files</b> will have between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be no repeated elements in <b>files</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If you append a slash to any element of <b>files</b>, it will not be an exact prefix of any other element of files. In other words, full path file names cannot also be used as directory names.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The result will not have more than 100 elements in the String[]</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;/usr/lib/libc&quot;, &quot;/usr/bin/find&quot;, &quot;/home/schveiguy/bashrc&quot;,
+ &quot;/usr/bin/bash&quot;, &quot;/usr/local/bin/ssh&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;ROOT&quot;,
+ &quot;+-home&quot;,
+ &quot;| +-schveiguy&quot;,
+ &quot;|   +-bashrc&quot;,
+ &quot;+-usr&quot;,
+ &quot;  +-bin&quot;,
+ &quot;  | +-bash&quot;,
+ &quot;  | +-find&quot;,
+ &quot;  +-lib&quot;,
+ &quot;  | +-libc&quot;,
+ &quot;  +-local&quot;,
+ &quot;    +-bin&quot;,
+ &quot;      +-ssh&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note at each slash, how the branching occurs, and how the file and directory names are sorted. Also note how the lines do not extend when there are no more elements in a directory.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;/dir/dir/file&quot;, &quot;/dir/file&quot;, &quot;/file&quot;,
+ &quot;/dir/sharedname/dir&quot;, &quot;/dir/dir/sharedname&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;ROOT&quot;,
+ &quot;+-dir&quot;,
+ &quot;| +-dir&quot;,
+ &quot;| | +-file&quot;,
+ &quot;| | +-sharedname&quot;,
+ &quot;| +-file&quot;,
+ &quot;| +-sharedname&quot;,
+ &quot;|   +-dir&quot;,
+ &quot;+-file&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Directory names and file names can be reused, as long as they are used in different directories. Also, files can be listed alongside directories. Note the use of &quot;sharedname&quot; as a file and a directory.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;/a/a/a/a/a/a/a&quot;,&quot;/a/b/a/a/a/a/a&quot;,&quot;/a/a/a/a/b/a/a&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;ROOT&quot;,
+ &quot;+-a&quot;,
+ &quot;  +-a&quot;,
+ &quot;  | +-a&quot;,
+ &quot;  |   +-a&quot;,
+ &quot;  |     +-a&quot;,
+ &quot;  |     | +-a&quot;,
+ &quot;  |     |   +-a&quot;,
+ &quot;  |     +-b&quot;,
+ &quot;  |       +-a&quot;,
+ &quot;  |         +-a&quot;,
+ &quot;  +-b&quot;,
+ &quot;    +-a&quot;,
+ &quot;      +-a&quot;,
+ &quot;        +-a&quot;,
+ &quot;          +-a&quot;,
+ &quot;            +-a&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

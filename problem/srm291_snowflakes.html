@@ -1,0 +1,256 @@
+<html>
+ <head>
+  <title>Snowflakes Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6072">Problem Statement for Snowflakes</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Paper snowflakes make great decorations and they are easy to make. Take a sheet of square checkered paper with an even number of squares on each side. Fold it in half, folding the upper part up and over to the bottom part, so that you have a rectangle. Now fold that rectangle in half lengthwise, from left to right, to make a smaller square. Next, take the right upper corner of that square and fold it up and over to the left bottom corner, forming a triangle (see pictures below, cells which stay immovable after all foldings are marked red on the fifth picture). Cut out some squares along grid lines (as shown on the last picture).</p> <p> <img src="http://www.topcoder.com/contest/problem/Snowflakes/snowflake1.gif" />? <img src="http://www.topcoder.com/contest/problem/Snowflakes/snowflake2.gif" />? <img src="http://www.topcoder.com/contest/problem/Snowflakes/snowflake3.gif" />? <img src="http://www.topcoder.com/contest/problem/Snowflakes/snowflake4.gif" />? <img src="http://www.topcoder.com/contest/problem/Snowflakes/snowflakefinal.gif" />? <img src="http://www.topcoder.com/contest/problem/Snowflakes/snowflake5.gif" /> </p> <p>You will be given a String[] <b>snowflake</b> where each element represents a single row of squares in the folded pattern (the last picture shown above). The elements in <b>snowflake</b> are ordered from top row to bottom row, and each row is ordered from left to right. '*' represents a cut out square, and '.' represents an intact square. Unfold the triangle by reversing the steps described above. Return this flared out snowflake as a String[] of '.' and '*' characters. You should return the contents of the entire square even if the cut out cells split the snowflake into non-connected parts.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Snowflakes</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>flareOut</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] flareOut(String[] snowflake)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>snowflake</b> will contain between 1 and 50 elements, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The ith element of <b>snowflake</b> (0-indexed) will contain exactly i+1 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>snowflake</b> will contain only characters '*' or '.'. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.&quot;,
+ &quot;..&quot;,
+ &quot;*.*&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;*.**.*&quot;, &quot;......&quot;, &quot;*....*&quot;, &quot;*....*&quot;, &quot;......&quot;, &quot;*.**.*&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;*&quot;,
+ &quot;..&quot;,
+ &quot;.*.&quot;,
+ &quot;.**.&quot;,
+ &quot;.*.**&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;**.*..*.**&quot;,
+&quot;*.**..**.*&quot;,
+&quot;.*.*..*.*.&quot;,
+&quot;***....***&quot;,
+&quot;....**....&quot;,
+&quot;....**....&quot;,
+&quot;***....***&quot;,
+&quot;.*.*..*.*.&quot;,
+&quot;*.**..**.*&quot;,
+&quot;**.*..*.**&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.&quot;,
+ &quot;..&quot;,
+ &quot;***&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;******&quot;, &quot;*....*&quot;, &quot;*....*&quot;, &quot;*....*&quot;, &quot;*....*&quot;, &quot;******&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;*&quot;,
+ &quot;.*&quot;,
+ &quot;***&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;******&quot;, &quot;**..**&quot;, &quot;*.**.*&quot;, &quot;*.**.*&quot;, &quot;**..**&quot;, &quot;******&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.&quot;,
+ &quot;..&quot;,
+ &quot;***&quot;,
+ &quot;....&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;........&quot;,
+&quot;.******.&quot;,
+&quot;.*....*.&quot;,
+&quot;.*....*.&quot;,
+&quot;.*....*.&quot;,
+&quot;.*....*.&quot;,
+&quot;.******.&quot;,
+&quot;........&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

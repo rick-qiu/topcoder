@@ -1,0 +1,341 @@
+<html>
+ <head>
+  <title>FurnitureRobbery Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7843">Problem Statement for FurnitureRobbery</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Two robbers break into an antique shop and decide to steal an old famous sofa. The shop is quite messy, so this may be a difficult task.</p> <p>You are given the floorplan of the shop in the String[] <b>plan</b>, with the first element of <b>plan</b> corresponding to the top row of the floorplan. Each piece of furniture is labeled with a distinct uppercase letter ('A'-'Z'). The famous sofa is labeled with 'A'. Empty cells are marked with '.'. You can push any of the pieces of furniture in any of the four directions (right, up, left and down) one cell at a time as long as it doesn't collide with any other furniture or with walls.</p> <p>Your objective is to move the famous sofa so that at least one of its cells is in the top row.</p> <p>Return the least number of pushes required to accomplish this goal, or -1 if it is not possible.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FurnitureRobbery</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>leastPushes</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int leastPushes(String[] plan)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>plan</b> will contain between 2 and 5 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements in <b>plan</b> will have the same length.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>plan</b> will contain between 2 and 6 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>plan</b> will be an uppercase letter ('A'-'Z') or '.'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each piece of furniture will occupy at least 2 cells.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Cells with same letters will be connected.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly one 'A' piece.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;......&quot;,
+ &quot;.BBB.X&quot;,
+ &quot;.B.B.X&quot;,
+ &quot;DDCC.Y&quot;,
+ &quot;..AAAY&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><pre>
+......         ......         BBB...         BBB...         BBB...         BBB...         BBBAAA
+.BBB.X         .BBB.X         B.B..X         B.B..X         B.B..X         B.B...         B.B...
+.B.B.X 3 moves .B.B.X 2 moves .....X 2 moves ..AAAX 1 move  ..AAAX 2 moves ..AAA. 3 moves ......
+DDCC.Y ------&gt; CC...Y ------&gt; CC...Y ------&gt; CC...Y ------&gt; CC..Y. ------&gt; CC..YX ------&gt; CC..YX
+..AAAY         DDAAAY         DDAAAY         DD...Y         DD..Y.         DD..YX         DD..YX
+</pre> 13 pushes total.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;......&quot;,
+ &quot;.BBB.X&quot;,
+ &quot;.B.B.X&quot;,
+ &quot;....YY&quot;,
+ &quot;..AAAY&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 11</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...C.C&quot;,
+ &quot;BBBCCC&quot;,
+ &quot;B.B...&quot;,
+ &quot;.XX..Y&quot;,
+ &quot;..AAAY&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;......&quot;,
+ &quot;ZBBBXY&quot;,
+ &quot;ZBBBXY&quot;,
+ &quot;EAAACC&quot;,
+ &quot;E.DDCC&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 20</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;......&quot;,
+ &quot;BBB...&quot;,
+ &quot;BCBC..&quot;,
+ &quot;.CCC.Y&quot;,
+ &quot;..AAAY&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 16</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.C&quot;,
+ &quot;BC&quot;,
+ &quot;BC&quot;,
+ &quot;B.&quot;,
+ &quot;AA&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

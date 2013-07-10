@@ -1,0 +1,342 @@
+<html>
+ <head>
+  <title>TaglishTranslator Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3070">Problem Statement for TaglishTranslator</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Tagalog is one of the major languages spoken in the Philippines. Since the USA occupied the Philippines from 1899 to 1946, it has been the custom of Tagalog-speakers to use English words and conjugate them as if they were Tagalog words, creating a language they call &quot;Taglish&quot;.</p> <p>You are to write an English-Taglish translator that will convert a simple English sentence into a Taglish sentence by conjugating the verb and adjusting the syntax according to Tagalog grammar rules.</p> <p>The English sentence will come in the format:</p> <pre>
+	&lt;subject&gt; &lt;verb&gt; (&lt;object&gt;)
+</pre> <p>The <tt>&lt;subject&gt;</tt> will be either a single-word <i>name</i> or the word &quot;The&quot; followed by a single-word <i>thing</i>. The <tt>&lt;verb&gt;</tt> will be a single word, or a word preceded by the word &quot;will&quot;. It is in the future tense if it is preceded by the word &quot;will&quot;, past tense if the verb ends in the letters &quot;ed&quot;, or present tense otherwise. If there is an object, it will be in the format of the subject (&quot;<i>name</i>&quot; or &quot;the <i>thing</i>&quot;), but it also may be preceded by the word &quot;to&quot;. Note that &quot;the&quot;, &quot;will&quot; or &quot;to&quot;, or the suffix &quot;ed&quot; may be in any case or mixed case. If the verb is preceded with the word &quot;will&quot; <i>and</i> ends with &quot;ed&quot;, it should be considered future tense.</p> <p>The returned String will be in the format:</p> <pre>
+	&lt;re-conjugated verb&gt; &lt;subject&gt; (&lt;object&gt;)
+</pre> <p>The verb conjugation works as follows:</p> 
+      <ul> 
+       <li>Past Tense - Put &quot;nag&quot; at the beginning of the word, and remove the &quot;ed&quot; from the end of it.</li> 
+       <li>Present Tense - Double the first syllable and put &quot;nag&quot; at the beginning of the word.</li> 
+       <li>Future Tense - Double the first syllable and put &quot;mag&quot; at the beginning of the word, and remove the word &quot;will&quot; from before the verb.</li> 
+      </ul> <p>In the present and future tense, the &quot;first syllable&quot; is defined as any consonants at the beginning of the word followed by exactly one vowel (where a vowel is a upper- or lower-case a, e, i, o, or u and a consonant is any other letter).</p> <p>If the <tt>&lt;subject&gt;</tt> in the English sentence is a thing, omit the word &quot;the&quot; in the Taglish sentance and prepend the Tagalog article, &quot;ang&quot; to the subject to form the Taglish subject. If the <tt>&lt;subject&gt;</tt> is a name, prepend the Tagalog article &quot;si&quot; to the English name.</p> <p>If there was an object in the English sentence, the <tt>&lt;object&gt;</tt> in the Taglish sentence is the object from the English sentence preceded by a Tagalog article which depends on the nature of the object:</p> 
+      <ul> 
+       <li>If the object is a thing and wasn't preceded by the word &quot;to&quot; in the English sentence, it is preceded by the word &quot;ng&quot; in the Taglish sentence (and the word &quot;the&quot; is dropped).</li> 
+       <li>If the object is a name and wasn't preceded by the word &quot;to&quot;, it is preceded by the word &quot;ni&quot;.</li> 
+       <li>If the object is a thing and <i>was</i> preceded by the word &quot;to&quot;, it is preceded by the word &quot;sa&quot; (and the words &quot;to&quot; and &quot;the&quot; are dropped).</li> 
+       <li>If the object is a name and <i>was</i> preceded by the word &quot;to&quot;, it is preceded by the word &quot;kay&quot; (and the word &quot;to&quot; is dropped).</li> 
+      </ul> <p>Case should be preserved in both the words that are carried over and in any doubling of syllables, but new words or letters added to words should be added in lower-case.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TaglishTranslator</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>translate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String translate(String sentence)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>'y' is never a vowel in Tagalog.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The only distinction between a name and a thing is the presence of the word &quot;the&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Remember that the object may be preceded by two words - &quot;to&quot; and &quot;the&quot;. If both are present, the &quot;to&quot; will precede the &quot;the&quot; (as in English).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Do not change the case of letters in any words. When doubling syllables, use the same case as they were in the existing syllable. When adding other letters or words into the translation, use lower-case letters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>&quot;To&quot;, &quot;the&quot; and &quot;will&quot; will always be &quot;control&quot; words if they appear in the place where they could be used as a &quot;control&quot; word.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sentence</b> will have a valid subject and verb, and will either end with the verb or have a valid object.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each word in <b>sentence</b> will have at least one vowel (a, e, i, o, or u).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sentence</b> will be between 3 and 50 characters in length, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sentence</b> will have between 2 and 7 words, inclusive, delimited by single spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sentence</b> will contain only upper- and lower-case letters and spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sentence</b> will not have any leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>sentence</b> will not have any consecutive spaces (words in <b>sentence</b> will be delimited by single spaces).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The verb in the sentence will not be &quot;ed&quot;.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;The fox jumps to the dog&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;nagjujumps ang fox sa dog&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">These sentences don't allow that many descriptive words.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;tomek codes&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;nagcocodes si tomek&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Almost as simple of a sentence as we can take.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;tHe mAn plAyEd ThE pIAnO&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;nagplAy ang mAn ng pIAnO&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Don't forget, control words should be noticed insensitive to case, but case still matters!</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;Bob will Filed the taxes&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;magFiFiled si Bob ng taxes&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">&quot;Will&quot; takes preference over &quot;ed&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;Matthew walked to Mathew&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;nagwalk si Matthew kay Mathew&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;StrongBad kicked TheCheat&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;nagkick si StrongBad ni TheCheat&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

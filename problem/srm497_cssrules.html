@@ -1,0 +1,291 @@
+<html>
+ <head>
+  <title>CssRules Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8779">Problem Statement for CssRules</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> In this problem we will use the terms XHTML and CSS. They do not match the real-world XHTML and CSS standards exactly. Read the problem statement to clarify the meanings of these terms in the problem context. </p> <p> You are given a String[] <b>xhtml</b>. Concatenate elements of <b>xhtml</b> to get a single string formatted as <i>tags</i>. We use BNF to describe <i>tags</i> formally. </p>
+      <ul> 
+       <li> <i>tags</i> ::= <i>tag</i> | <i>tag</i> <i>tags</i> </li> 
+       <li> <i>tagContent</i> ::= EMPTY | <i>tags</i> </li> 
+       <li> <i>tag</i> ::= &lt;TAG id='ID' style='color:COLOR'&gt;<i>tagContent</i>&lt;/TAG&gt; </li> 
+      </ul> Where 
+      <ul> 
+       <li> EMPTY means an empty string, </li> 
+       <li> TAG is one of the strings &quot;b&quot;, &quot;u&quot;, &quot;i&quot;, which are called tag names. </li> 
+       <li> ID means unique non-empty tag identifier containing only lowercase letters, </li> 
+       <li> COLOR is one of the following seven standard colors: &quot;black&quot;, &quot;blue&quot;, &quot;gray&quot;, &quot;green&quot;, &quot;red&quot;, &quot;white&quot;, &quot;yellow&quot;. </li> 
+      </ul> The tags in <i>tagContent</i> are called strict descendants of the surrounding <i>tag</i>. <p></p> <p> We will say that each tag is assigned the specified color. For example, if tags = &quot;&lt;b id='x' style='color:white'&gt;&lt;u id='y' style='color:red'&gt;&lt;/u&gt;&lt;u id='z' style='color:red'&gt;&lt;/u&gt;&lt;/b&gt;&quot;, then the tag with id='x' is assigned the color white, and the tags with id='y' and id='z' are assigned the color red. </p> <p> You decided to extract the information about assigned colors to CSS rules. Each CSS rule looks like &quot;selector {color:COLOR;}&quot; and assigns a specific color to one or more tags. In this problem we will accept only two types of selectors: </p>
+      <ul> 
+       <li> &quot;#id&quot; ? means that CSS rule will be applied to the tag with the given id (example, &quot;#x&quot;). </li> 
+       <li> &quot;#id tagName&quot; ? means that CSS rule will be applied to all tags with the specified tag name which are the strict descendants of the tag with the given id (example, &quot;#x u&quot;). </li> 
+      </ul> CSS rules are applied in the order they are given, and it is possible for some later rules to override earlier rules for certain tags. <p></p> <p> Return the minimal number of CSS rules you need to assign the proper color to each tag. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CssRules</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getMinimalCssRuleCount</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int getMinimalCssRuleCount(String[] xthml)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>xhtml</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>xhtml</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The concatenation of all elements of <b>xhtml</b> will satisfy the grammar given in the problem statement and conditions given after it.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;&lt;b id='x' style='color:red'&gt;&lt;/b&gt;&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Use only the rule &quot;#x {color:red;}&quot;. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;&lt;b id='x' style='color:red'&gt;&quot;,&quot;&lt;b id='y' style='color:red'&gt;&quot;,
+ &quot;&lt;b id='z' style='color:red'&gt;&quot;,&quot;&lt;/b&gt;&lt;/b&gt;&lt;/b&gt;&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Use two rules &quot;#x {color:red;}&quot; and &quot;#x b {color:red;}&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;&lt;b id='x' style='color:red'&gt;&quot;,
+&quot;&lt;b id='y' style='color:red'&gt;&quot;,
+&quot;&lt;b id='w' style='color:red'&gt;&quot;,
+&quot;&lt;/b&gt;&quot;,
+&quot;&lt;/b&gt;&quot;,
+&quot;&lt;u id='z' style='color:red'&gt;&quot;,
+&quot;&lt;/u&gt;&quot;,
+&quot;&lt;/b&gt;&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;&lt;b id='x' style='color:red'&gt;&quot;,
+&quot;&lt;i id='y' style='color:black'&gt;&quot;,
+&quot;&lt;u id='w' style='color:white'&gt;&quot;,
+&quot;&lt;/u&gt;&quot;,
+&quot;&lt;/i&gt;&quot;,
+&quot;&lt;u id='z' style='color:yellow'&gt;&quot;,
+&quot;&lt;/u&gt;&quot;,
+&quot;&lt;/b&gt;&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;&lt;b id='x' style='col&quot;, &quot;or:red'&gt;&lt;/b&gt;&quot;, &quot;&lt;b id=&quot;, &quot;'xx' style='color&quot;, &quot;:red'&gt;&lt;/b&gt;&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

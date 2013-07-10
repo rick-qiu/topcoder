@@ -1,0 +1,364 @@
+<html>
+ <head>
+  <title>RobotRace Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4778">Problem Statement for RobotRace</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>RobotRace is the name of a popular game played by one or more engineers for fabulous cash prizes. Before the game begins, each engineer is shown a map of the rectangular game board. Each cell on the board is either empty, an obstacle, the starting position for a robot, or the location of a token. Each engineer must program his robot to navigate the game board and collect one of the tokens, which are then redeemable for cash prizes. The game is challenging because tokens may hold different values for different robots, and some might hold no value for one or more robots. Each token can only be collected by a single robot (and each robot can only collect a single token), so each engineer must program his robot carefully to ensure that he takes home as much money as possible.</p> <p>The official rules for the game of RobotRace are as follows:</p> 
+      <ol>
+       <li>Before the game begins, each engineer will be provided with a complete map of the game board, and will be told the redemption value of each token for himself and for all other engineers.</li> 
+       <li>The engineers are given one robot each, identified by a unique lowercase letter. Each engineer then programs a series of commands into his robot, where each command is either &quot;move_forward&quot;, &quot;turn_clockwise&quot;, &quot;turn_counterclockwise&quot;, or &quot;surrender&quot;. (The two &quot;turn&quot; commands rotate the robot in place 90 degrees.)</li> 
+       <li>The command &quot;surrender&quot; is considered a complete program; if used, it must be the first and only command in a robot's memory, and the engineer is rewarded with a constant $20 consolation prize.</li> 
+       <li>Once the robots have all been programmed, the game begins. At time t=0, all engineers simultaneously place their robots on their starting positions on the board, oriented in a direction of their choosing (either north, south, east, or west).</li> 
+       <li>The robots all begin their programs simultaneously, taking one second to execute each command in their memory. Robots are disqualified if they walk off the edge of the game board or into a cell that contains an obstacle.</li> 
+       <li>If a robot navigates to a cell with a token (represented by an uppercase letter), the robot must collect that token. That robot can make no further moves, and that token cannot be taken by any other robot. If any robot attempts to enter a cell with a token that has already been obtained, it becomes disqualified.</li> 
+       <li>Each cell of the board is big enough to allow any number of robots to occupy it at the same time. However, any cells with a token can only be occupied by one robot. If a token has already been taken by a robot, no other robot can occupy or walk through its cell. If two robots attempt to enter the same token cell during the same turn, the robot whose identifying letter is earlier in the alphabet obtains the token, while the other robot becomes disqualified.</li> 
+       <li>The game ends after all robots finish executing their preprogrammed commands. (Robots have a finite amount of memory, and it is impossible to program a loop, so every robot's program is guaranteed to eventually terminate.)</li>
+      </ol> <p>Since they only have one chance to program their robots, all engineers play the game perfectly to maximize their personal winnings. They all know how much each token is worth to themselves and to everyone else, and they know that every engineer has programmed his robot optimally to either surrender or to obtain the best possible prize for himself. As a result, each engineer is able to deduce how much money everyone will win, before the game even begins.</p> <p>You will be given a String[] <b>board</b>. Each character in <b>board</b> will represent a single cell on the game board. A space (' ') represents an empty cell, an asterisk ('*') represents an obstacle, a lowercase letter represents the starting position of the robot identified by that letter, and an uppercase letter represents the location of a token. You will also be given a String[] <b>tokenValues</b>. Each element of <b>tokenValues</b> corresponds to the token redemption values for one robot, and is formatted as &quot;&lt;robot&gt;:&lt;tokens&gt;&quot;, where &lt;robot&gt; is a lowercase letter, and &lt;tokens&gt; consists of one or more unique uppercase letters. The first token in a robot's list can be redeemed for $100 if obtained by that robot. Each successive token in the list can be redeemed for $1 less than the previous token. If a token does not appear in a robot's list, that token cannot be redeemed for a cash prize by that robot's engineer.</p> <p>Your program should return a String[] that contains the cash prize that each engineer will be awarded after one game of RobotRace. Each element should be formatted as &quot;&lt;robot&gt; &lt;prize&gt;&quot;, where &lt;robot&gt; is a lowercase letter and &lt;prize&gt; is an integer with no leading zeroes. The output should be sorted in alphabetical order by robot.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RobotRace</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getPrizes</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] getPrizes(String[] board, String[] tokenValues)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The results of a game of RobotRace will never be surprising to the engineers. No robot will ever be disqualified during a game, and every engineer will always take home at least $20.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain the same amount of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>board</b> will be either an uppercase letter ('A' - 'Z'), lowercase letter ('a' - 'z'), asterisk ('*'), or space (' ').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain at least one uppercase and one lowercase letter.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No uppercase or lowercase letter will appear more than once in <b>board</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>tokenValues</b> will contain between 1 and 26 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>tokenValues</b> will contain exactly one element for each lowercase letter in <b>board</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>tokenValues</b> will contain between 3 and 28 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>tokenValues</b> will be formatted as &quot;&lt;robot&gt;:&lt;tokens&gt;&quot;, where &lt;robot&gt; is a lowercase letter and &lt;tokens&gt; is a nonempty string consisting of unique uppercase letters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each uppercase and lowercase letter in <b>tokenValues</b> will also appear in <b>board</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;b C&quot;
+,&quot;a D&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a:CD&quot;, &quot;b:DC&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;a 100&quot;, &quot;b 100&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Each robot is programmed to move forward, turn to face east, and move forward two more times. Robot &quot;a&quot; is placed on the board facing north, and robot &quot;b&quot; is placed facing south. They both collect the highest-valued token on their list after four seconds.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;b Cx&quot;
+,&quot;a D &quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a:CD&quot;, &quot;b:DC&quot;, &quot;x:C&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;a 99&quot;, &quot;b 20&quot;, &quot;x 100&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Robot &quot;x&quot; starts right next to token &quot;C&quot; facing west, and moves forward for one second before collecting it for $100. Robot &quot;a&quot; starts the game facing east, and moves forward twice to obtain token &quot;D&quot; for $99, since he would have been disqualified if he had tried to pick up token &quot;C&quot;. The engineer who programmed robot &quot;b&quot; knew that he wouldn't be able to reach either token in time, and instead programmed the robot to surrender.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;b C x&quot;
+,&quot;a D  &quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a:CD&quot;, &quot;b:DC&quot;, &quot;x:C&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;a 99&quot;, &quot;b 99&quot;, &quot;x 20&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Now robot &quot;x&quot; is two seconds away from token &quot;C&quot;, the only token that holds value to him. Because of this, robot &quot;a&quot; is programmed to collect his $99 token, token &quot;D&quot;, after two seconds. Likewise, robot &quot;b&quot; is programmed to collect token &quot;C&quot; for $99 after two seconds. If robot &quot;x&quot; were to attempt to collect token &quot;C&quot;, he would be disqualified because robot &quot;b&quot;'s identifying letter appears earlier in the alphabet than &quot;x&quot;. Therefore, robot &quot;x&quot; is programmed to surrender.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;w     x&quot;
+,&quot;  A*B  &quot;
+,&quot; H   C &quot;
+,&quot; * Q * &quot;
+,&quot; G   D &quot;
+,&quot;  F*E  &quot;
+,&quot;y     z&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;z:Q&quot;, &quot;y:Q&quot;, &quot;x:Q&quot;, &quot;w:Q&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;w 20&quot;, &quot;x 20&quot;, &quot;y 20&quot;, &quot;z 20&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only token of value is token &quot;Q&quot;, but it is impossible for any robot to obtain it without being disqualified.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;a*  &quot;
+,&quot; X b&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a:X&quot;,&quot;b:X&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;a 20&quot;, &quot;b 100&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;  bY a&quot;
+,&quot;X c  Z&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;a:XYZ&quot;
+,&quot;b:XYZ&quot;
+,&quot;c:YXZ&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;a 98&quot;, &quot;b 99&quot;, &quot;c 99&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

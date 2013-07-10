@@ -1,0 +1,343 @@
+<html>
+ <head>
+  <title>MoneyExchange Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3529">Problem Statement for MoneyExchange</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You have money of <b>type1</b> and want to exchange it for money of <b>type2</b>. You are at an obscure money exchange office that offers you a number of exchange rates. The office doesn't have exchange rates for every type to every other type, but you can change multiple times (for example, first change type A for type B and then type B for type C). There may be multiple ways to change certain types for others and different ways may have different (combined) exchange rates. The exchange office is not stupid and it is impossible to make infinite amounts of <b>type2</b> by continuously exchanging. <br /><br /><br /><br /> The exchange rates are described in a String[] <b>rates</b>. Every element of <b>rates</b> is formatted is follows: &quot;type1 num1 type2 num2&quot;, with type1 and type2 consisting of only uppercase letters and num1 and num2 of only digits. Such an element in <b>rates</b> means that you can exchange num1 units of type1 for num2 units of type2. You are allowed to exchange fractional units. <br /><br /><br /><br /> What is the maximal amount of <b>type2</b> you can obtain by exchanging one unit of <b>type1</b>? Return this amount as a double. If it is impossible to obtain <b>type2</b> return -1. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MoneyExchange</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>bestRate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double bestRate(String[] rates, String type1, String type2)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Your return value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>type1</b> and <b>type2</b> each have length between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Every character in <b>type1</b> and <b>type2</b> is an uppercase letter.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>rates</b> contains between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>rates</b> has length between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>rates</b> is formatted as described in the statement.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The values represented by num1 and num2 in each element of <b>rates</b> are between 1 and 10, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>rates</b> is such that you can't make infinite amounts of <b>type2</b></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;EUR 8 USD 10&quot;, &quot;USD 10 EUR 7&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;EUR&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;USD&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.25</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">For 1 euro you can obtain 1.25 dollars.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;EUR 0008 USD 0010&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;USD&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;EUR&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This exchange office doesn't accept dollars. Beware of leading zeroes.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;EUR 8 USD 10&quot;,&quot;EUR 1 GOODBUY 2&quot;,&quot;GOODBUY 1 USD 2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;EUR&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;USD&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Instead of directly buying dollars, you'd better buy type &quot;GOODBUY&quot; first.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A 1 B 2&quot;,&quot;A 1 C 3&quot;,&quot;B 2 D 3&quot;,&quot;C 9 D 10&quot;,&quot;D 7 E 2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;A&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;E&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.9523809523809523</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;TYPEA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;TYPEB&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1.0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A 7 A 5&quot;,&quot;A 1 B 1&quot;,&quot;B 2 A 2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;A&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;A&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>type1</b> can be <b>type2</b>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

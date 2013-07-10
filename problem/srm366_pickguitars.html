@@ -1,0 +1,186 @@
+<html>
+ <head>
+  <title>PickGuitars Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8177">Problem Statement for PickGuitars</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You have been invited to a TV game show where you will play against another contestant to win free guitars. At the start of the game, there are <i>n</i> guitar cases arranged in a circle, each of which contains a single guitar. You make the first move by choosing one guitar and removing it from its case. The other player then chooses a guitar and removes it from its case. At this point, there might be one or two groups, where a group is defined as a maximal contiguous set of non-empty cases. You continue to take turns choosing guitars, and on each turn, the current player chooses exactly one guitar from each group. The game ends when all the guitars have been chosen.</p> <br /><br /> <p>Each player gets to keep all the guitars that he chooses during the game. Your goal is to maximize the total value of the guitars you choose. The guitars in the circle are numbered 0 to <i>n</i>-1 in clockwise order (guitar 0 is next to guitar <i>n</i>-1). You are given a int[] <b>guitarValues</b>, the <i>i</i>-th element of which is the value of guitar <i>i</i>. Return the maximum possible total value you can get, assuming your opponent plays a perfect strategy.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PickGuitars</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>maxValue</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int maxValue(int[] guitarValues)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>guitarValues</b> will contain between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>guitarValues</b> will be between 1 and 10000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,5,3,4,5}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You first choose guitar 4 (which has a value of 5). Your opponent chooses guitar 1 (which also has a value of 5). There are now two groups of guitars - one group contains guitar 0 and the other group contains guitars 2 and 3. You must choose one guitar from each group, so you choose guitar 0 from the first group (which has value 1) and guitar 3 from the second group (which has value 4). Your opponent will then choose the last remaining guitar, and the game is over.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{4,8,4}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Take guitar 1 (which has value 8). Your opponent will choose one of the remaining guitars (both of which have a value of 4), and you will get the other.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2,1,4,1,2,1,8,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Choose guitar 6 (which has value 8). Your opponent will choose guitar 2 (which has value 4). There are now two groups of guitars. You choose guitars 0 and 4 (both of which have a value of 2). There are now four groups, each containing one guitar, so your opponent will take all the remaining guitars.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,268 @@
+<html>
+ <head>
+  <title>BrokenCalculator Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4574">Problem Statement for BrokenCalculator</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You wish to enter a whole number onto your simple four-function calculator. Unfortunately for you, some of the keys are broken. Nonetheless, rather than buy a new calculator, you enjoy the challenge presented before you.</p> <p>Your calculator is a very primitive one, and can only display positive numbers with up to three digits. Initially, your display does not show anything, until you press a number key. Any time an operation exceeds the number 999, it causes an error, and you cannot continue.</p> <p>You are given int[] <b>keys</b>, indicating which numeric keys are still functional, and String <b>operators</b> indicating which of the four operators are available to you. Assume that the equals key is always available. Finally, you are given int <b>target</b>, indicating the number you wish to display.</p> <p>When you perform a division, your calculator performs an integer division, dropping any remainder. Thus, pressing &quot;23/7=&quot; yields 3, and &quot;3/8&quot; yields 0. Pressing the equals key completes any calculation, and any subsequent key presses after pressing equals discards the current display, and starts a new calculation.</p> <p>You are to return an int indicating the minimum number of key presses necessary to display the target number. If it is not possible to ever get your display to show the target number, return -1.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BrokenCalculator</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>fewestKeys</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], String, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int fewestKeys(int[] keys, String operators, int target)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Like most simple four function calculators, pressing any operator has the effect of performing an &quot;equals&quot; on anything entered so far, and operations are performed in exactly the order entered. Thus, 2 + 2 * 3 = evaluates to 12 (instead of 8, as with typical order of operations).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>keys</b> will contain between 1 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>keys</b> will be between 0 and 9, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two elements of <b>keys</b> will be the same.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>operators</b> will contain between 1 and 4 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of <b>operators</b> will be '+', '-', '*', or '/'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two characters of <b>operators</b> will be the same.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>target</b> will be between 1 and 999, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 1, 2, 3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;+&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, if we type &quot;2 + 3 =&quot;, our calculator will display &quot;5&quot;, thus, we need four key presses.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;+-*/&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With only a &quot;0&quot; to press, no operations will get us to the number 5.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;/-+*&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>124</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With all of the keys available to us, we need only type in the number we want. Notice that the order in which we define the operators doesn't matter.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1, 2, 4, 8}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;+-*/&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>875</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

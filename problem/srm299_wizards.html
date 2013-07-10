@@ -1,0 +1,254 @@
+<html>
+ <head>
+  <title>Wizards Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6039">Problem Statement for Wizards</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> The inhabitants of a certain magical country are known to be clever wizards. Their King decided to test how clever they really were. </p> <p> He took 3 hats (2 white and 1 black) and put 2 smart wizards around a table. He put a white hat on one of the wizards and a black hat on the other. Each wizard could see what hat was on his neighbor, but could not see what hat was on his own head. The wizards knew that there were 2 white hats and 1 black hat. The King asked: &quot;Do you know what hat is on your head?&quot;, and the wizard with the white hat answered: &quot;Yes&quot;. It's clear how he knew: he had seen the black hat on his neighbor, and knowing that there was only 1 black hat, concluded that his own hat was white. </p> <p> The King then decided to complicate their task a bit, and he put white hats on both the wizards. He asked: &quot;Do you know what hat is on your head?&quot;, and both wizards answered together: &quot;No&quot;. He asked again: &quot;Do you know what hat is on your head?&quot;, and both wizards then answered: &quot;Yes, we know. We have white hats on our heads!&quot;. How did they find out? When the question was first asked, the first wizard had seen the white hat on his neighbor, but didn't know the color of his own hat, so he answered &quot;No&quot;. After hearing his neighbor's answer to the same question, he realized that his neighbor was in the same situation. Therefore, both wizards knew that they were wearing white hats when the question was asked a second time. </p> <p> Let's consider a more general scenario. You are given an int <b>wizards</b> representing the number of wizards participating in the test, and a int[] <b>hats</b> representing all the hats possessed by the King. Each element of <b>hats</b> represents a different color, and the i<sup>th</sup> element of <b>hats</b> is the number of hats of color i. You are also given a int[] <b>hatsOnWizards</b>, the i<sup>th</sup> element of which represents the number of hats of color i that are placed on wizards' heads (each wizard will receive exactly one hat). The wizards all know what hats are initially possessed by the King. Each wizard can see the hats worn by all the other wizards, but cannot see the hat on his own head. Each time the King asks his question, the wizards all answer simultaneously, and each wizard can hear the answers given by all the other wizards. Return the number of times the King must ask his question before at least one wizard will know the color of his own hat. The King will always ask the question at least once. If no wizard will ever know the color of his own hat, return -1. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Wizards</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>questions</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int[], int[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int questions(int wizards, int[] hats, int[] hatsOnWizards)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>wizards</b> will be between 1 and 75, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hats</b> will contain between 2 and 5 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>hats</b> will be between 1 and 15, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>hatsOnWizards</b> and <b>hats</b> will contain the same number of elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>hatsOnWizards</b> will be between 0 and the corresponding element in <b>hats</b>, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>hatsOnWizards</b> will sum up to <b>wizards</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,1}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1,2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The second example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2,2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,2}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No wizard will ever know the color of his own hat.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>18</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{7,8,9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5,4,9}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

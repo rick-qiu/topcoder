@@ -1,0 +1,320 @@
+<html>
+ <head>
+  <title>TwistyPassages Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8282">Problem Statement for TwistyPassages</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You find yourself in a maze of twisty little passages, all alike. Each passage connects two rooms, and can be traveled in either direction. The rooms are all circular and look exactly the same, and the entrances to the passages are evenly spaced around the room, making it impossible to know anything except the number of passages connected to the room. Rooms with the same number of connecting passages are said to have the same <i>type</i>. The passages are so twisty that by the time you reach the other end of one, you have no idea where you are or which direction you are facing.</p> <p>You have a map of the maze, but you have no idea where you are. &quot;No problem,&quot; you think, &quot;I'll walk around the maze and deduce where I started.&quot; Suppose that you follow some path, and note the type of each room you pass through and your decisions about which passages you selected (relative to the passage you entered by). You can then trace the same route on your map for every possible starting room and orientation of that room, and see if the room types match up. You hope that by choosing the right path, you can eliminate all but one possible starting room.</p> <p>After thinking about the problem some more, you realize that some sets of rooms cannot be told apart. That is, if you started in one of them, this method would never be able to tell you which one regardless of the path you chose.</p> <p>You will be given a String[] <b>maze</b>, describing the maze. Element i of <b>maze</b> is a space-separated list of numbers, which are the numbers of the rooms connected to room i by passages. The numbers are listed in the order that they appear going clockwise around the room from an arbitrary starting point. Return a int[] containing the same number of elements as <b>maze</b>, where element i of this list is the number of other rooms that cannot be told apart from room i.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TwistyPassages</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>similarRooms</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] similarRooms(String[] maze)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>maze</b> will contain exactly N elements, where N is between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>maze</b> will contain between 0 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>maze</b> will be a space-separated list of integers, with no leading, trailing, or double spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each integer in <b>maze</b> will be between 0 and N - 1, inclusive, with no extra leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For all i between 0 and N - 1 inclusive, element i of <b>maze</b> will not contain i.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For all i and j between 0 and N - 1 inclusive, element i of <b>maze</b> will contain at most one j.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For all i and j between 0 and N - 1 inclusive, element i of <b>maze</b> will contain j if and only if element j of <b>maze</b> contains i.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2 3&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0, 2, 2, 2 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A central room with three passages leading to three dead ends. The dead ends can not be told apart.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2 3&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0 4&quot;, &quot;3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0, 0, 0, 0, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Now we add a passage to one of the dead ends. When in room 0, going down each passage will show which one is room 3 (it is the only one with 2 passages), which gives the orientation of room 0. If you started in some other room, proceed to room 0, determine its orientation, and then you will know where you started.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2 3&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0 4&quot;, &quot;3&quot;,
+ &quot;6 7 8&quot;, &quot;5&quot;, &quot;5&quot;, &quot;5 9&quot;, &quot;8&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Two disconnected copies of the previous example. It is impossible to tell corresponding rooms apart.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2 3 4&quot;,  &quot;0&quot;, &quot;0 5&quot;,  &quot;0&quot;, &quot;6 0&quot;,  &quot;2&quot;, &quot;4&quot;,
+&quot;8 10 9 11&quot;, &quot;7&quot;, &quot;7 12&quot;, &quot;7&quot;, &quot;13 7&quot;, &quot;9&quot;, &quot;11&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The two components are similar, but the order of passages around the central chamber is different and so they can be told apart.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2&quot;, &quot;2 0&quot;, &quot;0 1&quot;, &quot;4 6&quot;, &quot;5 3&quot;, &quot;6 4&quot;, &quot;3 5&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {6, 6, 6, 6, 6, 6, 6 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A triangle and a square. Since you cannot tell when you get back to your initial room, there is no way to tell which component you are in.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 2 3&quot;, &quot;4 5 0&quot;, &quot;6 7 0&quot;, &quot;8 9 0&quot;, &quot;10 11 1&quot;, &quot;12 13 1&quot;, 
+ &quot;14 15 2&quot;, &quot;16 17 2&quot;, &quot;18 19 3&quot;, &quot;20 21 3&quot;, &quot;22 23 4&quot;, 
+ &quot;24 25 4&quot;, &quot;26 27 5&quot;, &quot;28 29 5&quot;, &quot;30 31 6&quot;, &quot;32 33 6&quot;, 
+ &quot;34 35 7&quot;, &quot;36 37 7&quot;, &quot;38 39 8&quot;, &quot;40 41 8&quot;, &quot;42 43 9&quot;, 
+ &quot;44 45 9&quot;, &quot;10&quot;, &quot;10&quot;, &quot;11&quot;, &quot;11&quot;, &quot;12&quot;, &quot;12&quot;, &quot;13&quot;, &quot;13&quot;,
+ &quot;14&quot;, &quot;14&quot;, &quot;15&quot;, &quot;15&quot;, &quot;16&quot;, &quot;16&quot;, &quot;17&quot;, &quot;17&quot;, &quot;18&quot;, &quot;18&quot;,
+ &quot;19&quot;, &quot;19&quot;, &quot;20&quot;, &quot;20&quot;, &quot;21&quot;, &quot;21&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

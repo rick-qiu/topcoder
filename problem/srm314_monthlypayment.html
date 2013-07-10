@@ -1,0 +1,465 @@
+<html>
+ <head>
+  <title>MonthlyPayment Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6464">Problem Statement for MonthlyPayment</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Byterland Mobile, a mobile phone service provider, normally charges 10 cents per SMS (text message). In addition, it also offers monthly packs, which let you purchase a certain number of SMSs each month at a special price. You may purchase any number of these packs. If you exceed the number of SMSs covered by your monthly packs, the excess messages are charged at the normal rate. </p> <p> You expect to send <b>totalSMS</b> SMSs each month, and you would like to minimize your monthly payment. There are two monthly packs available. The first pack costs <b>pay1</b> cents and includes <b>pack1</b> messages, and the second pack costs <b>pay2</b> cents and includes <b>pack2</b> messages. You may purchase any combination of these packs. Remember that it is sometimes cheaper to buy more SMSs than you actually need (see example #2). Return the minimal monthly payment in cents. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MonthlyPayment</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minimalPayment</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String, String, String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long minimalPayment(String totalSMS, String pack1, String pay1, String pack2, String pay2)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For technical reasons, we cannot use long parameters, so we are using Strings instead.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>totalSMS</b> will be an integer between 0 and 10<sup>12</sup>, inclusive, with no extra leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pack1</b>, and <b>pack2</b> will each be an integer between 1 and 10<sup>12</sup>, inclusive, with no extra leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pay1</b> and <b>pay2</b> will each be an integer between 1 and 10<sup>13</sup>, inclusive, with no extra leading zeroes.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pay1</b> will be less than or equal to 20 * <b>pack1</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pay2</b> will be less than or equal to 20 * <b>pack2</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;92&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;10&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;90&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;20&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;170&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 790</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first pack offers 10 messages for 90 cents, and the second pack offers 20 messages for 170 cents. You want to buy 92 messages, so you choose one of the first pack and four of the second pack. You will pay for the remaining 2 messages at the normal rate of 10 cents each. The total price is 90 + 170*4 + 10*2 = 790 cents.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;90&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;10&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;90&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;20&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;170&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 770</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;99&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;10&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;90&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;20&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;170&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 850</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We can buy five of the second pack. The total number of SMSs covered by the purchased packs exceeds 99, but this is the cheapest way.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;10&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;11&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;20&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;300&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 100</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Packs do not lead to a cheaper way in this case.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;0&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;10&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;80&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;50&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;400&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;28&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;10&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;8&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 224</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;450702146848&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;63791&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;433956&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;115281&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;666125&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2604279739220</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">7)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;45&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;6&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;12&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;7&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;14&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 90</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

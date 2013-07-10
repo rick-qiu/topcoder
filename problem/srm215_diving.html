@@ -1,0 +1,321 @@
+<html>
+ <head>
+  <title>Diving Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2960">Problem Statement for Diving</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>In diving competitions each dive is assigned a numeric rating by 5 different judges. Each dive also has a &quot;degree of difficulty.&quot; The score for the dive is obtained by throwing out a highest and a lowest rating, and then multiplying the degree of difficulty times the sum of the remaining three ratings. <p> Each rating must be a decimal number between 0.0 and 10.0 inclusive, having exactly one digit to the right of its decimal point. Furthermore, the digit to the right of the decimal point must be a 0 or a 5. The degree of difficulty must be between 1.0 and 4.0 inclusive and have exactly one digit (possibly 0) to the right of its decimal point. Exactly 3 characters are used to express the degree of difficulty and each rating, with the exception that a rating of 10.0 uses 4 characters. </p><p> We know the score that our diver needs on her final dive to win a medal. We know the degree of difficulty of her final dive. But when the ratings appear on the scoreboard, one of the ratings appears as &quot;?.?&quot; due to an electronic malfunction. What is the smallest legal rating from that judge that will result in a medal? </p><p> Create a class Diving that contains a method needed that is given a String <b>difficulty</b>, the degree of difficulty, a String <b>need</b> that is the score needed for a medal expressed with exactly 2 digits to the right of its decimal point, and a String <b>ratings</b> containing the 5 ratings given to our diver except that one of them appears as &quot;?.?&quot;. <b>ratings</b> will have no leading or trailing spaces and will have exactly one space between its 5 parts. </p><p> The method returns the smallest legal rating that would result in a medal for our diver, expressed as a String as described above. If no legal rating would give her a medal, return &quot;-1.0&quot;. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Diving</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>needed</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String needed(String difficulty, String need, String ratings)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>difficulty</b> will be a legally expressed degree of difficulty.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>need</b> will be a value between 0 and 120 inclusive and will contain a decimal point followed by exactly two digits.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>need</b> will contain no more than 6 characters (but may have leading zeroes).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>ratings</b> will consist of 4 legally expressed ratings and &quot;?.?&quot;, separated by 4 single spaces (' ').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;3.2&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;50.32&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;5.5 7.5 10.0 ?.? 4.5&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;0.0&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> Even if the unknown rating is thrown out as the low rating, the resulting score is 3.2*(5.5+7.5+4.5) which exceeds the needed score of 50.32. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;3.2&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;50.32&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;5.5 5.5 10.0 ?.? 4.5&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;5.0&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> If the unknown rating is no help, then our score would be 3.2*(5.5 + 5.5 + 4.5) = 49.60 which is too low. If the unknown rating is 5.0, then it will replace the 4.5 yielding a score of 3.2*(5.5+5.5+5.0) = 51.2 which is enough for a medal. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;4.0&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;120.00&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;9.5 10.0 ?.? 10.0 10.0&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;10.0&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> We need to be able to count 3 ratings of 10.0 to achieve 120.00. One of the existing 10.0's will be thrown out as the high rating, so we need a perfect 10.0 to get a medal.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;4.0&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;120.00&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;9.5 10.0 ?.? 9.5 10.0&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;-1.0&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> Even a 10.0 will leave us short of the needed score of 120.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;2.3&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;.01&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;0.0 0.0 ?.? 0.0 0.5&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;0.5&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;3.3&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;47.85&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;0.5 5.5 3.5 7.0 ?.?&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;5.5&quot;</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

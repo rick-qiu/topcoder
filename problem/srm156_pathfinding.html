@@ -1,0 +1,343 @@
+<html>
+ <head>
+  <title>PathFinding Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1110">Problem Statement for PathFinding</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Given a board consisting of empty space, walls, and the starting positions of two players A and B, determine the minimum number of turns it will take for players A and B to switch positions on the board.</p> <p>During a turn, one or both players may take a step. A step is defined as a unit movement up, down, left, right, or in any of the four diagonals. Players may not step into walls or off the board. Players may never share the same square at the end of a turn. Players may not cross paths during a turn. Crossing paths occurs when players A and B switch positions in a single turn. For example, assume player A is in the upper left corner of the board, and player B is in the square immediately to his right. Player A may not move right while player B moves left, since they would be passing each other. Player A can, however, move right if player B moves in any other direction.</p> <p>You will be given a String[] <b>board</b>, representing the game board. <b>board</b> will contain exactly one 'A' and exactly one 'B'; each other character will be either '.' (empty space), or 'X' (a wall). Your method should return the minimum number of turns necessary for players A and B to switch positions, or -1 if this is impossible.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PathFinding</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minTurns</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int minTurns(String[] board)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>(In the following notes, assume that the coordinate system is given as (<i>row</i>, <i>col</i>). For example, the upper-left corner of the board is (0,0), and the square immedately below it is (1,0).)</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If player A is at (0,0) and player B is at (0,1), player A <i>would</i> be allowed to move down-right at the same time that player B moves down-left. This is not considered crossing paths, even though the two players would meet at (0.5, 0.5).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>However, if player A is at (0,0) and player B is at (1,1), player A <i>would not</i> be allowed to move down-right at the same time that player B moves up-left. This is considered crossing paths because players A and B have switched positions at the end of a single turn.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>It is permissible to move diagonally through walls. That is, a player may move from (0,0) to (1,1) even if there are walls at (0,1) and (1,0).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain between 2 and 20 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain between 2 and 20 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will consist of only the characters '.', 'X'. 'A', and 'B'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain exactly one 'A' and exactly one 'B'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;....&quot;,
+ &quot;.A..&quot;,
+ &quot;..B.&quot;,
+ &quot;....&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>There are many ways to switch positions in two turns. For example, on turn one, player A could move right while player B moves up-right. Then, on turn two, player A could move down while player B stays where he is. It is illegal for the players to switch positions in a single turn. Therefore, the method returns 2.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;XXXXXXXXX&quot;,
+ &quot;A...X...B&quot;,
+ &quot;XXXXXXXXX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Since the players cannot reach each other, they obviously cannot switch positions.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;XXXXXXXXX&quot;,
+ &quot;A.......B&quot;,
+ &quot;XXXXXXXXX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Even though the players can reach each other, there is still no way for player B to ever get on the left side of player A.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;XXXXXXXXX&quot;,
+ &quot;A.......B&quot;,
+ &quot;XXXX.XXXX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><p>Players A and B spend the first three turns moving towards each other. On turn four, player A moves down-right while player B moves left. On turn five, player A moves up-right while player B moves left. It then takes three more turns of the players moving away from each other before they have switched positions, for a total of 8 turns.</p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...A.XXXXX.....&quot;,
+ &quot;.....XXXXX.....&quot;,
+ &quot;...............&quot;,
+ &quot;.....XXXXX.B...&quot;,
+ &quot;.....XXXXX.....&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;AB.................X&quot;,
+ &quot;XXXXXXXXXXXXXXXXXXX.&quot;,
+ &quot;X..................X&quot;,
+ &quot;.XXXXXXXXXXXXXXXXXXX&quot;,
+ &quot;X..................X&quot;,
+ &quot;XXXXXXXXXXXXXXXXXXX.&quot;,
+ &quot;X..................X&quot;,
+ &quot;.XXXXXXXXXXXXXXXXXXX&quot;,
+ &quot;X..................X&quot;,
+ &quot;XXXXXXXXXXXXXXXXXXX.&quot;,
+ &quot;X..................X&quot;,
+ &quot;.XXXXXXXXXXXXXXXXXXX&quot;,
+ &quot;X..................X&quot;,
+ &quot;XXXXXXXXXXXXXXXXXXX.&quot;,
+ &quot;X..................X&quot;,
+ &quot;.XXXXXXXXXXXXXXXXXXX&quot;,
+ &quot;X..................X&quot;,
+ &quot;XXXXXXXXXXXXXXXXXXX.&quot;,
+ &quot;...................X&quot;,
+ &quot;.XXXXXXXXXXXXXXXXXXX&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 379</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

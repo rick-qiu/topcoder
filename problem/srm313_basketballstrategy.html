@@ -1,0 +1,327 @@
+<html>
+ <head>
+  <title>BasketballStrategy Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6546">Problem Statement for BasketballStrategy</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> <i>This problem statement contains images, subscripts and superscripts that may appear incorrectly or not appear at all in some plugins. In that case, use the standard view in the arena to see it correctly.</i> </p><p> In a simplified version of basketball the goal is to score by getting the ball in a special scoring place. There are two teams, and each team contains the same number of players. When a player has possession of the ball, he has two choices: take a shot, or pass the ball to a teammate. When taking a shot, the player throws the ball in a straight line to the scoring place. When passing the ball, he throws the ball in a straight line to the target teammate. In both cases, at most one of the rival players will try to intercept the shot or pass. </p><p> The probability of a pass being successful is:<br /><br /> <i>C<sub>p</sub></i> * (1 - (<i>ls</i> / 150)<sup>2</sup>) * <i>dr</i> / (<i>dr</i> + 1)<br /><br /> And the probability of a shot being successful (score) is:<br /><br /> (<i>C<sub>s</sub></i> * <i>dr</i> / (<i>dr</i> + 1))<sup>ln(<i>ls</i>)</sup><br /><br /> Where <i>C<sub>p</sub></i> and <i>C<sub>s</sub></i> are constants defined for the problem instance, <i>ls</i> is the length of the shot or pass, <i>dr</i> is the distance between the intercepting rival and the ball trajectory and ln is the natural logarithm (logarithm in base <i>e</i>). </p><p> When trying to intercept a shot or a pass, only the best suitable player of the other team to do so (i.e., the one that produces the lowest <i>dr</i>) will try. If no player on the other team can do it, the factor <i>dr</i>/(<i>dr</i>+1) in the formula is considered to have a value of 1 (i.e., it is ignored). A player of the rival team is only allowed to try to intercept the ball if the line that passes through him and is perpendicular to the ball trajectory intersects the trajectory at some point between the two endpoints of the trajectory, inclusive. </p><p> For example, in this picture:<br /><br /> <img src="http://www.topcoder.com/contest/problem/BasketballStrategy/img.PNG" /><br /><br /> There are 3 players in each team, green players are your team and red players are rivals. Player 0 has the ball and has 3 options marked as blue lines, 2 passes and taking a shot. The shot, if taken, can be intercepted by any of the rivals, but only number 2 will try because he is clearly the nearest. The pass to player 1 is impossible to intercept for the rivals, because any player that can intercept that pass should be inside the gray area. The pass to player 2 can be intercepted by rivals 1 or 2. Rival player 0 is not on an intersecting perpendicular line, so he cannot try to intercept it. In this last case, rival 1 will try to intercept because he is nearer than rival 2. </p><p> You will be given two String[]s <b>team</b> and <b>rivals</b> with the same number of elements representing the members of each team. Each element of <b>team</b> and <b>rivals</b> will be in the format &quot;X Y&quot; where X and Y will be positive integers with no leading zeroes representing the x and y coordinates of that player in the field. You will also be given <b>Cp</b> and <b>Cs</b>, the constants for the probability calculations of each type of movement. When the game starts, the ball is in possession of the player on your team with index 0. The scoring place is at X=50, Y=0. Your team is only allowed to take one shot, and you are to determine and return the probability that your team will score if it follows the best strategy. A strategy consists of zero or more passes followed by a shot. If your team loses the ball at any point during the strategy, you will not score. See examples for further clarification. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BasketballStrategy</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>scoreProbability</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[], double, double</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double scoreProbability(String[] team, String[] rivals, double Cp, double Cs)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must be accurate to within a relative or absolute value of 1E-9.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Pictures are just approximations. The players are considered to be perfect points with 0 surface and 0 length and trajectories and other lines are perfect lines with 0 surface.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The same rival may try to intercept many passes along the game (see example 3 for further clarification).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>team</b> and <b>rivals</b> will each contain exactly N elements, where N is between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>team</b> and <b>rivals</b> will be two integers between 1 and 99, inclusive, with no leading zeroes, separated with exactly one space character, with no leading or trailing spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>team</b> and <b>rivals</b> together will be distinct.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>Cp</b> and <b>Cs</b> will each be greater than 0 and less than or equal to 1.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;50 50&quot;,&quot;35 60&quot;,&quot;70 15&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;75 5&quot;,&quot;72 25&quot;,&quot;45 17&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.6100612919616956</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement. The best strategy is to pass the ball to player 2 and make him shoot.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;50 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;50 5&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0.99</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0.5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.3825461314703953</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There's no teammate to pass the ball to, so you must take the shot directly. Since the only rival player is not in a position to intercept, the probability of making the shot is 0.5<sup>ln(4)</sup>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;50 4&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;50 3&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0.5</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0.5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You can't pass the ball and your rival can perfectly block you; therefore it's impossible to score.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;50 50&quot;,&quot;40 50&quot;,&quot;40 40&quot;,&quot;40 30&quot;,&quot;50 20&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;50 41&quot;,&quot;44 29&quot;,&quot;48 27&quot;,&quot;45 41&quot;,&quot;48 64&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0.999999</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0.8</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.25546407305110735</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This picture illustrates the locations. The best strategy is marked in blue and the pink lines show possible interception lines from a nearest rival. Note that passes 2-3 and the shot taken by player 4 cannot be intercepted.<br /><br /> <img src="http://www.topcoder.com/contest/problem/BasketballStrategy/img2.PNG" /><br /><br /> Here player 0 cannot take a shot because he will always be blocked. You should try to get the ball to player 4 so he can take the shot instead. Note that in this case it is better to make more passes and get to player 4 for the shot because the difficulty of longer passes and shots makes other strategies less likely to succeed.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;50 50&quot;,&quot;50 25&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;40 40&quot;,&quot;60 20&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0.7</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.20631213370921644</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Note that getting closer can be better even if you are good at taking shots.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

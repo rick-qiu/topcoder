@@ -1,0 +1,245 @@
+<html>
+ <head>
+  <title>HiddenNumbers Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3075">Problem Statement for HiddenNumbers</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You are part of a data-mining operation that only cares about numbers as data. As such, you have been assigned to write a program that gets a long chunk of text and searches for all the numbers in the text. Because your boss cares more about large numbers, he only wants you to give him the larger half of the numbers.</p> <p>You are given a String[] <b>text</b>, the lines of text to be searched for numbers, and you are to find and return the larger half of the numeric substrings in <b>text</b>. Numeric substrings should never overlap, and you should always use the longest possible contiguous sequence of numbers. For instance, <tt>&quot;sk12345fj&quot;</tt> has just one numeric substring - <tt>&quot;12345&quot;</tt>. <tt>&quot;sk12 345fj&quot;</tt> has 2 - <tt>&quot;12&quot;</tt> and <tt>&quot;345&quot;</tt>. If there are an odd number of numeric substrings in <b>text</b>, you will return <tt>(n+1)/2</tt> strings. These numbers should be sorted in ascending order of numeric value, and returned with any leading zeros intact. If two numbers found in <b>text</b> have the same numeric value but have different numbers of leading zeros, the one with fewer leading zeros should be considered &quot;less&quot;. It is possible for numbers to wrap across lines - if one line ends in a number and the next one begins with a number, these are consecutive parts of the same number.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>HiddenNumbers</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findAll</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] findAll(String[] text)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>While the input will be no more than 50 elements, your return value may have more than 50 elements.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>text</b> will have between 0 and 50 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>text</b> will have between 0 and 50 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of text will contain only digits ('0'-'9'), letters ('a'-'z', 'A'-'Z'), and spaces (' ').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All of the numbers hidden in <b>text</b> will be between 0 and 2<sup>63</sup>-1, but they may have leading zeros.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;098m03r9f80239802389f0m9KDKLKLJDKLJm0983m890DMOm03&quot;,
+ &quot;dlkfj3hljf4h3klhl  4j4 444 44  rjhkrrkr34534539893&quot;,
+ &quot; 390804980498409480 dkldjkl djkl djkl d00000002998&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;9&quot;,
+ &quot;44&quot;,
+ &quot;098&quot;,
+ &quot;444&quot;,
+ &quot;890&quot;,
+ &quot;0983&quot;,
+ &quot;00000002998&quot;,
+ &quot;34534539893&quot;,
+ &quot;80239802389&quot;,
+ &quot;390804980498409480&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Most of the omitted numbers are one-digit numbers.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;39 000220 30 skldjdije939939slkk 3090 2912kjdk3949&quot;,
+ &quot;dlkjd dkljsl098 dkd3 23kdkdkl 0000002222kdjdie9000&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0000002222&quot;,  &quot;2912&quot;,  &quot;3090&quot;,  &quot;3949&quot;,  &quot;9000&quot;,  &quot;939939&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Be careful about using the length of the string to compare the numeric values - leading zeros can mess you up!</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is a shorter one.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0022 22k00022a022&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;0022&quot;,  &quot;00022&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

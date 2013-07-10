@@ -1,0 +1,270 @@
+<html>
+ <head>
+  <title>Mixture Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3942">Problem Statement for Mixture</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are trying to create a very precise mixture of a number of different chemicals. The exact amounts of the chemicals are given as a int[], <b>desiredMixture</b>, where <b>desiredMixture[i]</b> indicates how much of chemical i is required. You will be given a String[], <b>availableMixtures</b>, each element of which represents a mixture of chemicals that may be purchased (the chemical components for the mixture might not be available in pure form). Each element of <b>availableMixtures</b> will be formatted as a single-space separated list of integers, where the i<sup>th</sup> integer in <b>availableMixtures[j]</b> indicates how much chemical i is present in mixture j. Additionally, there will be one extra, final integer in each element of <b>availableMixtures</b> indicating the price of that mixture. You need not purchase the available mixtures in integral amounts. Hence if an element of <b>availableMixtures</b> were &quot;3 5 9&quot;, you could purchase a mixture with 3 units of chemical 0 and 5 units of chemical 1 for a price of 9, and you could also purchase a mixture with 1.5 units of chemical 0 and 2.5 units of chemical 1 for a price of 4.5.<br /><br /><br /><br /> Your task is to determine the lowest price that the desired mixture can be achieved for. If it is impossible to achieve the desired mixture, return -1. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Mixture</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>mix</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double mix(int[] mixture, String[] availableMixtures)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>mixture</b> will contain between 1 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>mixture</b> will be between 1 and 10, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>availableMixtures</b> will contain between 1 and 10 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>availableMixtures</b> will be formatted as N+1 single-space separated integers, where N is the number of elements in <b>mixtures</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each integer in <b>availableMixtures</b> will be between 0 and 10, inclusive, with no extra leading zeros.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,2,3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 0 0 1&quot;,&quot;0 1 0 2&quot;,&quot;0 0 1 3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, there are three chemicals, and each one is available in only its pure form. Given the prices of the three chemicals and the desired quantities, the total cost is 1*1+2*2+3*3=14.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,2,3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 0 0 1&quot;,&quot;0 1 0 2&quot;,&quot;0 0 1 3&quot;,&quot;2 2 2 4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 10.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here, it is cheaper if we buy some of the mixture of all three chemicals.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,1,1,1,1,1,1,1,1,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;10 9 9 9 9 9 9 9 9 10 0&quot;,
+ &quot;0 10 9 9 9 9 9 9 9 0 0&quot;,
+ &quot;0 0 10 9 9 9 9 9 9 0 0&quot;,
+ &quot;0 0 0 10 9 9 9 9 9 0 0&quot;,
+ &quot;0 0 0 0 10 9 9 9 9 0 0&quot;,
+ &quot;0 0 0 0 0 10 9 9 9 0 0&quot;,
+ &quot;0 0 0 0 0 0 10 9 9 0 0&quot;,
+ &quot;0 0 0 0 0 0 0 10 9 0 0&quot;,
+ &quot;0 0 0 0 0 0 0 0 10 1 0&quot;,
+ &quot;0 0 0 0 0 0 0 0 0 10 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This mixture is impossible. It can almost be achieved, but the closest you can get is to have the right amount of the first 9 chemicals, but just a little bit too much of the last one.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{7,7,8,10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;9 0 4 8 4&quot;,
+ &quot;8 8 9 0 1&quot;,
+ &quot;0 10 3 10 7&quot;,
+ &quot;10 2 2 0 1&quot;,
+ &quot;8 9 10 2 6&quot;,
+ &quot;1 2 5 8 8&quot;,
+ &quot;4 7 8 9 6&quot;,
+ &quot;2 10 6 8 10&quot;,
+ &quot;6 3 9 7 1&quot;,
+ &quot;3 6 9 9 1&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3.5855425945563804</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The following table shows which mixtures to purchase to achieve the desired mixture as cheaply as possible: <pre>
+ i | amount
+---+--------
+ 0 | 202  / 943
+ 2 | 239  / 943
+ 3 | 595  / 1886
+ 9 | 1808 / 2829
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

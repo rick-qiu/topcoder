@@ -1,0 +1,271 @@
+<html>
+ <head>
+  <title>RaceManagement Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7822">Problem Statement for RaceManagement</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Your company runs a horse race betting service. Each person bets on a horse, and if that horse wins outright (i.e., it wins alone and doesn't tie for the win with any other hose), the person will win back their money plus a multiple of the amount they bet. This multiple is called a payout factor. In all other cases your company keeps the money. You are given a int[] <b>probability</b> and a int[] <b>amounts</b>. The i<sup>th</sup> element of <b>probability</b> is the percentage chance of the i<sup>th</sup> horse winning the race, and the i<sup>th</sup> element of <b>amounts</b> is the amount bet on the i<sup>th</sup> horse. These probabilities are independent (see example 1 for clarification). Return the highest payout factor such that the expected earnings of the company is <b>minimumMoney</b> or higher. If you can not achieve <b>minimumMoney</b> with a non-negative payout factor, then return -1. If you can achieve <b>minimumMoney</b> with any payout factor, then return -2.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RaceManagement</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getPayoutFactor</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double getPayoutFactor(int[] probability, int[] amounts, int minimumMoney)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>probability</b> will contain between 1 and 5 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>probability</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>amounts</b> will be between 0 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>amounts</b> will contain the same number of elements as <b>probability</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The sum of all the elements in <b>probability</b> will be at most 100.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>minimumMoney</b> will be between 0 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{30}	</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Horse 1 has a 30% chance of winning. If it wins, the company has to pay out 100*P dollars, where P is the payout factor, and if it doesn't win, the company gains 100 dollars. Thus, the expected earnings of the compay is 70-30*P. The highest payout factor that ensures this is at least 10 is 2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{50,40}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{300,200}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2.076923076923077</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Horse A has a 50% chance of winning and horse B has a 40% chance of winning. But this also means that there is a 20% chance they tie and a remaining 30% chance neither of them wins. <br /><br /> <br /><br /> Thus, in this scenario, 4 cases arise <br /><br /> Horse A wins 30% chance =&gt; The company loses 300*P dollars and gains 200 dollars <br /><br /> Horse B wins 20% chance =&gt; The company loses 200*P dollars and gains 300 dollars <br /><br /> Horse A &amp; B both win (tie) 20% chance =&gt; The company loses 0*P dollars and gains 500 dollars <br /><br /> Neither Horse A nor horse B wins (No result) 30% chance =&gt; The company loses 0*P dollars and gains 500 dollars <br /><br /> <br /><br /> To ensure the expected earnings are at least 100, the payout factor P can be at most approximately 2.077.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{50}	</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Return -1 because the payout factor in this case will be negative. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{100}	</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -2.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The payout factor is irrelevant. The company always gains 100 dollars.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

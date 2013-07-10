@@ -1,0 +1,312 @@
+<html>
+ <head>
+  <title>HanoiTower Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10573">Problem Statement for HanoiTower</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>In this problem we consider a modification of the classical Hanoi Towers game. The rules of our modification are as follows:</p> 
+      <ul> 
+       <li>There are three pegs: peg A, peg B and peg C.</li> 
+       <li>Each peg initially contains zero or more discs.</li> 
+       <li>All discs have the same size and there are three types of discs: type A, type B and type C.</li> 
+       <li>In one move you can move a disc from the top of one peg onto the top of another peg.</li> 
+       <li>Your goal is to have all discs of type A on peg A, all discs of type B on peg B and all discs of type C on peg C.</li> 
+       <li>You must achieve your goal in the minimum possible number of moves.</li> 
+      </ul> <p>The initial locations of the discs are given in the Strings <b>pegA</b>, <b>pegB</b> and <b>pegC</b>. Each character of <b>pegA</b> represents a disc located on peg A, where 'A' represents a disc of type A, 'B' represents a disc of type B and 'C' represents a disc of type C. The discs are given in order, from bottom to top. <b>pegB</b> and <b>pegC</b> describe the discs on pegs B and C, respectively, in the same format.</p> <p>Return the minimum number of moves required to achieve the goal of the game.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>HanoiTower</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>moves</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String, String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int moves(String pegA, String pegB, String pegC)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>It's always possible to achieve the goal of the game.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>pegA</b>, <b>pegB</b> and <b>pegC</b> will contain only the characters 'A', 'B' and 'C'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The total number of characters in <b>pegA</b>, <b>pegB</b> and <b>pegC</b> will be between 1 and 10, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;A&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;AA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;AA&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Move all discs of type A to peg A directly.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;B&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;C&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;A&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is exactly one disc of each type in this example, so we will refer to each disc by its type. The following sequence of moves is the shortest: <pre>1. Move disc A to peg A.
+2. Move disc C to peg C.
+3. Move disc A to peg C.
+4. Move disc B to peg B.
+5. Move disc A to peg A.</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;CBA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Again, there is exactly one disc of each type here, so we will refer to each disc by its type. The following sequence of moves is the shortest: <pre>1. Move disc A to peg C.
+2. Move disc B to peg B.
+3. Move disc A to peg B.
+4. Move disc C to peg C.
+5. Move disc A to peg A.</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;BBBBBBBBBA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 11</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Move the disc of type A to peg C. Then move all discs of type B to peg B. Finally, move disc A back to peg A. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;CBACBACBAA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 19</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

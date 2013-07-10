@@ -1,0 +1,349 @@
+<html>
+ <head>
+  <title>BuildersCountry Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10178">Problem Statement for BuildersCountry</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>There's a far away country where only builders live. They have built a number of cities already, and some of them are connected with bidirectional roads. The existing roads are given in the String[] <b>g</b>, where the j-th character of the i-th element is 'Y' if there's a bidirectional road connecting cities i and j, and 'N' otherwise. Each city contains a number of houses, given in the int[] <b>before</b>, where the i-th element is the number of houses in city i. Exactly one builder lives in each house.</p> <br /><br /> <p>The country will go through a two-phase building process. In the first phase, new bidirectional roads will be built so that every pair of cities will be connected by some path. When a road is built between two cities, every builder from both cities will be involved and each builder will be paid <b>roadCost</b> units of money.</p> <br /><br /> <p>In the second phase, new houses will be built. You are given a int[] <b>after</b>, where the i-th element is the number of houses that must exist in city i after this phase is complete. In other words, <b>after</b>[i] - <b>before</b>[i] new houses must be built in city i during this phase. When a house is built, all builders in that city and all its neighboring cities will be involved and each one will be paid <b>houseCost</b>[i] units of money. Two cities are neighboring if they are directly connected by a road. After each house is built, a new builder will immediately live in that house. Houses can be built in any order.</p> <br /><br /> <p>Return the minimal possible cost required to finish both phases of the building process.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BuildersCountry</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minCost</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int[], String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long minCost(int[] before, int[] after, int[] houseCost, String[] g, int roadCost)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>before</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>before</b> will be between 1 and 100000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>after</b> will contain the same number of elements as <b>before</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th element of <b>after</b> will be between the i-th element of <b>before</b> and 100000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>houseCost</b> will contain the same number of elements as <b>before</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>houseCost</b> will be between 1 and 100000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>g</b> will contain the same number of elements as <b>before</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>g</b> will contain exactly n characters, where n is the number of elements in <b>g</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>g</b> will contain only uppercase letters 'Y' and 'N'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the i-th element of <b>g</b> will always be 'N'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the j-th element of <b>g</b> will always be equal to the j-th character of the i-th element of <b>g</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>roadCost</b> will be between 1 and 100000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2, 1, 3, 5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2, 1, 3, 5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{4, 5, 3, 2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NNNN&quot;, &quot;NNNN&quot;, &quot;NNNN&quot;, &quot;NNNN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 13000</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We can build roads from city 1 to all other cities for a total cost (1+2)*1000 + (1+3)*1000 + (1+5)*1000 = 13000. All houses are already built.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1, 1, 1, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 3, 1, 2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{8, 5, 3, 2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NYNN&quot;, &quot;YNYN&quot;, &quot;NYNY&quot;, &quot;NNYN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>100000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 39</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We don't need to add any roads. If we build one house in city 1, we need to pay 5*(1+1+1). After that, build one house in city 3 for a cost of 2*(1+1). Then, build another house in city 1. This time, the cost will be 5*(1+2+1) since 2 workers now live in city 1. The total cost is 15+4+20=39.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{9, 11}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10, 11}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NN&quot;, &quot;NN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>15</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 400</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Build one road and build one house.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;N&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>888</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 999000</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Build 999 houses. Total cost is (1+2+...+999)*2 = 999000.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{99, 23, 44, 55, 32}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{99, 23, 44, 55, 32}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{39, 32, 11, 23, 89}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NYNNN&quot;, &quot;YNNNY&quot;, &quot;NNNYY&quot;, &quot;NNYNY&quot;, &quot;NYYYN&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>54</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,230 @@
+<html>
+ <head>
+  <title>ImageSteganography Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3094">Problem Statement for ImageSteganography</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Steganography is a method of cryptography where a message or entire document can be hidden inside of another file or image which shows no evidence that there is data hidden in it. Typically, the message or document to be sent is first encrypted and compressed, and then combined with an existing file in the bits that are less significant.</p> <p>For example, the encrypted, compressed file could be combined with a bitmap image, and each byte of the file could be encrypted into the lowest two bits of 4 pixel values. The result would be that there is a 1/4 chance that a given pixel is completely unchanged, and a 3/4 chance that it is changed, but by such a small amount that it is essentially undetectable.</p> <p>While it is not as secure or efficient, you could quite easily encrypt a message into a bitmap image with no encryption or compression, and your message would be protected by the fact that the image has no distinguishable traits that suggest that a message is hidden in it. You will be given an &quot;image&quot; and you will encode a given message into it and return the new image. The returned image should be in the same format as the original image.</p> <p>The <b>image</b> will be in the format of a String[] where each three digits represent a number from 0 to 255, inclusive (leading zeros will be added as necessary), which is a pixel value in the image. You will also be given a String, <b>message</b> which contains the message you would like to encode into the image. You will first encode the <b>message</b> into numbers representing the characters in the <b>message</b> - spaces will be 0, 'A'-'Z' will be 1-26, 'a'-'z' will be 27-52, '0'-'9' will be 53-62, and 63 will be used for any space after the message. All these numbers can be represented in binary with 6 digits. You will put each pair of bits (representing a number between 0 and 3) into the lowest two bits of the values in the image. For each character, you will put in the lowest two bits, then the middle two, then the highest two, and then continue to the next character. You will put them in the lowest two bits of the first pixel on the first row, then the second pixel on the first row, and so on until you get to the end of the first row, then the first pixel on the second row, and so on. Once you are out of characters, continue substituting the lowest two bits of each pixel value as if the current character were represented by number 63.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ImageSteganography</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>encode</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] encode(String[] image, String message)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number of pixels in <b>image</b> may not be a multiple of 3, but you should continue inserting the message as if there was room to finish the last character.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>image</b> will have between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number of characters in each element of <b>image</b> will be a multiple of 3 between 3 and 48, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>message</b> will have between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be enough room in <b>image</b> to encode <b>message</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>image</b> will be made up of 3-digit numbers between 0 and 255, inclusive, padded with zeros if necessary.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The characters in <b>message</b> will be spaces, numbers, and upper- and lower-case letters.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;255123212001201222&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;hi&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;254120214003200222&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This single-pixel-thick image is still big enough to encode this message.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;255123212&quot;,&quot;001201222&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;hi&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;254120214&quot;,  &quot;003200222&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Same message, but with the second letter on a different row.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;123234213001023213123145&quot;,
+ &quot;222111121101213198009&quot;,
+ &quot;121122123124125&quot;,
+ &quot;132212093039&quot;,
+ &quot;213110&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre> &quot;Hello 1&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;120234212003023213122145&quot;,
+ &quot;222110121102213198010&quot;,
+ &quot;120120120126125&quot;,
+ &quot;135215095039&quot;,
+ &quot;215111&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Notice that the image doesn't strictly need to be rectangular, letters from the message might need to wrap to multiple lines, and the whole image may not have a multiple of 3 &quot;pixels&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

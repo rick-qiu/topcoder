@@ -1,0 +1,162 @@
+<html>
+ <head>
+  <title>TopCan Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1729">Problem Statement for TopCan</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><i>This problem contains an image.</i> <br /><br /><br /><br /> TopCan, Inc. is a major producer of food. It produces all kinds of food than can be filled into a can: pineapples, mushrooms, peas, etc. However, business is not going well, so they are looking for ways to make production cheaper. An important expense factor is the amount of material needed for producing the can, which directly depends on the surface area of the can. Currently, cans are produced in all imaginable shapes and sizes, but to reduce cost, the company thinks about producing only cans in the shape of a cylinder (as shown below). So to be able to decide whether production should be changed TopCan wants to know, for a given volume, the minimal surface area possible of such a can. As the company's brightest employee, this task has been assigned to you. <br /><br /> <br /><br /> Given an int <b>volume</b>, return a double, the minimal surface area possible of a cylinder that has the given volume. <br /><br /> <br /><br /> <img src="http://www.topcoder.com/contest/problem/TopCan/TopCan.gif" /><br /><br /></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TopCan</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>minSurface</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double minSurface(int volume)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Consider the material the can is made of to be infinitely thin.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Some formulas for your convenience:<br /><br />r: radius of the circle being the base of the cylinder<br /><br />h: height of the cylinder<br /><br />Volume V = h * PI * r<sup>2</sup><br /><br />Surface S = 2 * PI * r * (r + h)</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If not provided by a library, use the value of 2*acos(0) for PI.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Reminder:<br /><br />If your result is within 10<sup>-9</sup> of the expected result, your solution will be evaluated as correct.<br /><br />If your result is between (1+10<sup>-9</sup>)*expected and (1-10<sup>-9</sup>)*expected, it will be evaluated as correct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>volume</b> will be between 1 and 100000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 25.694955950835347</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">For a volume of 10, the cylinder has a height of about 2.3351 and the base circle has a radius of about 1.1675.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 40.78820010663257</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

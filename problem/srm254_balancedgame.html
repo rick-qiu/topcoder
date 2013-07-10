@@ -1,0 +1,289 @@
+<html>
+ <head>
+  <title>BalancedGame Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4617">Problem Statement for BalancedGame</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You will be given a String[], <b>conflicts</b>, where each element represents a single player in a multiplayer game. Element i represents player i, and character j of element i represents whether player i will win ('W'), tie ('T'), or lose ('L') against player j. <br /><br /><br /><br /> Your task is to ensure that each player wins against at least <b>p</b>% of the other players, and loses against at least <b>q</b>% of the other players. You should return the 0-based index of the first player in the input (lowest index) that does not meet these requirements, or -1 if all players meet them. Note that if there are N players total, then at least ceil((N-1)*<b>p</b>/100) of the characters in element i must be 'W' for player i to meet the requirements. The formula for losses is analogous. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>BalancedGame</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>result</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int result(String[] conflicts, int p, int q)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the i-th element of <b>conflicts</b> will always be 'T' and can be ignored.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The function 'ceil' in ceil((N-1)*<b>p</b>/100) returns the least integer greater than or equal to its argument. For example, ceil(1.5)=2 and ceil(4)=4.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>p</b> and <b>q</b> will be between 0 and 100, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>conflicts</b> will have between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>conflicts</b> will have the same number of characters ('W', 'L' and 'T') as the number of elements in <b>conflicts.</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If the j-th character of the i-th element of <b>conflicts</b> is 'W', 'L', or 'T' then the i-th character of the j-th element will be 'L', 'W' or 'T' respectively.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the i-th element of <b>conflicts</b> will always by 'T'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;TWWW&quot;,
+ &quot;LTWW&quot;,
+ &quot;LLTW&quot;,
+ &quot;LLLT&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+            <tr>
+             <td><pre>20</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Player 0 cannot lose and player 3 cannot win, so these players are not balanced. Return the lowest index of an unbalanced player.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;TWWW&quot;,
+ &quot;LTWW&quot;,
+ &quot;LLTW&quot;,
+ &quot;LLLT&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Now there are no balancing constraints, so even though player 0 cannot lose and player 3 cannot win, the characters are balanced.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;TTT&quot;,
+ &quot;TTT&quot;,
+ &quot;TTT&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Even with such lax balancing constraints, a perfectly matched set of characters is not balanced in the sense we are looking for.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;TLLLLLTWWWWTLLWWWT&quot;,
+ &quot;WTTWTTLLWLLWWLTLWW&quot;,
+ &quot;WTTWWTLWTWLWWWWLTW&quot;,
+ &quot;WLLTLTWWWTWLWLLWLT&quot;,
+ &quot;WTLWTLWWWWLLWLLWTW&quot;,
+ &quot;WTTTWTWLLWTLLWWWLW&quot;,
+ &quot;TWWLLLTLLWTWWWLLWW&quot;,
+ &quot;LWLLLWWTWLLWWLLLWT&quot;,
+ &quot;LLTLLWWLTTWLTWTLWT&quot;,
+ &quot;LWLTLLLWTTTLLLLWTW&quot;,
+ &quot;LWWLWTTWLTTTLLWWLL&quot;,
+ &quot;TLLWWWLLWWTTLWTTLL&quot;,
+ &quot;WLLLLWLLTWWWTWLLWW&quot;,
+ &quot;WWLWWLLWLWWLLTTWLL&quot;,
+ &quot;LTLWWLWWTWLTWTTTWT&quot;,
+ &quot;LWWLLLWWWLLTWLTTLW&quot;,
+ &quot;LLTWTWLLLTWWLWLWTW&quot;,
+ &quot;TLLTLLLTTLWWLWTLLT&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>18</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 17</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,299 @@
+<html>
+ <head>
+  <title>RectangleCrossings Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8051">Problem Statement for RectangleCrossings</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>There are some rectangles and line segments on the plane. You must compute two values: the total area of the rectangles that contain at least one endpoint of a line segment, and the total area of the rectangles that do not contain any endpoints but are intersected by one or more line segments. <br /><br /><br /><br /> The sides of the rectangles are parallel to the coordinate axes. No two rectangles intersect. This means no two rectangles share any common points (including their borders). A line segment intersects a rectangle if they share at least one common point. This common point can be a segment's endpoint or a point on the rectangle's border. A rectangle contains a point if it lies within the boundary of the rectangle and does not lie on its border. See examples for further clarification. <br /><br /><br /><br /> You are given a String[] <b>rectangles</b>, each element of which is formatted as &quot;X1 Y1 X2 Y2&quot; (quotes for clarity), where (X1, Y1) are the coordinates of the lower left corner of a rectangle and (X2, Y2) are the coordinates of its upper right corner. You are also given a String[] <b>segments</b>, each element of which is formatted as &quot;X1 Y1 X2 Y2&quot;, where (X1, Y1) and (X2, Y2) are the two endpoints of a line segment. Return a int[] containing the two values described above, in the given order.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RectangleCrossings</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>countAreas</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] countAreas(String[] rectangles, String[] segments)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>rectangles</b> and <b>segments</b> will each contain between 0 and 50 elements, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>rectangles</b> and <b>segments</b> will be formatted as &quot;X1 Y1 X2 Y2&quot; (quotes for clarity). </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>X1, Y1, X2, and Y2 will each be an integer between -1000 and 1000, inclusive, with no extra leading zeros. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>rectangles</b>, X2 will be greater than X1, and Y2 will be greater than Y1. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two rectangles will intersect. This means no two rectangles will share any common points (including their borders).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No segment will have zero length.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;-1000 -1000 1000 1000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-525 245 222 243&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {4000000, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only rectangle contains both ends of the only segment.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 2 2&quot;, &quot;1 4 2 5&quot;, &quot;5 5 6 7&quot;, &quot;7 7 9 9&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;1 2 1 5&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {0, 2 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only segment intersects rectangles 0 and 1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 3 3&quot;, &quot;4 4 5 5&quot;, &quot;6 6 7 7&quot;, &quot;8 8 9 9&quot;, &quot;51 22 344 352&quot;, &quot;-124 -235 -12 -1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-100 -2 300 300&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {122898, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first four rectangles are not intersected by the segment.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;1 1 3 3&quot;, &quot;4 4 5 5&quot;, &quot;6 6 7 7&quot;, &quot;8 8 9 9&quot;, &quot;51 22 344 352&quot;, &quot;-124 -235 -12 -1&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-104 -103 202 201&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {122898, 7 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first four rectangles are intersected by the segment.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;-891 -869 -853 -842&quot;, &quot;-857 -399 -744 -231&quot;, &quot;-910 -55 -856 36&quot;, &quot;-844 287 -749 548&quot;, &quot;-809 627 -782 954&quot;,
+&quot;-704 -803 -641 -663&quot;, &quot;-684 -330 -558 -268&quot;, &quot;-702 -40 -545 98&quot;, &quot;-660 386 -528 586&quot;, &quot;-697 855 -571 962&quot;,
+&quot;-414 -678 -168 -648&quot;, &quot;-401 -559 -383 -441&quot;, &quot;-387 5 -263 51&quot;, &quot;-389 220 -194 448&quot;, &quot;-361 673 -175 753&quot;,
+&quot;68 -912 95 -742&quot;, &quot;-24 -521 24 -227&quot;, &quot;30 -70 38 -2&quot;, &quot;-111 297 14 356&quot;, &quot;7 797 27 809&quot;, &quot;368 -709 418 -614&quot;,
+&quot;247 -453 344 -251&quot;, &quot;385 -111 417 -33&quot;, &quot;275 202 290 421&quot;, &quot;265 604 278 921&quot;, &quot;524 -861 655 -640&quot;,
+&quot;555 -336 576 -305&quot;, &quot;429 28 578 35&quot;, &quot;480 324 704 520&quot;, &quot;444 632 665 842&quot;, &quot;932 -954 981 -931&quot;,
+&quot;930 -537 939 -455&quot;, &quot;735 -81 787 192&quot;, &quot;830 316 869 589&quot;, &quot;808 629 971 666&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;-898 -383 126 12&quot;, &quot;283 -716 545 -918&quot;, &quot;-299 333 54 138&quot;, &quot;-901 129 706 488&quot;, &quot;-8 690 -290 955&quot;,
+&quot;-590 -771 476 257&quot;, &quot;-528 -518 651 -139&quot;, &quot;-984 -848 -380 459&quot;, &quot;-358 924 31 -617&quot;, &quot;817 -904 -208 -401&quot;,
+&quot;-657 -211 275 -407&quot;, &quot;-427 -699 -460 876&quot;, &quot;403 -612 -675 563&quot;, &quot;-782 -197 845 816&quot;, &quot;-492 -771 -342 -83&quot;,
+&quot;-650 -208 393 -614&quot;, &quot;-67 -290 135 -610&quot;, &quot;68 650 -366 560&quot;, &quot;-482 608 -525 516&quot;, &quot;548 460 -95 -436&quot;,
+&quot;461 -457 -491 -846&quot;, &quot;-672 728 -764 548&quot;, &quot;-301 633 -613 278&quot;, &quot;-496 126 940 576&quot;, &quot;-350 -378 -671 1000&quot;,
+&quot;148 82 275 211&quot;, &quot;815 872 -810 -362&quot;, &quot;160 -367 -754 569&quot;, &quot;-721 941 -405 -57&quot;, &quot;-792 582 804 563&quot;,
+&quot;-934 -115 -641 -737&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {126942, 241757 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

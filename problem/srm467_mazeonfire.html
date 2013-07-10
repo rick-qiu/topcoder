@@ -1,0 +1,294 @@
+<html>
+ <head>
+  <title>MazeOnFire Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10695">Problem Statement for MazeOnFire</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><i>NOTE: This problem statement contains images that may not display properly if viewed outside of the applet. </i> <br /><br /><br /><br /> &quot;Maze on Fire&quot; was a not-so-popular electronic game that consisted of a maze built on a grid. Each cell in the grid is empty or contains a wall. Some of the empty cells initially contain fire, and fire propagates after each turn. A playable character is located somewhere in the maze, and its objective is to survive for as many turns as possible before it ends up in a cell that contains fire (at which point, the machine will play a &quot;BURNED!&quot; sound).<br /><br /> <br /><br /> Your task is simple enough. You must write an artificial intelligence program that can control the character in such a way that it always survives for as many turns as possible. You are given a String[] that represents the maze. The j-th character of the i-th element of <b>maze</b> represents the cell at row i, column j. Each cell is one of the following:<br /><br /> 
+      <ul>
+       <li>'.' : An empty cell.</li> 
+       <li>'F' : A cell containing fire.</li> 
+       <li>'#' : A wall.</li> 
+       <li>'$' : The character.</li> 
+      </ul> <br /><br /> The game is played as follows. During each turn, the character may stay in its current cell or move to an adjacent empty cell which is not on fire. Two cells are considered adjacent if they share a side. After the character's turn, the fire will propagate. Each cell that contains fire in the current turn will set fire to all of its adjacent empty cells. If the cell in which the character is located catches fire, the game will end (and the current turn will count toward the total number of turns survived by the character). Return the maximum possible number of turns the character can survive, or -1 if it is possible for the character to survive indefinitely.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MazeOnFire</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>maximumTurns</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int maximumTurns(String[] maze)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>maze</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>maze</b> will contain between 2 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>maze</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>maze</b> will contain only '.', '$', '#' or 'F'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>maze</b> will contain exactly one '$' character.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;F..&quot;,
+ &quot;.$.&quot;,
+ &quot;...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The best move in this case is to take the character to the bottom right cell. Fire will reach that cell after the fourth turn. The four turns are detailed in the following picture:<br /><br /> <br /><br /> <img src="http://www.topcoder.com/contest/problem/MazeOnFire/m1.png" /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.F#...&quot;,
+ &quot;F....#&quot;,
+ &quot;.F###.&quot;,
+ &quot;F.#.$.&quot;,
+ &quot;F.#...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is a wall barrier between the character and the multiple cells that are on fire. It is possible to survive indefinitely.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;....#.&quot;,
+ &quot;$##.#.&quot;,
+ &quot;.#..#F&quot;,
+ &quot;.F#.#.&quot;,
+ &quot;..#...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...$..&quot;,
+ &quot;..#...&quot;,
+ &quot;..###.&quot;,
+ &quot;..#...&quot;,
+ &quot;F.#.F.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Sometimes it is best not to move the character at all.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;.F....F.&quot;,
+ &quot;.#.##.#.&quot;,
+ &quot;.#....#.&quot;,
+ &quot;F.$##..F&quot;,
+ &quot;.#....#.&quot;,
+ &quot;.###.##.&quot;,
+ &quot;.F....F.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 4</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

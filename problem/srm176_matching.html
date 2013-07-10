@@ -1,0 +1,246 @@
+<html>
+ <head>
+  <title>Matching Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2249">Problem Statement for Matching</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are playing a game in which you have to find sets of three cards that share certain characteristics. Each card has some symbols on it. Each symbol is either a circle, a squiggle, or a diamond. Each symbol is either colored blue, red, or green. Each symbol is either solid, striped, or empty. And finally each card has either one, two, or three occurrences of the same symbol. A set is formed by three cards, and each characteristic is either the same on all three cards or different on all three cards.<br /><br /><br /><br /> For example, a card with one solid blue diamond, a card with two solid green diamonds, and a card with three solid red diamonds all form a set. The symbols on each card have the same shape and the same shading, and none of the cards has the same number or the same color. Any two cards will form a set with exactly one other card. You want to know, given two cards, what is the other card that completes the set. Create a class Matching with a method findMatch that takes two String[]s, <b>first</b> and <b>second</b>, representing the characteristics of two cards, and returns a String[] representing the characteristics of the third card.<br /><br /><br /><br /> <b>first</b> and <b>second</b> will both contain exactly four elements. The first element of each will denote the shape of the symbols on the card and will be either &quot;CIRCLE&quot;, &quot;SQUIGGLE&quot;, or &quot;DIAMOND&quot;. The second element will denote the color and will be either &quot;RED&quot;, &quot;BLUE&quot;, or &quot;GREEN&quot;. The third element of each will denote the shading and will be either &quot;SOLID&quot;, &quot;STRIPED&quot;, or &quot;EMPTY&quot;. The fourth element of each will denote the number of symbols, and will be either &quot;ONE&quot;, &quot;TWO&quot;, or &quot;THREE&quot;. The return element should contain exactly four elements, and should follow the same format as the input.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Matching</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>findMatch</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] findMatch(String[] first, String[] second)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>first</b> and <b>second</b> will both contain exactly four elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The first element of <b>first</b> and <b>second</b> will be either &quot;CIRCLE&quot;, &quot;SQUIGGLE&quot;, or &quot;DIAMOND&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The second element of <b>first</b> and <b>second</b> will be either &quot;RED&quot;, &quot;BLUE&quot;, or &quot;GREEN&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The third element of <b>first</b> and <b>second</b> will be either &quot;SOLID&quot;, &quot;STRIPED&quot;, or &quot;EMPTY&quot;.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The fourth element of <b>first</b> and <b>second</b> will be either &quot;ONE&quot;, &quot;TWO&quot;, or &quot;THREE&quot;.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;DIAMOND&quot;,&quot;BLUE&quot;,&quot;SOLID&quot;,&quot;ONE&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;DIAMOND&quot;,&quot;GREEN&quot;,&quot;SOLID&quot;,&quot;TWO&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;DIAMOND&quot;,  &quot;RED&quot;,  &quot;SOLID&quot;,  &quot;THREE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The example from above.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;CIRCLE&quot;,&quot;GREEN&quot;,&quot;EMPTY&quot;,&quot;TWO&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;DIAMOND&quot;,&quot;BLUE&quot;,&quot;STRIPED&quot;,&quot;ONE&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;SQUIGGLE&quot;,  &quot;RED&quot;,  &quot;SOLID&quot;,  &quot;THREE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All four characteristics are different on these two cards, so all four characteristics will be different on the third card in the set.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;DIAMOND&quot;,&quot;RED&quot;,&quot;SOLID&quot;,&quot;ONE&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;SQUIGGLE&quot;,&quot;BLUE&quot;,&quot;SOLID&quot;,&quot;TWO&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;CIRCLE&quot;,  &quot;GREEN&quot;,  &quot;SOLID&quot;,  &quot;THREE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The only characteristic that is the same for all the cards in this set is that they are all solid.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;SQUIGGLE&quot;,&quot;RED&quot;,&quot;STRIPED&quot;,&quot;ONE&quot;}
+</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;SQUIGGLE&quot;,&quot;RED&quot;,&quot;STRIPED&quot;,&quot;ONE&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;SQUIGGLE&quot;,  &quot;RED&quot;,  &quot;STRIPED&quot;,  &quot;ONE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

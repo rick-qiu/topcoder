@@ -1,0 +1,301 @@
+<html>
+ <head>
+  <title>PirateTreasure Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8241">Problem Statement for PirateTreasure</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> The great pirate Silver has buried a treasure on a tropical island. You managed to find a map of the island with an X marking a spot on the island, and a set of instructions. Each instruction is of the form &quot;walk A steps in the direction B&quot;. If you start at the X and follow the instructions in the given order, at the end you will arrive at the location where the treasure is buried. </p> <p> Your evil twin has a copy of the map, and has already started to follow the instructions. To beat him, you must find the location of the treasure and walk straight to that place. </p> <p> You will be given the set of instructions as a int[] <b>steps</b> and a String[] <b>directions</b>. Element i of <b>directions</b> corresponds to element i of <b>steps</b>. Write a method that will find the location of the treasure, and return the straight-line distance (in steps) from the place where you start to the place where the treasure is buried. </p> <p> Each direction in <b>directions</b> will be one of the eight basic directions on a compass. Refer to the image below for clarification. </p> <p> <img src="http://www.topcoder.com/contest/problem/PirateTreasure/compass-small.png" /> </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PirateTreasure</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getDistance</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double getDistance(int[] steps, String[] directions)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Assume that the island lies on a plane, and that it is large enough to accomodate the entire walk.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Note that making a step northwest is <i>not</i> the same as making a step north and then a step west. See Example 3.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The Euclidean distance between two points <tt>A=(ax,ay)</tt> and <tt>B=(bx,by)</tt> in a plane is equal to <tt>sqrt( (ax-bx)^2 + (ay-by)^2 )</tt>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>steps</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>steps</b> will be between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>directions</b> will contain the same number of elements as <b>steps</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>directions</b> will be one of <tt>NORTH</tt>, <tt>SOUTH</tt>, <tt>EAST</tt>, <tt>WEST</tt>, <tt>NORTHEAST</tt>, <tt>NORTHWEST</tt>, <tt>SOUTHEAST</tt>, and <tt>SOUTHWEST</tt>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NORTH&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After one step north, you will be (surprisingly) one step away from where you started.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NORTHWEST&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Two steps northwest will take you two steps away from where you started.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{3,10,7}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;EAST&quot;,&quot;WEST&quot;,&quot;EAST&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After following these instructions you'll end exactly where you started.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{34,48,34}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NORTH&quot;,&quot;SOUTHWEST&quot;,&quot;EAST&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.08326112068522587</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Following these instructions won't get you exactly to the same place where you started, but you will be pretty close.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{2,2,2,1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;NORTH&quot;,&quot;NORTH&quot;,&quot;NORTH&quot;,&quot;NORTHWEST&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 6.744277676240694</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">After six steps north and one step northwest, your straight line distance from where you started is a little less than seven steps.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

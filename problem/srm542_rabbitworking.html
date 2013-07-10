@@ -1,0 +1,306 @@
+<html>
+ <head>
+  <title>RabbitWorking Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11054">Problem Statement for RabbitWorking</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>N rabbits (numbered 0 through N - 1) aim to work at the new TopCoder office in Rabbitland. You are to choose some of these applicants as employees. <br /><br /> <br /><br /> Each pair of rabbits will make a certain profit when they work together. Given a group of rabbits, we can easily compute the total profit P as the sum of profits for each pair of rabbits in the group. However, hiring rabbits also brings some costs: they want to have a supply of fresh carrots. Surprisingly, the cost of supplying carrots to K rabbits is not linear in K. This cost is given by the formula C = (K * (200 - K)). The <i>efficiency</i> of a given group of rabbits is the real number (P / C), where P is their total profit and C is the cost of supplying carrots for them. <br /><br /> <br /><br /> You are given a String[] <b>profit</b>, the j-th character of the i-th element of which represents the profit gained from rabbit i and rabbit j working together. The characters '0', '1', ..., '9' represent the values 0, 1, ..., 9, respectively. You may hire an arbitrary non-empty subset of the available rabbits. Return the maximum possible efficiency of the group of hired rabbits. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>RabbitWorking</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getMaximum</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double getMaximum(String[] profit)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must have an absolute or relative error less than 1e-9. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>profit</b> will contain between 1 and 50 elements, inclusive. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>profit</b> will contain exactly N characters, where N is the number of elements in <b>profit</b>. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>profit</b> will be a digit ('0' - '9'). </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For each index i and j, the i-th character of the j-th element of <b>profit</b> will be equal to the j-th character of the i-th element of <b>profit</b>. </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For each index i, the i-th character of the i-th element of <b>profit</b> will be '0'. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;071&quot;, 
+  &quot;702&quot;, 
+  &quot;120&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.017676767676767676</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">
+              <ul> 
+               <li>If you choose only one rabbit, then P = 0, K = 1 and the efficiency is 0. </li> 
+               <li>If you choose rabbit 0 and rabbit 1, then P = 7, K = 2 and the efficiency is 7/396. </li> 
+               <li>If you choose rabbit 0 and rabbit 2, then P = 1, K = 2 and the efficiency is 1/396. </li> 
+               <li>If you choose rabbit 1 and rabbit 2, then P = 2, K = 2 and the efficiency is 2/396. </li> 
+               <li>If you choose all three rabbits, then P = 10, K = 3 and the efficiency is 10/591. </li> 
+              </ul> You should choose rabbit 0 and rabbit 1 to maximize the efficiency. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;061&quot;, 
+  &quot;602&quot;, 
+  &quot;120&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.015228426395939087</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You should choose all three rabbits here. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;0&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;013040&quot;, 
+  &quot;100010&quot;, 
+  &quot;300060&quot;, 
+  &quot;000008&quot;, 
+  &quot;416000&quot;, 
+  &quot;000800&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.021996615905245348</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;06390061&quot;, 
+  &quot;60960062&quot;, 
+  &quot;39090270&quot;, 
+  &quot;96900262&quot;, 
+  &quot;00000212&quot;, 
+  &quot;00222026&quot;, 
+  &quot;66761201&quot;, 
+  &quot;12022610&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.06871794871794872</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

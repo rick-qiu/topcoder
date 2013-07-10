@@ -1,0 +1,341 @@
+<html>
+ <head>
+  <title>ObjectFall Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=5915">Problem Statement for ObjectFall</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>An object is placed in the xy-plane at coordinates (<b>x</b>,<b>y</b>), where <b>x</b> &gt; 0 and <b>y</b> &gt; 0. The object begins falling straight down toward the x-axis at a speed of one unit per second. Along the way, it may encounter some obstacles. Each obstacle is a horizontal line segment, and the object hits an obstacle when their y-coordinates are equal and the object's x-coordinate is between the x-coordinates of the obstacle's endpoints (inclusive). Each time the object hits an obstacle, it will be delayed 5 seconds. During this delay, the object will travel to the right endpoint of the obstacle (the one with the greater x-coordinate). The object will then continue to fall straight down from that point.</p> <p>You are given the object's initial position (<b>x</b>,<b>y</b>) and a String[] describing the <b>obstacles</b>. Return the number of seconds it will take for the object to finally reach the x-axis. Each element of <b>obstacles</b> is formatted &quot;y x1 x2&quot; (quotes for clarity only), where y is the y-coordinate of an obstacle, and x1 and x2 are the left and right x-coordinates of that obstacle's endpoints respectively.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ObjectFall</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>howLong</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int howLong(int x, int y, String[] obstacles)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>x</b> will be between 1 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>y</b> will be between 1 and 1000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>obstacles</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>obstacles</b> will be formatted &quot;y x1 x2&quot; (quotes for clarity only).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each y, x1 and x2 in <b>obstacles</b> will be an integer between 001 and 999, inclusive, and contain exactly 3 digits.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In each element of <b>obstacles</b>, x1 will be less than or equal to x2.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>obstacles</b> will contain no duplicate y values.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>15</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;005 010 020&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 15</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The object starts at (15,10), and when it reaches (15,5), it hits the obstacle and is delayed 5 seconds.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>15</pre></td>
+            </tr>
+            <tr>
+             <td><pre>12</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;010 010 020&quot;,&quot;015 010 020&quot;,&quot;005 020 050&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 22</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The object hits the obstacle at y = 10 and moves to (20,10). From there it continues to fall until it hits the object at y = 5. Finally, it falls to the x-axis at (50,0). The total time is: 2 seconds before hitting the first obstacle + 5 seconds of delay + 5 seconds until hitting the next obstacle + 5 seconds of delay + 5 seconds until hitting the x-axis = 22 seconds.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>50</pre></td>
+            </tr>
+            <tr>
+             <td><pre>85</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;020 001 100&quot;,&quot;010 100 100&quot;,&quot;005 100 200&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 100</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The object hits all three obstacles, even the one that is a point.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1000</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A free-fall to the x-axis.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>500</pre></td>
+            </tr>
+            <tr>
+             <td><pre>800</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;800 001 500&quot;,&quot;400 001 499&quot;,&quot;401 501 999&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 805</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>645</pre></td>
+            </tr>
+            <tr>
+             <td><pre>802</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;739 038 799&quot;,&quot;916 169 791&quot;,&quot;822 372 911&quot;,&quot;162 125 992&quot;,&quot;261 307 545&quot;,
+ &quot;510 031 765&quot;,&quot;592 723 742&quot;,&quot;477 315 676&quot;,&quot;566 143 617&quot;,&quot;337 114 664&quot;,
+ &quot;986 648 883&quot;,&quot;116 230 680&quot;,&quot;254 746 943&quot;,&quot;742 948 988&quot;,&quot;060 117 401&quot;,
+ &quot;634 035 433&quot;,&quot;288 741 864&quot;,&quot;819 626 730&quot;,&quot;906 071 222&quot;,&quot;554 100 121&quot;,
+ &quot;573 051 551&quot;,&quot;949 528 915&quot;,&quot;562 151 223&quot;,&quot;857 135 243&quot;,&quot;621 115 474&quot;,
+ &quot;588 405 615&quot;,&quot;895 812 919&quot;,&quot;052 378 836&quot;,&quot;858 116 505&quot;,&quot;285 428 469&quot;,
+ &quot;792 244 250&quot;,&quot;109 265 637&quot;,&quot;714 804 885&quot;,&quot;625 150 410&quot;,&quot;518 593 921&quot;,
+ &quot;282 235 339&quot;,&quot;081 212 659&quot;,&quot;663 047 982&quot;,&quot;556 194 345&quot;,&quot;798 150 938&quot;,
+ &quot;391 026 813&quot;,&quot;886 348 796&quot;,&quot;975 007 743&quot;,&quot;053 854 895&quot;,&quot;243 561 875&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 817</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,296 @@
+<html>
+ <head>
+  <title>StrangeCountry Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10375">Problem Statement for StrangeCountry</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>There is a country with N cities, some of which are connected with bidirectional roads. Your task is to reconfigure the roads so that it is possible to get from each city to every other city. You must do this using the minimum possible number of transformations, where each transformation consists of the following steps: 
+      <ol> 
+       <li>Choose four different cities A, B, C and D, where roads (A, B) and (C, D) exist, but (A, C), (A, D), (B, C) and (B, D) do not exist.</li> 
+       <li>Destroy roads (A, B) and (C, D).</li> 
+       <li>Build two new roads - either (A, C) and (B, D), or (A, D) and (B, C).</li> 
+      </ol> The following images show an example of this transformation. From the first situation you can get the second one or the third one:<br /><br /> <img src="http://www.topcoder.com/contest/problem/StrangeCountry/before.png" />&nbsp;<img src="http://www.topcoder.com/contest/problem/StrangeCountry/after.png" />&nbsp;<img src="http://www.topcoder.com/contest/problem/StrangeCountry/after2.png" /><br /><br /><br /><br /> You are given a String[] <b>g</b>, where the j-th character of the i-th element is 'Y' if there is a road between cities i and j, and 'N' otherwise. Return minimal number of transformations required to accomplish your task, or return -1 if it is impossible.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>StrangeCountry</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>transform</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int transform(String[] g)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>g</b> will contain between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>g</b> will contain exactly N characters 'Y' or 'N', where N is the number of elements in <b>g</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For each i and j, <b>g</b>[i][j] will be equal to <b>g</b>[j][i].</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>For each i, <b>g</b>[i][i] will be equal to 'N'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NY&quot;,
+ &quot;YN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This country is already connected.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYYNN&quot;,
+ &quot;YNYNN&quot;,
+ &quot;YYNNN&quot;,
+ &quot;NNNNY&quot;,
+ &quot;NNNYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><img src="http://www.topcoder.com/contest/problem/StrangeCountry/tc_before.png" />&nbsp;<img src="http://www.topcoder.com/contest/problem/StrangeCountry/tc_after.png" /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYYNNNN&quot;,
+ &quot;YNYNNNN&quot;,
+ &quot;YYNNNNN&quot;,
+ &quot;NNNNYYN&quot;,
+ &quot;NNNYNYY&quot;,
+ &quot;NNNYYNY&quot;,
+ &quot;NNNNYYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYNYNNNNNNNN&quot;,
+ &quot;YNYNNNNNNNNN&quot;,
+ &quot;NYNYYNNNNNNN&quot;,
+ &quot;YNYNNNNNNNNN&quot;,
+ &quot;NNYNNYYNNNNN&quot;,
+ &quot;NNNNYNYNNNNN&quot;,
+ &quot;NNNNYYNNNNNN&quot;,
+ &quot;NNNNNNNNYYNN&quot;,
+ &quot;NNNNNNNYNYNN&quot;,
+ &quot;NNNNNNNYYNNN&quot;,
+ &quot;NNNNNNNNNNNY&quot;,
+ &quot;NNNNNNNNNNYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NYNNNN&quot;,
+ &quot;YNYNNN&quot;,
+ &quot;NYNYNN&quot;,
+ &quot;NNYNNN&quot;,
+ &quot;NNNNNY&quot;,
+ &quot;NNNNYN&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

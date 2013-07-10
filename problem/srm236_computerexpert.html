@@ -1,0 +1,314 @@
+<html>
+ <head>
+  <title>ComputerExpert Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4460">Problem Statement for ComputerExpert</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>A human expert uses his prior knowledge to analyze a set of observations that are presented to him. These days, companies are starting to explore the benefits of computerized expert systems. Expert systems attempt to model the way human experts think and arrive at conclusions. Knowledge obtained in this way is more reliable, cheaper and reproducible.</p> <p><b>facts</b> contains all the observations presented to the expert. <b>rules</b> is a set of rules that the expert can use to arrive at new conclusions. <b>rules</b> will be formatted as (&lt;FACT&gt;/.../&lt;FACT&gt;),...,(&lt;FACT&gt;/.../&lt;FACT&gt;) -&gt; &lt;FACT&gt;. In the input, '/' represents the OR operator and ',' represents the AND operator. Hence, the above input represents a boolean expression like (&lt;FACT&gt; OR ... OR &lt;FACT&gt;) AND ... AND (&lt;FACT&gt; OR ... OR &lt;FACT&gt;) -&gt; &lt;FACT&gt;. Each &lt;FACT&gt; represents a sequence of uppercase characters and the character '_'. Note: brackets and parentheses are only used for clarity and are not part of the input.</p> <p>A rule composed solely of AND will fire only if all the facts listed in the rule are known. Similarly, a rule composed solely of OR will fire if any of the facts listed in the rule are known. Once a rule has fired, its outcome fact can be added to the knowledge of the expert (if not already known).</p> <p>Given a String[] of <b>facts</b> and a String[] of <b>rules</b> return a String[] of all outcome facts, sorted in ascending alphabetical order. If there are no outcome facts then return an empty String[].</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ComputerExpert</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>operate</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] operate(String[] facts, String[] rules)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>facts</b> will contain between 1 and 50 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>facts</b> will contain between 1 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Elements of <b>facts</b> will only contain characters 'A'-'Z' and the character '_'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>rules</b> will contain between 1 and 50 elements inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>rules</b> will contain between 6 and 50 characters inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element in <b>rules</b> will be formatted as (&lt;FACT&gt;/.../&lt;FACT&gt;),...,(&lt;FACT&gt;/.../&lt;FACT&gt;) -&gt; &lt;FACT&gt;. In the input, '/' represents the OR operator and ',' represents the AND operator. Each &lt;FACT&gt; must be a sequence of uppercase characters 'A'-'Z' and the character '_'. Note: brackets and parentheses are only used for clarity and are not part of the input.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;SKY_IS_CLOUDY&quot;,&quot;HAVE_MONEY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;HAVE_MONEY,BAD_WEATHER -&gt; WATCH_MOVIE&quot;,&quot;SKY_IS_CLOUDY -&gt; BAD_WEATHER&quot;,
+&quot;GOOD_WEATHER -&gt; PLAY_SOCCER&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;BAD_WEATHER&quot;, &quot;WATCH_MOVIE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In this simplistic example we want to decide whether to watch a movie or play soccer. We observe that SKY_IS_CLOUDY and that we HAVE_MONEY. The second rule tells us that if SKY_IS_CLOUDY then we have BAD_WEATHER. So we conclude that the weather is bad. Knowing this fact, we can now use the first rule that tells us that if we HAVE_MONEY and BAD_WEATHER then we WATCH_MOVIE. So we choose to watch a movie. The third rule never gets fired.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;NEEDLE_LEAF&quot;,&quot;KEEPS_LEAVES&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;KEEPS_LEAVES -&gt; EVERGREEN&quot;,&quot;NEEDLE_LEAF -&gt; GYMNOSPERM&quot;,
+&quot;EVERGREEN,GYMNOSPERM -&gt; PINE_TREE&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;EVERGREEN&quot;, &quot;GYMNOSPERM&quot;, &quot;PINE_TREE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In this example we try to classify a plant. Since it has a NEEDLE_LEAF we know its a GYMNOSPERM. Since it KEEPS_LEAVES we know its an EVERGREEN. An EVERGREEN and a GYMNOSPERM must be a PINE_TREE.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;I&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;I -&gt; I&quot;,&quot;P -&gt; CONSONANT&quot;, &quot;Z -&gt; CONSONANT&quot;, &quot;A/E/I/O/U -&gt; VOWEL&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;VOWEL&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">I is a VOWEL. Note that there is no point firing the first rule, because we already know the outcome fact I.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Y&quot;,&quot;W&quot;,&quot;L&quot;,&quot;T&quot;,&quot;H&quot;,&quot;J&quot;,&quot;G&quot;,&quot;T&quot;,&quot;F&quot;,&quot;P&quot;,&quot;T&quot;,&quot;P&quot;,&quot;P&quot;,&quot;N&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;C/V,J,F/T,N,W,L -&gt; M&quot;,&quot;N/L,F,B/N/E,Y -&gt; C&quot;,
+&quot;M,G,G,S/F/Q,G,S/G,H/Z,W,F,C,Q/F,M -&gt; E&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;C&quot;, &quot;E&quot;, &quot;M&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;G&quot;,&quot;H&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A/B/C/D/E/F,G/Z -&gt; Y&quot;, &quot;H,H,H,H,H,H,H,H -&gt; Z&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;Z&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A&quot;,&quot;B&quot;,&quot;_X&quot;, &quot;X_&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;A/B,C -&gt; D&quot;,&quot;A,B,C -&gt; D&quot;,&quot;X -&gt; Y&quot;,&quot;_X_ -&gt; Y&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here there are no rules fired. Note that &quot;_X&quot; and &quot;X_&quot; are not the same as &quot;X&quot; or &quot;_X_&quot;.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,279 @@
+<html>
+ <head>
+  <title>grafixDither Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=3000">Problem Statement for grafixDither</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> <i><b>Note:</b> This problem statement includes an image that may not appear if you are using a plugin. For best results, use the Arena editor.</i> </p> <p> Dithering is the process whereby a bitmap drawn with a certain palette or range of colors is converted to a visually similar bitmap using a smaller palette. As a developer of the grafix software package, you must implement a dithering algorithm that converts a grayscale image, drawn with a palette of 256 color levels, to a black-and-white image, drawn with a palette of 2 color levels. The grayscale image is the <i>source</i>, while the eventual black-and-white image is the <i>target</i>. </p> <p> One broad category of dithering algorithm is error diffusion, where the difference in color level between a source pixel and the corresponding target pixel, the so-called error, is distributed among the target pixel's neighbors. Traditional error-diffusion methods distribute this difference uniformly, which leads to unsightly directional artifacts in the target image. The grafix package employs the Riemersma dither, which diffuses the error in many different directions by following a fractal path around the image. </p> <p> The cardinal variant of the Riemersma dither, which you are to implement, follows the Hilbert space-filling curve. A Hilbert curve is composed of horizontal and vertical line segments that visit every cell in an <i>n</i>-by-<i>n</i> grid such that <i>n</i> is a power of two, and <i>n</i> is at least two. The curve is defined recursively, as illustrated below. </p> <p> </p>
+      <center> 
+       <img src="http://www.topcoder.com/contest/problem/grafixDither/grafixDither_diagram_1.png" /> 
+      </center> <p></p> <p> In the smallest case, a 2-by-2 grid, the Hilbert curve takes the form of a <i>cup</i> made of three line segments, open at the top. To make a Hilbert curve for the next smallest case, a 4-by-4 grid, we subdivide each cell of the 2-by-2 grid into 2-by-2 child grids. In each of the child grids, we form a child cup oriented and linked as above with respect to the parent cup. To make an 8-by-8 grid, we subdivide each cell of the 4-by-4 grid into 2-by-2 child grids, orienting and linking each of the child cups similarly with respect to its parent cup. This procedure is repeated as many times as necessary. </p> <p> In the context of Riemersma dithering, the Hilbert curve is understood as a path leading from the top left pixel of a bitmap to the top right pixel. The source image is guaranteed to have dimensions suitable for a Hilbert curve. It will be passed to you as a String[] containing the rows of a bitmap. In each String, the contents of the row are represented by alphabetic characters, which are mapped to color levels by the following scheme. Characters 'a', 'b', 'c',..., 'z' correspond to color levels 0, 5, 10, ..., 125; characters 'A', 'B', 'C',..., 'Z' correspond to color levels 130, 135, 140, ..., 255. You are to return a String[] composed of the characters 'B' and 'W', corresponding to color levels 0 and 255, respectively. </p> <p> The grafix implementation of Riemersma considers only the latest pixel for purposes of error calculation. To begin with, the error value is set to zero, and dithering begins at the top left pixel of the source image. The following procedure is carried out when we visit a pixel. </p> <p> The error is added to the current source pixel. If the source pixel now has a negative value, we set it to 0, and if it is greater than 255, we set it to 255. Otherwise, we leave the source pixel as it was after adding the error. If the source pixel is 127 or less, we set the corresponding target pixel to 0. Otherwise, we set the target pixel to 255. Now we subtract the value of the target pixel from that of the source pixel, and this difference becomes the new error value. Then we move on to the next pixel along the Hilbert curve and repeat the procedure, halting only once we have dithered the final pixel in the top right corner of the image. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>grafixDither</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>gray2bwRiemersma</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] gray2bwRiemersma(String[] grays)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>grays</b> contains <i>n</i> elements such that <i>n</i>=2^<i>k</i>, with 1&lt;=<i>k</i>&lt;=5</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>grays</b> contains the same number of characters as there are elements in <b>grays</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>only characters from 'a' to 'z' and from 'A' to 'Z' are permitted in <b>grays</b></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;yy&quot;,
+ &quot;AA&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;BW&quot;,  &quot;WB&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In this small case, the error is propagated down, right, and then up, resulting in the following black-and-white bitmap. <pre>
+{&quot;BW&quot;,
+ &quot;WB&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;bbgg&quot;,
+ &quot;bggg&quot;,
+ &quot;ggGG&quot;,
+ &quot;CGGG&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;BBBB&quot;,  &quot;BBBB&quot;,  &quot;BWBW&quot;,  &quot;WBWB&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Observe how the band of gray at bottom turns into a checkerboard black-and-white pattern. <pre>
+{&quot;BBBB&quot;,
+ &quot;BBBB&quot;,
+ &quot;BWBW&quot;,
+ &quot;WBWB&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;gggggjjj&quot;,
+ &quot;ggggjjjj&quot;,
+ &quot;gggjjjjj&quot;,
+ &quot;ggjjjjQQ&quot;,
+ &quot;jjjjQQQR&quot;,
+ &quot;jjQQQRRR&quot;,
+ &quot;QQQQRRRR&quot;,
+ &quot;QQRRRRRR&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;BBWBBWBW&quot;,
+ &quot;BBBBBBBB&quot;,
+ &quot;WBBWWBBB&quot;,
+ &quot;BBBBBBWW&quot;,
+ &quot;BBBBWWWW&quot;,
+ &quot;BWWWBWBW&quot;,
+ &quot;WWWBWWBW&quot;,
+ &quot;WBWWWWWW&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The upper section is darker than the bottom, but not monotonously so.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;aaaaaaaaaaaaaaaa&quot;,
+ &quot;dddddddddddddddd&quot;,
+ &quot;gggggggggggggggg&quot;,
+ &quot;jjjjjjjjjjjjjjjj&quot;,
+ &quot;nnnnnnnnnnnnnnnn&quot;,
+ &quot;qqqqqqqqqqqqqqqq&quot;,
+ &quot;tttttttttttttttt&quot;,
+ &quot;wwwwwwwwwwwwwwww&quot;,
+ &quot;AAAAAAAAAAAAAAAA&quot;,
+ &quot;DDDDDDDDDDDDDDDD&quot;,
+ &quot;GGGGGGGGGGGGGGGG&quot;,
+ &quot;JJJJJJJJJJJJJJJJ&quot;,
+ &quot;NNNNNNNNNNNNNNNN&quot;,
+ &quot;QQQQQQQQQQQQQQQQ&quot;,
+ &quot;TTTTTTTTTTTTTTTT&quot;,
+ &quot;WWWWWWWWWWWWWWWW&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;BBBBBBBBBBBBBBBB&quot;,
+ &quot;BBBBBBBBBBBBBWBW&quot;,
+ &quot;BBBWWBBWBBBBBWBB&quot;,
+ &quot;BWBBBBBBBWBBBBBB&quot;,
+ &quot;WBBBBBWBBBWWBWWB&quot;,
+ &quot;BBWWWBWBWBBBBBBB&quot;,
+ &quot;BWBBBBBBWBBWWBBW&quot;,
+ &quot;WBWBWWBWBBWBWBBW&quot;,
+ &quot;BWBWWBWWBWBWWBWB&quot;,
+ &quot;WBWBBWBWWBWBBWBW&quot;,
+ &quot;BWWBWBWBBWBWBWWW&quot;,
+ &quot;WBWWWBWWWWBWWWBB&quot;,
+ &quot;WWBWWWBWWBWWWBWW&quot;,
+ &quot;WBWWWBWWWWBWWWBW&quot;,
+ &quot;WWWWWWWWWBWWWBWW&quot;,
+ &quot;WWBWWWBWWWWWWWWW&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

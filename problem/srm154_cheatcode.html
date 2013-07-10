@@ -1,0 +1,300 @@
+<html>
+ <head>
+  <title>CheatCode Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1779">Problem Statement for CheatCode</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Checking to to see if a player enters a valid cheat code in a game is not just a simple matter of checking that the keypresses exactly line up with the cheat code. It is possible that the player may hold down one key a little too long and consequently it is read as two or more key presses. Ignoring repeated key presses isn't an option either however, because a cheat code may require a key to be used repeatedly. Also, the player may press any number of keys before or after entering the cheat code. <br /><br /><br /><br /> You will be given a String <b>keyPresses</b> which will contain the keys the player pressed. Each character in <b>keyPresses</b> will correspond to one key pressed by the player. The order of characters in <b>keyPresses</b> is the order in which the keys were entered. You will also be given a String[] <b>codes</b>. Each String in <b>codes</b> will be one possible valid cheat code. You are to create a class CheatCode with a method matches which will return a sorted int[] containing the indexes of all codes in <b>codes</b> which potentially match what the player entered. A cheat code matches <b>keyPresses</b> if some substring of <b>keyPresses</b> is the same as the cheat code, except that it may have more than one of the same character, where only one was expected. So, if <b>keyPresses</b> where &quot;ABBCC&quot;, it would match the cheat codes &quot;ABC&quot;, &quot;BB&quot; and &quot;BC&quot; (and others), but not &quot;ABBB&quot; or &quot;BBCCD&quot;. <br /><br /><br /><br /> For example, if <b>keyPresses</b> is &quot;UUDDLRRLLRBASS&quot; (quotes for clarity) and <b>codes</b> is <pre>
+{ &quot;UUDDLRLRBA&quot;,
+  &quot;UUDUDLRLRABABSS&quot;,
+  &quot;DDUURLRLAB&quot;,
+  &quot;UUDDLRLRBASS&quot;,
+  &quot;UDLRRLLRBASS&quot; }</pre> The code &quot;UUDDLRLRBA&quot; matches because the player may enter extra keys after the code has been entered. Also notice that although there is an extra 'R' and 'L' in the middle of <b>keyPresses</b>, the code still matches because the computer may have accidentally detected repeated keys while the player entering a code.<br /><br /> The code &quot;UUDUDLRLRABABSS&quot; stops matching at the 4th character, 'U'. The 2nd 'D' in <b>keyPresses</b> is allowed because the player may have held it down too long. However, the 'U' does not match the 'L', which is next in <b>keyPresses</b>.<br /><br /> The code &quot;DDUURLRLAB&quot; does not match. Remember though that the beginning of <b>keyPresses</b>, &quot;UU&quot;, is ignored here because the player may have done another move before entering the code. The &quot;DD&quot; at the beginning of the code does match with the first &quot;DD&quot; in <b>keyPresses</b>, however next in <b>keyPresses</b> is an 'L' which does not match the 'U' in the code.<br /><br /> The code &quot;UUDDLRLRBASS&quot; matches.<br /><br /> The code &quot;UDLRRLLRBASS&quot; also matches.<br /><br /><br /><br /> Your program would return <pre>{ 0,  3,  4 }</pre> for the 0th, 3rd, and 4th codes in <b>codes</b> which match <b>keyPresses</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CheatCode</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>matches</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] matches(String keyPresses, String[] codes)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>keyPresses</b> will be between 0 and 50 characters in length, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>keyPresses</b> will only contain uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>codes</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each String in <b>codes</b> will be between 1 and 50 characters in length, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each String in <b>codes</b> will only contain uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;UUDDLRRLLRBASS&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;UUDDLRLRBA&quot;,&quot;UUDUDLRLRABABSS&quot;,&quot;DDUURLRLAB&quot;,&quot;UUDDLRLRBASS&quot;,&quot;UDLRRLLRBASS&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  3,  4 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from above.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Watch your time!</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;IDDQDDTSFHHALL&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;FHHALL&quot;, &quot;FHSHH&quot;, &quot;IDBEHOLDA&quot;, &quot;IDBEHOLDI&quot;, &quot;IDBEHOLDL&quot;,
+ &quot;IDBEHOLDR&quot;, &quot;IDBEHOLDS&quot;, &quot;IDBEHOLDV&quot;, &quot;IDCHOPPERS&quot;, &quot;IDCLEV&quot;,
+ &quot;IDCLIP&quot;, &quot;IDDQD&quot;, &quot;IDDT&quot;, &quot;IDFA&quot;, &quot;IDKFA&quot;, &quot;IDMYPOS&quot;, &quot;IDMUS&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 0,  11 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYY&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;ABCDE&quot;, &quot;BCDEF&quot;, &quot;CDEFG&quot;, &quot;DEFGH&quot;, &quot;EFGHI&quot;,
+ &quot;FGHIJ&quot;, &quot;GHIJK&quot;, &quot;HIJKL&quot;, &quot;IJKLM&quot;, &quot;JKLMN&quot;,
+ &quot;KLMNO&quot;, &quot;LMNOP&quot;, &quot;MNOPQ&quot;, &quot;NOPQR&quot;, &quot;OPQRS&quot;,
+ &quot;PQRST&quot;, &quot;QRSTU&quot;, &quot;RSTUV&quot;, &quot;STUVW&quot;, &quot;TUVWX&quot;,
+ &quot;UVWXY&quot;, &quot;VWXYZ&quot;, &quot;WXYZA&quot;, &quot;XYZAB&quot;, &quot;YZABC&quot;,
+ &quot;ZABCD&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10,  11,  12,  13,  14,  15,  16,  17,  18,  19,  20 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHSJ&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHSS&quot;, &quot;LAKJDGSJKGLSDKHFKDFHDGHSDKKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDHHSDKKSJDHFHJGKDKLSLSLJKASSJ&quot;,  &quot;AKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKHHSJ&quot;,  &quot;LAKDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDFHJGKDKLSLSLJKAHS&quot;,   &quot;KJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDHHSDKKSJDHFHJGKDKLLSLJKAHS&quot;,    &quot;LAKGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGJKGLSDKHFKDFHDGHHDKKSJDHFHJGKDKLSLSLJKAHS&quot;,    &quot;LAKJDGJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHGHHSDKKSJDHFHJGKDKLSLSLJKAHS&quot;,   &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSL&quot;,
+ &quot;LAKJDGSJKGLSDKHFDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHS&quot;,   &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDHFKDFHDGHHSDKKSJDHFHJGKDKLSLSJKAHS&quot;,    &quot;KGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSL&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJHFHJGKDKLSLSLJKAHS&quot;,   &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKSJHFHJGKDKLSLSLJKAHS&quot;,    &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHS&quot;,   &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKSJHFHJGKDKLSLSLJKAHS&quot;,    &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJKDKLSLSLJKAHSJ&quot;,
+ &quot;LKJDGSJKGLSDKHFKDFHDGHHSDKKJDHFHJGKDKLSLSLJKAHS&quot;,    &quot;AKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDKLSLSLJKAHS&quot;,
+ &quot;LAJDGSJKGLSDKHFKDFHDGHHSDKKSJDFHJGKDKLSLSLKAHS&quot;,     &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFGKDKLSLSLJKAHSJ&quot;,
+ &quot;LKJDGSJKLSDKHFKDFHDGHHSDKSJDHFHJGKDKLSLSLJKAHS&quot;,     &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;AKJDGSJKGLSDKFKDFHDGHHSSJDHFJGKDKLSLSLJKAHS&quot;,        &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJDHFJGKDKLSLSLJKAHS&quot;,   &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSJHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDLSLSLJKAHS&quot;,    &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKSDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDSJKGLSDKHFKDFHDGHHSDKKSJDHFHJGKDLSLSLJKAHS&quot;,    &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKKJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDHHSDKKSJDHFHJGKDKLSLSLJKAHS&quot;,   &quot;LAKDGSJKGLSDKHFKDFHDGHHSDKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDGHHSDKSJDHFHJGKDKLSLSLJKAS&quot;,    &quot;KJDGSJKGLSDKHFKDFHDGHSDKKSJDHFHJGKDKLSLSLJKAH&quot;,
+ &quot;LAKJDGSJKGLSDKHFKDFHDGHHDKKSJDHFHJGKDKLSLSLJKAHS&quot;,   &quot;LAKDGSJKGLSDKFHDGHHSDKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJKGLSKHFKDFHDHHSDKKSJDHFHJGKDKLSLSLJKAHS&quot;,    &quot;LAKJDGSJKGLSDKHFKDFHDGHHSKKSJDHFHJGKDKLSLSLJKAHSJ&quot;,
+ &quot;LAKJDGSJGLSDKHFKDFHDGHHSDKKSJDFHJGKDKLSLSLJKAHS&quot;,    &quot;LAKJDGSJKGLSDKHFKDFHDGHHDKKSJDHFHJGKDKLSLSLJKAHSJ&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  3,  7,  13,  17,  27,  43 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,283 @@
+<html>
+ <head>
+  <title>Decipher Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4674">Problem Statement for Decipher</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> A <i>substitution cipher</i> is a simple method of encoding text in which all occurrences of each letter are replaced by another. For example, consider the following substitution table: </p> <pre>
+    original: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+    encoded:  P X M S A C Z E V G I J D K N F O R L H T U W B Y Q
+</pre> <p> The message &quot;REGISTER NOW FOR THE TOPCODER OPEN&quot; would be encoded as &quot;RAZVLHAR KNW CNR HEA HNFMNSAR NFAK&quot; by finding each letter in the top row and replacing it with the letter directly beneath. </p> <p> Substitution ciphers are relatively easy to break. One method takes advantage of the fact that some letters are used more frequently than others. For example, in English text, the letter 'E' occurs more often than any other. It is reasonable to guess that the most common letter in the encoded text represents 'E'. </p> <p> You will be given the encoded text as a String[] <b>encoded</b>. You will also be given a String <b>frequencyOrder</b> containing all the letters that occur in the unencoded text sorted in decreasing order by frequency. You are to attempt to decipher the encoded text by replacing the most frequent letter in <b>encoded</b> with <b>frequencyOrder[0]</b>, the second-most frequent letter in <b>encoded</b> with <b>frequencyOrder[1]</b>, and so on. If some letters occur equally frequently in <b>encoded</b>, replace the letter that occurs first alphabetically with the lower-index character in <b>frequencyOrder</b>. </p> <p> Your method should return a String[] with exactly the same number of elements, and characters in each element, as <b>encoded</b>. Replace only letters, preserving spaces. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Decipher</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>decipher</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] decipher(String[] encoded, String frequencyOrder)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>encoded</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>encoded</b> will be between 0 and 50 characters long, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>encoded</b> will contain only uppercase letters ('A'-'Z') and spaces.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>encoded</b> will contain at least one letter.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>frequencyOrder</b> will contain between 1 and 26 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>frequencyOrder</b> will contain only uppercase letters ('A'-'Z').</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>frequencyOrder</b> will not have any duplicate letters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>encoded</b> and <b>frequencyOrder</b> will contain the same number of distinct letters.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;ABBBCC&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;XYZ&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;ZXXXYY&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The most common letter in the encoded text is 'B', so it gets replaced by 'X'. The second-most common letter is 'C', so it gets replaced by 'Y'. Finally, the lone 'A' gets replaced by 'Z'.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;RZLW&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;CEFD&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;EDCF&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">All letters occur equally frequently. So, the first letter alphabetically, 'L', gets replaced by the first letter in <b>frequencyOrder</b>, 'C'.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;XX YYY Z YYY XX&quot;,
+  &quot;WWWWWZWWWWW&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;ETMQ&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;MM TTT Q TTT MM&quot;, &quot;EEEEEQEEEEE&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot; X &quot;,
+  &quot;&quot;,
+  &quot; &quot;,
+  &quot;  &quot;,
+  &quot;   &quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;B&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot; B &quot;, &quot;&quot;, &quot; &quot;, &quot;  &quot;, &quot;   &quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;RAZVLHAR KNW CNR&quot;,
+  &quot;HEA HNFMNSAR NFAK&quot; }</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;EORTPNFHSCDIWG&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;REGISTER NOW FOR&quot;, &quot;THE TOPCODER OPEN&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

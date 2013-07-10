@@ -1,0 +1,269 @@
+<html>
+ <head>
+  <title>ExploringEuropa Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4809">Problem Statement for ExploringEuropa</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are working for NASA and your job is to seek out life on other worlds within our Solar System. In this mission you are remotely controlling a probe that explores the deep ocean floor of Jupiter's moon Europa. Researchers have concluded that if there is any extraterrestrial life to be found, the first places to look are the hydrothermal vents. Basically the probe has to settle around a vent and explore it, but there is one major problem: communication delay. The probe is continuously sending status messages back to Earth, but each of them is only received after <b> delay</b> units of time. Analogously, if new instructions are sent from Earth, the probe needs <b>delay</b> units of time to receive them. The strategy employed is to move the probe on a single axis, at a constant speed. Initially the probe is situated at location 0. Your goal is to make it stop at one of the vents as soon as possible. <br /><br /><br /><br /> Your probe can receive one of the following three commands: <pre>FORWARD:</pre> - This command is only given once, at time 0. The probe starts moving after <b>delay</b> units of time. <pre>REVERSE:</pre> - You may issue this command when a new vent has been detected. After <b>delay</b> units of time, the probe instantly starts moving in the opposite direction. <pre>STOP:</pre> - You issue this command if and only if, according to the information you gathered so far, you can be certain that the probe will stop at one of the vents. This is the last command you give and the probe stops after <b>delay</b> units of time. <br /><br /> <br /><br /> Suppose <b>delay</b> is 5 and we have two vents, at locations 5 and 11, respectively. The procedure of remote controlling the probe goes like this: <br /><br /> <i>time 0</i>: You issue the &quot;forward&quot; signal. <br /><br /> <i>time 5</i>: The probe starts moving. <br /><br /> <i>time 10</i>: The probe reaches the vent at location 5.<br /><br /> <i>time 15</i>: You receive the signal that the probe has reached the vent and issue the &quot;reverse&quot; command. <br /><br /> <i>time 16</i>: The probe reaches the vent at location 11.<br /><br /> <i>time 20</i>: The probe receives the &quot;reverse&quot; signal and starts moving back. Its current position is at location 15. <br /><br /> <i>time 21</i>: You receive the signal that the probe has reached the vent at location 11. The probe is on its way back, currently at location 14. Unfortunately, we will miss this vent. Even if the &quot;stop&quot; command is issued now, by the time it is received, the probe will have already moved away to location 9. You now have to decide whether another &quot;reverse&quot; command is appropriate. Currently, the probe will stop after 30 units of time at the vent at location 5. However, by issuing the &quot;reverse&quot; command again, the probe will stop after 28 units of time at the vent at location 11.<br /><br /> <i>time 23</i>: You issue the &quot;stop&quot; signal. The probe is at location 12 and moves left (towards smaller locations).<br /><br /> <i>time 24</i>: The probe passes the vent at location 11.<br /><br /> <i>time 26</i>: The probe receives the &quot;reverse&quot; signal issued at <i>time</i> 21, is currently at location 9, and starts moving right.<br /><br /> <i>time 28</i>: The probe stops and the vent at location 11 can now be explored.<br /><br /><br /><br /> You are given a String <b>surface</b>, where 'S' is the first character and denotes the starting position, '-' denotes regular ocean floor and 'V' denotes a vent. Assume that the surface is plain after the end of the input (&quot;SV&quot; is the same as &quot;SV--------------&quot;). You are also given an int <b>delay</b>, denoting the time needed for a signal to travel between Earth and Europa. Return an int representing the amount of time elapsed between the FORWARD command and the moment the probe stops. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ExploringEuropa</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>travelTime</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int travelTime(String surface, int delay)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Keep in mind that a reverse command is only meaningful when aiming for the last detected vent. Do not issue it in other cases!</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No more than 2 reverse commands are ever needed.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>surface</b> will contain between 2 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The first character of <b>surface </b> will be an 'S'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b> surface </b> will contain at least one 'V' character.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character of <b>surface</b>, except the first, is either a '-' or a 'V'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b> delay </b> is between 1 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;S----V-----V----&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 28</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the example from the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;S----VV---------&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>5</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 29</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;S---V&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 54</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;SVVVVV&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>&quot;S------------------------------V-----------V&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>22</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 129</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

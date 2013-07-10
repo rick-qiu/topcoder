@@ -1,0 +1,340 @@
+<html>
+ <head>
+  <title>CarrotBoxes Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=11304">Problem Statement for CarrotBoxes</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>There are N boxes numbered 0 through N-1. Every box except for one contains carrots, but Rabbit Hanako does not know which box is the empty one. Each box has the same probability of being empty. <br /><br /> <br /><br /> Hanako wants to find the empty box without opening it. Fortunately, she has some clues. Some of the boxes contain information about the content of other boxes, and she knows which boxes contain such information. You are given a String[] <b>information</b>, where the j-th character of the i-th element is 'Y' if opening the i-th box will reveal whether or not the j-th box contains carrots, or 'N' if the i-th box contains no such information. <br /><br /> <br /><br /> Return the probability that she can find the empty box without opening it, assuming she behaves optimally.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>CarrotBoxes</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>theProbability</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double theProbability(String[] information)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>information</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>information</b> will contain exactly N characters, where N is the number of elements of <b>information</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the i-th element of <b>information</b> will be 'Y'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in <b>information</b> will be 'Y' or 'N'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YYYYY&quot;,
+ &quot;NYNNN&quot;,
+ &quot;NNYNN&quot;,
+ &quot;NNNYN&quot;,
+ &quot;NNNNY&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.8</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The optimal strategy is opening box 0 first. If box 0 contains carrots, she can find the empty box without opening it because box 0 contains information about all boxes. It happens with probability 0.8.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YNNNN&quot;,
+ &quot;NYNNN&quot;,
+ &quot;NNYNN&quot;,
+ &quot;NNNYN&quot;,
+ &quot;NNNNY&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No box contains information about other boxes, so she can find the empty box without opening it only when she opens all other boxes. It happens with probability 0.2.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;Y&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Since there is only one box, she knows that the only box is empty.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YNNNN&quot;,
+ &quot;YYNNN&quot;,
+ &quot;YNYNN&quot;,
+ &quot;NNNYY&quot;,
+ &quot;NNNYY&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.6</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YYYNNNYN&quot;,
+ &quot;NYNNNNYN&quot;,
+ &quot;NNYNNNNN&quot;,
+ &quot;NYNYNNNN&quot;,
+ &quot;YNNNYNNY&quot;,
+ &quot;NNYNNYNN&quot;,
+ &quot;NNNNYNYN&quot;,
+ &quot;NNYNNNNY&quot;}
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.875</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YNNNNNNNNYNNNNNNNNNN&quot;,
+ &quot;NYNNNNNNNNNNNNNNNNNN&quot;,
+ &quot;NNYNNNNNNNYNNNNNYNNN&quot;,
+ &quot;NNNYNYNNNNNNNNYNNNNN&quot;,
+ &quot;NNNNYNNNNNNNNNYNNNNY&quot;,
+ &quot;NNNNNYNNNNNNNNNNNNNY&quot;,
+ &quot;NNNNYNYNYNNNNNNNNNNN&quot;,
+ &quot;NNNNNNNYNNNYYNNNNNNN&quot;,
+ &quot;NNNNNNNNYNNNNNNNNNNN&quot;,
+ &quot;YNNNNNNNNYNNNNNYNNNN&quot;,
+ &quot;NNNNNNNNNNYNNNNNNNNN&quot;,
+ &quot;NYNNNNNNNNNYNNNNNNNN&quot;,
+ &quot;NNNNNNNYNNNNYNNNNNNN&quot;,
+ &quot;NNNNNNNNNNNNNYNNNYNN&quot;,
+ &quot;NNNNNNNNNNNYNNYNNNYN&quot;,
+ &quot;NYNNNNNNNNNNNNNYNNNN&quot;,
+ &quot;NNYNNNNNNNNNNNNNYNNN&quot;,
+ &quot;NNNNNNNNNNNNNYNYNYNN&quot;,
+ &quot;NNNNNNNNYNYNNNNNNNYY&quot;,
+ &quot;NNNYNNNNNNNNNNNNNNNY&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.75</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

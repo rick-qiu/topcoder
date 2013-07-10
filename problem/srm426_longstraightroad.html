@@ -1,0 +1,318 @@
+<html>
+ <head>
+  <title>LongStraightRoad Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9894">Problem Statement for LongStraightRoad</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>You are driving on a long, straight road, on your way to a place whose name is given in <b>destination</b>. After a while, you lose track of how far you've driven and realize that you may even have driven past your destination without noticing. &quot;Don't worry!&quot; says your friend, who is in the car with you, &quot;I have an excellent memory and can remember not only what was written on every road sign that we have passed, but also what order they were in. Let's continue until we see the next road sign and maybe we'll be able to work out how far we still have to go.&quot; You agree to his plan, but don't quite trust his memory as much as he clearly does. You decide that you'll believe what he says as long as it is entirely consistent, otherwise you'll try to find somewhere that you can buy a map.</p> <p>The information written on each sign is a semi-colon separated list, where each element of the list is the name of a place and the distance to that place from the sign separated by a space. For example, if sign i contained &quot;A 10;B 15&quot; (quotes for clarity) and the sign were located a distance of S[i] units down the road, then the place called &quot;A&quot; would be located P[&quot;A&quot;] = S[i] + 10 units down the road and the place called &quot;B&quot; would be located P[&quot;B&quot;] = S[i] + 15 units down the road. The distances will never be negative, so only places that are at least as far along the road as the sign can be listed. Note that the values in S[] and P[] need not be integers and that places will have distinct names. You are given the information written on sign i <i>as your friend remembers it</i> in <b>signs</b>[i]. Your friend claims to remember the order of the signs too, so if you wrote down the values of S[i] for each sign, they would be in strictly increasing order (no two signs were colocated).</p> <p>You are currently at the same position as the sign given in the last element of <b>signs</b>. If the information given in <b>signs</b> is consistent, you can determine the remaining distance to your destination and this distance is non-negative, then return this distance. Otherwise, if there is no way that the data given in <b>signs</b> could represent a set of signs and places as described above, or you cannot determine the distance to your destination from the information in the signs, or you have already driven past your destination, return -1 instead.</p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>LongStraightRoad</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>distanceToDestination</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int distanceToDestination(String[] signs, String destination)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>While no two signs were at the same position on the road, places may be legitimately colocated with other places and with the signs.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A <i>place</i> is a string containing betweeen 1 and 50 uppercase letters ('A' - 'Z'), inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A <i>distance</i> is an integer between 0 and 10000, inclusive, formatted without leading zeros.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>signs</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>signs</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>signs</b> will be a semicolon-separated list, each item of which will be a <i>place</i> and a <i>distance</i>, separated by a space.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No element of <b>signs</b> will contain the same <i>place</i> more than once.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>signs</b> will contain no more than 100 distinct <i>places</i>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>destination</b> will be a <i>place</i>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;COLCHESTER 5;GLASTONBURY 25;MARLBOROUGH 13&quot;
+,&quot;MARLBOROUGH 2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;GLASTONBURY&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 14</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first sign tells you that GLASTONBURY is 12 units further than MARLBOROUGH. Since you're now 2 units from MARLBOROUGH, you must be 14 units from GLASTONBURY.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;COLCHESTER 5;GLASTONBURY 25;MARLBOROUGH 13&quot;
+,&quot;GLASTONBURY 13;MARLBOROUGH 2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;GLASTONBURY&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The distance between GLASTONBURY and MARLBOROUGH has changed between the first and second signs, so they're inconsistent. Even though you are standing next to a sign that tells us how far you are from your destination, return -1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A 25;B 15&quot;
+,&quot;A 2&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;B&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You've driven past your destination by 8 units.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;YVO 60;J 62&quot;
+,&quot;K 45&quot;
+,&quot;K 40;MV 17&quot;
+,&quot;K 37;YVO 44;HY 48;CC 69;D 77;YXF 80&quot;
+,&quot;YVO 30;B 37;RB 59&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;MV&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">You're standing right at your destination.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;A 200;B 150&quot;
+,&quot;C 45;D 100;E 150&quot;
+,&quot;C 25;E 130&quot;
+,&quot;F 80;G 65&quot;
+,&quot;G 35;H 160&quot;
+,&quot;A 160&quot;
+,&quot;H 130&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;F&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is no way the signs could be in this order.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

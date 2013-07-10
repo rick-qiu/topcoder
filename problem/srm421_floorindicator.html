@@ -1,0 +1,271 @@
+<html>
+ <head>
+  <title>FloorIndicator Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9871">Problem Statement for FloorIndicator</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>Imagine a skyscraper with 10^<b>N</b> floors, numbered 0 to 10^<b>N</b>-1. The floor indicator in the elevator shows the floor number using exactly <b>N</b> digits, padding it with leading zeroes if necessary. Each digit is shown as a 5x3 field of small lamps, some of which are lit and some of which are unlit. Here is a representation of all the digits from 0 to 9 ('#' represents lit lamps and '.' represents unlit lamps) : <br /><br /> <p><tt> ###...#.###.###.#.#.###.###.###.###.###<br /><br /> #.#...#...#...#.#.#.#...#.....#.#.#.#.#<br /><br /> #.#...#.###.###.###.###.###...#.###.###<br /><br /> #.#...#.#.....#...#...#.#.#...#.#.#...#<br /><br /> ###...#.###.###...#.###.###...#.###.###<br /><br /> </tt></p> <br /><br /> Here, as in the actual floor indicator, consecutive digits are separated by a single column of unlit lamps. Some of the lamps in the floor indicator are malfunctioning and always remain unlit. Imagine that you are stuck in this elevator and you want to know the current floor number. You decide to calculate it as the average value of all floor numbers that could possibly be represented by the current state of the indicator, assuming that any number of the unlit lamps might be malfunctioning. You are given the state of the indicator as a String[] where each element represents a row of lamps, and rows are given from top to bottom. Return the average that you calculate, or -1 if no valid floor number could possibly be represented by the indicator.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>FloorIndicator</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>averageFloor</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double averageFloor(int N, String[] indicator)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must be accurate to within a relative or absolute value of 1E-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>N</b> will be between 1 and 9, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>indicator</b> will contain exactly 5 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>indicator</b> will contain exactly 4*<b>N</b> - 1 characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>indicator</b> will be either '#' or '.' (dot).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All characters corresponding to lamps in separating columns will be '.' (dots).</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;###&quot;,
+ &quot;#.#&quot;,
+ &quot;###&quot;,
+ &quot;#.#&quot;,
+ &quot;###&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 8.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This digit is clearly &quot;8&quot;, so it is the only possible floor.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;###.###&quot;,
+ &quot;#.#.#.#&quot;,
+ &quot;#.#.###&quot;,
+ &quot;#.#...#&quot;,
+ &quot;###.###&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 48.5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Although the indicator shows &quot;09&quot;, both digits can also be partially lit &quot;8&quot;, so the possible floor numbers are: 08,09,88,89. This results in average floor number (8+9+88+89)/4 = 48.5.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;.......&quot;,
+ &quot;.......&quot;,
+ &quot;.......&quot;,
+ &quot;.......&quot;,
+ &quot;.......&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 49.5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This indicator is completely broken, so any floor number between 0 and 99 is possible.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;...&quot;,
+ &quot;.#.&quot;,
+ &quot;...&quot;,
+ &quot;...&quot;,
+ &quot;...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No digit fits here.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

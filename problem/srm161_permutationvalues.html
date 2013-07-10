@@ -1,0 +1,422 @@
+<html>
+ <head>
+  <title>PermutationValues Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1808">Problem Statement for PermutationValues</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You will be given two int[]s <b>lows</b> and <b>highs</b> describing a group of integer ranges. <b>lows</b>[i] and <b>highs</b>[i] represent the lower and upper inclusive bounds for the ith range of numbers. None of the ranges will overlap. The total group of numbers used in this problem will be the combination of the ranges given in <b>lows</b> and <b>highs</b>. <br /><br /><br /><br /> You will also be given a numeric String <b>lexPos</b> and a String[] <b>retInts</b> containing numeric Strings. Assume you listed all possible permutations of the given group of numbers in ascending lexicographical order (no repeated permutations). Find the permutation <i>A</i> that is in position <b>lexPos</b> lexicographically. Return a int[] with the same number of elements as <b>retInts</b> whose <i>k</i>th element is <i>A</i>[<b>retInts</b>[<i>k</i>]]. <b>lexPos</b> is a 0-based index into the list of possible permutations. Each element of <b>retInts</b> is a 0-based index into the relevant permutation. <br /><br /><br /><br /> In a lexicographical ordering, permutations are ordered by their first elements, with ties broken by their second elements, further ties broken by their third elements, and so forth. If <b>lexPos</b> is greater than the total possible number of lexicographical orderings (without repeats) <i>T</i>, then use <b>lexPos</b>%<i>T</i> instead of <b>lexPos</b> (% denotes mod). </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PermutationValues</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getValues</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], String, String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] getValues(int[] lows, int[] highs, String lexPos, String[] retInts)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>retInts</b> and <b>lexPos</b> will fit in a long.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lows</b> will contain between 1 and 50 elements inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>highs</b> will contain the same number of elements as <b>lows</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lexPos</b> will be between 0 and (2^63)-1 inclusive </td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lexPos</b> will contain only digits (0-9), will not have extra leading zeros, and will not contain whitespace</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>lexPos</b> will contain between 1 and 50 characters inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>retInts</b> will contain between 1 and 50 elements inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>lows</b> will be between -2^31 and (2^31)-1 inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>highs</b> will be between -2^31 and (2^31)-1 inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Element k of <b>lows</b> will not be greater than element k of <b>highs</b></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>No two ranges will overlap</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>retInts</b> will contain only digits (0-9), will not have extra leading zeros, and will not contain whitespace</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>retInts</b> will contain between 1 and 50 characters inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>retInts</b> will be between 0 and tot-1 inclusive, where tot is the total amount of numbers in all ranges combined</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{4}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;0&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1,  2,  3,  4 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The 0th permutation lexicographically is the sequence 1,2,3,4. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{3}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;5&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0&quot;,&quot;1&quot;,&quot;2&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 3,  2,  1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The 6 possible permutations, in order, are :<br /><br /> 0) 1, 2, 3 <br /><br /> 1) 1, 3, 2 <br /><br /> 2) 2, 1, 3 <br /><br /> 3) 2, 3, 1 <br /><br /> 4) 3, 1, 2 <br /><br /> 5) 3, 2, 1 <br /><br /> <b>lexPos</b> is 5 so you return the 0th, 1st, and 2nd elements of permutation 5 </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,16}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5,20}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;1000000&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 3,  18,  19,  4,  20,  2,  16,  17,  1,  5,  18,  19,  4 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Notice the repeated elements in <b>retInts</b></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{5}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;100000000000001&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 2,  4,  5,  3,  1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><b>lexPos</b> is very big.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{-1000000000,500000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{0,2000000000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;99999999999999999&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;2999500000&quot;,&quot;1234123&quot;,&quot;123344&quot;,&quot;9293939&quot;,&quot;2999500001&quot;,&quot;2999499950&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 1999999987,  -998765877,  -999876656,  -990706061,  1999999982,  1999999949 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{9}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;999999&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;0&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { 9 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">6)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0,-100,101}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{99,-11,100000000}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;100000000000009&quot;</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{&quot;4&quot;,&quot;100000087&quot;,&quot;7&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { -96,  99999993,  -93 }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

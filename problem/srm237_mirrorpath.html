@@ -1,0 +1,373 @@
+<html>
+ <head>
+  <title>MirrorPath Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4462">Problem Statement for MirrorPath</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><i> NOTE: This problem statement contains an image that may not display properly if viewed outside of the applet. </i> <p> You will be given the map of a maze containing mirrors. There will be exactly two openings on the boundary of the maze. A laser shined through one opening will reflect off the mirrors and exit through the other opening. You are to write a method that outputs the map of the maze with the laser's path drawn in it. </p> <p> Mirrors are always at a 45-degree angle to the axis of the maze, and deflect the laser at a right angle. The maze will consist of walls ('#'), open spaces ('.'), and mirrors ('/' and '`') arranged on a regular grid. Your method should replace some or all of the '.' characters in the map with '|', '-', and '+' characters, indicating the open spaces where the laser travels vertically, travels horizontally, and crosses its own path, respectively. </p> <p> For example, given the following three mazes: </p> <pre>
+
+    #######    #######    #######
+    ##....#    ##/..`#    ##/..`#
+    ##.##.#    ##.##.#    ##.##.#
+    ##.##.#    ##.##.#    ##.##.#
+    ..`...#    ...../#    ../../#
+    ##.####    ##.####    ##.####
+    ##.####    ##.####    ##.####
+</pre> <p> the laser would be reflected as shown in the following figure: <br /><br /> </p> 
+      <center> 
+       <img src="http://www.topcoder.com/contest/problem/MirrorPath/mirrors1.gif" /> 
+      </center> <p> and the solutions for each of these three examples are as follows: </p> <pre>
+
+    #######    #######    #######
+    ##....#    ##/--`#    ##/--`#
+    ##.##.#    ##|##|#    ##|##|#
+    ##.##.#    ##|##|#    ##|##|#
+    --`...#    --+--/#    --/--/#
+    ##|####    ##|####    ##|####
+    ##|####    ##|####    ##|####
+</pre> <p> Note that the laser can bounce of both sides of the same mirror. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MirrorPath</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>path</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] path(String[] map)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Since '\' is a special character, we will use the '/' (forward slash) and '`' (back quote) characters to indicate mirrors in the input.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>map</b> will contain between 3 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The length of each element of <b>map</b> will be the same, and be between 3 and 50, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>map</b> will contain only the characters '#', '.', '/', and '`'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Exactly 2 characters on the boundary of <b>map</b> will be '.'. All other characters on the boundary will be '#'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The characters in the four corners of <b>map</b> will be '#'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The map will be such that if a laser is shined through one opening on the boundary, it will exit through the other opening.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;#.#&quot;,
+  &quot;#.#&quot;,
+  &quot;#.#&quot; }
+</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;#|#&quot;, &quot;#|#&quot;, &quot;#|#&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;############&quot;,
+  &quot;#######/....&quot;,
+  &quot;######//####&quot;,
+  &quot;#####//#####&quot;,
+  &quot;####//######&quot;,
+  &quot;..../#######&quot;,
+  &quot;############&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;############&quot;,
+&quot;#######/----&quot;,
+&quot;######//####&quot;,
+&quot;#####//#####&quot;,
+&quot;####//######&quot;,
+&quot;----/#######&quot;,
+&quot;############&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;#######&quot;,
+  &quot;##/..`#&quot;,
+  &quot;##.##.#&quot;,
+  &quot;##.##.#&quot;,
+  &quot;...../#&quot;,
+  &quot;##.####&quot;,
+  &quot;##.####&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;#######&quot;, &quot;##/--`#&quot;, &quot;##|##|#&quot;, &quot;##|##|#&quot;, &quot;--+--/#&quot;, &quot;##|####&quot;, &quot;##|####&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is the second example in the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;###########.#&quot;,
+  &quot;#/........./.&quot;,
+  &quot;#.#########.#&quot;,
+  &quot;#`........./#&quot;,
+  &quot;#############&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;###########|#&quot;,
+&quot;#/---------/-&quot;,
+&quot;#|#########|#&quot;,
+&quot;#`---------/#&quot;,
+&quot;#############&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This is similar to the third example in the problem statement.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;########.##&quot;,
+  &quot;#./......`#&quot;,
+  &quot;#../.`....#&quot;,
+  &quot;#.`...../.#&quot;,
+  &quot;#....`.../#&quot;,
+  &quot;###.#######&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;########|##&quot;,
+&quot;#./-----+`#&quot;,
+&quot;#.|/-`..||#&quot;,
+&quot;#.`+-+--/|#&quot;,
+&quot;#..|.`---/#&quot;,
+&quot;###|#######&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{ &quot;##.########&quot;,
+  &quot;#.........#&quot;,
+  &quot;..`.`.....#&quot;,
+  &quot;#..`......#&quot;,
+  &quot;#.`.`.`...#&quot;,
+  &quot;#....`....#&quot;,
+  &quot;#...`.`.`.#&quot;,
+  &quot;#.........#&quot;,
+  &quot;#.....`./.#&quot;,
+  &quot;#.........#&quot;,
+  &quot;###########&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;##|########&quot;,
+&quot;#.|.......#&quot;,
+&quot;--`-`.....#&quot;,
+&quot;#.|`|.....#&quot;,
+&quot;#.`-`-`...#&quot;,
+&quot;#...|`|...#&quot;,
+&quot;#...`-`-`.#&quot;,
+&quot;#.....|.|.#&quot;,
+&quot;#.....`-/.#&quot;,
+&quot;#.........#&quot;,
+&quot;###########&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

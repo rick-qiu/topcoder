@@ -1,0 +1,271 @@
+<html>
+ <head>
+  <title>ThreeBuses Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7295">Problem Statement for ThreeBuses</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> Little Johnny woke up late. Now he only has <b>timeLeft</b> minutes to get to school. </p> <p> Sadly, Johnny doesn't have a direct connection to school. He has to use three specific bus lines (one after another) to get there. </p> <p> The buses in Johnny's town don't have a fixed schedule. Instead, each bus line is assigned some non-negative integer W. If you arrive at a bus stop of a bus line, you know that the time you will have to wait is a random variable drawn from the interval [0,W] with uniform probability. Note that from a passenger's point of view the number W corresponds to the maximum waiting time. </p> <p> (You can imagine this in a real life setting as follows: If you stand on a bus stop of a line that has a positive W, precisely every W minutes a bus comes by, you just don't know the offset. If you stand on a bus stop of a line that has W=0, there is always a bus ready to take you.) </p> <p> You are given two int[]s <b>wait</b> and <b>travel</b>, and an int <b>timeLeft</b>. The int[] <b>wait</b> specifies the value W (the maximum waiting time) for each of the bus lines Johnny has to take. The int[] <b>travel</b> specifies how long Johnny rides each of the three buses. Write a method that computes the probability that Johnny will arrive to school on time. </p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ThreeBuses</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>getProbability</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], int[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double getProbability(int[] wait, int[] travel, int timeLeft)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Time is continuous, e.g., the bus can arrive 0.47 minutes after Johnny comes to a bus stop.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Your return value must have an absolute or relative error less than 1e-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>wait</b> will contain exactly 3 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>wait</b> will be between 0 and 100,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>travel</b> will contain exactly 3 elements.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>travel</b> will be between 1 and 100,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>timeLeft</b> will be between 1 and 600,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 0, 0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10, 15, 10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>47</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Johnny won't have to wait for the buses. He can be sure his trip will take exactly 35 minutes, and 35 is not more than 47.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{0, 0, 0}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10, 15, 10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>35</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The same setting as before. With 35 minutes left, Johnny will arrive exactly on time.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1, 100, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{10, 10, 10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>52</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.21</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This time Johnny may get into trouble. It all depends on whether the second bus arrives soon enough. A rough estimate: if the second bus arrives in less then 20 minutes, Johnny will surely make it. Thus the exact probability is slightly over 20/100.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{100, 100, 70}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>{1, 1, 1}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>47</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.020281904761904737</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Johnny must be really lucky to make it.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

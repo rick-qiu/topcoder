@@ -1,0 +1,259 @@
+<html>
+ <head>
+  <title>MessageMess Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=1331">Problem Statement for MessageMess</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>It is a common practice in cryptography to remove the spaces from a message before encoding it to help to disguise its structure. Even after it is then decoded, we are left with the problem of putting the spaces back in the message. <p> Create a class MessageMess that contains a method restore that takes a String[] <b>dictionary</b> of possible words and a String <b>message</b> as inputs. It returns the message with single spaces inserted to divide the <b>message</b> into words from the <b>dictionary</b>. If there is more than one way to insert spaces, it returns &quot;AMBIGUOUS!&quot; If there is no way to insert spaces, it returns &quot;IMPOSSIBLE!&quot; The return should never have any leading or trailing spaces. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>MessageMess</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>restore</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], String</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String restore(String[] dictionary, String message)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Don't forget the '!' at the end of the two special returns</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A proper message may require 0 spaces to be inserted</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>dictionary</b> will contain between 1 and 50 elements inclusive</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>the elements of <b>dictionary</b> will be distinct</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>each element of <b>dictionary</b> will contain between 1 and 50 characters</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>message</b> will contain between 1 and 50 characters</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>every character in <b>message</b> and in each element of <b>dictionary</b> will be an uppercase letter 'A'-'Z'</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;HI&quot;, &quot;YOU&quot;, &quot;SAY&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;HIYOUSAYHI&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;HI YOU SAY HI&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> A word from <b>dictionary</b> may appear multiple times in the <b>message</b>. </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;ABC&quot;, &quot;BCD&quot;, &quot;CD&quot;, &quot;ABCB&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;ABCBCD&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;AMBIGUOUS!&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">&quot;ABC BCD&quot; and &quot;ABCB CD&quot; are both possible interpretations of <b>message</b>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;IMPOSS&quot;, &quot;SIBLE&quot;, &quot;S&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;IMPOSSIBLE&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;IMPOSSIBLE!&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There is no way to concatenate words from this <b>dictionary</b> to form &quot;IMPOSSIBLE&quot;</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;IMPOSS&quot;, &quot;SIBLE&quot;, &quot;S&quot;, &quot;IMPOSSIBLE&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>&quot;IMPOSSIBLE&quot;</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: &quot;IMPOSSIBLE&quot;</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This <b>message</b> can be decoded without ambiguity. This requires the insertion of no spaces since the entire <b>message</b> appears as a word in the <b>dictionary</b>.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

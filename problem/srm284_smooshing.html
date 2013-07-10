@@ -1,0 +1,210 @@
+<html>
+ <head>
+  <title>Smooshing Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=4847">Problem Statement for Smooshing</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>We write programs in a script language which are embedded in HTML files and downloaded over the internet. To speed up our downloads, we would like to &quot;smoosh&quot; our source code, reducing its size without destroying the program. <p> One smooshing technique that we are interested in analyzing is to replace all the nice meaningful identifiers in our code with shorter names. This script language is case sensitive, and an identifier in this language consists of (a maximal sequence of) letters. In order to avoid smooshing identifiers that are reserved words, we will encourage our programmers to start their identifiers with an uppercase letter (since all the reserved words start with a lowercase letter) and we will only smoosh identifiers that start with an uppercase letter. </p><p> Here is the proposed smooshing algorithm. Find the most frequent identifier that begins with an uppercase letter and replace all its occurrences by its first letter. Continue with the next most frequent identifier, etc. Whenever a one letter abbreviation conflicts by matching an already assigned abbreviation, use the first two letters. If that still gives a conflict, then try the first three letters. If even after using all the letters of the identifier there is still a conflict, continue adding letters to the abbreviation by circling around to the front of the identifier. So it is possible that the abbreviation(!?) for &quot;Car&quot; might be &quot;CarCarCa&quot;. When several identifiers appear with the same frequency, they are given abbreviations in the order that they first appear in the program. </p><p> Create a class Smooshing that contains a method savings that is given a String[] <b>program</b> that contains the lines of source code. It calculates the number of characters by which the source code would be reduced by smooshing it. </p><p> Note that lines of source code are distinct -- an identifier cannot cross line boundaries and the smooshed code will have the same number of lines as the original code. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>Smooshing</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>savings</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int savings(String[] program)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>program</b> contains between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>program</b> contains between 0 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each character in each element of <b>program</b> is between ASCII 32 and ASCII 126, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;MyInt = YrInt; if(MyInt==2*That) MyInt++;&quot;,
+    &quot;while(MyInt&gt;3){&quot;,
+    &quot;    MyDouble = MyShort+MyLong;&quot;,
+    &quot;}&quot;,
+    &quot;return MyDouble;&quot;,
+    &quot;end&quot; }</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 42</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"> MyInt is most frequent and so is smooshed to M. MyDouble is next most frequent and is smooshed to My. YrInt, That, MyShort, and MyLong all have the same frequency and first appear in the order given, so they are smooshed to Y, T, MyS, and MyL. The smooshed program is<pre>
+    M = Y; if(M==2*T) M++;
+    while(M&gt;3){
+        My = MyS+MyL;
+    },
+    return My;
+    end
+</pre> The length of the smooshed program is 42 characters less than the length of the original program.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;MyInt3 = MyInt&quot;,&quot;MyIntMyInt&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 16</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This smooshes to <pre>
+   M3 = M
+   My
+</pre> which is 8 characters versus the original 24 (not counting the end-of-line characters which are never affected by this kind of smooshing).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C = Cda; CdC=CdCd+2*Cd;&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Here there are 5 different identifiers, each appearing once. The code is smooshed as follows, showing the code after each abbreviation has been performed:<pre>
+   C   abbrev: C     =&gt; &quot;C = Cda; CdC=CdCd+2*Cd;&quot;
+   Cda abbrev: Cd    =&gt; &quot;C = Cd; CdC=CdCd+2*Cd;&quot;
+   CdC abbrev: CdC   =&gt; &quot;C = Cd; CdC=CdCd+2*Cd;&quot;
+   CdCd abbrev: CdCd =&gt; &quot;C = Cd; CdC=CdCd+2*Cd;&quot;
+   Cd abbrev: CdCdC  =&gt; &quot;C = Cd; CdC=CdCd+2*CdCdC;&quot;</pre> <p> Notice that when Cd is assigned its abbreviation the first Cd in the code at that point is not replaced because it was placed there as an abbreviation at an earlier step. </p></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

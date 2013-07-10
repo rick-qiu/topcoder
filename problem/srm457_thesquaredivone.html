@@ -1,0 +1,257 @@
+<html>
+ <head>
+  <title>TheSquareDivOne Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=10298">Problem Statement for TheSquareDivOne</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>John and Brus like puzzles. They have been playing a new game which involves placing checkers on a square board. The board is a grid containing the same number of columns and rows.<br /><br /> <br /><br /> The game begins with John placing checkers on specific cells of the board. Then, R[i] is calculated for each row i, where R[i] is the number of checkers in the i-th row. Brus must then move the checkers in such a way that for each column i in the final board, the number of checkers in that column is equal to R[i]. Note that R[i] is calculated for the initial placement of checkers and is not modified afterwards. In a single turn, Brus can move a checker up, down, left or right into an adjacent empty cell. He must use as few turns as possible to reach the goal.<br /><br /> <br /><br /> You are give a String[] <b>board</b>, where the j-th character of the i-th element is uppercase 'C' if the cell at row i, column j contains a checker and '.' otherwise. Return the final placement of checkers using the same format as the input. Since there may be many possible final placements, return the one that comes first lexicographically.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TheSquareDivOne</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>solve</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] solve(String[] board)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The lexicographically earlier of two String[]s is the one that has the lexicographically earlier String in the first position at which they differ.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The lexicographically earlier of two Strings is the one that has the earlier character (using ASCII ordering) at the first position at which they differ.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>In ASCII ordering, a dot character '.' comes before 'C'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>board</b> will contain exactly n elements, where n is between 1 and 18, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain exactly n characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>board</b> will contain only uppercase 'C' or '.'.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...&quot;,
+ &quot;...&quot;,
+ &quot;C..&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;...&quot;, &quot;...&quot;, &quot;..C&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Initially, R[0] = 0, R[1] = 0, R[2] = 1.<br /><br /> There is currently a checker in column 0 which must be moved to column 2. It can be done in two turns.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;CCC&quot;,
+ &quot;.C.&quot;,
+ &quot;CCC&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;C.C&quot;, &quot;C.C&quot;, &quot;CCC&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"><pre>
+CCC    CCC    C.C    C.C
+.C. -&gt; ..C -&gt; .CC -&gt; C.C
+CCC    CCC    CCC    CCC
+</pre> <br /><br /> The following sequence also takes three turns, but its final placement does not come earlier lexicographically:<br /><br /><br /><br /> <pre>
+CCC    CCC    CCC    CCC
+.C. -&gt; C.. -&gt; CC. -&gt; C.C
+CCC    CCC    C.C    C.C
+</pre><br /><br /></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C..&quot;,
+ &quot;.C.&quot;,
+ &quot;..C&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;C..&quot;, &quot;.C.&quot;, &quot;..C&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">No move is necessary.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;C....&quot;,&quot;CCCCC&quot;,&quot;...CC&quot;,&quot;.CC..&quot;,&quot;.C.C.&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;.C...&quot;, &quot;CCCCC&quot;, &quot;.C..C&quot;, &quot;.CC..&quot;, &quot;.C.C.&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

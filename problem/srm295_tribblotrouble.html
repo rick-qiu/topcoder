@@ -1,0 +1,263 @@
+<html>
+ <head>
+  <title>TribbloTrouble Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6094">Problem Statement for TribbloTrouble</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>We have decided to make a funnier programming language, and name it &quot;Tribblo&quot;. The basic objects of the new programming language will be tiny two dimensional creatures called Tribbles. The way tribbles interact with their world will determine the flow of a program. For starters, only 5 objects that tribbles can interact with are defined. 
+      <ul> 
+       <li> 'S' represents a spawning point. The program starts by summoning one tribble at this point. The tribble then begins moving in one of the four cardinal directions (up, down, left or right). The direction is chosen randomly and each direction has the same chance of being chosen (25%). If at any point during the program the tribble returns to the spawning point the tribble is destroyed causing the program to enter an infinite loop and never terminate. </li> 
+       <li> A slash-router '/' (quotes for clarity) works like a mirror. When a tribble hits a slash-router, it will rotate 90 degrees and continue moving. If the tribble was originally moving left or right, it will rotate 90 degrees counterclockwise, and if it was originally moving up or down, it will rotate 90 degrees clockwise.</li> 
+       <li> A backslash-router '\' (quotes for clarity) works similarly to the slash-router, but in the opposite direction. If the tribble was originally moving left or right, it will rotate 90 degrees clockwise, and if it was originally moving up or down, it will rotate 90 degrees counterclockwise.<br /><br /> For example if the code looks like this:<br /><br /> <pre>		...\..
+		......
+		S../..</pre> a tribble that starts off going to the right moves like this:<br /><br /> <pre>		ttt\..
+		...t..
+		Stt/..</pre></li> 
+       <li> There is also a wherever machine 'W'. When a tribble hits this object, it will rotate 90 degrees either clockwise or counterclockwise (both possibilities are equally likely). For example, a tribble going left and hitting the machine has a 50% chance of going up and a 50% chance of going down. There will be at most 10 wherever machines.</li> 
+       <li> The final object is the tribble-trouble object 'T'. If any tribble reaches a tribble-trouble object, the program terminates.</li> 
+      </ul> The tribblo world is a N*M matrix of characters, with empty squares represented as '.'. If a tribble exits the boundaries of the world, he falls off, causing the program to enter an infinite loop and never terminate. You will be given a String[] <b>code</b> containing a properly formatted Tribblo program. You need to determine the probability of the given Tribblo program terminating. </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>TribbloTrouble</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>terminates</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>double</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>double terminates(String[] code)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The returned value must be accurate to within a relative or absolute value of 1E-9.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>code</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>code</b> will contain between 1 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>code</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>All elements of <b>code</b> will contain only 'S','T','/','\','W' or '.' characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be at most 10 'W' characters in <b>code</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will be exactly one 'S' character in <b>code</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;..T..&quot;,
+ &quot;T.S.T&quot;,
+ &quot;..T..&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1.0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Whatever the initial direction of the tribble is, he is bound to enter a tribble-trouble. Therefore, the program will always terminate.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;./..T&quot;,
+ &quot;.\\..\\&quot;,
+ &quot;S.../&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.25</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A tribble that starts off moving to the right will rebound a bit around the routers and end up hitting the tribble-trouble. Any other starting direction will cause the tribble to fall off the board (please note that '\\' represents a single '\' character!)</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;...W..T&quot;,
+ &quot;.......&quot;,
+ &quot;...S...&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.125</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The famous wherever object! The tribble has a 25% chance of initially going upwards. When it hits the wherever machine it has a 50% chance of going to the left and falling off and a 50% chance of going to the right and terminating the program. 25% * 50% = 12.5%</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{
+ &quot;T......&quot;,
+ &quot;.......&quot;,
+ &quot;....W.T&quot;,
+ &quot;.......&quot;,
+ &quot;\\S../..&quot;
+}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0.375</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,320 @@
+<html>
+ <head>
+  <title>StarsInGraphs Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=7593">Problem Statement for StarsInGraphs</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>You are given the adjacency matrix of a directed graph as a String[] <b>adjacencyMatrix</b>. The j-th character of the i-th element of <b>adjacencyMatrix</b> will be '1' if there is an edge going from the i-th vertex to the j-th, or '0' otherwise. A star in a directed graph is defined as follows: it is comprised of a central vertex and at least three distinct edges emanating from it, which we will call the rays of the star. The number of rays in a star is not bounded; the only restriction is that there must be at least 3 of them. The number of distinct stars for which a vertex V is central will be called the star number of V. For example, if V has 5 edges emanating from it then its star number is 16 = 10 + 5 + 1 since it is central for 10 stars with 3 rays, 5 stars with 4 rays, and 1 star with 5 rays. We will call a path in our graph starry if it satisfies two conditions: 
+      <ul>
+       <li>Each vertex belonging to the path has a non-zero star number not exceeding <b>C</b>.</li> 
+       <li>Given two subsequent vertices V<sub>i</sub> and V<sub>i+1</sub> in the path the star number of V<sub>i+1</sub> is not less than the star number of V<sub>i</sub>.</li>
+      </ul> Given the directed graph in the form of its adjacency matrix return the number of vertices in the longest starry path it contains. If there is a starry path of infinite length in the graph return -1. If there are no starry paths (all vertices have star numbers either 0 or greater than <b>C</b>) return 0.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>StarsInGraphs</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>starryPaths</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int starryPaths(String[] adjacencyMatrix, int C)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Two stars are considered distinct if either their central vertices are distinct or the sets of rays are distinct.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>adjacencyMatrix</b> will contain between 2 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The number of characters in each string of the <b>adjacencyMatrix</b> will be equal to the total number of elements in <b>adjacencyMatrix</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Every character of each element of <b>adjacencyMatrix</b> will be either '0' (zero) or '1' (one).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the i-th element of <b>adjacencyMatrix</b> will be '0'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>C</b> will be between 1 and 10<sup>9</sup>, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;01110&quot;,
+ &quot;10111&quot;,
+ &quot;00000&quot;,
+ &quot;00000&quot;,
+ &quot;00000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1000</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The starry path 0 -&gt; 1 is the longest one. Vertex 0 has star number 1, vertex 1 has star number 5, and all other vertices have star numbers 0.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;01011&quot;,
+ &quot;00111&quot;,
+ &quot;10011&quot;,
+ &quot;00000&quot;,
+ &quot;00000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: -1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Vertices 0, 1, and 2 have star numbers 1 and form a cycle, thus we have an infinite starry path.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;0111&quot;,
+ &quot;0000&quot;,
+ &quot;0000&quot;,
+ &quot;0000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 1</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">This time the longest starry path consists of a single vertex.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;01111&quot;,
+ &quot;00000&quot;,
+ &quot;00000&quot;,
+ &quot;00000&quot;,
+ &quot;00000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 0</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">Vertex 0 has star number 5 and the rest of the vertices have a zero star number, and thus none of them can appear in a starry path.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;010001100&quot;,
+ &quot;001001100&quot;,
+ &quot;000101110&quot;,
+ &quot;000010111&quot;,
+ &quot;000001111&quot;,
+ &quot;010000000&quot;,
+ &quot;000110000&quot;,
+ &quot;000100001&quot;,
+ &quot;100001000&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>10</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 5</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

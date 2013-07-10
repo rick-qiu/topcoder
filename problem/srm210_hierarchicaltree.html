@@ -1,0 +1,477 @@
+<html>
+ <head>
+  <title>HierarchicalTree Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=2930">Problem Statement for HierarchicalTree</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Many systems of information are naturally organized as hierarchical trees. For example, a computer file system has a hierarchical structure of nested directories, and a textbook could be successively divided into chapters, sections, and subsections. In a hierarchical tree, the root node has no parent, and all other nodes are descendants of the root with exactly one parent each. Therefore, even though a node can have any number of children (zero or more), it is possible to describe the structure of a tree by specifying just the parent of each node.</p> <p>You have a list of node-parent relationships and you want to analyze the structure of the hierarchical tree. All nodes are named with strings of lowercase alphabetical characters, except for the root node which is named ROOT. Write a class HierarchicalTree with a method countDescendants that takes a String[] <b>parentData</b> containing the nodes and their parents and returns a String[] listing the number of descendants of each node. If <b>parentData</b> describes a structure that is not a hierarchical tree, return an empty String[].</p> <p>The elements of <b>parentData</b> should be concatenated, in order, onto an initially empty string. The resulting string will contain pairs of the form NODE,PARENT separated by exactly one space character. NODE represents the name of a node, and PARENT represents the name of NODE's parent. A name will either consist of all lowercase English characters ('a' to 'z') or be ROOT. The elements of the return value should be formatted &quot;NODE: DESCENDANT_COUNT&quot; (quotes are for clarity) with exactly one space character between the colon and the number of descendants, which should contain no extra leading zeroes. The elements of the return value should be sorted in lexicographical order by NODE. Since ROOT is capitalized, it should always precede the other nodes in the returned array.</p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>HierarchicalTree</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>countDescendants</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] countDescendants(String[] parentData)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The ROOT node always exists.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The name of a node uniquely identifies it. There cannot be multiple nodes with the same name, even if they have different parents.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>A node does <i>not</i> count as its own descendant.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>parentData</b> will contain between 0 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>parentData</b> will contain between 0 and 50 characters, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>When the elements of <b>parentData</b> are concatenated, the resulting string will be a list of name pairs with no leading or trailing spaces. Members of a pair will be separated by a single comma, and pairs will be separated by a single space. Names will be lowercase alphabetical English characters ('a' to 'z') or ROOT.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;bin,ROOT tty,dev dev,ROOT passwd,etc etc,ROOT lib&quot;,
+&quot;,ROOT mnt,ROOT proc,ROOT tmp,ROOT usr,ROOT var,RO&quot;,
+&quot;OT libc,lib screens,tmp kernel,usr log,var tty,de&quot;,
+&quot;v&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;ROOT: 15&quot;,
+ &quot;bin: 0&quot;,
+ &quot;dev: 1&quot;,
+ &quot;etc: 1&quot;,
+ &quot;kernel: 0&quot;,
+ &quot;lib: 1&quot;,
+ &quot;libc: 0&quot;,
+ &quot;log: 0&quot;,
+ &quot;mnt: 0&quot;,
+ &quot;passwd: 0&quot;,
+ &quot;proc: 0&quot;,
+ &quot;screens: 0&quot;,
+ &quot;tmp: 1&quot;,
+ &quot;tty: 0&quot;,
+ &quot;usr: 1&quot;,
+ &quot;var: 1&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">A node doesn't have to be specified as a child before it is specified as a parent. Also, redundant specifications may exist (tty,dev appears twice).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { &quot;ROOT: 0&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;disconnectb,disconnecta cyclea,ROOT intermediatea&quot;,
+&quot;,cyclea cycleb,intermediatea cyclea,cycleb ROOT,r&quot;,
+&quot;ootparent&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: { }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are three things wrong with this tree. First, disconnecta and disconnectb are not descendants of ROOT. Second, cyclea has two parents. Third, rootparent is specified as the parent of ROOT.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;sapiens,homo homo,hominidae hominidae,primates pri&quot;,
+&quot;mates,mammalia mammalia,chordata chordata,animalia&quot;,
+&quot; animalia,eukarya eukarya,ROOT &quot;,
+&quot;protista,eukarya fungi,eukarya plantae,eukarya &quot;,
+&quot;porifera,animalia cnidaria,animalia platyhelminthe&quot;,
+&quot;s,animalia nematoda,animalia mollusca,animalia ann&quot;,
+&quot;elida,animalia arthropoda,animalia echinodermata,a&quot;,
+&quot;nimalia &quot;,
+&quot;agnatha,chordata chondrichthyes,chordata osteichth&quot;,
+&quot;yes,chordata amphibia,chordata reptilia,chordata a&quot;,
+&quot;ves,chordata &quot;,
+&quot;artiodactyla,mammalia carnivora,mammalia cetacea,m&quot;,
+&quot;ammalia chiroptera,mammalia dermoptera,mammalia hy&quot;,
+&quot;racoidea,mammalia insectivora,mammalia lagomorpha,&quot;,
+&quot;mammalia macroscelidea,mammalia notoryctemorphia,m&quot;,
+&quot;ammalia perissodactyla,mammalia pholidota,mammalia&quot;,
+&quot; proboscidea,mammalia rodentia,mammalia scandentia&quot;,
+&quot;,mammalia sirenia,mammalia tubulidentata,mammalia &quot;,
+&quot;xenarthra,mammalia &quot;,
+&quot;lemuridae,primates cheirogaleidae,primates indrida&quot;,
+&quot;e,primates daubentoniidae,primates galagonidae,pri&quot;,
+&quot;mates loridae,primates megaladapidae,primates tars&quot;,
+&quot;iidae,primates cebidae,primates cercopithecidae,pr&quot;,
+&quot;imates callitrichidae,primates hylobatidae,primate&quot;,
+&quot;s &quot;,
+&quot;gorilla,hominidae pan,hominidae pongo,hominidae &quot;,
+&quot;domain,ROOT kingdom,domain phylum,kingdom class,ph&quot;,
+&quot;ylum order,class family,order genus,family species&quot;,
+&quot;,genus ninja,mammalia&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;ROOT: 67&quot;,
+ &quot;agnatha: 0&quot;,
+ &quot;amphibia: 0&quot;,
+ &quot;animalia: 54&quot;,
+ &quot;annelida: 0&quot;,
+ &quot;arthropoda: 0&quot;,
+ &quot;artiodactyla: 0&quot;,
+ &quot;aves: 0&quot;,
+ &quot;callitrichidae: 0&quot;,
+ &quot;carnivora: 0&quot;,
+ &quot;cebidae: 0&quot;,
+ &quot;cercopithecidae: 0&quot;,
+ &quot;cetacea: 0&quot;,
+ &quot;cheirogaleidae: 0&quot;,
+ &quot;chiroptera: 0&quot;,
+ &quot;chondrichthyes: 0&quot;,
+ &quot;chordata: 45&quot;,
+ &quot;class: 4&quot;,
+ &quot;cnidaria: 0&quot;,
+ &quot;daubentoniidae: 0&quot;,
+ &quot;dermoptera: 0&quot;,
+ &quot;domain: 7&quot;,
+ &quot;echinodermata: 0&quot;,
+ &quot;eukarya: 58&quot;,
+ &quot;family: 2&quot;,
+ &quot;fungi: 0&quot;,
+ &quot;galagonidae: 0&quot;,
+ &quot;genus: 1&quot;,
+ &quot;gorilla: 0&quot;,
+ &quot;hominidae: 5&quot;,
+ &quot;homo: 1&quot;,
+ &quot;hylobatidae: 0&quot;,
+ &quot;hyracoidea: 0&quot;,
+ &quot;indridae: 0&quot;,
+ &quot;insectivora: 0&quot;,
+ &quot;kingdom: 6&quot;,
+ &quot;lagomorpha: 0&quot;,
+ &quot;lemuridae: 0&quot;,
+ &quot;loridae: 0&quot;,
+ &quot;macroscelidea: 0&quot;,
+ &quot;mammalia: 38&quot;,
+ &quot;megaladapidae: 0&quot;,
+ &quot;mollusca: 0&quot;,
+ &quot;nematoda: 0&quot;,
+ &quot;ninja: 0&quot;,
+ &quot;notoryctemorphia: 0&quot;,
+ &quot;order: 3&quot;,
+ &quot;osteichthyes: 0&quot;,
+ &quot;pan: 0&quot;,
+ &quot;perissodactyla: 0&quot;,
+ &quot;pholidota: 0&quot;,
+ &quot;phylum: 5&quot;,
+ &quot;plantae: 0&quot;,
+ &quot;platyhelminthes: 0&quot;,
+ &quot;pongo: 0&quot;,
+ &quot;porifera: 0&quot;,
+ &quot;primates: 18&quot;,
+ &quot;proboscidea: 0&quot;,
+ &quot;protista: 0&quot;,
+ &quot;reptilia: 0&quot;,
+ &quot;rodentia: 0&quot;,
+ &quot;sapiens: 0&quot;,
+ &quot;scandentia: 0&quot;,
+ &quot;sirenia: 0&quot;,
+ &quot;species: 0&quot;,
+ &quot;tarsiidae: 0&quot;,
+ &quot;tubulidentata: 0&quot;,
+ &quot;xenarthra: 0&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The phylogeny of living organisms can be represented as a hierarchical tree.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;duke,ROOT arizona,duke maryland,duke michiganst,a&quot;,
+&quot;rizona usc,duke stanford,maryland temple,michigan&quot;,
+&quot;st illinois,arizona ucla,duke kentucky,usc cincin&quot;,
+&quot;nati,stanford georgetown,maryland gonzaga,michiga&quot;,
+&quot;nst pennst,temple kansas,illinois mississippi,ari&quot;,
+&quot;zona missouri,duke utahst,ucla bostoncollege,usc &quot;,
+&quot;iowa,kentucky stjosephs,stanford kentstate,cincin&quot;,
+&quot;nati georgiast,maryland hampton,georgetown fresno&quot;,
+&quot;st,michiganst indianast,gonzaga florida,temple no&quot;,
+&quot;rthcarolina,pennst charlotte,illinois syracuse,ka&quot;,
+&quot;nsas notredame,mississippi butler,arizona monmout&quot;,
+&quot;h,duke georgia,missouri ohiost,utahst hofstra,ucl&quot;,
+&quot;a oklahomast,usc southernutah,bostoncollege creig&quot;,
+&quot;hton,iowa holycross,kentucky ncgreensboro,stanfor&quot;,
+&quot;d georgiatech,stjosephs byu,cincinnati indiana,ke&quot;,
+&quot;ntstate wisconsin,georgiast georgemason,maryland &quot;,
+&quot;arkansas,georgetown iowast,hampton alabamast,mich&quot;,
+&quot;iganst california,fresnost virginia,gonzaga oklah&quot;,
+&quot;oma,indianast texas,temple westernky,florida prov&quot;,
+&quot;idence,pennst princeton,northcarolina northwester&quot;,
+&quot;nst,illinois tennessee,charlotte hawaii,syracuse &quot;,
+&quot;csnorthridge,kansas xavier,notredame iona,mississ&quot;,
+&quot;ippi wakeforest,butler easternill,arizona winthro&quot;,
+&quot;p,northwesternst&quot;}</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{ &quot;ROOT: 65&quot;,
+ &quot;alabamast: 0&quot;,
+ &quot;arizona: 32&quot;,
+ &quot;arkansas: 0&quot;,
+ &quot;bostoncollege: 1&quot;,
+ &quot;butler: 1&quot;,
+ &quot;byu: 0&quot;,
+ &quot;california: 0&quot;,
+ &quot;charlotte: 1&quot;,
+ &quot;cincinnati: 3&quot;,
+ &quot;creighton: 0&quot;,
+ &quot;csnorthridge: 0&quot;,
+ &quot;duke: 64&quot;,
+ &quot;easternill: 0&quot;,
+ &quot;florida: 1&quot;,
+ &quot;fresnost: 1&quot;,
+ &quot;georgemason: 0&quot;,
+ &quot;georgetown: 3&quot;,
+ &quot;georgia: 0&quot;,
+ &quot;georgiast: 1&quot;,
+ &quot;georgiatech: 0&quot;,
+ &quot;gonzaga: 3&quot;,
+ &quot;hampton: 1&quot;,
+ &quot;hawaii: 0&quot;,
+ &quot;hofstra: 0&quot;,
+ &quot;holycross: 0&quot;,
+ &quot;illinois: 8&quot;,
+ &quot;indiana: 0&quot;,
+ &quot;indianast: 1&quot;,
+ &quot;iona: 0&quot;,
+ &quot;iowa: 1&quot;,
+ &quot;iowast: 0&quot;,
+ &quot;kansas: 3&quot;,
+ &quot;kentstate: 1&quot;,
+ &quot;kentucky: 3&quot;,
+ &quot;maryland: 15&quot;,
+ &quot;michiganst: 15&quot;,
+ &quot;mississippi: 3&quot;,
+ &quot;missouri: 1&quot;,
+ &quot;monmouth: 0&quot;,
+ &quot;ncgreensboro: 0&quot;,
+ &quot;northcarolina: 1&quot;,
+ &quot;northwesternst: 1&quot;,
+ &quot;notredame: 1&quot;,
+ &quot;ohiost: 0&quot;,
+ &quot;oklahoma: 0&quot;,
+ &quot;oklahomast: 0&quot;,
+ &quot;pennst: 3&quot;,
+ &quot;princeton: 0&quot;,
+ &quot;providence: 0&quot;,
+ &quot;southernutah: 0&quot;,
+ &quot;stanford: 7&quot;,
+ &quot;stjosephs: 1&quot;,
+ &quot;syracuse: 1&quot;,
+ &quot;temple: 7&quot;,
+ &quot;tennessee: 0&quot;,
+ &quot;texas: 0&quot;,
+ &quot;ucla: 3&quot;,
+ &quot;usc: 7&quot;,
+ &quot;utahst: 1&quot;,
+ &quot;virginia: 0&quot;,
+ &quot;wakeforest: 0&quot;,
+ &quot;westernky: 0&quot;,
+ &quot;winthrop: 0&quot;,
+ &quot;wisconsin: 0&quot;,
+ &quot;xavier: 0&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The results of single-elimination tournaments can also be expressed as hierarchical trees.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

@@ -1,0 +1,380 @@
+<html>
+ <head>
+  <title>WeighingScale Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8025">Problem Statement for WeighingScale</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Little George has found an old-fashioned balance scale and a set of weights in the attic. The scale has two weighing pans and it allows you to check if the content of the left pan is heavier, lighter, or the same weight as the content of the right pan. The box where the weights were kept says that each of them weigh 10, 20, or 30 grams, but the faded paint makes it impossible to tell which is which.</p> <p>George started playing with the scale by comparing one weight against another, and noting down all his results. After a while he got bored with that, and came up with a new experiment. He put the <b>A</b>-th and <b>B</b>-th weights on the left pan and tried to guess what would happen when he put another two weights on the right pan.</p> <p>You are given a String[] <b>measures</b> with the results of the previous experiments. The j-th character of the i-th element represents the result of comparing the i-th weight against the j-th weight, and it can have one of four values: </p>
+      <ul> 
+       <li>'+' - the i-th weight is heavier than the j-th weight.</li> 
+       <li>'-' - the i-th weight is lighter than the j-th weight.</li> 
+       <li>'=' - both weights have the same weight.</li> 
+       <li>'?' - the two weights weren't compared.</li> 
+      </ul> Return a int[] containing exactly three integers in the following order: the number of different pairs of weights you can put on the right pan to make it lighter than the left pan, the number of pairs to make both pans the same weight, and the number of pairs to make the left pan lighter. Two pairs of weights are different if one pair contains at least one weight with an index that's not contained in the other pair. You should only consider the pairs that make the result unambiguously predictable based on the results in <b>measures</b>.<p></p></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>WeighingScale</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>count</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>int[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>int[] count(String[] measures, int A, int B)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Since the weights with indices <b>A</b> and <b>B</b> are already on the left pan you should only consider pairs that contain neither <b>A</b> nor <b>B</b> for the right pan.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>measures</b> will contain between 4 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>measures</b> will contain exactly N characters, where N is the number of elements in <b>measures</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>measures</b> will contain only '+','-', '=', or '?'.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>The i-th character of the i-th element of <b>measures</b> will be '?'</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If the j-th character of the i-th element of <b>measures</b> is '+' than the i-th character of the j-th element will be '-' and vice versa.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>If the j-th character of the i-th element of <b>measures</b> is '=' or '?' than the i-th character of the j-th element will be the same.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>There will exist at least one way to assign values to the weights that will match the results in <b>measures</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>A</b> will be between 0 and N-1, inclusive, where N is the number of elements in <b>measures</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>B</b> will be between 0 and N-1, inclusive, where N is the number of elements in <b>measures</b>.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>A</b> will be different than <b>B</b>.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?+????&quot;,&quot;-?+???&quot;,&quot;?-????&quot;,&quot;????+?&quot;, &quot;???-?+&quot;,&quot;????-?&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 4, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We have the following weight relations:<pre>
+w0 &gt; w1 &gt; w2
+w3 &gt; w4 &gt; w5</pre> It can only be true if the values are (30,20,10,30,20,10). The left pan contains weights 1 and 4 with total weight 20+20=40. There is one pair (0,3) heavier than that, one pair (2,5) lighter than that and the remaining four pairs have the same weight.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?+?????&quot;,&quot;-?+????&quot;,&quot;?-?????&quot;,&quot;????+??&quot;, &quot;???-?+?&quot;,&quot;????-??&quot;, &quot;???????&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {10, 0, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The first six weights are the same as in example 0 (30,20,10,30,20,10). We know nothing about the 7th weight, but still, putting the two 30 gram weights on the left pan assures that it will be heavier than any other pair.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?+?????&quot;,&quot;-?+????&quot;,&quot;?-?????&quot;,&quot;????+??&quot;, &quot;???-?+?&quot;,&quot;????-??&quot;, &quot;???????&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 4, 1 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">With the same measures as in the previous example, now weights 1 and 4 lie on the left pan, for a total weight of 40. We can predict what will happen only if the pair on the right pan doesn't contain the 7th weight; otherwise it's impossible to tell.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;??+?&quot;, &quot;???+&quot;, &quot;-???&quot;, &quot;?-??&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 0, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">We know that w0 &gt; w2 and w1 &gt; w3 thus w0+w1 must be heavier than w2+w3.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;??+??&quot;, &quot;???+?&quot;, &quot;-???=&quot;, &quot;?-???&quot;, &quot;??=??&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>0</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {3, 0, 0 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">5)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;?+???++?????++&quot;,&quot;-??=?=???????=&quot;,&quot;??????????=???&quot;,&quot;?=??+?==??????&quot;,
+&quot;???-???-???-??&quot;,&quot;-=????????????&quot;,&quot;-??=???=?-+???&quot;,&quot;???=+?=???????&quot;,
+&quot;??????????????&quot;,&quot;??????+???????&quot;,&quot;??=???-????-??&quot;,&quot;????+?????+???&quot;,
+&quot;-?????????????&quot;,&quot;-=????????????&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>2</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {1, 10, 36 }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

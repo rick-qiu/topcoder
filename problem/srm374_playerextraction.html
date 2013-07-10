@@ -1,0 +1,359 @@
+<html>
+ <head>
+  <title>PlayerExtraction Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=8225">Problem Statement for PlayerExtraction</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p>Three weeks ago, MyOwnBusiness Inc. received an urgent call from the IIHF (International Ice Hockey Federation) requesting a system to raise an alarm to the referee when there are too many players from the same team inside the rink. The system will be composed of three parts:</p> 
+      <ol> 
+       <li>A digital camera in the ceiling to take photos of the rink every second.</li> 
+       <li>A software module to extract the position of each player from the photo taken by the digital camera.</li> 
+       <li>A software module to count the number of players from the same team inside the hockey rink.</li> 
+      </ol> <p>The team has just finished the module to count the number of players inside the hockey rink, so now it is time to implement the module to extract the players' positions from the photo taken by the digital camera.</p><br /><br /> <p>The <b>photo</b> taken by the camera is given as a String[], where the x-th character of the y-th element is the color of the 2 x 2 square whose lower-left corner is at (2*x, 2*y). Colors are either uppercase letters (<tt>'A'</tt>-<tt>'Z'</tt>) or digits (<tt>'0'</tt>-<tt>'9'</tt>). Uppercase letters represent terrain features (floor, chairs, spectators, etc.) and each digit X represents the color of the uniform used by the X-th team.</p><br /><br /> <p>Two squares A and B belong to the same object if and only if there exists a chain of squares where the first square is A, the last square is B, each pair of consecutive squares in the chain shares a common edge and all the squares in the chain have the same color. The position of an object C is the center of its bounding box, where its bounding box is defined as the smallest axis-aligned box that contains all the object's squares. An object's area is defined as the sum of the areas of all the squares that compose the object. An object is a player from the i-th team if and only if it is colored with the digit i and its area is at least <b>threshold</b>.</p><br /><br /> <p>Return a String[] containing all the players in the <b>photo</b> from the <b>k</b>-th team. Each element should represent a single player and be formatted <tt>&quot;X Y&quot;</tt> (quotes for clarity), where (X, Y) is the center of the player's bounding box, and X and Y have no extra leading zeroes. Sort the players in increasing order by x-coordinate. Sort players with the same x-coordinate in increasing order by y-coordinate.</p><br /><br /> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>PlayerExtraction</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>extractPlayers</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>String[], int, int</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>String[]</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>String[] extractPlayers(String[] photo, int k, int threshold)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>photo</b> will contain between <tt>1</tt> and <tt>50</tt> elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>photo</b> will contain between <tt>1</tt> and <tt>50</tt> elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>photo</b> will contain the same number of characters.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>photo</b> will contain only uppercase letters (<tt>'A'</tt>-<tt>'Z'</tt>) and digits (<tt>'0'</tt>-<tt>'9'</tt>).</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>k</b> will be between <tt>0</tt> and <tt>9</tt>, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>threshold</b> will be between <tt>1</tt> and <tt>10000</tt>, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;33JUBU33&quot;,
+ &quot;3U3O4433&quot;,
+ &quot;O33P44NB&quot;,
+ &quot;PO3NSDP3&quot;,
+ &quot;VNDSD333&quot;,
+ &quot;OIVNFD33&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+            <tr>
+             <td><pre>16</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;4 5&quot;, &quot;13 9&quot;, &quot;14 2&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are four groups of adjacent pixels with color <tt>'3'</tt>. However, the first one is too small to be considered (its area is <tt>12</tt>, which is smaller than the threshold).</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;6VS&quot;,
+ &quot;D66&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>6</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;1 1&quot;, &quot;4 3&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">There are two players from the 6-th team in the image. Remember that diagonal pixels are not considered adjacent.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;44444H44S4&quot;,
+ &quot;K444K4L444&quot;,
+ &quot;4LJ44T44XH&quot;,
+ &quot;444O4VIF44&quot;,
+ &quot;44C4D4U444&quot;,
+ &quot;4V4Y4KB4M4&quot;,
+ &quot;G4W4HP4O4W&quot;,
+ &quot;4444ZDQ4S4&quot;,
+ &quot;4BR4Y4A444&quot;,
+ &quot;4G4V4T4444&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>4</pre></td>
+            </tr>
+            <tr>
+             <td><pre>16</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;3 8&quot;, &quot;4 16&quot;, &quot;5 4&quot;, &quot;16 3&quot;, &quot;16 17&quot;, &quot;17 9&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;8D88888J8L8E888&quot;,
+ &quot;88NKMG8N8E8JI88&quot;,
+ &quot;888NS8EU88HN8EO&quot;,
+ &quot;LUQ888A8TH8OIH8&quot;,
+ &quot;888QJ88R8SG88TY&quot;,
+ &quot;88ZQV88B88OUZ8O&quot;,
+ &quot;FQ88WF8Q8GG88B8&quot;,
+ &quot;8S888HGSB8FT8S8&quot;,
+ &quot;8MX88D88888T8K8&quot;,
+ &quot;8S8A88MGVDG8XK8&quot;,
+ &quot;M88S8B8I8M88J8N&quot;,
+ &quot;8W88X88ZT8KA8I8&quot;,
+ &quot;88SQGB8I8J88W88&quot;,
+ &quot;U88H8NI8CZB88B8&quot;,
+ &quot;8PK8H8T8888TQR8&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>8</pre></td>
+            </tr>
+            <tr>
+             <td><pre>9</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 
+{&quot;1 17&quot;,
+&quot;3 3&quot;,
+&quot;3 10&quot;,
+&quot;3 25&quot;,
+&quot;5 21&quot;,
+&quot;8 17&quot;,
+&quot;9 2&quot;,
+&quot;10 9&quot;,
+&quot;12 23&quot;,
+&quot;17 16&quot;,
+&quot;18 3&quot;,
+&quot;18 11&quot;,
+&quot;18 28&quot;,
+&quot;22 20&quot;,
+&quot;23 26&quot;,
+&quot;24 15&quot;,
+&quot;27 2&quot;,
+&quot;28 26&quot;,
+&quot;29 16&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{&quot;11111&quot;,
+ &quot;1AAA1&quot;,
+ &quot;1A1A1&quot;,
+ &quot;1AAA1&quot;,
+ &quot;11111&quot;}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>1</pre></td>
+            </tr>
+            <tr>
+             <td><pre>3</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: {&quot;5 5&quot;, &quot;5 5&quot; }</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2"></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

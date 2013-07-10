@@ -1,0 +1,306 @@
+<html>
+ <head>
+  <title>ChangeOMatic Problem Statement</title>
+ </head>
+ <body>
+  <table>
+   <tbody>
+    <tr>
+     <td colspan="2"><h3><a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=9963">Problem Statement for ChangeOMatic</a></h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td><p> The Change-O-Matic is a deterministic machine with a single goal: to provide change. That is, you throw in a banknote or a coin, and the machine throws out a bunch of smaller coins with the same total value. </p> <p> More precisely, the Change-O-Matic operates as follows: </p> <p> The machine contains several large stacks of coins. The values of these coins are given as a int[] <b>outputValues</b>. For the purpose of this problem we may assume that the machine contains an infinite number of coins of each of these values. One of the available values is always 1. </p> <p> The customer may throw in any coin or banknote with value greater than 1. The machine will output a set of at least two coins with the same total value. If there are multiple ways to satisfy this requirement, the machine prefers the one where the total number of output coins is minimized. If there are still multiple ways, the machine prefers the one that is lexicographically maximal (see Notes for a precise definition). </p> <p> You have a single banknote, and its value is given as a long <b>inputValue</b>. You would like to change it into coins of value 1 each. Return the number of times you have to throw something into the machine. </p> </td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Definition</h3></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>Class:</td>
+         <td>ChangeOMatic</td>
+        </tr>
+        <tr>
+         <td>Method:</td>
+         <td>howManyRounds</td>
+        </tr>
+        <tr>
+         <td>Parameters:</td>
+         <td>int[], long</td>
+        </tr>
+        <tr>
+         <td>Returns:</td>
+         <td>long</td>
+        </tr>
+        <tr>
+         <td>Method signature:</td>
+         <td>long howManyRounds(int[] outputValues, long inputValue)</td>
+        </tr>
+        <tr>
+         <td colspan="2">(be sure your method is public)</td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+     <td></td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Notes</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Let A=(a<sub>1</sub>,...,a<sub>N</sub>) and B=(b<sub>1</sub>,...,b<sub>N</sub>) be two different but equally large sets of coins, with a<sub>1</sub> &gt;= a<sub>2</sub> &gt;= ... &gt;= a<sub>N</sub> and b<sub>1</sub> &gt;= b<sub>2</sub> &gt;= ... &gt;= b<sub>N</sub>. Let x be the smallest index such that a<sub>x</sub> != b<sub>x</sub>. If a<sub>x</sub> &gt; b<sub>x</sub>, we say that the set A is lexicographically larger than the set B.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Given a collection of different but equally large sets of coins, the lexicographically maximal set is the one that is lexicographically larger than each of the other sets. (Note that there is always exactly one such set.)</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Constraints</h3></td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>outputValues</b> will contain between 1 and 50 elements, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>outputValues</b> will be sorted in strictly ascending order. That is, for each i, <b>outputValues</b>[i] &lt; <b>outputValues</b>[i+1].</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Each element of <b>outputValues</b> will be between 1 and 1,000, inclusive.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td>Element 0 of <b>outputValues</b> will be equal to 1.</td>
+    </tr>
+    <tr>
+     <td align="center" valign="top">-</td>
+     <td><b>inputValue</b> will be between 2 and 10^15, inclusive.</td>
+    </tr>
+    <tr>
+     <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+     <td colspan="2"><h3>Examples</h3></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">0)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,5,10}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>21</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 7</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The process of changing your money may look as follows: <pre>
+You insert:    You get:      You then have:
+21             10+10+1       10+10+1
+10             5+5           10+5+5+1
+5              1+1+1+1+1     10+5+1+1+1+1+1+1
+10             5+5           5+5+5+1+1+1+1+1+1
+5              1+1+1+1+1     5+5+(eleven times 1)
+5              1+1+1+1+1     5+(sixteen times 1)
+5              1+1+1+1+1     twenty-one coins worth 1 each
+</pre> </td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">1)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,33,90,91,92,93,94,95,96,97,98}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>99</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 12</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In each step, the machine minimizes the number of coins it throws out, <i>not</i> the number of steps you need to accomplish your task. In the first step it will output a coin worth 98 and a coin worth 1.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">2)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,30,60}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>50</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 2</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The value of the banknote may be less than the values of some coin types.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">3)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,30,60,90}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>60</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 3</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">The value of the banknote may even be equal to the value of some coin type. Note that for any input the machine must always output at least two coins. Therefore if you throw in the banknote worth 60, you will get two coins worth 30 each.</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+    <tr>
+     <td align="center" nowrap="true">4)</td>
+     <td></td>
+    </tr>
+    <tr>
+     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+     <td>
+      <table>
+       <tbody>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td><pre>{1,8,9,11,12,100}</pre></td>
+            </tr>
+            <tr>
+             <td><pre>120</pre></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+        <tr>
+         <td><pre>Returns: 37</pre></td>
+        </tr>
+        <tr>
+         <td>
+          <table>
+           <tbody>
+            <tr>
+             <td colspan="2">In the first step the machine would output 100+12+8. (The combination 100+11+9 has the same number of coins, but 100+12+8 is lexicographically larger.)</td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>
