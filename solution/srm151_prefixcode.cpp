@@ -29,8 +29,18 @@ public:
 };
 
 string PrefixCode::isOne(vector<string> words) {
-    string ret;
-    return ret;
+    if(words.size() <= 1) return "Yes";
+    for(auto i = 0; i < words.size(); ++i) {
+	for(auto j = 0; j < words.size(); ++j) {
+	    if(i == j) continue;
+	    if(words[j].find(words[i]) == 0) {
+		char buf[10]{0};
+		sprintf(buf, "No, %d", i);
+		return string(buf);
+	    }
+	}
+    }
+    return "Yes";
 }
 
 
