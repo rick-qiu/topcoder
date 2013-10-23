@@ -1,10 +1,17 @@
 #!/bin/bash
 if [ $# -ne 1 ]
 then
-    echo "Usage: run file"
+    echo "Usage: $(basename $0) target"
+    exit 1
+fi
+if [ -z "${BUILD_CMD}" ]
+then
+    echo "enviroment BUILD_CMD is not set"
     exit 1
 fi
 echo ""
 echo "build $1 and run test cases..."
 echo ""
-$BUILD_CMD $1 -o test && ./test
+COMMAND="${BUILD_CMD} -g $1 -o test"
+echo ${COMMAND}
+${COMMAND} && ./test && rm test
